@@ -1,0 +1,255 @@
+%Time-stamp: "Last modified: 2018-08-02 10:42:16 (d_yasaki)"
+\documentclass[ms]{uncgdissertationexp}
+\setcounter{secnumdepth}{1}
+% default is 12pt, phd, doublespaced.
+% Masters students should use the ma on as shown below.
+% \documentclass[ma]{uncgdissertation}
+
+%%------------------------------------------------------------------%%
+%%------------------------- Import Packages ------------------------%%
+%%------------------------------------------------------------------%%
+%% This is where you can put other packages that you may need.
+\usepackage[lofdepth,lotdepth,caption=false]{subfig}
+\usepackage{fancyhdr}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{xspace}
+\usepackage{braket}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{fancyvrb}
+\usepackage{array}
+\usepackage{ifxetex,ifluatex}
+\usepackage{etoolbox}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{tabu}
+\usepackage{longtable}
+\usepackage{titlesec}
+\usepackage{lmodern}
+
+\usepackage{microtype, amsfonts, amsthm}
+\usepackage[colorlinks=false]{hyperref}
+\pdfstringdefDisableCommands{\let\MakeUppercase\relax}
+%\usepackage{showframe}
+%useful package to ensure margins are correct.
+
+% fix for pandoc 1.14
+\providecommand{\tightlist}{
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\def\tightlist{} 
+%%tightlist error
+
+%$if(highlighting-macros)$  
+%I don't know what this does...
+%$highlighting-macros$
+%$endif$
+
+% commands and environments needed by pandoc snippets
+% extracted from the output of `pandoc -s`
+%% Make R markdown code chunks work
+
+\ifxetex
+  \usepackage{fontspec,xltxtra,xunicode}
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\else
+  \ifluatex
+    \usepackage{fontspec}
+    \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \else
+    \usepackage[utf8]{inputenc}
+  \fi
+\fi
+\DefineShortVerb[commandchars=\\\{\}]{\|}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+
+
+
+%%------------------------------------------------------------------%%
+%%--------------------------- Content ------------------------------%%
+%%------------------------------------------------------------------%%
+%% Members of committee.  Guidelines say don't use Dr.
+%% Masters students are required to have chair plus two
+%% PhD students require chair plus three.
+%% The class can handle up to chair plus five.
+\chair{$chair$}
+\member{$signature1$}
+\member{$signature2$}
+%%\member{$signature3$}
+
+%% Your name goes here.
+%% \student{Firstname}{Lastname}
+%% Some other options
+%%\student{Joe Michael}{Schmoe}  % a full middle name
+\student{$firstname$}{$lastname$}       % a middle initial
+
+%% Thesis Title
+%%    +  Capitalize first letter of important words.
+%%    +  Use inverted pyramid shape if title spans more than one line.
+%%  Note: You can force break the title onto multiple lines using
+%%  \break instead of \\.
+\title{$title$}
+
+%% Degree year.
+\degreeyear{$degree_year$}
+
+
+%%------------------------------------------------------------------%%
+%%----------------------- Personal Macros --------------------------%%
+%%------------------------------------------------------------------%%
+%% A central location to add your favorite macros.  A few examples are
+%% given below.  See tips for samples.
+
+%% In order to get singlespacing, uncomment the line below.
+%\renewcommand{\doublespacing}{\singlespacing}
+
+%% Theorem, Lemma, etc. environments.  You can rename if you wish.
+% Theorem style and numbering convention
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{algorithm}[theorem]{Algorithm}
+
+% Definition type object style and numbering convention
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+% Remark type object style and numbering
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}  % the star makes them not numbered
+\newtheorem*{notation}{Notation}
+\newcommand{\titlecaption}[2]{\caption[#1]{#1. #2}}
+
+%% Other macros
+\newcommand{\ZZ}{\mathbb{Z}}  % Integers
+\newcommand{\XX}{\mathfrak{X}}
+
+%\bibliography{references}
+
+%%------------------------------------------------------------------%%
+
+\begin{document}
+\frontmatter      % required
+
+%%------------------------------------------------------------------%%
+%% -------------------------- Abstract -----------------------------%%
+%%------------------------------------------------------------------%%
+\begin{abstract}
+  $abstract$
+\end{abstract}
+
+%%------------------------------------------------------------------%%
+%%---------------------------- Title page --------------------------%%
+%%------------------------------------------------------------------%%
+%% The title page is required.
+\maketitlepage
+
+%%------------------------------------------------------------------%%
+%% ------------------------ Copyright page -------------------------%%
+%%------------------------------------------------------------------%%
+%% This page is required if you opt for a copyright.  Otherwise, don't
+% include it.  To omit, just comment out the line below.
+%\makecopyrightpage
+
+%%------------------------------------------------------------------%%
+%%---------------------------- Dedication --------------------------%%
+%%------------------------------------------------------------------%%
+\begin{dedication}
+  $dedication$
+\end{dedication}
+
+%%------------------------------------------------------------------%%
+%%------------------------ Approval page  --------------------------%%
+%%------------------------------------------------------------------%%
+%% The approval page is required.  If all of your infomation is entered
+%% correctly in the contents section, this should come out correctly.
+\makeapprovalpage
+
+%%------------------------------------------------------------------%%
+%%-------------------------- Acknowledgements ----------------------%%
+%%------------------------------------------------------------------%%
+%% The acknowledgements are optional but highly recommended.  See tips
+%% for details.
+\begin{acknowledgments}
+  $acknowledgments$
+\end{acknowledgments}
+
+%%------------------------------------------------------------------%%
+%%----------------------------- Preface ----------------------------%%
+%%------------------------------------------------------------------%%
+%% The preface is optional.
+%%\begin{preface}
+%%A preface is a statement that either explains the author's
+%%reasons for pursuing this subject matter or provides a personal
+%%comment about the subject that would not otherwise be included in
+%%the document.
+%%\end{preface}
+
+
+%%------------------------------------------------------------------%%
+%%---------------------- Table of Contents -------------------------%%
+%%------------------------------------------------------------------%%
+%% The table of contents is required.
+\tableofcontents
+
+%%------------------------------------------------------------------%%
+%%---------------------- List of Tables ----------------------------%%
+%%------------------------------------------------------------------%%
+% Recommended if you have tables.  Comment out if you don't have
+% tables.
+
+  $if(lot)$
+\listoftables
+  $endif$
+
+
+%%------------------------------------------------------------------%%
+%%---------------------- List of Figures ---------------------------%%
+%%------------------------------------------------------------------%%
+% Recommended if you have figures.  Comment out if you don't have
+% figures.
+
+  $if(lof)$
+\listoffigures
+  $endif$
+
+
+%%------------------------------------------------------------------%%
+%% This signifies that you are done with the frontmatter and ready to
+%% proceed to the main part.  The rest of your document goes below.
+\mainmatter % required
+%%------------------------------------------------------------------%%
+ 
+  $body$
+
+%\section{The Bibliography}
+%%------------------------------------------------------------------%%
+%%------------------------ Bibliography ----------------------------%%
+%%------------------------------------------------------------------%%
+%% Replace the myreferences with the name of your bib file.  Then you
+%% can run bibtex as usual.
+%%------------------------------------------------------------------%%
+
+\bibliography{bib/thesis.bib}
+\bibliographystyle{csl/apa.csl}
+
+%%------------------------------------------------------------------%%
+%%------------------------- Appendices -----------------------------%%
+%%------------------------------------------------------------------%%
+%% If you choose not to have appendices, comment out the \appendix
+%% line and the chapters below.
+%%------------------------------------------------------------------%%
+\appendix
+%%\chapter{Why use appendices?}\label{app:why}
+
+%%------------------------------------------------------------------%%
+
+%%------------------------------------------------------------------%%
+%%----------------------- YOU ARE FINISHED ! -----------------------%%
+%%------------------------------------------------------------------%%
+\end{document}
