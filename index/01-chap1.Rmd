@@ -24,8 +24,6 @@ library(bookdown)
 ```
 # RESPONSE OF MERCURY METHYLATING BACTERIA TO THE COAL ASH SPILL IN THE DAN RIVER {#pcr}
 
-\chaptermark{Basics}
-
 ## Abstract
 
 ## Introduction
@@ -42,7 +40,7 @@ In 2008 a dike failure at the Tennessee Valley Authority Kingston Fossil Plant c
 
 The coal ash spill into the Dan River has mobilized heavy metals into the environment. The extent of long-term effects of methylated mercury into the food chain in the river is unknown. Mercury, along with other coal ash constituents may stimulate mercury-methylating microorganisms in anaerobic sediments.  The goal of this study is to determine the overall microbial community response and specifically hgcA abundance as a result of the Dan River coal ash spill. 
 
-###Objective and hypothesis:
+### Objective and hypothesis:
 Determine spatial distribution of mercury-methylating taxa as a result of the coal ash spill using qPCR. 
 I hypothesize that there will be increased abundance of the hgcA genes and therefore, mercury methylating taxa downstream of spill site due to stimulation of sulfate and iron reducing bacteria and methanogens by coal ash constituents present in the sediment. 
 
@@ -50,24 +48,34 @@ I hypothesize that there will be increased abundance of the hgcA genes and there
 ### Study Sites and Sediment Collection
 The Dan River is a 344 km river that rises in Patrick Co. Virginia and crosses into North Carolina in Stokes County. It flows across the border between NC and VA several times before flowing into the Kerr Reservoir on the Roanoke River which then flows to the Atlantic Ocean at the Albemarle Sound in North Carolina. This study encompasses sites upstream of the spill site in Eden, NC and downstream to Milton, NC, a 103 km section of the Dan. 
 
-To characterize the extent of the coal ash spill impact on the microbial community, samples were collected at three upstream reference sites, one site parallel to the ash ponds but upstream of the spill (leaching site), and five downstream sites including near two sites that were dredged for remediation, one at Town Creek, near the spill site and one near Abreu-Grogan Park, Danville, Va., and depositional sites that were not dredged near Danville (Figure 2). 
-Each site was accessed by motorboat, where sediment from the riverbank and channel was collected. Riverbank sediment cores were collected in triplicate using a piston coring device. Channel samples were collected using a small dredge.  Cores were segmented by depth and mixed according to one of three sampling schemes to reduce the total number of samples to be assayed. 0.25 cm3 samples were preserved in CTAB (cetyltrimethylammonium bromide) for DNA extraction (Figure 3). Channel sediment was mixed thoroughly then 0.25 cm3 was preserved in CTAB. 
+To characterize the extent of the coal ash spill impact on the microbial community, samples were collected at three upstream reference sites, one site parallel to the ash ponds but upstream of the spill (leaching site), and five downstream sites including near two sites that were dredged for remediation, one at Town Creek, near the spill site and one near Abreu-Grogan Park, Danville, Va., and depositional sites that were not dredged near Danville (Figure \@ref(fig:map)). 
+
+```{r map, fig.cap="Map"}
+knitr::include_graphics(path = "figure/map.png")
+```
+
+Each site was accessed by motorboat, where sediment from the riverbank and channel was collected. Riverbank sediment cores were collected in triplicate using a piston-stule coring device. Channel samples were collected using a small dredge. Sediment cores were segmented by depth and mixed according to one of three sampling schemes to reduce the total number of samples to be assayed. 0.25 $\mathrm{cm^3}$ samples were preserved in CTAB (cetyltrimethylammonium bromide) for DNA extraction. Channel sediment was mixed thoroughly then 0.25 $\mathrm{cm^3}$ was preserved in CTAB. 
 
 Sampling Scheme: 
+
 A.	Sediment cores extracted in triplicate, each 0-8 cm and 8-16 cm segments sampled
+
 B.	Triplicate sediment cores pooled at 0-2 cm, 10-12 cm, 15-17 cm
+
 C.	Triplicate sediment cores pooled 0-8 cm and 8-16 cm segments sampled.
+
 
 ### DNA extraction and qPCR
 
-A CTAB extraction was performed using standard protocol for each sample (Stewart and Via 1993). The DNA extracted was quantified and subsequently diluted to a standard concentration of 5 ng/L and stored in a 4oC refrigerator. Extracted DNA quantity and purity were determined from 2 μl subsamples of each extraction using Thermo Scientific Nanodrop Spectrophotometer based on the 260/280 wavelength ratio. 
-An Applied Biosystems StepOneTM real-time PCR System was utilized to detect, amplify, and quantify target DNA gene proxies and representative taxa to meet the Objective. Primers were chosen from the literature based on targeting a general metabolic category. These include generic primers to the hgcA gene, a sulfate reducing gene, dsr, the 16S rDNA of iron reducing bacteria, and methanogens (Geets et al. 2008, Schaefer et al. 2013, Wagner et al.1998, Wright and Primm 2003, Table X). This approach will define the microbial community abundance encompassed within each sample. Each reaction contained the following: 10µL of Power Sybr® Green PCR master mix, 1µL of forward primer, 1µL of reverse primer, 8µL of sterile deionized water, and 1µL of extracted DNA.  Three negative control reactions, samples repeated in triplicate, and positive standard controls serially diluted in triplicate, were ran in each 48 well plate. The relative abundance of targets were computed by the StepOne software using the generated standard curve. The melt curve was examined to manually ensure that none of the amplifications were due to a false positive.  Statistical analyses including one and two-way ANOVA and regression analyses were performed to determine if a significant difference exists between amounts of targeted DNA collected from sites upstream versus downstream of spill site and within depths of core samples. 
+A CTAB extraction was performed using standard protocol for each sample (Stewart and Via 1993). The DNA extracted was quantified and subsequently diluted to a standard concentration of 5 ng/L and stored in a 4C refrigerator. Extracted DNA quantity and purity were determined from 2 μl subsamples of each extraction using Thermo Scientific Nanodrop Spectrophotometer based on the 260/280 wavelength ratio. 
+
+An Applied Biosystems StepOne real-time PCR System was utilized to detect, amplify, and quantify target DNA gene proxies and representative taxa to meet the Objective. Primers were chosen from the literature based on targeting a general metabolic category. These include generic primers to the hgcA gene, a sulfate reducing gene, dsr, the 16S rDNA of iron reducing bacteria, and methanogens @schaeferDetectionKeyHg2014(Geets et al. 2008, Schaefer et al. 2013, Wagner et al.1998, Wright and Primm 2003, Table X). This approach will define the microbial community abundance encompassed within each sample. Each reaction contained the following: 10µL of Power Sybr® Green PCR master mix, 1µL of forward primer, 1µL of reverse primer, 8µL of sterile deionized water, and 1µL of extracted DNA.  Three negative control reactions, samples repeated in triplicate, and positive standard controls serially diluted in triplicate, were ran in each 48 well plate. The relative abundance of targets were computed by the StepOne software using the generated standard curve. The melt curve was examined to manually ensure that none of the amplifications were due to a false positive.  Statistical analyses including one and two-way ANOVA and regression analyses were performed to determine if a significant difference exists between amounts of targeted DNA collected from sites upstream versus downstream of spill site and within depths of core samples. 
 
 ### Statistical Analysis
 
 
 ## Results
 
-
+## Discussion
 
  
