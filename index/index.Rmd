@@ -26,14 +26,14 @@ dedication: "The dedication is often short.  Longer statements are usually in th
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output:
-  spartanodown::thesis_pdf:
+   spartanodown::thesis_pdf:
     latex_engine: xelatex
   # spartanodown::thesis_gitbook: default
-  spartanodown::thesis_word: default
+  #spartanodown::thesis_word: default
   # spartanodown::thesis_epub: default
 bibliography: bib/thesis.bib
 # Download your specific bibliography database file and refer to it in the line above.
-csl: csl/ieee-with-url.csl
+csl: csl/cell.csl
 # Download your specific csl file and refer to it in the line above.
 link-citations: yes
 linkcolor: blue

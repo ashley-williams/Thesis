@@ -3,7 +3,7 @@ output:
   html_document: default
   pdf_document: default
 ---
-```{r include_packages_2, include = FALSE}
+```{r include_packages_3, include = FALSE}
 # This chunk ensures that the huskydown package is
 # installed and loaded. This spartanodown package includes
 # the template files for the thesis and also two functions
