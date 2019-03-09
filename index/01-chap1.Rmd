@@ -50,7 +50,7 @@ The Dan River is a 344 km river that rises in Patrick Co. Virginia and crosses i
 
 To characterize the extent of the coal ash spill impact on the microbial community, samples were collected at three upstream reference sites, one site parallel to the ash ponds but upstream of the spill (leaching site), and five downstream sites including near two sites that were dredged for remediation, one at Town Creek, near the spill site and one near Abreu-Grogan Park, Danville, Va., and depositional sites that were not dredged near Danville (Figure \@ref(fig:map)). 
 
-```{r map, fig.cap="Map", fig.align='center', out.width="500pt"}
+```{r map, fig.cap="Map", fig.align='center', out.width="400pt"}
 knitr::include_graphics(path = "figure/map.png")
 ```
 
