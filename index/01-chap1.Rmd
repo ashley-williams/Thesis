@@ -1,188 +1,73 @@
 <!--
 The {#rmd-basics} text after the chapter declaration will allow us to link throughout the document back to the beginning of Chapter 1.  These labels will automatically be generated (if not specified) by changing the spaces to hyphens and capital letters to lowercase.  Look for the reference to this label at the beginning of Chapter 2.
 -->
-
-# R Markdown Basics {#rmd-basics}
+```{r include_packages_2, include = FALSE}
+# This chunk ensures that the huskydown package is
+# installed and loaded. This spartanodown package includes
+# the template files for the thesis and also two functions
+# used for labeling and referencing
+if(!require(devtools))
+  install.packages("devtools", repos = "http://cran.rstudio.com")
+if(!require(tidyverse))
+    install.packages("tidyverse", repos = "http://cran.rstudio.com")
+if(!require(ggplot2))
+    install.packages("ggplot2", repos = "http://cran.rstudio.com")
+if(!require(bookdown))
+    install.packages("bookdown", repos = "http://cran.rstudio.com")
+if(!require(spartanodown)){
+  library(devtools)
+  devtools::install_github("ashley-williams/spartanodown")
+  }
+library(spartanodown)
+library(tidyverse)
+library(bookdown)
+```
+# RESPONSE OF MERCURY METHYLATING BACTERIA TO THE COAL ASH SPILL IN THE DAN RIVER {#pcr}
 
 \chaptermark{Basics}
 
-Here is a brief introduction into using _R Markdown_. _Markdown_ is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. _R Markdown_ provides the flexibility of _Markdown_ with the implementation of **R** input and output.  For more details on using _R Markdown_ see <http://rmarkdown.rstudio.com>.  
+## Abstract
 
-Be careful with your spacing in _Markdown_ documents.  While whitespace largely is ignored, it does at times give _Markdown_ signals as to how to proceed.  As a habit, try to keep everything left aligned whenever possible, especially as you type a new paragraph.  In other words, there is no need to indent basic text in the Rmd document (in fact, it might cause your text to do funny things if you do).
+## Introduction
 
-## Lists
+On February, 2, 2014, two storm water drainage pipes located under a coal ash impoundment pond at the Duke Energy Dan River Steam Station near Eden, NC collapsed, releasing approximately 28,000 cubic yards of coal ash and about 27 million gallons of untreated ash wastewater into the Dan River @dennislemlyDamageCostDan2015. Following the spill, water and sediment was sampled from the river and Kerr Reservoir downstream of the spill to determine water quality and human health concerns. Test results show no constituents to be at levels exceeding safe limits in the water column @usepaEPAResponseDuke2014. Duke Energy dredged ash deposits at two locations along the river, but likely over 90% of the ash remains buried in river sediments or has been deposited into Kerr Lake @ncdeqRapidResponseTimeline2014.  While the test results are encouraging for immediate water quality, the long-term concern is the effect of mobilization of coal ash constituents into the riverine food webs.
 
-It's easy to create a list.  It can be unordered like
+One constituent of particular concern during leaching and/or impoundment failure is mercury.  Mercury, a known neurotoxin and potential endocrine disruptor has a high affinity for sulfhydryl groups in proteins where destabilization leads to decreased enzymatic activity and reduced overall fitness @driscollMercuryGlobalPollutant2013; @ehrlichGeomicrobiologyFifthEdition2008. In submerged anoxic sediments under certain conditions, inorganic mercury ($\mathrm{Hg^{2+}}$) can be converted into MeHg by microbial metabolism @dashBioremediationPotentialMercury2014; @schaeferActiveTransportSubstrate2011. Methylmercury (MeHg) bioaccumulates and biomagnifies in the river food webs, posing a health risk to local residents who consume fish. @dashBioremediationPotentialMercury2014; @otterTrophicStatusMetal2012; @roweBioaccumulationEffectsMetals2014. The total available amount of MeHg within an ecosystem is controlled by multiple microbial and abiotic processes that reduce availability of $\mathrm{Hg^{2+}}$ or degradation of MeHg. $\mathrm{Hg^{2+}}$ can be volatilized as $\mathrm{Hg^{0}}$ through photoreduction or by bacteria with the merA gene @boydMercuryResistanceOperon2012. Additionally, MeHg can be demethylated into $\mathrm{Hg^{2+}}$ by sunlight @tsuiPhotodegradationMethylmercuryStream2013 or microbes with the merB gene @bizilyPhytoremediationMethylmercuryPollution1999. 
 
-* Item 1
-* Item 2
+Microorganisms have developed various mechanisms to mitigate effects of high concentrations of heavy metal toxins. These include reduction of the metal to a less toxic form, metal complexation, efflux pumps via an energy-dependent membrane transporter, and extracellular sequestration @binkleyHeavyMetalsWastewater2003; @poulainCrackingMercuryMethylation2013. MeHg is produced in anaerobic conditions predominately by sulfate reducing bacteria (SRB) iron reducing bacteria (IRB) and methanogens @liuAnalysisMicrobialCommunity2014.  Coal ash may provide the necessary substrates such as sulfates to stimulate the microbial methylation of Hg @deonarineEnvironmentalImpactsTennessee2013. 
 
-or it can be ordered like
+Two genes are required for methylation of Hg, hgcA and hgcB.  As $\mathrm{Hg^{2+}}$ enters the cell, a methylated-HgcA protein transfers a CH3 group to $\mathrm{Hg^{2+}}$ within the cytosol.  HgcB protein is then required to recycle the methylated-HgcA protein @poulainCrackingMercuryMethylation2013. The hgcAB sequence is conserved across multiple genera and therefore could be utilized as a molecular biomarker for suspected contaminated sites with real-time quantitative PCR @christensenDevelopmentValidationBroadRange2016; @dashBioremediationPotentialMercury2014; @limadesilvaHeavyMetalTolerance2012; @parksMechanismHgProtonolysis2009. Liu et al. (2014) found that the hgcA abundance and the concentration of MeHg in rice paddy soil near the Wanshan Hg mining area was positively correlated @liuAnalysisMicrobialCommunity2014. This finding suggests that microbes may be contributing to the MeHg in the sampled soils. They also found high genetic diversity within the microbial community and that environmental factors such as total Hg, $\mathrm{SO_4}$, $\mathrm{NH_4}$, and organic matter influenced the community structure.  After phylogenetic analysis, the representative taxa in the community consisted of Deltaproteobacteria, Firmicutes, Chloroflexi, Euryarchaeota, and two novel taxa @liuAnalysisMicrobialCommunity2014.
 
-1. Item 1
-4. Item 2
+In 2008 a dike failure at the Tennessee Valley Authority Kingston Fossil Plant coal ash pond in Harriman, Tennessee, released an estimated 5.4 million cubic yards of ash into the surrounding community and rivers @ruhlEnvironmentalImpactsCoal2010. The release ruptured a natural gas line, disrupted power and transportation, destroyed three homes, and resulted in the evacuation of nearby neighborhoods. The impoundment pond has since been rebuilt and reinforced to resist natural disasters such as earthquakes @tvaFactSheetKingston2011. In sediment samples collected downstream following the spill, total mercury concentrations were three to four times greater than sediments upstream of the spill. MeHg was also slightly higher than upstream @deonarineEnvironmentalImpactsTennessee2013. 
 
-Notice that I intentionally mislabeled Item 2 as number 4.  _Markdown_ automatically figures this out!  You can put any numbers in the list and it will create the list.  Check it out below.
+The coal ash spill into the Dan River has mobilized heavy metals into the environment. The extent of long-term effects of methylated mercury into the food chain in the river is unknown. Mercury, along with other coal ash constituents may stimulate mercury-methylating microorganisms in anaerobic sediments.  The goal of this study is to determine the overall microbial community response and specifically hgcA abundance as a result of the Dan River coal ash spill. 
 
-To create a sublist, just indent the values a bit (at least four spaces or a tab).  (Here's one case where indentation is key!)
+###Objective and hypothesis:
+Determine spatial distribution of mercury-methylating taxa as a result of the coal ash spill using qPCR. 
+I hypothesize that there will be increased abundance of the hgcA genes and therefore, mercury methylating taxa downstream of spill site due to stimulation of sulfate and iron reducing bacteria and methanogens by coal ash constituents present in the sediment. 
 
-1. Item 1
-1. Item 2
-1. Item 3
-    - Item 3a
-    - Item 3b
+## Methods
+### Study Sites and Sediment Collection
+The Dan River is a 344 km river that rises in Patrick Co. Virginia and crosses into North Carolina in Stokes County. It flows across the border between NC and VA several times before flowing into the Kerr Reservoir on the Roanoke River which then flows to the Atlantic Ocean at the Albemarle Sound in North Carolina. This study encompasses sites upstream of the spill site in Eden, NC and downstream to Milton, NC, a 103 km section of the Dan. 
 
-## Line breaks
+To characterize the extent of the coal ash spill impact on the microbial community, samples were collected at three upstream reference sites, one site parallel to the ash ponds but upstream of the spill (leaching site), and five downstream sites including near two sites that were dredged for remediation, one at Town Creek, near the spill site and one near Abreu-Grogan Park, Danville, Va., and depositional sites that were not dredged near Danville (Figure 2). 
+Each site was accessed by motorboat, where sediment from the riverbank and channel was collected. Riverbank sediment cores were collected in triplicate using a piston coring device. Channel samples were collected using a small dredge.  Cores were segmented by depth and mixed according to one of three sampling schemes to reduce the total number of samples to be assayed. 0.25 cm3 samples were preserved in CTAB (cetyltrimethylammonium bromide) for DNA extraction (Figure 3). Channel sediment was mixed thoroughly then 0.25 cm3 was preserved in CTAB. 
 
-Make sure to add white space between lines if you'd like to start a new paragraph.  Look at what happens below in the outputted document if you don't:
+Sampling Scheme: 
+A.	Sediment cores extracted in triplicate, each 0-8 cm and 8-16 cm segments sampled
+B.	Triplicate sediment cores pooled at 0-2 cm, 10-12 cm, 15-17 cm
+C.	Triplicate sediment cores pooled 0-8 cm and 8-16 cm segments sampled.
 
-Here is the first sentence.  Here is another sentence.  Here is the last sentence to end the paragraph.
-This should be a new paragraph.
+### DNA extraction and qPCR
 
-*Now for the correct way:* 
+A CTAB extraction was performed using standard protocol for each sample (Stewart and Via 1993). The DNA extracted was quantified and subsequently diluted to a standard concentration of 5 ng/L and stored in a 4oC refrigerator. Extracted DNA quantity and purity were determined from 2 μl subsamples of each extraction using Thermo Scientific Nanodrop Spectrophotometer based on the 260/280 wavelength ratio. 
+An Applied Biosystems StepOneTM real-time PCR System was utilized to detect, amplify, and quantify target DNA gene proxies and representative taxa to meet the Objective. Primers were chosen from the literature based on targeting a general metabolic category. These include generic primers to the hgcA gene, a sulfate reducing gene, dsr, the 16S rDNA of iron reducing bacteria, and methanogens (Geets et al. 2008, Schaefer et al. 2013, Wagner et al.1998, Wright and Primm 2003, Table X). This approach will define the microbial community abundance encompassed within each sample. Each reaction contained the following: 10µL of Power Sybr® Green PCR master mix, 1µL of forward primer, 1µL of reverse primer, 8µL of sterile deionized water, and 1µL of extracted DNA.  Three negative control reactions, samples repeated in triplicate, and positive standard controls serially diluted in triplicate, were ran in each 48 well plate. The relative abundance of targets were computed by the StepOne software using the generated standard curve. The melt curve was examined to manually ensure that none of the amplifications were due to a false positive.  Statistical analyses including one and two-way ANOVA and regression analyses were performed to determine if a significant difference exists between amounts of targeted DNA collected from sites upstream versus downstream of spill site and within depths of core samples. 
 
-Here is the first sentence.  Here is another sentence.  Here is the last sentence to end the paragraph.
-
-This should be a new paragraph.
-
-## R chunks
-
-When you click the **Knit** button above a document will be generated that includes both content as well as the output of any embedded **R** code chunks within the document. You can embed an **R** code chunk like this (`cars` is a built-in **R** dataset):
-
-```{r cars}
-summary(cars)
-```
-
-## Inline code
-
-If you'd like to put the results of your analysis directly into your discussion, add inline code like this:
-
-> The `cos` of $2 \pi$ is `r cos(2*pi)`. 
-
-Another example would be the direct calculation of the standard deviation:
-
-> The standard deviation of `speed` in `cars` is `r sd(cars$speed)`.
-
-One last neat feature is the use of the `ifelse` conditional statement which can be used to output text depending on the result of an **R** calculation:
-
-> `r ifelse(sd(cars$speed) < 6, "The standard deviation is less than 6.", "The standard deviation is equal to or greater than 6.")`
-
-Note the use of `>` here, which signifies a quotation environment that will be indented.
-
-As you see with `$2 \pi$` above, mathematics can be added by surrounding the mathematical text with dollar signs.  More examples of this are in [Mathematics and Science] if you uncomment the code in [Math].  
-
-## Including plots
-
-You can also embed plots.  For example, here is a way to use the base **R** graphics package to produce a plot using the built-in `pressure` dataset:
-
-```{r pressure, echo=FALSE, cache=TRUE}
-plot(pressure)
-```
-
-Note that the `echo=FALSE` parameter was added to the code chunk to prevent printing of the **R** code that generated the plot.  There are plenty of other ways to add chunk options.  More information is available at <http://yihui.name/knitr/options/>.  
-
-Another useful chunk option is the setting of `cache=TRUE` as you see here.  If document rendering becomes time consuming due to long computations or plots that are expensive to generate you can use knitr caching to improve performance.  Later in this file, you'll see a way to reference plots created in **R** or external figures.
-
-## Loading and exploring data
-
-Included in this template is a file called `flights.csv`.  This file includes a subset of the larger dataset of information about all flights that departed from Seattle and Portland in 2014.  More information about this dataset and its **R** package is available at <http://github.com/ismayc/pnwflights14>.  This subset includes only Portland flights and only rows that were complete with no missing values.  Merges were also done with the `airports` and `airlines` data sets in the `pnwflights14` package to get more descriptive airport and airline names.
-
-We can load in this data set using the following command:
-
-```{r load_data}
-flights <- read.csv("data/flights.csv")
-```
-
-The data is now stored in the data frame called `flights` in **R**.  To get a better feel for the variables included in this dataset we can use a variety of functions.  Here we can see the dimensions (rows by columns) and also the names of the columns.
-
-```{r str}
-dim(flights)
-names(flights)
-```
-
-Another good idea is to take a look at the dataset in table form.  With this dataset having more than 50,000 rows, we won't explicitly show the results of the command here.  I recommend you enter the command into the Console **_after_** you have run the **R** chunks above to load the data into **R**.
-
-```{r view_flights, eval=FALSE}
-View(flights)
-```
-
-While not required, it is highly recommended you use the `dplyr` package to manipulate and summarize your data set as needed.  It uses a syntax that is easy to understand using chaining operations.  Below I've created a few examples of using `dplyr` to get information about the Portland flights in 2014.  You will also see the use of the `ggplot2` package, which produces beautiful, high-quality academic visuals.
-
-We begin by checking to ensure that needed packages are installed and then we load them into our current working environment:
-
-```{r load_pkgs, message=FALSE}
-# List of packages required for this analysis
-pkg <- c("dplyr", "ggplot2", "knitr", "bookdown", "devtools")
-# Check if packages are not installed and assign the
-# names of the packages not installed to the variable new.pkg
-new.pkg <- pkg[!(pkg %in% installed.packages())]
-# If there are any packages in the list that aren't installed,
-# install them
-if (length(new.pkg))
-  install.packages(new.pkg, repos = "http://cran.rstudio.com")
-# Load packages (huskydown will load all of the packages as well)
-library(spartanodown)
-```
-
-\clearpage
-
-The example we show here does the following:
-
-- Selects only the `carrier_name` and `arr_delay` from the `flights` dataset and then assigns this subset to a new variable called `flights2`. 
-
-- Using `flights2`, we determine the largest arrival delay for each of the carriers.
-
-```{r max_delays}
-library(dplyr)
-flights2 <- flights %>% 
-  select(carrier_name, arr_delay)
-max_delays <- flights2 %>% 
-  group_by(carrier_name) %>%
-  summarize(max_arr_delay = max(arr_delay, na.rm = TRUE))
-```
-
-A useful function in the `knitr` package for making nice tables in _R Markdown_ is called `kable`.  It is much easier to use than manually entering values into a table by copying and pasting values into Excel or LaTeX.  This again goes to show how nice reproducible documents can be! (Note the use of `results="asis"`, which will produce the table instead of the code to create the table.)  The `caption.short` argument is used to include a shorter title to appear in the List of Tables.
-
-```{r maxdelays, results="asis"}
-library(knitr)
-kable(max_delays, 
-      col.names = c("Airline", "Max Arrival Delay"),
-      caption = "Maximum Delays by Airline",
-      caption.short = "Max Delays by Airline",
-      longtable = TRUE,
-      booktabs = TRUE)
-```
-
-The last two options make the table a little easier-to-read.
-
-We can further look into the properties of the largest value here for American Airlines Inc.  To do so, we can isolate the row corresponding to the arrival delay of 1539 minutes for American in our original `flights` dataset.
+### Statistical Analysis
 
 
-```{r max_props}
-flights %>% 
-  filter(arr_delay == 1539, 
-         carrier_name == "American Airlines Inc.") %>%
-  select(-c(month, day, carrier, dest_name, hour, 
-            minute, carrier_name, arr_delay))
-```
+## Results
 
-We see that the flight occurred on March 3rd and departed a little after 2 PM on its way to Dallas/Fort Worth.  Lastly, we show how we can visualize the arrival delay of all departing flights from Portland on March 3rd against time of departure.
 
-```{r march3plot, fig.height=3, fig.width=6}
-library(ggplot2)
-flights %>% 
-  filter(month == 3, day == 3) %>%
-  ggplot(aes(x = dep_time, 
-             y = arr_delay)) + 
-  geom_point()
-```
 
-## Additional resources
-
-- _Markdown_ Cheatsheet - <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet>
-
-- _R Markdown_ Reference Guide - <https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf>
-
-- Introduction to `dplyr` - <https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html>
-
-- `ggplot2` Documentation - <http://docs.ggplot2.org/current/>
+ 

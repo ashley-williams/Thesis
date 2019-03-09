@@ -1,6 +1,6 @@
 ---
 # UNCG thesis fields
-title: "Dan River Coal Ash Stuff"
+title: "Response of Mercury Methylating Bacteria to the Dan River Coal Ash Spill with a Survey of Metal Tolerance of Microorganisms Associated with Coal Ash"
 firstname: "Ashley S."
 lastname: "Williams"
 degree_year: "2019"
@@ -21,8 +21,7 @@ organizations and/or persons who actually aided the research. If
 financial support was provided to make the study possible, credit for
 such assistance should be given.
 "
-dedication: " The dedication is often short.  Longer statements are usually in
- the acknowledgements.  The dedication is optional."
+dedication: "The dedication is often short.  Longer statements are usually in the acknowledgements.  The dedication is optional."
 # End of UNCG thesis fields
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
