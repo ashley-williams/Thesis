@@ -37,7 +37,7 @@ Optical density (OD), of liquid broth culture was employed to ascertain the grow
 
 
 
-| Concentration | As    | Cd    | Cr   | Hg    | Pb   | Se    | Zn   |
+| Factor | As    | Cd    | Cr   | Hg    | Pb   | Se    | Zn   |
 |:-------------:|:-----:|:-----:|:----:|:-----:|:----:|:-----:|:----:|
 | 1             | 0.001 | 0.001 | 0.01 | 0.001 | 0.01 | 1     | 0.1  |
 | 2             | 0.01  | 0.01  | 0.1  | 0.01  | 0.1  | 10    | 1    |
@@ -53,7 +53,7 @@ For each isolate, DNA was extracted using the CTAB method, amplified with 16S pr
 
 ### Statistical analyses
 
-Due to the inherent randomness of biological systems, standard statistical models will easily predict differences between bacterial growth curves [REF linear models paper]. The challenge lies in determining truly different growth curves from the similar curves differing only as a result of random fluctuations in growth. The approach taken in this study consists of calculating the slopes, or growth rates, and carrying capacity, for each bacterial growth curve using the method of ordinary least squares regression. The measurement in this study consists of OD with respect to time, therefore, growth rate should be understood as OD rate. The aim of this experiment is to compare different isolates’ growth with respect to common factors; concentration and time, and not modelling the empirical growth as such. Each slope was computed by fitting a linear regression over the linear range of growth of each isolate, at time points 4 to 7. To determine metal tolerance, significance of the coefficients by 95% confidence interval based on t-test… was performed to determine significance of each isolate-metal-concentration interaction compared to its control.  Isolates were deemed metal tolerant if the growth rate of one or more concentrations of metal significantly exceeded that of the control. Experiments were excluded from analysis if there was no growth observed in the control where the slope was not significantly different from 0.
+To assess the metal tolerance of each isolate, The approach taken in this study consists of calculating the slopes, or growth rates, and carrying capacity, for each bacterial growth curve using the method of ordinary least squares regression. The measurement in this study consists of OD with respect to time, therefore, growth rate should be understood as OD rate. The aim of this experiment is to compare different isolates’ growth with respect to common factors; concentration and time, and not modelling the empirical growth as such. Each slope was computed by fitting a linear regression over the linear range of growth of each isolate, at time points 4 to 7. To determine metal tolerance, significance of the coefficients by 95% confidence interval based on t-test… was performed to determine significance of each isolate-metal-concentration interaction compared to its control.  Isolates were deemed metal tolerant if the growth rate of one or more concentrations of metal significantly exceeded that of the control. Experiments were excluded from analysis if there was no growth observed in the control where the slope was not significantly different from 0.
 To determine the growth rate a spline regression was performed for each isolate metal and concentration. Each Spline regression to d
 Because the data were not normally distributed (Shapiro-Wilk test for normality Need the p value) even after various transformations were tried, only nonparametric analyses were used throughout this study.
 

@@ -1,6 +1,7 @@
 # Gompertz
 library(growthrates)
 getwd()
+
 # Files located
 setwd("~/Google Drive File Stream/My Drive/Coal ash/Metal Tolerance/R/raw/raw")
 

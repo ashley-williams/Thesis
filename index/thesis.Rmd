@@ -1,0 +1,369 @@
+---
+# UNCG thesis fields
+title: "Response of Mercury Methylating Bacteria to the Dan River Coal Ash Spill with a Survey of Metal Tolerance of Microorganisms Associated with Coal Ash"
+firstname: "Ashley S."
+lastname: "Williams"
+degree_year: "2019"
+chair: "Parke Rublee"
+signature1: "Anne Hershey"
+signature2: "Martin Tsui"
+signature3:
+abstract: "This is my abstract. The abstract page is a required component of the thesis/dissertation.
+The abstract should be a brief summary of the paper, stating only the
+problem, procedures used, and the most significant results and
+conclusions. Explanations and opinions are omitted. Remember to
+include the necessary information regarding any multimedia components
+included in the document. The abstract must be approved by your
+advisor/committee chair."
+acknowledgments: "It is customary to recognize the assistance of the advisor and/or
+committee chair, all other members of the committee, and only those
+organizations and/or persons who actually aided the research. If
+financial support was provided to make the study possible, credit for
+such assistance should be given.
+"
+dedication: "The dedication is often short.  Longer statements are usually in the acknowledgements.  The dedication is optional."
+# End of UNCG thesis fields
+knit: "bookdown::render_book"
+site: bookdown::bookdown_site
+output:
+   spartanodown::thesis_pdf:
+    latex_engine: xelatex
+  # spartanodown::thesis_gitbook: default
+  #spartanodown::thesis_word: default
+  # spartanodown::thesis_epub: default
+bibliography: bib/thesis.bib
+# Download your specific bibliography database file and refer to it in the line above.
+csl: csl/cell.csl
+# Download your specific csl file and refer to it in the line above.
+link-citations: no
+linkcolor: blue
+citecolor: blue
+urlcolor: blue
+lot: true # create list of tables 
+lof: true # create list of figures
+#space_between_paragraphs: true
+# Delete the # at the beginning of the previous line if you'd like
+# to have a blank new line between each paragraph
+header-includes:
+- \usepackage{tikz}
+---
+
+<!--
+Above is the YAML (YAML Ain't Markup Language) header that includes a lot of metadata used to produce the document.  Be careful with spacing in this header!
+
+If you'd like to include a comment that won't be produced in your resulting file enclose it in a block like this.
+-->
+
+<!--
+If you receive a duplicate label error after knitting, make sure to delete the index.Rmd file and then knit again.
+-->
+
+```{r include_packages, include = FALSE}
+# This chunk ensures that the spartanodown package is
+# installed and loaded. This spartanodown package includes
+# the template files for the thesis.
+if(!require(devtools))
+  install.packages("devtools", repos = "http://cran.rstudio.com")
+if(!require(spartanodown))
+  devtools::install_github("ashley-williams/spartanodown")
+library(spartanodown)
+```
+
+<!--chapter:end:index.Rmd-->
+
+<!-- The {.unnumbered} option here means that the introduction will be "Chapter 0." You can also use {-} for no numbers on chapters. -->
+
+# Introduction {#intro}
+
+Coal is the second most used fuel for electricity generation in the United States.  In 2017, approximately 30% of all electricity production was fueled by coal combustion [@usenergyinformationadministrationElectricPowerMonthly2019].  Although the percentage has fallen in recent years due to retirement of plants and increase in natural gas and other energy sources, coal remains a main fuel for electricity. During the process of coal combustion, coal combustion residuals, or coal ash, is produced.
+
+Coal combustion residues (CCRs) include fly ash, bottom ash, and flue gas desulfurized gypsum.  Fly ash is a fine powdery substance, comprised primarily of silica that moves up the exhaust system. It is produced during the combustion of finely ground coal and most is captured from the exhaust using electrostatics and scrubber systems [@usepaFlyAshCoal2014].  Bottom ash is formed during the combustion of pulverized coal in boilers.  It ranges in size from fine sand to fine gravel and is grey to black in color.  Bottom ash is too large to be carried up the exhaust system and is collected in an ash hopper [@usepaBottomAshCoal2014].  Flue gas desulfurized gypsum is not a direct product of coal combustion, but a product of the scrubber system to remove SO2 emissions from exhaust [@usepaFlueGasDesulfurization2014]. 
+
+Physical and chemical properties of coal ash are determined by the geographical location where the raw coal was mined, the type of boiler, and the operating conditions of the power plant [@jayaranjanReuseOptionsCoal2014]. Fly ash is composed mainly of oxides such as $\mathrm{SiO_2}$, $\mathrm{Al_2O}$, $\mathrm{Fe_2O}$, $\mathrm{TiO_2}$, and $\mathrm{CaO}$.  All natural elements can be found in coal ash, trace elements include, As, Cd, Cr, Hg, Pb, Se, and Zn  [@greelyjr.EffectsSedimentContaining2014; @jayaranjanReuseOptionsCoal2014; @shaheenOpportunitiesChallengesUse2014]. Coal bottom ash consists of silicate, carbonate, aluminate, ferrous materials and several of heavy metals and metalloids. Like fly ash, the chemical composition of the bottom ash is dependent on the source of the raw coal, boiler type, and the refinement process of the raw coal [@jayaranjanReuseOptionsCoal2014]. 
+
+Once produced and collected, CCRs are transported to an impoundment pond or landfill. Impoundment ponds are constructed either lined or unlined; open to the atmosphere or capped. In an open lagoon, the waste settles to the bottom of the pond, leaving the shallow surface water free of waste. To prevent overflow of these ponds, this shallow water is pumped and directed to a waterway adjacent to the power plant. In the US, of the approximately 120 Mt of CCRs are produced annually, 54% is disposed of in landfills or surface impoundments [@americancoalashassociation2012CoalCombustion2012]. Leaching and impoundment failures allow the mobilization of CCRs including their associated heavy metals into the environment, where these metals may enter the food web directly or indirectly through microbially-mediated transformations [@cabralMethylmercuryDegradationPseudomonas2016; @deonarineEnvironmentalImpactsTennessee2013; @otterTrophicStatusMetal2012]. 
+
+<!--chapter:end:00-intro.Rmd-->
+
+<!--
+The {#rmd-basics} text after the chapter declaration will allow us to link throughout the document back to the beginning of Chapter 1.  These labels will automatically be generated (if not specified) by changing the spaces to hyphens and capital letters to lowercase.  Look for the reference to this label at the beginning of Chapter 2.
+-->
+```{r include_packages_2, include = FALSE}
+# This chunk ensures that the spartanodown package is
+# installed and loaded. This spartanodown package includes
+# the template files for the thesis and also two functions
+# used for labeling and referencing
+if(!require(devtools))
+  install.packages("devtools", repos = "http://cran.rstudio.com")
+if(!require(tidyverse))
+    install.packages("tidyverse", repos = "http://cran.rstudio.com")
+if(!require(ggplot2))
+    install.packages("ggplot2", repos = "http://cran.rstudio.com")
+if(!require(bookdown))
+    install.packages("bookdown", repos = "http://cran.rstudio.com")
+if(!require(spartanodown)){
+  library(devtools)
+  devtools::install_github("ashley-williams/spartanodown")
+  }
+library(spartanodown)
+library(tidyverse)
+library(bookdown)
+```
+# RESPONSE OF MERCURY METHYLATING BACTERIA TO THE COAL ASH SPILL IN THE DAN RIVER {#pcr}
+
+## Abstract
+
+## Introduction
+
+On February, 2, 2014, two storm water drainage pipes located under a coal ash impoundment pond at the Duke Energy Dan River Steam Station near Eden, NC collapsed, releasing approximately 28,000 cubic yards of coal ash and about 27 million gallons of untreated ash wastewater into the Dan River [@dennislemlyDamageCostDan2015]. Following the spill, water and sediment was sampled from the river and Kerr Reservoir downstream of the spill to determine water quality and human health concerns. Test results show no constituents to be at levels exceeding safe limits in the water column [@usepaEPAResponseDuke2014]. Duke Energy dredged ash deposits at two locations along the river, but likely over 90% of the ash remains buried in river sediments or has been deposited into Kerr Lake [@ncdeqRapidResponseTimeline2014].  While the test results are encouraging for immediate water quality, the long-term concern is the effect of mobilization of coal ash constituents into the riverine food webs.
+
+One constituent of particular concern during leaching and/or impoundment failure is mercury.  Mercury, a known neurotoxin and potential endocrine disruptor has a high affinity for sulfhydryl groups in proteins where destabilization leads to decreased enzymatic activity and reduced overall fitness [@driscollMercuryGlobalPollutant2013; @ehrlichGeomicrobiologyFifthEdition2008]. In submerged anoxic sediments under certain conditions, inorganic mercury ($\mathrm{Hg^{2+}}$) can be converted into MeHg by microbial metabolism [@dashBioremediationPotentialMercury2014; @schaeferActiveTransportSubstrate2011]. Methylmercury (MeHg) bioaccumulates and biomagnifies in the river food webs, posing a health risk to local residents who consume fish. [@dashBioremediationPotentialMercury2014; @otterTrophicStatusMetal2012; @roweBioaccumulationEffectsMetals2014]. The total available amount of MeHg within an ecosystem is controlled by multiple microbial and abiotic processes that reduce availability of $\mathrm{Hg^{2+}}$ or degradation of MeHg. $\mathrm{Hg^{2+}}$ can be volatilized as $\mathrm{Hg^{0}}$ through photoreduction or by bacteria with the merA gene [@boydMercuryResistanceOperon2012]. Additionally, MeHg can be demethylated into $\mathrm{Hg^{2+}}$ by sunlight [@tsuiPhotodegradationMethylmercuryStream2013] or microbes with the merB gene [@bizilyPhytoremediationMethylmercuryPollution1999]. 
+
+Microorganisms have developed various mechanisms to mitigate effects of high concentrations of heavy metal toxins. These include reduction of the metal to a less toxic form, metal complexation, efflux pumps via an energy-dependent membrane transporter, and extracellular sequestration [@binkleyHeavyMetalsWastewater2003; @poulainCrackingMercuryMethylation2013]. MeHg is produced in anaerobic conditions predominately by sulfate reducing bacteria (SRB) iron reducing bacteria (IRB) and methanogens [@liuAnalysisMicrobialCommunity2014].  Coal ash may provide the necessary substrates such as sulfates to stimulate the microbial methylation of Hg [@deonarineEnvironmentalImpactsTennessee2013]. 
+
+Two genes are required for methylation of Hg, hgcA and hgcB.  As $\mathrm{Hg^{2+}}$ enters the cell, a methylated-HgcA protein transfers a CH3 group to $\mathrm{Hg^{2+}}$ within the cytosol.  HgcB protein is then required to recycle the methylated-HgcA protein [@poulainCrackingMercuryMethylation2013]. The hgcAB sequence is conserved across multiple genera and therefore could be utilized as a molecular biomarker for suspected contaminated sites with real-time quantitative PCR [@christensenDevelopmentValidationBroadRange2016; @dashBioremediationPotentialMercury2014; @limadesilvaHeavyMetalTolerance2012; @parksMechanismHgProtonolysis2009]. Liu et al. (2014) found that the hgcA abundance and the concentration of MeHg in rice paddy soil near the Wanshan Hg mining area was positively correlated [@liuAnalysisMicrobialCommunity2014]. This finding suggests that microbes may be contributing to the MeHg in the sampled soils. They also found high genetic diversity within the microbial community and that environmental factors such as total Hg, $\mathrm{SO_4}$, $\mathrm{NH_4}$, and organic matter influenced the community structure.  After phylogenetic analysis, the representative taxa in the community consisted of Deltaproteobacteria, Firmicutes, Chloroflexi, Euryarchaeota, and two novel taxa [@liuAnalysisMicrobialCommunity2014].
+
+In 2008 a dike failure at the Tennessee Valley Authority Kingston Fossil Plant coal ash pond in Harriman, Tennessee, released an estimated 5.4 million cubic yards of ash into the surrounding community and rivers [@ruhlEnvironmentalImpactsCoal2010]. The release ruptured a natural gas line, disrupted power and transportation, destroyed three homes, and resulted in the evacuation of nearby neighborhoods. The impoundment pond has since been rebuilt and reinforced to resist natural disasters such as earthquakes [@tvaFactSheetKingston2011]. In sediment samples collected downstream following the spill, total mercury concentrations were three to four times greater than sediments upstream of the spill. MeHg was also slightly higher than upstream [@deonarineEnvironmentalImpactsTennessee2013]. 
+
+The coal ash spill into the Dan River has mobilized heavy metals into the environment. The extent of long-term effects of methylated mercury into the food chain in the river is unknown. Mercury, along with other coal ash constituents may stimulate mercury-methylating microorganisms in anaerobic sediments.  The goal of this study is to determine the overall microbial community response and specifically hgcA abundance as a result of the Dan River coal ash spill. 
+
+### Objective and hypothesis:
+Determine spatial distribution of mercury-methylating taxa as a result of the coal ash spill using qPCR. 
+I hypothesize that there will be increased abundance of the hgcA genes and therefore, mercury methylating taxa downstream of spill site due to stimulation of sulfate and iron reducing bacteria and methanogens by coal ash constituents present in the sediment. 
+
+## Methods
+### Study Sites and Sediment Collection
+The Dan River is a 344 km river that rises in Patrick Co. Virginia and crosses into North Carolina in Stokes County. It flows across the border between NC and VA several times before flowing into the Kerr Reservoir on the Roanoke River which then flows to the Atlantic Ocean at the Albemarle Sound in North Carolina. This study encompasses sites upstream of the spill site in Eden, NC and downstream to Milton, NC, a 103 km section of the Dan. 
+
+To characterize the extent of the coal ash spill impact on the microbial community, samples were collected at three upstream reference sites, one site parallel to the ash ponds but upstream of the spill (leaching site), and five downstream sites including near two sites that were dredged for remediation, one at Town Creek, near the spill site and one near Abreu-Grogan Park, Danville, Va., and depositional sites that were not dredged near Danville (Figure \@ref(fig:map)). 
+
+```{r map, fig.cap="Map", fig.align='center', out.width="400pt", echo=FALSE}
+knitr::include_graphics(path = "figure/map.png")
+```
+
+Each site was accessed by motorboat, where sediment from the riverbank and channel was collected. Riverbank sediment cores were collected in triplicate using a piston-stule coring device. Channel samples were collected using a small dredge. Sediment cores were segmented by depth and mixed according to one of three sampling schemes to reduce the total number of samples to be assayed. 0.25 $\mathrm{cm^3}$ samples were preserved in CTAB (cetyltrimethylammonium bromide) for DNA extraction. Channel sediment was mixed thoroughly then 0.25 $\mathrm{cm^3}$ was preserved in CTAB. 
+
+Sampling Scheme: 
+
+A.	Sediment cores extracted in triplicate, each 0-8 cm and 8-16 cm segments sampled
+
+B.	Triplicate sediment cores pooled at 0-2 cm, 10-12 cm, 15-17 cm
+
+C.	Triplicate sediment cores pooled 0-8 cm and 8-16 cm segments sampled.
+
+
+### DNA extraction and qPCR
+
+A CTAB extraction was performed using standard protocol for each sample (Stewart and Via 1993). The DNA extracted was quantified and subsequently diluted to a standard concentration of 5 ng/L and stored in a 4C refrigerator. Extracted DNA quantity and purity were determined from 2 μl subsamples of each extraction using Thermo Scientific Nanodrop Spectrophotometer based on the 260/280 wavelength ratio. 
+
+An Applied Biosystems StepOne^TM real-time PCR System was utilized to detect, amplify, and quantify target DNA gene proxies and representative taxa to meet the Objective. Primers were chosen from the literature based on targeting a general metabolic category. These include generic primers to the hgcA gene, a sulfate reducing gene, dsr, the 16S rDNA of iron reducing bacteria, and methanogens (Geets et al. 2008, Schaefer et al. 2013, Wagner et al.1998, Wright and Primm 2003, Table X). This approach will define the microbial community abundance encompassed within each sample. Each reaction contained the following: 10µL of Power Sybr® Green PCR master mix, 1µL of forward primer, 1µL of reverse primer, 8µL of sterile deionized water, and 1µL of extracted DNA.  Three negative control reactions, samples repeated in triplicate, and positive standard controls serially diluted in triplicate, were ran in each 48 well plate. The relative abundance of targets were computed by the StepOne software using the generated standard curve. The melt curve was examined to manually ensure that none of the amplifications were due to a false positive.  Statistical analyses including one and two-way ANOVA and regression analyses were performed to determine if a significant difference exists between amounts of targeted DNA collected from sites upstream versus downstream of spill site and within depths of core samples. 
+
+### Statistical Analysis
+
+## Results
+
+## Discussion
+
+ 
+
+<!--chapter:end:01-chap1.Rmd-->
+
+# IDENTIFICATION AND CHARACTERIZATION OF HEAVY METAL TOLERANCE OF BACTERIA CULTURED FROM COAL ASH {#metal}
+
+## Abstract
+
+Coal ash, the residual material of coal combustion for electricity generation, contains heavy metals and other pollutants, is generally deposited into reservoir ponds for storage, although it may spill or leach into nearby water and possibly disrupt aquatic ecological communities. We identified and characterized the metal tolerance of bacteria isolated from a sample of coal ash from a coal ash pond located at the retired Dan River Steam Station in Eden, NC.  SSU rDNA extracted from isolated organisms was sequenced and isolates were predominantly identified as Bacillus and Arthrobacter spp. Isolates were grown in 50% nutrient broth amended with heavy metals commonly found in coal ash waste (As, Cd, Cr, Hg, Pb, Se, Zn), at environmentally relevant concentrations. Growth of coal ash isolates was compared to isolates cultured from coal ash free soil. Overall, isolates exhibited metal tolerance, but so did the soil isolates. 
+
+## Introduction
+
+Coal ash is a waste product generated from power plants that use coal to generate electricity. After the combustion process, the ash and other waste products are discharged as a slurry into a settling pond. To prevent overflow in the pond is maintained by pumping surface water into a nearby water-source, usually a river. In North Carolina, 14 such coal ash ponds are maintained by Duke Energy  [REF]. The location of power plants near water sources is necessary for meeting water demands during the electricity generation process. Unlined and uncapped coal ash waste ponds therefore have the potential for leaching contaminants into the groundwater or spilling into nearby waterways possibly polluting drinking water and/or disrupting aquatic ecological communities [REF].  
+
+On February 2, 2014, a coal ash pond located at the retired Dan River Steam Station near Eden, NC expelled approximately 39,000 tons of coal ash slurry into the Dan River of North Carolina due to an underground pipe collapse. The slurry coated the river bottom for XX km… Emptied in Kerr Lake. XX was dredged from the pond… [REF]
+
+Physical and chemical properties of coal ash are determined by the geographical location where the raw coal was mined, the type of boiler, and the operating conditions of the power plant [@jayaranjanReuseOptionsCoal2014].  All natural elements can be found in coal ash including some trace elements such as arsenic, cadmium, chromium, mercury, lead, selenium, and zinc [@greelyjr.EffectsSedimentContaining2014; @jayaranjanReuseOptionsCoal2014].  Coal ash is wholly comprised of multiple waste products with differing chemical properties including fly ash, bottom ash, and byproducts of pollution mitigation processes [REF]. Fly ash is composed mainly of oxides such as, $\mathrm{SiO_2}$, $\mathrm{Al_2O}$, $\mathrm{Fe_2O}$ [@usepaFlyAshCoal2014]. Bottom ash consists of silicate, carbonate, aluminate, ferrous materials and high concentrations of several heavy metals and metalloids [@usepaBottomAshCoal2014]. 
+
+Heavy metals are characterized by a density greater than 5 g/$\mathrm{cm^3}$, mostly transition elements, and play an important role as trace elements in biochemical reactions. These heavy metals, due to an incompletely filled d orbital, allow the cations to form complex compounds with the potential to be redox reactive. Heavy metal ions form unspecific complex compounds in the cell, leading to toxic effects. For example, $\mathrm{Hg^{2+}}$, $\mathrm{Cd^{2+}}$, and $\mathrm{Ag^{+}}$ form strong toxic complexes that are not conducive to any physiological function and are highly toxic. Trace metals such as $\mathrm{Zn^{2+}}$, $\mathrm{Ni^{2+}}$, and $\mathrm{Cu^{2+}}$ required for some functions are toxic at high concentrations. Therefore, the intracellular concentration of heavy metals must be controlled, and organisms have adapted heavy metal resistance strategies [REFs].  
+
+Through the process of coal combustion, the coal ash is rendered sterile. Therefore, inocuation of coal ash occurs by natual processes including atmospheric deposition, i.e. rainfall, windblown particulates. Opportunistic microorganisms adapt to the high concentration of heavy metals through resistance or metal detoxification. In addition to naturally occurring processes, anthropogenic perturbations such as coal ash spills result in altered environments in which microbes may adapt and mobilize coal ash consituents into foodwebs (ref?). Knowledge of the microbial community stucture and distribution is important to estimate the extent of biological mobility of these pollutants. Further, organisms which exhibit metal tolerance may warrant further investigation into their potential for bioremediation.
+
+The objective of this study was to determine if a microbial community is viable and present in coal ash ponds, and if present, identify taxa, and assess the metal tolerance of isolated organisms. Previous studies have analyzed the microbial community of soils  amended with coal ash (e.g. [@klubekCharacterizationMicrobialAbundance1992]). No studies to date have determined the microbial community of coal ash alone. Through preliminary PCR anlysis, a small amount of DNA was present in a coal ash sample from the Dan River Steam Station coal ash pond, but we were not able to amplifiy SSU rDNA from bacteria with universal prokaryotic primers, possibly due to contaminamnts present in the sample or low concentrations of bacterial DNA. In this study, we increased the abundance of microbes and their DNA by culturing and isolaing samples of coal ash, to ensure adequate amounts of DNA for analyses. 
+
+### Objectives and hypotheses
+
+**Objective 1: To determine the metal tolerance of bacteria isolated from coal ash collected from the Dan River impoundment site.**
+
+*I hypothesize that microbial growth of bacterial isolates from pure coal ash collected at the Dan River Steam Station impoundment pond will be more tolerant to heavy metals than organisms isolated compared to a reference site (soil collected from Peabody Park on UNCG campus).*
+
+**Objective 2: To identify isolated bacteria using qPCR amplification and rDNA sequencing. I seek to identify these taxa using qPCR amplification and rDNA sequencing to compare to the GenBank database.**
+
+*I hypothesize novel organisms may be discovered which may have unique metal tolerance capabilities that may be useful for bioremediation.*
+
+## Methods
+### Pure culture isolation from coal ash
+Samples of coal ash provided by our collaborator, Brian Williams of the Dan River Basin Association was taken directly from a coal ash retention pond at the retired Dan River Steam Station near Eden, NC. To culture isolated organisms, aliquots (0.5 g) of coal ash from the coal ash pond was added to six 50 mL conical tubes. 40 mL of filter sterilized (0.22 µm pore) Dan River water was added to three tubes and filter sterilized Dan River water supplemented with 10% nutrient broth to the other three tubes.  Additionally, filter sterilized Dan River water alone was evaluated in triplicate to serve as a sterility control. Tubes were incubated at ambient room temperature for 48 hours without agitation.  100 mL aliquots were removed from each culture; one for spread plate isolation and one aliquot preserved in  cetyltrimethylammonium bromide (CTAB) for DNA sequencing. Morphologically unique colonies identified on spread plates were isolated and pure cultures maintained for heavy metal tolerance experimentation. Sediment samples collected from Peabody Park, UNCG campus, were isolated using the same protocol as described. 
+
+### Heavy metal characterization
+Optical density (OD), of liquid broth culture was employed to ascertain the growth of organisms; where growth is related to the increase in turbidity of a bacterial culture. OD, or absorbance, is a measure of light that is absorbed or scattered by cells within a culture. According to Beer’s law, absorbance is proportional to concentration [@ModelingMicrobialResponses]. Metals tested include, arsenic, cadmium, chromium, mercury, lead, selenium and zinc. Stock concentrations of $\mathrm{Na_2HAsO_4}$, $\mathrm{CdCl_2}$, $\mathrm{CrCl_3}$, $\mathrm{HgCl_2}$, $\mathrm{PbCl_2}$, $\mathrm{Na_2SeO_3}$, and $\mathrm{ZnCl_2}$ were serially diluted to span at least two orders of magnitude greater and less than natural environmental concentrations for each metal, resulting in 5 concentration levels per metal (Table \@ref(tab:metals)). 
+
+
+
+| Factor | As    | Cd    | Cr   | Hg    | Pb   | Se    | Zn   |
+|:-------------:|:-----:|:-----:|:----:|:-----:|:----:|:-----:|:----:|
+| 1             | 0.001 | 0.001 | 0.01 | 0.001 | 0.01 | 1     | 0.1  |
+| 2             | 0.01  | 0.01  | 0.1  | 0.01  | 0.1  | 10    | 1    |
+| 3             | 0.1   | 0.1   | 1    | 0.1   | 1    | 100   | 10   |
+| 4             | 1     | 1     | 10   | 1     | 10   | 1000  | 100  |
+| 5             | 10    | 10    | 100  | 10    | 100  | 10000 | 1000 |
+Table (\#tab:metals): Concentrations for each metal tested in µg/L
+
+Metal stocks were prepared by dissolving each metal salt in sterile reverse osmosis deionized (RO/DI) water and subsequently diluted. To ensure a viable culture inoculum, sufficient volume of cells, and standardization for experimentation, each unique isolate was incubated in a 50% nutrient broth culture in a shaking water bath at 25C overnight until an optical density of 0.7 at 580 nm was reached. For each metal-isolate experiment, 100 µL of 0.7 OD~580~ nm organism inoculum was added to 2.4 mL of 50% nutrient broth amended with 100 µL each concentration of metal in triplicate. For the control, 100 µL of RO/DI water was substituted for the metal spike in triplicate. Growth patterns were measured by absorbance at 580nm, and recorded at nine time points, approximately 0, 1, 2, 4, 8, 16, 24, 30, 36, and 48 hours post inoculation. 
+
+### Isolate identification and phylogenetic analysis 
+For each isolate, DNA was extracted using the CTAB method, amplified with 16S primers and sent to [SENT WHERE?] for sequencing [@stewartRapidCTABDNA1993]. Organism chromatogram data was evaluated and edited manually to optimize the DNA sequence. The FASTA files of sequences were imported into Molecular Evolutionary Genetics Analysis version 7.0 (MEGA7) [@kumarMEGA7MolecularEvolutionary2016]. Sequences were aligned using MUSCLE and manual adjustments [@edgarMUSCLEMultipleSequence2004]. The resulting aligned sequences were then subjected to phylogenetic tree analysis using MEGA7. The maximum likelihood tree was computed using MEGA7 using the Jukes-Cantor model [@jukesEvolutionProteinMolecules1969]. The bootstrap consensus tree was inferred from 1000 replicates. Initial trees with a greater log likelihood value were calculated by applying Neighbor-Join and BioNJ algorithms to a matrix of pairwise distances estimated using the Maximum Composite Likelihood approach.   
+
+### Statistical analyses
+
+To assess the metal tolerance of each isolate, The approach taken in this study consists of calculating the slopes, or growth rates, and carrying capacity, for each bacterial growth curve using the method of ordinary least squares regression. The measurement in this study consists of OD with respect to time, therefore, growth rate should be understood as OD rate. The aim of this experiment is to compare different isolates’ growth with respect to common factors; concentration and time, and not modelling the empirical growth as such. Each slope was computed by fitting a linear regression over the linear range of growth of each isolate, at time points 4 to 7. To determine metal tolerance, significance of the coefficients by 95% confidence interval based on t-test… was performed to determine significance of each isolate-metal-concentration interaction compared to its control.  Isolates were deemed metal tolerant if the growth rate of one or more concentrations of metal significantly exceeded that of the control. Experiments were excluded from analysis if there was no growth observed in the control where the slope was not significantly different from 0.
+To determine the growth rate a spline regression was performed for each isolate metal and concentration. Each Spline regression to d
+Because the data were not normally distributed (Shapiro-Wilk test for normality Need the p value) even after various transformations were tried, only nonparametric analyses were used throughout this study.
+
+## Results
+26 total isolates of unknown microorganisms were cultured from the samples; the coal ash without added nutrients and 14 from the coal ash with nutrients sample, and were sequenced. Sequences were aligned and a phylogenetic tree was constructed (Figure 4). Sequences of isolates were compared to the GenBank database. When exposed to heavy metal, isolates generally grew well in all but the highest metal concentrations. There was little difference between coal ash isolates and control isolates. Growth pattern of a few isolates suggested metal dependency (Figure 5). Absorbance results from ________were eliminated for subsequent calculations, since no growth curve was observed along the study period.
+
+Isolates that did not grow and were excluded from further analysis. In some cases, the control did not grow, but other concentrations did. These isolates were excluded from analysis because there was no control in the experiment. 
+SI 2 a soil isolate exhibited slow growth. The protocol of the study did not capture the growth of this isolate. Figure X Growth was not observed until the end of the reading time points therefore data was not obtained.  
+Since only one reading was taken of each tube at each time point, repeatability was not ascertained. While each test tube was inoculated from the same culture, random fluctuations of growth were discovered. Look for others…. Such that one of the three showed faster growth than other ones in the experiment increasing the average and something about points that influence results. Influential points. NO 22 and SI2 slow growing, needed more time. ANOVA tukey? Comparison of growth for each metal? For each isolate? Post hoc analysis 
+
+A total of ___ growth curves were produced, __ of these as duplicates. (Materials and methods?) 
+
+
+The Bayesian, maximum likelihood, and neighbor joining phylogenies yielded very similar topologies
+Optimal topology
+taxa
+This phylogeny suggests that? 
+Dominated by … list characteristics of the clade?? Where the organisms are usually found list clades habitat etc. 
+One taxon… not found in the database
+Diversity of organisms culturable from coal ash
+Quickly deployed easily grown and maintained .
+Rooted as outgroup? The novel one? Or something else? Research proper roots for the phylogeny ask parke?
+
+Discussion
+Although there were some significant seasonal differences, the magnitude of these
+differences was small.
+Selective pressure from culturing – only able to grow in lab very small proportion of what is really there. Easily grown in lab
+
+
+## Discussion
+
+<!--chapter:end:02-chap2.Rmd-->
+
+# CONCLUSIONS
+
+If we don't want Conclusion to have a chapter number next to it, we can add the `{-}` attribute.
+
+**More info**
+
+And here's some other random info: the first paragraph after a chapter title or section head _shouldn't be_ indented, because indents are to tell the reader that you're starting a new paragraph. Since that's obvious after a chapter or section title, proper typesetting doesn't add an indent there.
+
+
+<!--chapter:end:03-conclusion.Rmd-->
+
+<!--
+The bib chunk below must go last in this document according to how R Markdown renders.  More info is at http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
+-->
+
+\backmatter
+
+<!--
+If you'd like to change the name of the bibliography to something else,
+delete "References" and replace it.
+-->
+
+# References {-}
+<!--
+This manually sets the header for this unnumbered chapter.
+
+\markboth{References}{References}
+<!--
+To remove the indentation of the first entry.
+-->
+\noindent
+
+<!--
+To create a hanging indent and spacing between entries.  These three lines may need to be removed for styles that don't require the hanging indent.
+-->
+
+\setlength{\parindent}{-0.20in}
+\setlength{\leftskip}{0.20in}
+\setlength{\parskip}{8pt}
+
+
+<!--
+This is just for testing with more citations for the bibliography at the end.  Add other entries into the list here if you'd like them to appear in the bibliography even if they weren't explicitly cited in the document.
+-->
+
+---
+nocite: |
+  @angel2000, @angel2001, @angel2002a
+...
+
+<!--chapter:end:04-references.Rmd-->
+
+`r if(knitr:::is_latex_output()) '\\appendix'`
+
+`r if(!knitr:::is_latex_output()) '# (APPENDIX) Appendix {-}'` 
+
+<!--
+If you feel it necessary to include an appendix, it goes here.
+-->
+
+
+# The First Appendix
+
+This first appendix includes all of the R chunks of code that were hidden throughout the document (using the `include = FALSE` chunk tag) to help with readibility and/or setup.
+
+**In the main Rmd file**
+
+```{r ref.label='include_packages', results='hide', echo = TRUE}
+```
+
+**In Chapter \@ref(ref-labels):**
+
+```{r ref.label='include_packages_2', results='hide', echo = TRUE}
+```
+
+# The Second Appendix, for Fun
+
+<!--chapter:end:05-appendix.Rmd-->
+
+# Colophon {-}
+
+This document is set in [EB Garamond](https://github.com/georgd/EB-Garamond), [Source Code Pro](https://github.com/adobe-fonts/source-code-pro/) and [Lato](http://www.latofonts.com/lato-free-fonts/). The body text is set at 11pt with $\familydefault$.
+
+It was written in R Markdown and LaTeX, and rendered into PDF using [spartanodown](https://github.com/ashley-williams/spartanodown) and [bookdown](https://github.com/rstudio/bookdown).
+
+This document was typeset using the XeTeX typesetting system, and the [UNCG dissertation class](https://mathstats.uncg.edu/wp-content/uploads/2018/08/uncgdissertationexp.cls) class created by Dan Yasaki. Under the hood, the [UNCG dissertation LaTeX template](https://mathstats.uncg.edu/wp-content/uploads/2018/08/sample.tex) is used to ensure that documents conform precisely to submission standards. Other elements of the document formatting source code have been taken from the [Latex, Knitr, and RMarkdown templates for UC Berkeley's graduate thesis](https://github.com/stevenpollack/ucbthesis), and [Dissertate: a LaTeX dissertation template to support the production and typesetting of a PhD dissertation at Harvard, Princeton, and NYU](https://github.com/suchow/Dissertate)
+
+The source files for this thesis, along with all the data files, have been organised into an R package, xxx, which is available at https://github.com/xxx/xxx. A hard copy of the thesis can be found in the University of North Carolina at Greensboro library.
+
+This version of the thesis was generated on `r Sys.time()`. The repository is currently at this commit:
+
+```{r echo = FALSE, eval = FALSE}
+# I've set eval=FALSE to ensure Travis-CI can run
+# if you're not using Travis-CI, then eval=TRUE will be fine
+# library(git2r)
+# if ( git2r::in_repository() ) {
+#        summary(commits()[[1]])
+# } else {
+#        message("We are not in a git repository")
+# }
+```
+
+The computational environment that was used to generate this version is as follows:
+
+```{r echo = FALSE}
+devtools::session_info()
+```
+
+<!--chapter:end:98-colophon.Rmd-->
+
