@@ -8,27 +8,19 @@ chair: "Parke Rublee"
 signature1: "Anne Hershey"
 signature2: "Martin Tsui"
 signature3:
-abstract: "This is my abstract. The abstract page is a required component of the thesis/dissertation.
-The abstract should be a brief summary of the paper, stating only the
-problem, procedures used, and the most significant results and
-conclusions. Explanations and opinions are omitted. Remember to
-include the necessary information regarding any multimedia components
-included in the document. The abstract must be approved by your
-advisor/committee chair."
-acknowledgments: "It is customary to recognize the assistance of the advisor and/or
-committee chair, all other members of the committee, and only those
-organizations and/or persons who actually aided the research. If
-financial support was provided to make the study possible, credit for
-such assistance should be given.
-"
-dedication: "The dedication is often short.  Longer statements are usually in the acknowledgements.  The dedication is optional."
+abstract: |
+  "This is my abstract. The abstract page is a required component of the thesis/dissertation.The abstract should be a brief summary of the paper, stating only the problem, procedures used, and the most significant results and conclusions. Explanations and opinions are omitted. Remember to include the necessary information regarding any multimedia components included in the document. The abstract must be approved by your advisor/committee chair."
+acknowledgments: |
+  "It is customary to recognize the assistance of the advisor and/or committee chair, all other members of the committee, and only those organizations and/or persons who actually aided the research. If financial support was provided to make the study possible, credit for such assistance should be given."
+dedication: |
+  "The dedication is often short.  Longer statements are usually in the acknowledgements.  The dedication is optional."
 # End of UNCG thesis fields
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output:
-   spartanodown::thesis_pdf:
-    latex_engine: xelatex
-  # spartanodown::thesis_gitbook: default
+  spartanodown::thesis_pdf:
+     latex_engine: xelatex
+  #spartanodown::thesis_gitbook: default
   #spartanodown::thesis_word: default
   # spartanodown::thesis_epub: default
 bibliography: bib/thesis.bib
@@ -44,21 +36,12 @@ lof: true # create list of figures
 #space_between_paragraphs: true
 # Delete the # at the beginning of the previous line if you'd like
 # to have a blank new line between each paragraph
-header-includes:
-- \usepackage{tikz}
+#header-includes:
+#- \usepackage{tikz}
 ---
 
-<!--
-Above is the YAML (YAML Ain't Markup Language) header that includes a lot of metadata used to produce the document.  Be careful with spacing in this header!
 
-If you'd like to include a comment that won't be produced in your resulting file enclose it in a block like this.
--->
-
-<!--
-If you receive a duplicate label error after knitting, make sure to delete the index.Rmd file and then knit again.
--->
-
-```{r include_packages, include = FALSE}
+```{r include_packages, include=FALSE}
 # This chunk ensures that the spartanodown package is
 # installed and loaded. This spartanodown package includes
 # the template files for the thesis.

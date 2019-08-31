@@ -48,13 +48,13 @@ I hypothesize that there will be increased abundance of the hgcA genes and there
 ### Study Sites and Sediment Collection
 The Dan River is a 344 km river that rises in Patrick Co. Virginia and crosses into North Carolina in Stokes County. It flows across the border between NC and VA several times before flowing into the Kerr Reservoir on the Roanoke River which then flows to the Atlantic Ocean at the Albemarle Sound in North Carolina. This study encompasses sites upstream of the spill site in Eden, NC and downstream to Milton, NC, a 103 km section of the Dan. 
 
-To characterize the extent of the coal ash spill impact on the microbial community, samples were collected at three upstream reference sites, one site parallel to the ash ponds but upstream of the spill (leaching site), and five downstream sites including near two sites that were dredged for remediation, one at Town Creek, near the spill site and one near Abreu-Grogan Park, Danville, Va., and depositional sites that were not dredged near Danville (Figure \@ref(fig:map)). 
+To characterize the extent of the coal ash spill impact on the microbial community, samples were collected at three upstream reference sites, one site parallel to the ash ponds but upstream of the spill (leaching site), and five downstream sites including near two sites that were dredged for remediation, one at Town Creek, near the spill site and one near Abreu-Grogan Park, Danville, Va., and depositional sites that were not dredged near Danville (Figure \@ref(map)). 
 
-```{r map, fig.cap="Map", fig.align='center', out.width="400pt", echo=FALSE}
+```{r map, echo=TRUE, fig.align='center', fig.cap="Map", out.width="400pt"}
 knitr::include_graphics(path = "figure/map.png")
 ```
 
-Each site was accessed by motorboat, where sediment from the riverbank and channel was collected. Riverbank sediment cores were collected in triplicate using a piston-stule coring device. Channel samples were collected using a small dredge. Sediment cores were segmented by depth and mixed according to one of three sampling schemes to reduce the total number of samples to be assayed. 0.25 $\mathrm{cm^3}$ samples were preserved in CTAB (cetyltrimethylammonium bromide) for DNA extraction. Channel sediment was mixed thoroughly then 0.25 $\mathrm{cm^3}$ was preserved in CTAB. 
+Each site was accessed by boat, where sediment from the riverbank and channel was collected. Riverbank sediment cores were collected in triplicate using a piston-style coring device. Channel samples were collected using a small dredge. Sediment cores were segmented by depth and mixed according to one of three sampling schemes to reduce the total number of samples to be assayed. 0.25 $\mathrm{cm^3}$ samples were preserved in CTAB (cetyltrimethylammonium bromide) for DNA extraction. Channel sediment was mixed thoroughly then 0.25 $\mathrm{cm^3}$ was preserved in CTAB. 
 
 Sampling Scheme: 
 
