@@ -459,7 +459,8 @@ Committee Co-Chair &
 \setcounter{tocdepth}{2}  % only show chapters and sections in TOC
 \setcounter{secnumdepth}{2}
 \renewcommand{\thechapter}{\Roman{chapter}}
-
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
 \patchcmd{\@chapter}{#1}{\MakeUppercase{#1}}{}{}
 
 \titlecontents{shortchapter}[0pt] {\addvspace{10pt}

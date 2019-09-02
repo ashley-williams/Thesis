@@ -26,6 +26,11 @@
 \usepackage{longtable}
 \usepackage{titlesec}
 \usepackage{lmodern}
+\usepackage{chngcntr}
+ 
+\counterwithin*{figure}{chapter}
+\counterwithin*{table}{chapter}
+
 
 \usepackage{microtype, amsfonts, amsthm}
 \usepackage[colorlinks=false]{hyperref}
@@ -236,7 +241,7 @@
 %%------------------------------------------------------------------%%
 
 \bibliography{bib/thesis.bib}
-\bibliographystyle{csl/apa.csl}
+\bibliographystyle{csl/cell.csl}
 
 %%------------------------------------------------------------------%%
 %%------------------------- Appendices -----------------------------%%

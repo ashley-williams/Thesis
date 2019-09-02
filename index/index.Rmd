@@ -41,6 +41,8 @@ lof: true # create list of figures
 ---
 
 
+
+
 ```{r include_packages, include=FALSE}
 # This chunk ensures that the spartanodown package is
 # installed and loaded. This spartanodown package includes
@@ -50,4 +52,5 @@ if(!require(devtools))
 if(!require(spartanodown))
   devtools::install_github("ashley-williams/spartanodown")
 library(spartanodown)
+library(tidyverse)
 ```
