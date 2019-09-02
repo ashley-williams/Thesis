@@ -412,6 +412,8 @@ Committee Co-Chair &
 
 \AtBeginEnvironment{table}{\vspace{16pt}}
 \AtBeginEnvironment{figure}{\addvspace{12pt}}
+
+
 %-------------------------------------------------------------------------
 %\setlength\floatsep{0.0pt \@plus 0.0pt \@minus 0.0pt}%
 %\setlength\textfloatsep{20.0pt \@plus 0.0pt \@minus 0.0pt}%
