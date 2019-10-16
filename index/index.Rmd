@@ -9,9 +9,9 @@ signature1: "Anne Hershey"
 signature2: "Martin Tsui"
 signature3:
 abstract: |
-  "This is my abstract. The abstract page is a required component of the thesis/dissertation.The abstract should be a brief summary of the paper, stating only the problem, procedures used, and the most significant results and conclusions. Explanations and opinions are omitted. Remember to include the necessary information regarding any multimedia components included in the document. The abstract must be approved by your advisor/committee chair."
+  "PLACEHOLDER Metal tolerance abstract: Coal ash, the residual material of coal combustion for electricity generation, contains heavy metals and other pollutants, is generally deposited into reservoir ponds for storage, although it may spill or leach into nearby water and possibly disrupt aquatic ecological communities. We identified and characterized the metal tolerance of bacteria isolated from a sample of coal ash from a coal ash pond located at the retired Dan River Steam Station in Eden, NC.  SSU rDNA extracted from isolated organisms was sequenced and isolates were predominantly identified as Bacillus and Arthrobacter spp. Isolates were grown in 50% nutrient broth amended with heavy metals commonly found in coal ash waste (As, Cd, Cr, Hg, Pb, Se, Zn), at environmentally relevant concentrations. Growth of coal ash isolates was compared to isolates cultured from coal ash free soil. Overall, isolates exhibited metal tolerance, but so did the soil isolates."
 acknowledgments: |
-  "It is customary to recognize the assistance of the advisor and/or committee chair, all other members of the committee, and only those organizations and/or persons who actually aided the research. If financial support was provided to make the study possible, credit for such assistance should be given."
+  "The work was supported by a grant awarded by North Carolina Water Resources Research Institute. We thank Brian Williams (Dan River Basin Association) for his help in the field and coordination of sampling. We also acknowledge the field assistance of Kimber Corson, Matthew Monteverde, and Ashley Williams (UNC-Greensboro) for sample collection and processing."
 dedication: |
   "The dedication is often short.  Longer statements are usually in the acknowledgements.  The dedication is optional."
 # End of UNCG thesis fields
@@ -51,6 +51,9 @@ if(!require(devtools))
   install.packages("devtools", repos = "http://cran.rstudio.com")
 if(!require(spartanodown))
   devtools::install_github("ashley-williams/spartanodown")
+if(!require(bookdown))
+  devtools::install_github("rstudio/bookdown")
+
 library(spartanodown)
 library(tidyverse)
 ```
