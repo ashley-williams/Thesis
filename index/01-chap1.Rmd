@@ -59,18 +59,10 @@ panderOptions('knitr.auto.asis', FALSE)
 options(knitr.graphics.auto_pdf = TRUE)
 ``` 
 
-r map, fig.align='center',fig.scap="Google Earth image of Dan River and sampling sites.",  fig.cap="Google Earth image of the Dan River and surrounding area. Markers indicate samping sites: Blue, upstream of spill site; Green, leaching site; Yellow, downstream dredged locations; Orange, downstream not dredged.", out.width="400pt"}
-library(knitr)
-map<- "figure/map.png"
-include_graphics("figure/map.png")
-
 \begin{center}
   \includegraphics[width=400pt]{figure/map}
-   \captionof{figure}{Google Earth image of Dan River and sampling sites.}\label{fig:map}
+   \captionof{figure}{Google Earth image of Dan River and sampling sites. Markers indicate samping sites: Blue, upstream of spill site; Green, leaching site; Yellow, downstream dredged locations; Orange, downstream not dredged.}\label{fig:map}
 \end{center}
-
-
-
 
 Each site was accessed by boat, where sediment from the riverbank and channel was collected. Riverbank sediment cores were collected in triplicate using a piston-style coring device. Channel samples were collected using a small dredge. Sediment cores were sectioned by depth and individual segments homogenized according to one of three sampling schemes to reduce the total number of samples to be assayed (Table \@ref(tab:scheme)). 0.25 $\mathrm{cm^3}$ samples were preserved in CTAB (cetyltrimethylammonium bromide) for DNA extraction. Channel sediment was mixed thoroughly then 0.25 $\mathrm{cm^3}$ was preserved in CTAB. 
 
@@ -140,46 +132,66 @@ xlab <- "Sample Location"
 ```
 
 
-```{r hgcaomp, echo=TRUE, message=FALSE, warning=TRUE, fig.scap="HgcA target abundance normalized to organic matter.",  fig.cap="HgcA target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test. *: p <= 0.05, **: p <= 0.01, ***: p <= 0.001", out.width="400pt"}
+```{r hgcaomp, echo=FALSE, message=FALSE, warning=TRUE, fig.scap="HgcA target abundance normalized to organic matter.",  fig.cap="HgcA target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test. *: p <= 0.05, **: p <= 0.01, ***: p <= 0.001", out.width="400pt"}
 
-(hgcaomp <- ggboxplot(hgcaom, x = "Sample", y = "concentration", 
+hgcaomp <- ggboxplot(hgcaom, x = "Sample", y = "concentration", 
        color = "Sample", add = c("mean_se", "jitter"),
        legend = "none", 
        main = "HgcA Normalized to Organic Matter",
        ylab = ylab, xlab = xlab) +
   stat_compare_means(ref.group = "D-01", label = "p.signif",
-                     label.y = c(20010), hide.ns = T, size = fontsize))
-
+                     label.y = c(20010), hide.ns = T, size = fontsize)  
+ggexport(hgcaomp, filename = "figure/hgcaomp.png")
 ```
 
 
-```{r ferbomp, echo=TRUE, message=FALSE, warning=TRUE, fig.scap="FeRB target abundance normalized to organic matter.",  fig.cap="FeRB target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test. *: p <= 0.05, **: p <= 0.01, ***: p <= 0.001",out.width="400pt"}
+\begin{center}
+  \includegraphics[width=400pt]{figure/hgcaomp}
+   \captionof{figure}{HgcA target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test.}\label{fig:hgcaomp}
+\end{center}
+
+
+
+
+```{r ferbomp, echo=FALSE, message=FALSE, warning=TRUE, fig.scap="FeRB target abundance normalized to organic matter.",  fig.cap="FeRB target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test. *: p <= 0.05, **: p <= 0.01, ***: p <= 0.001",out.width="400pt"}
 ferbom <- ompcr %>% filter(type=="Shore", primer == "FeRB")
 ferbcompare <- compare_means(concentration ~ Sample, data = ferbom, ref.group = "D-01") %>% mutate(target = "FeRB") 
-(ferbomp <- ggboxplot(ferbom, x = "Sample", y = "concentration", 
+ferbomp <- ggboxplot(ferbom, x = "Sample", y = "concentration", 
        color = "Sample", add = c("mean_se", "jitter"),
        legend = "none", 
        main = "FeRB Normalized to Organic Matter",
        ylab = ylab, xlab = xlab) +
   stat_compare_means(ref.group = "D-01", label = "p.signif",
-                     label.y = max(ferbom$concentration+20), hide.ns = T, size = fontsize) )
+                     label.y = max(ferbom$concentration+20), hide.ns = T, size = fontsize) 
+ggexport(ferbomp, filename = "figure/ferbomp.png")
 
 ```
 
 
-```{r srbomp, echo=TRUE, message=FALSE, warning=TRUE, fig.scap="SRB target abundance normalized to organic matter.",  fig.cap="SRB target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test. *: p <= 0.05, **: p <= 0.01, ***: p <= 0.001",out.width="400pt"}
+
+\begin{center}
+  \includegraphics[width=400pt]{figure/ferbomp}
+   \captionof{figure}{FeRB target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test.}\label{fig:ferbomp}
+\end{center}
+
+```{r srbomp, echo=FALSE, message=FALSE, warning=TRUE, fig.scap="SRB target abundance normalized to organic matter.",  fig.cap="SRB target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test. *: p <= 0.05, **: p <= 0.01, ***: p <= 0.001",out.width="400pt"}
 srbom <- ompcr %>% filter(type=="Shore", primer == "SRB")
 srbcompare <- compare_means(concentration ~ Sample, data = srbom, ref.group = "D-01") %>% mutate(target = "SRB") 
-(srbomp <- ggboxplot(srbom, x = "Sample", y = "concentration", 
+srbomp <- ggboxplot(srbom, x = "Sample", y = "concentration", 
        color = "Sample", add = c("mean_se", "jitter"),
        legend = "none", 
        main = "SRB Normalized to Organic Matter",
        ylab = ylab, xlab = xlab) +
   stat_compare_means(ref.group = "D-01", label = "p.signif",
-                     label.y = max(srbom$concentration+0.2), hide.ns = T, size = fontsize))
-
+                     label.y = max(srbom$concentration+0.2), hide.ns = T, size = fontsize)
+ggexport(srbomp, filename = "figure/srbomp.png")
 ```
 
+
+\begin{center}
+  \includegraphics[width=400pt]{figure/hgcaomp}
+   \captionof{figure}{"SRB target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test.}\label{fig:srbomp}
+\end{center}
 
 
 ```{r compare, echo=FALSE}
