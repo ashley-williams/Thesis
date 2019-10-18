@@ -5,6 +5,9 @@
 % Masters students should use the ma on as shown below.
 % \documentclass[ma]{uncgdissertation}
 
+
+
+
 %%------------------------------------------------------------------%%
 %%------------------------- Import Packages ------------------------%%
 %%------------------------------------------------------------------%%
@@ -27,11 +30,13 @@
 \usepackage{titlesec}
 \usepackage{lmodern}
 \usepackage{chngcntr}
- 
+\usepackage{graphicx}
 \counterwithin*{figure}{chapter}
 \counterwithin*{table}{chapter}
 
+\usepackage{capt-of} %trying to get figures to work
 
+\usepackage{pdflscape}
 \usepackage{microtype, amsfonts, amsthm}
 \usepackage[colorlinks=false]{hyperref}
 \pdfstringdefDisableCommands{\let\MakeUppercase\relax}
@@ -65,9 +70,31 @@
     \usepackage[utf8]{inputenc}
   \fi
 \fi
+\usepackage{color}
+\usepackage{fancyvrb}
 \DefineShortVerb[commandchars=\\\{\}]{\|}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
 % Add ',fontsize=\small' for more characters per line
+% \newenvironment{Shaded}{}{}
+% \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+% \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+% \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+% \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+% \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+% \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+% \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+% \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+% \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+% \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+% \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+% \newcommand{\RegionMarkerTok}[1]{{#1}}
+% \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+% \newcommand{\NormalTok}[1]{{#1}}
+% \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+% \newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+% \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+
+
 
 
 
@@ -134,7 +161,7 @@
 \newcommand{\ZZ}{\mathbb{Z}}  % Integers
 \newcommand{\XX}{\mathfrak{X}}
 
-%\bibliography{references}
+\bibliography{references}
 
 %%------------------------------------------------------------------%%
 
@@ -219,9 +246,9 @@
 % Recommended if you have figures.  Comment out if you don't have
 % figures.
 
-  $if(lof)$
+$if(lof)$
 \listoffigures
-  $endif$
+$endif$
 
 
 %%------------------------------------------------------------------%%
@@ -230,9 +257,9 @@
 \mainmatter % required
 %%------------------------------------------------------------------%%
  
-  $body$
+$body$
 
-%\section{The Bibliography}
+\section{The Bibliography}
 %%------------------------------------------------------------------%%
 %%------------------------ Bibliography ----------------------------%%
 %%------------------------------------------------------------------%%
@@ -240,8 +267,8 @@
 %% can run bibtex as usual.
 %%------------------------------------------------------------------%%
 
-\bibliography{bib/thesis.bib}
-\bibliographystyle{csl/cell.csl}
+%%\bibliography{bib/thesis.bib}
+%%\bibliographystyle{csl/cell.csl}
 
 %%------------------------------------------------------------------%%
 %%------------------------- Appendices -----------------------------%%
@@ -250,7 +277,7 @@
 %% line and the chapters below.
 %%------------------------------------------------------------------%%
 \appendix
-%%\chapter{Why use appendices?}\label{app:why}
+\chapter{Why use appendices?}\label{app:why}
 
 %%------------------------------------------------------------------%%
 

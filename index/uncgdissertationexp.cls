@@ -2,10 +2,14 @@
 % indent every paragraph
 %fixed spacing in toc for bibliography and appendix.  07272018
 % Fixed vertical spacing on Bibliography page 0802018
-\NeedsTeXFormat{LaTeX2e}
+
 \ProvidesClass{uncgdissertationexp}[2018/04/23 Experimental LaTeX
   class for UNCG dissertation]
+\NeedsTeXFormat{LaTeX2e}
+
 \LoadClass[oneside, openany, 12pt, onecolumn, final]{book}
+\RequirePackage{graphicx} % maybe fix?
+\RequirePackage{fancyhdr} %% Don't know what this does.
 \RequirePackage[tableposition=top, labelsep = period]{caption}
 \RequirePackage[section, below]{placeins}
 \RequirePackage{etoolbox}

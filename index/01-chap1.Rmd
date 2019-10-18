@@ -25,6 +25,8 @@ library(bookdown)
 library(kableExtra)
 library(knitr)
 library(ggpubr)
+
+knitr::opts_chunk$set(echo=FALSE)
 ```
 
 # RESPONSE OF MERCURY METHYLATING BACTERIA TO THE COAL ASH SPILL IN THE DAN RIVER {#pcr}
@@ -57,12 +59,18 @@ panderOptions('knitr.auto.asis', FALSE)
 options(knitr.graphics.auto_pdf = TRUE)
 ``` 
 
-```{r map, echo=TRUE, fig.align='center',fig.scap="Google Earth image of Dan River and sampling sites.",  fig.cap="Google Earth image of the Dan River and surrounding area. Markers indicate samping sites: Blue, upstream of spill site; Green, leaching site; Yellow, downstream dredged locations; Orange, downstream not dredged.",out.width="400pt"}
+r map, fig.align='center',fig.scap="Google Earth image of Dan River and sampling sites.",  fig.cap="Google Earth image of the Dan River and surrounding area. Markers indicate samping sites: Blue, upstream of spill site; Green, leaching site; Yellow, downstream dredged locations; Orange, downstream not dredged.", out.width="400pt"}
 library(knitr)
-map<- "map.png.png"
-include_graphics(map)
+map<- "figure/map.png"
+include_graphics("figure/map.png")
 
-```
+\begin{center}
+  \includegraphics[width=400pt]{figure/map}
+   \captionof{figure}{Google Earth image of Dan River and sampling sites.}\label{fig:map}
+\end{center}
+
+
+
 
 Each site was accessed by boat, where sediment from the riverbank and channel was collected. Riverbank sediment cores were collected in triplicate using a piston-style coring device. Channel samples were collected using a small dredge. Sediment cores were sectioned by depth and individual segments homogenized according to one of three sampling schemes to reduce the total number of samples to be assayed (Table \@ref(tab:scheme)). 0.25 $\mathrm{cm^3}$ samples were preserved in CTAB (cetyltrimethylammonium bromide) for DNA extraction. Channel sediment was mixed thoroughly then 0.25 $\mathrm{cm^3}$ was preserved in CTAB. 
 
@@ -105,19 +113,15 @@ read_excel("data/pcrdatasheets.xlsx", sheet = "primers") %>%
 ```
 
 ### Statistical Analysis
-Statisical analyses included nonparametric tests for significance to determine the overall effect of sampling location on the abundance of the SSU rDNA target per sample. To determine whether abundance of the targets vary in the shore sediment based on the distance from the spill site, the data was first tested for normality with the Shapiro-Wilk test of normality. The data did not follow a gaussian distribution, therefore, the data were transformed (LN(x +1)). The data still failed the test for normailty. Samples were binned according to location irrespective of depth due to limited replication of the samples, and evaluated with nonparametric tests.  For each target, a Kruskall-Wallis test was perfomed to assess if a difference exists between sites. Where a significant difference was observed, a Wilcoxon Rank Sum test was performed to determine differences between the location directly downstream of the spill site and all other locations independently. These tests were then repeated with the data normalized to the mass of sediment and to the amount of organic matter present in each sample. Due to the lack of replication of river channel samples, the samples collected from the river channel bottom were binned into upstream and downstream groups. A Wilcoxon Rank Sum test was used to determine significance. All analyses were conducted using R [@rcoreteamLanguageEnvironmentStatistical2019]. 
-
+Statisical analyses included nonparametric tests for significance to determine the overall effect of sampling location on the abundance of the SSU rDNA target per sample. To determine whether abundance of the targets vary in the shore sediment based on the distance from the spill site, the data was first tested for normality with the Shapiro-Wilk test of normality. The data did not follow a gaussian distribution, therefore, the data were transformed (LN(x +1)). The data still failed the test for normailty. Samples were binned according to location irrespective of depth due to limited replication of the samples, and evaluated with nonparametric tests.  For each target, a Kruskall-Wallis test was perfomed to assess if a difference exists between sites. Where a significant difference was observed, a Wilcoxon Rank Sum test was performed post hoc to determine differences between the location directly downstream of the spill site and all other locations independently. Target abundance of the leaching site was also compared to all other sites. These tests were then repeated with the data normalized to the mass of sediment and to the amount of organic matter present in each sample. Due to the lack of replication of river channel samples, the samples collected from the river channel bottom were binned into upstream and downstream groups. A Wilcoxon Rank Sum test was used to determine significance. All analyses were conducted using R [@rcoreteamLanguageEnvironmentStatistical2019]. 
 
 ## Results
 
 ### Shore Sediment Samples
 
-For each target, sampling site D-01, 0.3 km from the spill site, showed an elevated signal compared to other sites, particulary sites directly upstream and downstream of the D-01 site (Figures \@ref(fig:hgcaomp) - \@ref(fig:srbomp), and was not significantly different from the leaching site, L-01. The leaching site showed a similar pattern, where the target abundance was significantly different from the sites upstream and downstream. The same pattern was observed between the data normalized to the mass of sediment in each sample as well as the amount of organic matter present.   
+For each target, sampling site D-01, 0.3 km from the spill site, showed an elevated signal compared to other sites, particulary, sites upstream and directly downstream of the D-01 site (Figures \@ref(fig:hgcaomp) - \@ref(fig:srbomp), Table \@ref(tab:compare)), and was not significantly different from the leaching site, L-01. The leaching site showed a similar pattern, where the target abundance was significantly different from the sites upstream and downstream, but overall less pairs were significantly different (Table \@ref(tab:compareL)). The same pattern was observed between the data normalized to the mass of sediment in each sample as well as the amount of organic matter present.   
 
-
-need a comparison of leaching site to the rest of them. 
-
-```{r hgcaomp, echo=TRUE, message=FALSE, warning=TRUE, fig.scap="HgcA target abundance normalized to organic matter.",  fig.cap="HgcA target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test. *: p <= 0.05, **: p <= 0.01, ***: p <= 0.001", out.width="400pt"}
+```{r pcrdata, include=FALSE}
 sites <- read_csv("data/sites.csv")
 ompcr <- read.csv("data/OMpcr.csv") %>% 
   gather(primer, concentration, HgcA:SRB, factor_key=TRUE) %>% 
@@ -127,11 +131,16 @@ ompcr <- read.csv("data/OMpcr.csv") %>%
 ompcr$Depth <- as.factor(as.double(ompcr$Depth))
 ompcr$Sample <- factor(ompcr$Sample, levels = sites$`Site ID`)
 hgcaom <- ompcr %>% filter(type=="Shore", primer == "HgcA")
-hgcacompare <- compare_means(concentration ~ Sample, data = hgcaom, ref.group = "D-01", ) 
+hgcacompare <- compare_means(concentration ~ Sample, data = hgcaom, ref.group = "D-01") %>% mutate(target = "HgcA")
 
 fontsize <- 8
 ylab <- "SSU rDNA \U03BCg/g OM"
 xlab <- "Sample Location"
+
+```
+
+
+```{r hgcaomp, echo=TRUE, message=FALSE, warning=TRUE, fig.scap="HgcA target abundance normalized to organic matter.",  fig.cap="HgcA target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test. *: p <= 0.05, **: p <= 0.01, ***: p <= 0.001", out.width="400pt"}
 
 (hgcaomp <- ggboxplot(hgcaom, x = "Sample", y = "concentration", 
        color = "Sample", add = c("mean_se", "jitter"),
@@ -144,23 +153,23 @@ xlab <- "Sample Location"
 ```
 
 
-```{r ferbaomp, echo=TRUE, message=FALSE, warning=TRUE, fig.scap="FeRB target abundance normalized to organic matter.",  fig.cap="FeRB target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test. *: p <= 0.05, **: p <= 0.01, ***: p <= 0.001",out.width="400pt"}
+```{r ferbomp, echo=TRUE, message=FALSE, warning=TRUE, fig.scap="FeRB target abundance normalized to organic matter.",  fig.cap="FeRB target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test. *: p <= 0.05, **: p <= 0.01, ***: p <= 0.001",out.width="400pt"}
 ferbom <- ompcr %>% filter(type=="Shore", primer == "FeRB")
-ferbcompare <- compare_means(concentration ~ Sample, data = ferbom, ref.group = "D-01", ) 
+ferbcompare <- compare_means(concentration ~ Sample, data = ferbom, ref.group = "D-01") %>% mutate(target = "FeRB") 
 (ferbomp <- ggboxplot(ferbom, x = "Sample", y = "concentration", 
        color = "Sample", add = c("mean_se", "jitter"),
        legend = "none", 
        main = "FeRB Normalized to Organic Matter",
        ylab = ylab, xlab = xlab) +
   stat_compare_means(ref.group = "D-01", label = "p.signif",
-                     label.y = max(ferbom$concentration+50), hide.ns = T, size = fontsize) )
+                     label.y = max(ferbom$concentration+20), hide.ns = T, size = fontsize) )
 
 ```
 
 
-```{r srbaomp, echo=TRUE, message=FALSE, warning=TRUE, fig.scap="SRB target abundance normalized to organic matter.",  fig.cap="SRB target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test. *: p <= 0.05, **: p <= 0.01, ***: p <= 0.001",out.width="400pt"}
+```{r srbomp, echo=TRUE, message=FALSE, warning=TRUE, fig.scap="SRB target abundance normalized to organic matter.",  fig.cap="SRB target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test. *: p <= 0.05, **: p <= 0.01, ***: p <= 0.001",out.width="400pt"}
 srbom <- ompcr %>% filter(type=="Shore", primer == "SRB")
-srbcompare <- compare_means(concentration ~ Sample, data = srbom, ref.group = "D-01", ) 
+srbcompare <- compare_means(concentration ~ Sample, data = srbom, ref.group = "D-01") %>% mutate(target = "SRB") 
 (srbomp <- ggboxplot(srbom, x = "Sample", y = "concentration", 
        color = "Sample", add = c("mean_se", "jitter"),
        legend = "none", 
@@ -171,6 +180,37 @@ srbcompare <- compare_means(concentration ~ Sample, data = srbom, ref.group = "D
 
 ```
 
+
+
+```{r compare, echo=FALSE}
+order <- c("U-03", "U-02", "U-01", "L-01", "D-01", "D-02", "D-03", "D-04", "D-05", "D-06") 
+
+allcompare <- rbind(hgcacompare, ferbcompare, srbcompare) %>%  
+  select(-c(1,2,4,5,6,8)) %>% 
+  spread(key=target, value = p.signif) %>% 
+  mutate(group2 =  factor(group2, levels = order)) %>%
+  arrange(group2) %>% 
+  rename(Location = group2)
+allcompare <- allcompare[c(1,3,2,4)] 
+allcompare %>% kable(booktabs=T, caption = "Comparisons of each sampling location to the D-01 sampling location directly downstream of the spill. Wilcoxon Rank Sum Test, ns: not significant, ", align = "l" )
+```
+
+\\*: p <= 0.05, \\*\\*: p <= 0.01, \\*\\*\\*: p <= 0.001
+
+```{r compareL, echo=FALSE}
+hgcacompareL <- compare_means(concentration ~ Sample, data = hgcaom, ref.group = "L-01") %>% mutate(target = "HgcA") 
+ferbcompareL <- compare_means(concentration ~ Sample, data = ferbom, ref.group = "L-01") %>% mutate(target = "FeRB") 
+srbcompareL <- compare_means(concentration ~ Sample, data = srbom, ref.group = "L-01") %>% mutate(target = "SRB") 
+allcompareL <- rbind(hgcacompareL, ferbcompareL, srbcompareL) %>%  select(-c(1,2,4,5,6,8)) %>% 
+  spread(key=target, value = p.signif) %>%
+  mutate(group2 =  factor(group2, levels = order)) %>%
+  arrange(group2) %>% 
+  rename(Location = group2)
+allcompareL <- allcompareL[c(1,3,2,4)]
+allcompare %>% kable(booktabs=T, caption = "Comparisons of each sampling location to the leaching site sampling location. Wilcoxon Rank Sum Test, ns: not significant, ", align = "l" )
+```
+
+\\*: p <= 0.05, \\*\\*: p <= 0.01, \\*\\*\\*: p <= 0.001
 
 
 ### River Channel Samples
@@ -197,7 +237,7 @@ sampling site in milton, not enough replication. Not included in analysis? not e
 
 need more/better/more specific primers
 
-confounding factors - weather, historical background, 
+confounding factors - weather, historical background, data showed similar patterns 
 
 *Downstream transport of coal ash would be important to determine its ultimate fate in the river channels, but our limited sampling may not capture all “hotspots” of coal ash accumulation spilled by the Duke Energy Steam Station in February, 2014.*
 
