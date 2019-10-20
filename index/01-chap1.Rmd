@@ -14,9 +14,7 @@ if(!require(ggplot2))
     install.packages("ggplot2", repos = "http://cran.rstudio.com")
 if(!require(bookdown))
     install.packages("bookdown", repos = "http://cran.rstudio.com")
-if(!require(spartanodown)){
-
-  library(devtools)
+if(!require(spartanodown)){library(devtools)
   devtools::install_github("ashley-williams/spartanodown")
   }
 library(spartanodown)
@@ -25,8 +23,8 @@ library(bookdown)
 library(kableExtra)
 library(knitr)
 library(ggpubr)
-
-knitr::opts_chunk$set(echo=FALSE)
+library(ggplot2)
+knitr::opts_chunk$set(echo=FALSE, warning = FALSE, message = FALSE, cache = TRUE, fig.pos = 'h')
 ```
 
 # RESPONSE OF MERCURY METHYLATING BACTERIA TO THE COAL ASH SPILL IN THE DAN RIVER {#pcr}
@@ -44,12 +42,12 @@ In 2008, a dike failure at the Tennessee Valley Authority Kingston Fossil Plant 
 The coal ash spill into the Dan River has mobilized heavy metals into the environment. The extent of long-term effects of methylated mercury into the food web of the river is unknown. Mercury, along with other coal ash constituents may stimulate mercury-methylating microorganisms in anaerobic sediments.  The goal of this study is to characterize the response of key microbial community constiuents, specifically, *hgcA* abundance as a result of the Dan River coal ash spill. 
 
 ### Objective and hypothesis:
-Determine spatial distribution of mercury-methylating taxa as a result of the coal ash spill using qPCR. 
-I hypothesize that there will be increased abundance of the *hgcA* genes and therefore, mercury methylating taxa downstream of spill site due to stimulation of sulfate and iron reducing bacteria and methanogens by coal ash constituents present in the sediment. 
+**Determine the spatial distribution of mercury-methylating taxa as a result of the coal ash spill using qPCR.** 
+I hypothesize that there will be increased abundance of the qPCR target SSU rDNA and therefore, mercury methylating taxa, Iron Reducing Bacteria, and Sulate Reducing Bacteria downstream of spill site due to stimulation by coal ash constituents present in the sediment. 
 
 ## Methods
 ### Study Sites and Sediment Collection
-The Dan River is a 344 km river that rises in Patrick Co. Virginia and crosses into North Carolina in Stokes County. It flows across the border between NC and VA several times before flowing into the Kerr Reservoir on the Roanoke River which then flows to the Atlantic Ocean at the Albemarle Sound in North Carolina. This study encompasses sites upstream of the spill site in Eden, NC and downstream to Milton, NC, a 103 km section of the Dan, sampled in July 2015, about 17 months following the spill. 
+The Dan River is a 344 km river that rises in Patrick Co. Virginia and crosses into North Carolina in Stokes County. It flows across the border between NC and VA several times before flowing into the Kerr Reservoir on the Roanoke River which then flows to the Atlantic Ocean at the Albemarle Sound in North Carolina. This study encompasses sites up to 3.6 km upstream of the spill site in Eden, NC and 64.7 km downstream to Milton, NC, sampled in July 2015, about 17 months following the spill. 
 
 To characterize the extent of the coal ash spill impact on the microbial community, samples were collected at three upstream reference sites, one site parallel to the ash ponds but upstream of the spill (leaching site), and five downstream sites including near two sites that were dredged for remediation, one at Town Creek, near the spill site and one near Abreu-Grogan Park, Danville, Va., and depositional sites that were not dredged near Danville (Figure \@ref(fig:map), Table \@ref(tab:sites)). 
 
@@ -61,15 +59,15 @@ options(knitr.graphics.auto_pdf = TRUE)
 
 \begin{center}
   \includegraphics[width=400pt]{figure/map}
-   \captionof{figure}{Google Earth image of Dan River and sampling sites. Markers indicate samping sites: Blue, upstream of spill site; Green, leaching site; Yellow, downstream dredged locations; Orange, downstream not dredged.}\label{fig:map}
+   \captionof{figure}[Google Earth image of Dan River and sampling locations.]{Google Earth image of Dan River and sampling sites. Markers indicate samping sites: Blue, upstream of spill site; Green, leaching site; Yellow, downstream dredged locations; Orange, downstream not dredged.}\label{fig:map}
 \end{center}
 
-Each site was accessed by boat, where sediment from the riverbank and channel was collected. Riverbank sediment cores were collected in triplicate using a piston-style coring device. Channel samples were collected using a small dredge. Sediment cores were sectioned by depth and individual segments homogenized according to one of three sampling schemes to reduce the total number of samples to be assayed (Table \@ref(tab:scheme)). 0.25 $\mathrm{cm^3}$ samples were preserved in CTAB (cetyltrimethylammonium bromide) for DNA extraction. Channel sediment was mixed thoroughly then 0.25 $\mathrm{cm^3}$ was preserved in CTAB. 
+Each site was accessed by boat, where sediment from the riverbank and channel was collected. Riverbank sediment cores were collected in triplicate using a piston-style coring device. Channel samples were collected using a small dredge. Sediment cores were sectioned by depth and individual segments homogenized according to one of three sampling schemes to reduce the total number of samples to be assayed (Table \@ref(tab:scheme)). 0.25 $\mathrm{cm^3}$ samples were preserved in CTAB (cetyltrimethylammonium bromide) for DNA extraction. Channel sediment was homogenized then 0.25 $\mathrm{cm^3}$ was preserved in CTAB. 
 
 
 ```{r sites, echo=FALSE, message=FALSE, warning=FALSE}
 read_csv("data/sites.csv") %>% 
-  kable(booktabs=T, caption = "Sampling sites.", align = "c", linesep="") %>% 
+  kable(booktabs=T, caption = "Sampling Locations.", align = "c", linesep="") %>% 
   column_spec(c(1,4:6), width = "2cm") %>%
   column_spec(2, width = "3cm") %>%
   landscape()
@@ -85,33 +83,37 @@ scheme %>%  kable(booktabs=T, caption = "Sediment sampling schemes.", align = "c
 
 ### DNA extraction and qPCR
 
-A CTAB extraction was performed using standard protocol for each sample [@stewartRapidCTABDNA1993]. The DNA extracted was quantified and subsequently diluted to a standard concentration of 5 ng/L in TE (Tris-EDTA) buffer and stored at 4C. Extracted DNA quantity and purity were determined from 2 uL subsamples of each extraction using Thermo Scientific Nanodrop Spectrophotometer based on the 260/280 nm wavelength ratio.
+A CTAB extraction was performed using standard protocol for each sample [@stewartRapidCTABDNA1993]. The DNA extracted was quantified and subsequently diluted to a standard concentration of 5 ng/L in TE (Tris-EDTA) buffer pH 8.0 and stored at 4C. Extracted DNA quantity and purity were determined from 2 uL subsamples of each extraction using Thermo Scientific Nanodrop Spectrophotometer based on the 260/280 nm wavelength ratio.
 
 An Applied Biosystems StepOne real-time PCR System was utilized to detect, amplify, and quantify target DNA gene proxies and representative taxa to meet the objective. Primers were chosen from literature targeting a general metabolic category. These include generic primers to the *hgcA* gene, a sulfate reducing gene, *dsr*, and the 16S rDNA of iron reducing bacteria. [@geetsDsrBGenebasedDGGE2006;@schaeferDetectionKeyHg2014;@wagnerPhylogenyDissimilatorySulfite1998;@dalyDevelopmentOligonucleotideProbes2000], Table \@ref(tab:primers). Each reaction contained the following: 10 uL of Power Sybr® Green PCR master mix, 1 uL of forward primer, 1 uL of reverse primer, 8 uL of sterile deionized water, and 1 uL of extracted DNA.  Three negative control reactions, samples repeated in triplicate, and positive standard controls serially diluted in triplicate, were ran in each 48 well plate. Extracted DNA from a pure culture of *Desulfovibrio africanus* (ATCC 19997), an isolate known to contain the *HgcA* gene was used as a standard for the *HgcA* and SRB targets. *Geobacter metallireducens* (ATCC 53774) served as the positive control and standard for FeRB primers. The real-time qPCR run method consisted of a holding stage for 5 minutes at 95ºC, followed by 40 cycles of 15 seconds at 95ºC, 1 minute at 57ºC, one minute at 72ºC, and a 15-second data collection at 80ºC, followed by a melt curve analysis beginning at 95ºC, dropping to 60ºC and increasing at 0.3ºC every second until it reaches 95ºC. 
 
-The relative abundance of targets was computed by the StepOne software using the standard curve. The melt curve was examined manually to ensure amplicon specificity. 
+The relative abundance of targets was computed by the StepOne software using the standard curve. The melt curve was examined to ensure amplicon specificity. 
 
-The SSU rDNA abundance was normalized to the volume of extracted sediment as well as to organic matter. Where the amount of organic matter present in each sample was determined by ash free dry mass (AFDM). Each sample was dried tat 60C for 48 hours, then combusted in a muffle furnace at 500C for 2 hours. Samples were weighed before and after combustion to calculate the AFDM. 
-
-
+The SSU rDNA abundance was normalized to the volume of extracted sediment as well as to organic matter. Where the amount of organic matter present in each sample was determined by ash free dry mass (AFDM). Each sample was dried at 60C for 48 hours, then combusted in a muffle furnace at 500C for 2 hours. Samples were weighed before and after combustion to calculate the AFDM. 
 
 ```{r primers, echo=FALSE, message=TRUE, warning=TRUE}
 library(readxl)
 library(kableExtra)
 library(tidyverse)
 read_excel("data/pcrdatasheets.xlsx", sheet = "primers") %>% 
-  kable(booktabs=T, caption = "Primers evaluated.", align = "l" ) %>% 
+  kable(booktabs=T, caption = "Primers evaluated.", align = "l",linesep = "" ) %>% 
   landscape()
 ```
 
 ### Statistical Analysis
-Statisical analyses included nonparametric tests for significance to determine the overall effect of sampling location on the abundance of the SSU rDNA target per sample. To determine whether abundance of the targets vary in the shore sediment based on the distance from the spill site, the data was first tested for normality with the Shapiro-Wilk test of normality. The data did not follow a gaussian distribution, therefore, the data were transformed (LN(x +1)). The data still failed the test for normailty. Samples were binned according to location irrespective of depth due to limited replication of the samples, and evaluated with nonparametric tests.  For each target, a Kruskall-Wallis test was perfomed to assess if a difference exists between sites. Where a significant difference was observed, a Wilcoxon Rank Sum test was performed post hoc to determine differences between the location directly downstream of the spill site and all other locations independently. Target abundance of the leaching site was also compared to all other sites. These tests were then repeated with the data normalized to the mass of sediment and to the amount of organic matter present in each sample. Due to the lack of replication of river channel samples, the samples collected from the river channel bottom were binned into upstream and downstream groups. A Wilcoxon Rank Sum test was used to determine significance. All analyses were conducted using R [@rcoreteamLanguageEnvironmentStatistical2019]. 
+Statisical analyses included nonparametric tests for significance to determine the overall effect of sampling location on the abundance of the target SSU rDNA per sample. To determine whether abundance of the targets vary in the shore sediment based on the distance from the spill site, the data was first tested for normality with the Shapiro-Wilk test of normality. The data did not follow a gaussian distribution, therefore, the data were transformed (LN(x +1)), but still failed the test for normailty. Samples were binned according to location irrespective of depth due to limited replication of depths, and evaluated with nonparametric tests.  For each target, a Kruskall-Wallis test was perfomed to assess whether a difference in target SSU rDNA abundance exists between sites. Where a significant difference was observed, a Wilcoxon Rank Sum test was performed post hoc to determine differences between the location directly downstream of the spill site and all other locations independently. Target abundance of the leaching site was also compared to all other sites. These tests were then repeated with the data normalized to the mass of sediment and to the amount of organic matter present in each sample. 
+
+Due to the lack of replication of river channel samples, the samples collected from the river channel bottom were binned into upstream and downstream groups. A Wilcoxon Rank Sum test was used to determine significance. All analyses were conducted using R [@rcoreteamLanguageEnvironmentStatistical2019]. 
 
 ## Results
 
 ### Shore Sediment Samples
 
-For each target, sampling site D-01, 0.3 km from the spill site, showed an elevated signal compared to other sites, particulary, sites upstream and directly downstream of the D-01 site (Figures \@ref(fig:hgcaomp) - \@ref(fig:srbomp), Table \@ref(tab:compare)), and was not significantly different from the leaching site, L-01. The leaching site showed a similar pattern, where the target abundance was significantly different from the sites upstream and downstream, but overall less pairs were significantly different (Table \@ref(tab:compareL)). The same pattern was observed between the data normalized to the mass of sediment in each sample as well as the amount of organic matter present.   
+The Kuskall-Wallis test indicated a significant difference between the abundance of amplified SSU rDNA and sampling locations for each qPCR target assessed (Kruskall-Wallis p.value <0.05). For each target, sampling site D-01, the first sampling site downstream (0.3 km) from the spill site, indicated an elevated signal compared to some sites downstream and upstream (Figures \@ref(fig:hgcaomp) - \@ref(fig:srbomp), Table \@ref(tab:compare)). However, D-01 was not the location with the highest abundance. The sampling location D-03, the farthest upstream location, 3.6 km upstream of the spill, and 0.5 km downstream from the Smith River confluence, measured the hightest abundance of SSU rDNA of each of the targets tested (Figures \@ref(fig:hgcaomp) - \@ref(fig:srbomp), Table \@ref(tab:compareU)). 
+
+Additionally, the leaching site, L-01 is not significantly different from the D-01 location. When comparing the leaching site to all others, targets are of a slightly higher abundance than most of the other sampling locations. This pattern is similar to the D-01 comparisons, but overall, less pairs are significantly different (Table \@ref(tab:compareL)). The same pattern was observed between the data normalized to the mass of sediment in each sample as well as the amount of organic matter present.    
+
+
 
 ```{r pcrdata, include=FALSE}
 sites <- read_csv("data/sites.csv")
@@ -132,65 +134,62 @@ xlab <- "Sample Location"
 ```
 
 
-```{r hgcaomp, echo=FALSE, message=FALSE, warning=TRUE, fig.scap="HgcA target abundance normalized to organic matter.",  fig.cap="HgcA target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test. *: p <= 0.05, **: p <= 0.01, ***: p <= 0.001", out.width="400pt"}
+```{r hgcaomp, include=FALSE}
 
-hgcaomp <- ggboxplot(hgcaom, x = "Sample", y = "concentration", 
+ggboxplot(hgcaom, x = "Sample", y = "concentration", 
        color = "Sample", add = c("mean_se", "jitter"),
        legend = "none", 
        main = "HgcA Normalized to Organic Matter",
        ylab = ylab, xlab = xlab) +
   stat_compare_means(ref.group = "D-01", label = "p.signif",
                      label.y = c(20010), hide.ns = T, size = fontsize)  
-ggexport(hgcaomp, filename = "figure/hgcaomp.png")
+ggsave("figure/hgcaomp.png", height=5.5)
 ```
 
 
 \begin{center}
   \includegraphics[width=400pt]{figure/hgcaomp}
-   \captionof{figure}{HgcA target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test.}\label{fig:hgcaomp}
+   \captionof{figure}[HgcA abundance normalized to organic matter at each sampling location.]{HgcA abundance normalized to organic matter at each sampling location. Asterisks signify difference between the reference, D-01 using the Wilcoxon Rank Sum test. * : p <= 0.05, ** : p <= 0.01, *** : p <= 0.001}\label{fig:hgcaomp}
 \end{center}
 
 
-
-
-```{r ferbomp, echo=FALSE, message=FALSE, warning=TRUE, fig.scap="FeRB target abundance normalized to organic matter.",  fig.cap="FeRB target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test. *: p <= 0.05, **: p <= 0.01, ***: p <= 0.001",out.width="400pt"}
+```{r ferbomp,  include=FALSE}
 ferbom <- ompcr %>% filter(type=="Shore", primer == "FeRB")
 ferbcompare <- compare_means(concentration ~ Sample, data = ferbom, ref.group = "D-01") %>% mutate(target = "FeRB") 
-ferbomp <- ggboxplot(ferbom, x = "Sample", y = "concentration", 
+ggboxplot(ferbom, x = "Sample", y = "concentration", 
        color = "Sample", add = c("mean_se", "jitter"),
        legend = "none", 
        main = "FeRB Normalized to Organic Matter",
        ylab = ylab, xlab = xlab) +
   stat_compare_means(ref.group = "D-01", label = "p.signif",
                      label.y = max(ferbom$concentration+20), hide.ns = T, size = fontsize) 
-ggexport(ferbomp, filename = "figure/ferbomp.png")
+ggsave(filename = "figure/ferbomp.png", height=5.5)
 
 ```
 
 
-
 \begin{center}
   \includegraphics[width=400pt]{figure/ferbomp}
-   \captionof{figure}{FeRB target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test.}\label{fig:ferbomp}
+   \captionof{figure}[FeRB abundance normalized to organic matter at each sampling location.]{FeRB abundance normalized to organic matter at each sampling location. Asterisks signify difference between the reference, D-01 using the Wilcoxon Rank Sum test. * : p <= 0.05, ** : p <= 0.01, *** : p <= 0.001}\label{fig:ferbomp}
 \end{center}
 
-```{r srbomp, echo=FALSE, message=FALSE, warning=TRUE, fig.scap="SRB target abundance normalized to organic matter.",  fig.cap="SRB target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test. *: p <= 0.05, **: p <= 0.01, ***: p <= 0.001",out.width="400pt"}
+```{r srbomp, include=FALSE}
 srbom <- ompcr %>% filter(type=="Shore", primer == "SRB")
 srbcompare <- compare_means(concentration ~ Sample, data = srbom, ref.group = "D-01") %>% mutate(target = "SRB") 
-srbomp <- ggboxplot(srbom, x = "Sample", y = "concentration", 
+ggboxplot(srbom, x = "Sample", y = "concentration", 
        color = "Sample", add = c("mean_se", "jitter"),
        legend = "none", 
        main = "SRB Normalized to Organic Matter",
        ylab = ylab, xlab = xlab) +
   stat_compare_means(ref.group = "D-01", label = "p.signif",
                      label.y = max(srbom$concentration+0.2), hide.ns = T, size = fontsize)
-ggexport(srbomp, filename = "figure/srbomp.png")
+ggsave(filename = "figure/srbomp.png", height=5.5)
 ```
 
 
 \begin{center}
-  \includegraphics[width=400pt]{figure/hgcaomp}
-   \captionof{figure}{"SRB target abundance normalized to organic matter. Asterisks signify difference between the reference, D-01 using the Wilcoxon rank sum test.}\label{fig:srbomp}
+  \includegraphics[width=400pt]{figure/srbomp}
+   \captionof{figure}[SRB abundance normalized to organic matter at each sampling location.]{SRB abundance normalized to organic matter at each sampling location. Asterisks signify difference between the reference, D-01 using the Wilcoxon Rank Sum test. * : p <= 0.05, ** : p <= 0.01, *** : p <= 0.001}\label{fig:srbomp}
 \end{center}
 
 
@@ -204,10 +203,12 @@ allcompare <- rbind(hgcacompare, ferbcompare, srbcompare) %>%
   arrange(group2) %>% 
   rename(Location = group2)
 allcompare <- allcompare[c(1,3,2,4)] 
-allcompare %>% kable(booktabs=T, caption = "Comparisons of each sampling location to the D-01 sampling location directly downstream of the spill. Wilcoxon Rank Sum Test, ns: not significant, ", align = "l" )
+allcompare %>% kable(booktabs=T, linesep = "",
+                     caption = "Comparisons of each sampling location to the D-01 sampling location directly downstream of the spill. Wilcoxon Rank Sum Test, ns: not significant, * : p <= 0.05, ** : p <= 0.01, *** : p <= 0.001", 
+                     caption.short = "Comparisons of each sampling location to the first downstream sampling location.",
+                     align = "l" )
 ```
 
-\\*: p <= 0.05, \\*\\*: p <= 0.01, \\*\\*\\*: p <= 0.001
 
 ```{r compareL, echo=FALSE}
 hgcacompareL <- compare_means(concentration ~ Sample, data = hgcaom, ref.group = "L-01") %>% mutate(target = "HgcA") 
@@ -219,39 +220,47 @@ allcompareL <- rbind(hgcacompareL, ferbcompareL, srbcompareL) %>%  select(-c(1,2
   arrange(group2) %>% 
   rename(Location = group2)
 allcompareL <- allcompareL[c(1,3,2,4)]
-allcompare %>% kable(booktabs=T, caption = "Comparisons of each sampling location to the leaching site sampling location. Wilcoxon Rank Sum Test, ns: not significant, ", align = "l" )
+allcompare %>% kable(booktabs=T, linesep = "",
+                     caption = "Comparisons of each sampling location to the leaching site sampling location. Wilcoxon Rank Sum Test, ns: not significant, * : p <= 0.05, ** : p <= 0.01, *** : p <= 0.001",
+                     caption.short = "Comparisons of each sampling location to the leaching site sampling location.",
+                     align = "l" )
 ```
 
-\\*: p <= 0.05, \\*\\*: p <= 0.01, \\*\\*\\*: p <= 0.001
+```{r compareU, echo=FALSE}
+hgcacompareU <- compare_means(concentration ~ Sample, data = hgcaom, ref.group = "U-03") %>% mutate(target = "HgcA") 
+ferbcompareU <- compare_means(concentration ~ Sample, data = ferbom, ref.group = "U-03") %>% mutate(target = "FeRB") 
+srbcompareU <- compare_means(concentration ~ Sample, data = srbom, ref.group = "U-03") %>% mutate(target = "SRB") 
+allcompareU <- rbind(hgcacompareU, ferbcompareU, srbcompareU) %>%  select(-c(1,2,4,5,6,8)) %>% 
+  spread(key=target, value = p.signif) %>%
+  mutate(group2 =  factor(group2, levels = order)) %>%
+  arrange(group2) %>% 
+  rename(Location = group2)
+allcompareU <- allcompareU[c(1,3,2,4)]
+allcompare %>% kable(booktabs=T, linesep = "", 
+                     caption = "Comparisons of each sampling location to the furthest upstream sampling location. Wilcoxon Rank Sum Test, ns: not significant, * : p <= 0.05, ** : p <= 0.01, *** : p <= 0.001",
+                     caption.short = "Comparisons of each sampling location to the furthest upstream sampling location.",
+                     align = "l" )
+```
 
+\newpage
 
 ### River Channel Samples
 
-River channel samples coarse sand... discussion about the samples? from tsui paper??
+The samples collected in the river channel were limited by one sample at each site. To assess significance, samples were binned according to upstream and downstream. For each of the SSU rDNA targets tested, there is no significant difference between the groups (Figure \@ref(fig:channel)). 
 
 
-
+\begin{center}
+  \includegraphics[width=400pt]{figure/channel}
+  \captionof{figure}[River channel abundance at sampling sites upstream and downstream.]{River channel abundance at sampling sites upstream and downstream normalized to organic matter.}\label{fig:channel}
+\end{center}
 
 ## Discussion
 
-*Results from microbial studies are preliminary and further analysis may clarify our understanding of patterns described in this report. DNA in sediments along the shore tended to 
-decrease with distance downstream, while DNA in sediments within the channel appeared to increase. The increase along the channel was likely tied to the increase in organic matter (Fig. 5), as microbes colonize the organic matter.*
+The SSU rDNA abundance at the sampling location 0.3 km downstream of the spill site, D-01, has an elevated signal over some locations upstream and downstream. However, the furthest upstream site measured the highest abundance of all locations. Additionally, the leaching site and D-01 were not significantly different, and also exhibited and elevated signal over some locations. This may signify that there is an impact from leaching of coal ash constituents. All primers tested exhibited the similar patterns of significance and abundance per location and may possibly be correlated due to an unknown confounding factor.
 
-Baseline? can we say that the background isn't just elevated everywhere because of the powerplant? Is that a thing?
+This field study was constrained by access with few boat ramps, and two dams. River gauge height also provided a logistical obstacle for repeated field sampling.  The leaching site was accessed after permission from Duke Energy from their onsite boat ramp.  
 
-Site selection: Constrained by access, very few boat ramps, and two dams. Leaching site was access with permission from Duke Energy
- 
-total organic hg normalized to organic matter. significant difference downstream? Fig. 8 from wrri report. Background is blue line... how should I include that data?
+Within this study, replication of core depth was limited, therefore, the interaction between the depth of samples was not evaluated. However, a scatterplot of the data did not show any clear patterns indicating a depth interaction, but the effect is inconclusive. We also experienced technical difficulties when assaying additional primer sets leading to a smaller suite of targets to determine overall microbial community response to the coal ash spill. 
 
-Further studies? Talk about why I didn't do a second sampling, to get seaonality? Talk about the inability of getting the pcr to work with the new primers? I wanted to probe for methanogens, and more/different hgca primers to give a better indication of mercury methylating activity. 
-
-sampling site in milton, not enough replication. Not included in analysis? not enough degrees of freedom to statistically infer significance of regression coefficents?? 
-
-need more/better/more specific primers
-
-confounding factors - weather, historical background, data showed similar patterns 
-
-*Downstream transport of coal ash would be important to determine its ultimate fate in the river channels, but our limited sampling may not capture all “hotspots” of coal ash accumulation spilled by the Duke Energy Steam Station in February, 2014.*
-
-*To conclude, our findings indicated, if any, only a very small proportion of coal ash mixed in some of river sediments but we found no indication of Hg contamination in the aquatic food webs up to 65 km downstream of spill site at Eden, NC, after about 1.5 years of the incident. However, it may be possible that Hg contamination sediment “hotspots” were not sampled due to the fact that coal ash would be dispersed and incorporated heterogeneously into riverbed leading to “uneven” spatial distribution throughout the channels. Otherwise, it is possible that coal ash is buried in deeper layers of the sediment or transported further downstream of our most downstream sampling site (65 km) by 1.5 years after the incident. Compared with Hg, boron (B) and strontium (Sr) in water (Ruhl et al., 2010; Harkness et al., 2016) and As in sediment (Yang et al. 2015) are of bigger concerns in Dan River, and therefore we urge more monitoring studies needed to examine the long-term impact of toxic metals from coal ash on the health of the whole Dan River ecosystems.*
+The results from this microbial study are inconclusive. Our findings indicate that a significant difference exists between some of the sampling locations and the location directly downstream of the spill site, but the highest signal of SSU rDNA for each target was found at the furthest location upstream from the spill. Hg contamination within the sediment may still be possible, and our methods of sampling sediment may not have been robust to the variable and "hotspot" nature of the coal ash deposition and dispersal into the river sediments. It is plausible that the coal ash is buried in the sediment or has been transported further downstream than our furthest downstream location, 1.5 years after the spill event.    
 
