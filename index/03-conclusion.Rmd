@@ -1,8 +1,22 @@
 # CONCLUSIONS
 
-If we don't want Conclusion to have a chapter number next to it, we can add the `{-}` attribute.
+*Recent studies suggest that the published HgcA primers that we and others have used target a limited suite of Hg methylating organisms (Cynthia Gilmour, Smithsonian Institution, personal communication), thus interpretation of these results is a bit problematic and we are continuing to refine our approach in light of this new information. Results thus far indicate that Hg methylating genes increased in the river channel, consistent with the observed increase in Hg and higher concentration of organic matter. Even though Hg concentration is linked to organic matter, it was clear that some of the increase in Hg was clearly attributable to the coal ash spill. However, further analysis is needed to link the increase in Hg methylating genes to the coal-ash derived Hg.*
 
-**More info**
+*The observed metal tolerance among coal ash isolates is consistent with previous studies (Klubek et al. 1992, Raja and Omine 2013, Stepanouskas et al. 2005). One caveat is that we did not directly measure metal ion concentrations in the laboratory experiment, so it is likely that some metal ions were bound to organics or other chemicals and exposure levels were lower than nominal concentrations. We are continuing to assay additional isolates. We have also extracted DNA from isolate cultures (Stewart and Via 1997) and will submit genomic DNA for sequencing
+in order to identify isolates (e.g. Bruce et al. 1992), if possible, by comparison to GenBank sequences for SSU rDNA.*
 
-And here's some other random info: the first paragraph after a chapter title or section head _shouldn't be_ indented, because indents are to tell the reader that you're starting a new paragraph. Since that's obvious after a chapter or section title, proper typesetting doesn't add an indent there.
-
+*Hg was clearly elevated in sediments downstream of the coal ash spill, in a manner that was
+independent of longitudinal changes in organic matter content of the sediments, thus very likely
+derived from the coal ash spill itself. However, Hg stable isotope studies, which are pending, are
+needed to evaluate the coal ash source definitively. The patterns of total DNA, Hg methylating
+bacteria, and Fe reducing bacteria in the channel are consistent with a coal ash effect, but may
+also reflect the longitudinal increase in organic matter. The patterns of reduced total DNA
+abundance, potential mercury methylating bacteria, and iron reducing bacteria associated with
+nearshore sediments were unexpected, and would require further study to evaluate. They may
+reflect the variability associated with limited point sampling over a long reach rather than a
+consistent response to an environmental factor or perturbation. The appearance of metal tolerant
+bacteria isolated from coal ash was not surprising, but the apparent similar level of metal
+tolerance of soil bacteria not associated with coal ash for most metals suggests that ambient
+levels of the metals tested may be high enough to select for metal tolerance as a general
+rule. However, Cd was a clear exception. Further work on these isolates should provide more
+clarity.*

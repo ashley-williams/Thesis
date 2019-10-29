@@ -1,20 +1,16 @@
-# IDENTIFICATION AND CHARACTERIZATION OF HEAVY METAL TOLERANCE OF BACTERIA CULTURED FROM COAL ASH {#metal}
-
-## Abstract
-
-Coal ash, the residual material of coal combustion for electricity generation, contains heavy metals and other pollutants, is generally deposited into reservoir ponds for storage, although it may spill or leach into nearby water and possibly disrupt aquatic ecological communities. We identified and characterized the metal tolerance of bacteria isolated from a sample of coal ash from a coal ash pond located at the retired Dan River Steam Station in Eden, NC.  SSU rDNA extracted from isolated organisms was sequenced and isolates were predominantly identified as Bacillus and Arthrobacter spp. Isolates were grown in 50% nutrient broth amended with heavy metals commonly found in coal ash waste (As, Cd, Cr, Hg, Pb, Se, Zn), at environmentally relevant concentrations. Growth of coal ash isolates was compared to isolates cultured from coal ash free soil. Overall, isolates exhibited metal tolerance, but so did the soil isolates. 
+# IDENTIFICATION AND CHARACTERIZATION OF HEAVY METAL TOLERANCE OF BACTERIA ISOLATED FROM COAL ASH {#metal}
 
 ## Introduction
 
-Coal ash is a waste product generated from power plants that use coal to generate electricity. After the combustion process, the ash and other waste products are discharged as a slurry into a settling pond. To prevent overflow in the pond is maintained by pumping surface water into a nearby water-source, usually a river. In North Carolina, 14 such coal ash ponds are maintained by Duke Energy  [REF]. The location of power plants near water sources is necessary for meeting water demands during the electricity generation process. Unlined and uncapped coal ash waste ponds therefore have the potential for leaching contaminants into the groundwater or spilling into nearby waterways possibly polluting drinking water and/or disrupting aquatic ecological communities [REF].  
+Coal ash is a waste product generated from power plants that use coal to generate electricity. After the combustion process, the ash and other waste products are discharged as a slurry into a settling pond [@connorsCoalashManagementElectric2015]. To prevent overflow in the pond is maintained by pumping surface water into a nearby water-source, usually a river. In North Carolina, 14 such coal ash ponds are maintained by Duke Energy. The location of power plants near water sources is necessary for meeting water demands during the electricity generation process. Unlined and uncapped coal ash waste ponds therefore have the potential for leaching contaminants into the groundwater or spilling into nearby waterways possibly polluting drinking water and/or disrupting aquatic ecological communities [@otterTrophicStatusMetal2012; @ruhlSurveyPotentialEnvironmental2009].  
 
-On February 2, 2014, a coal ash pond located at the retired Dan River Steam Station near Eden, NC expelled approximately 39,000 tons of coal ash slurry into the Dan River of North Carolina due to an underground pipe collapse. The slurry coated the river bottom for XX km… Emptied in Kerr Lake. XX was dredged from the pond… [REF]
+On February 2, 2014, a coal ash pond located at the retired Dan River Steam Station near Eden, NC expelled approximately 39,000 tons of coal ash slurry into the Dan River of North Carolina due to an underground pipe collapse [@ncdeqRapidResponseTimeline2014]. The slurry coated the river bottom for approximately 120 km [@hesterbergAssessmentTraceelementImpacts2014]. Dredging operations conducted by Duke Energy at Town Creek and an area upstream from the Schoolfield Dam in Danville, VA, removed approximately 2,500 tons of coal ash-laden sediment [@dennislemlyDamageCostDan2015].
 
-Physical and chemical properties of coal ash are determined by the geographical location where the raw coal was mined, the type of boiler, and the operating conditions of the power plant [@jayaranjanReuseOptionsCoal2014].  All natural elements can be found in coal ash including some trace elements such as arsenic, cadmium, chromium, mercury, lead, selenium, and zinc [@greelyjr.EffectsSedimentContaining2014; @jayaranjanReuseOptionsCoal2014].  Coal ash is wholly comprised of multiple waste products with differing chemical properties including fly ash, bottom ash, and byproducts of pollution mitigation processes [REF]. Fly ash is composed mainly of oxides such as, $\mathrm{SiO_2}$, $\mathrm{Al_2O}$, $\mathrm{Fe_2O}$ [@usepaFlyAshCoal2014]. Bottom ash consists of silicate, carbonate, aluminate, ferrous materials and high concentrations of several heavy metals and metalloids [@usepaBottomAshCoal2014]. 
+Physical and chemical properties of coal ash are determined by the geographical location where the raw coal was mined, the type of boiler, and the operating conditions of the power plant [@jayaranjanReuseOptionsCoal2014].  All natural elements can be found in coal ash including some trace elements such as arsenic, cadmium, chromium, mercury, lead, selenium, and zinc [@greelyjr.EffectsSedimentContaining2014; @jayaranjanReuseOptionsCoal2014].  Coal ash is wholly comprised of multiple waste products with differing chemical properties including fly ash, bottom ash, and byproducts of pollution mitigation processes, such as scrubber systems. Fly ash is composed mainly of oxides such as, $\mathrm{SiO_2}$, $\mathrm{Al_2O}$, $\mathrm{Fe_2O}$ [@usepaFlyAshCoal2014]. Bottom ash consists of silicate, carbonate, aluminate, ferrous materials and high concentrations of several heavy metals and metalloids [@usepaBottomAshCoal2014]. 
 
-Heavy metals are characterized by a density greater than 5 g/$\mathrm{cm^3}$, mostly transition elements, and play an important role as trace elements in biochemical reactions. These heavy metals, due to an incompletely filled d orbital, allow the cations to form complex compounds with the potential to be redox reactive. Heavy metal ions form unspecific complex compounds in the cell, leading to toxic effects. For example, $\mathrm{Hg^{2+}}$, $\mathrm{Cd^{2+}}$, and $\mathrm{Ag^{+}}$ form strong toxic complexes that are not conducive to any physiological function and are highly toxic. Trace metals such as $\mathrm{Zn^{2+}}$, $\mathrm{Ni^{2+}}$, and $\mathrm{Cu^{2+}}$ required for some functions are toxic at high concentrations. Therefore, the intracellular concentration of heavy metals must be controlled, and organisms have adapted heavy metal resistance strategies [REFs].  
+Heavy metals are characterized by a density greater than 5 g/$\mathrm{cm^3}$, mostly transition elements, and play an important role as trace elements in biochemical reactions. These heavy metals, due to an incompletely filled d orbital, allow the cations to form complex compounds with the potential to be redox reactive. Heavy metal ions form unspecific complex compounds in the cell, leading to toxic effects. For example, $\mathrm{Hg^{2+}}$, $\mathrm{Cd^{2+}}$, and $\mathrm{Ag^{+}}$ form strong toxic complexes that are not conducive to any physiological function and are highly toxic. Trace metals such as $\mathrm{Zn^{2+}}$, $\mathrm{Ni^{2+}}$, and $\mathrm{Cu^{2+}}$ required for some functions are toxic at high concentrations. Therefore, the intracellular concentration of heavy metals must be controlled, and organisms have adapted heavy metal resistance strategies [@binkleyHeavyMetalsWastewater2003; @poulainCrackingMercuryMethylation2013].  
 
-Through the process of coal combustion, the coal ash is rendered sterile. Therefore, inocuation of coal ash occurs by natual processes including atmospheric deposition, i.e. rainfall, windblown particulates. Opportunistic microorganisms adapt to the high concentration of heavy metals through resistance or metal detoxification. In addition to naturally occurring processes, anthropogenic perturbations such as coal ash spills result in altered environments in which microbes may adapt and mobilize coal ash consituents into foodwebs (ref?). Knowledge of the microbial community stucture and distribution is important to estimate the extent of biological mobility of these pollutants. Further, organisms which exhibit metal tolerance may warrant further investigation into their potential for bioremediation.
+Through the process of coal combustion, the coal ash is rendered sterile. Therefore, inocuation of coal ash occurs by natual processes including atmospheric deposition through rainfall and windblown particulates. Opportunistic microorganisms may adapt to the high concentration of heavy metals through resistance or metal detoxification. In addition to naturally occurring processes, anthropogenic perturbations such as coal ash spills result in altered environments in which microbes may adapt and mobilize coal ash consituents into foodwebs. Knowledge of the microbial community stucture and distribution is important to estimate the extent of biological mobility of these pollutants. Further, organisms which exhibit metal tolerance may warrant further investigation into their potential for bioremediation [@keshriProfileBacterialCommunities2014; @naikLeadResistantBacteria2013; @pepiMercuryresistantBacterialStrains2011; @rajaCharacterizationBoronTolerant2012].
 
 The objective of this study was to determine if a microbial community is viable and present in coal ash ponds, and if present, identify taxa, and assess the metal tolerance of isolated organisms. Previous studies have analyzed the microbial community of soils  amended with coal ash (e.g. [@klubekCharacterizationMicrobialAbundance1992]). No studies to date have determined the microbial community of coal ash alone. Through preliminary PCR anlysis, a small amount of DNA was present in a coal ash sample from the Dan River Steam Station coal ash pond, but we were not able to amplifiy SSU rDNA from bacteria with universal prokaryotic primers, possibly due to contaminamnts present in the sample or low concentrations of bacterial DNA. In this study, we increased the abundance of microbes and their DNA by culturing and isolaing samples of coal ash, to ensure adequate amounts of DNA for analyses. 
 
@@ -30,10 +26,10 @@ The objective of this study was to determine if a microbial community is viable 
 
 ## Methods
 ### Pure culture isolation from coal ash
-Samples of coal ash provided by our collaborator, Brian Williams of the Dan River Basin Association was taken directly from a coal ash retention pond at the retired Dan River Steam Station near Eden, NC. To culture isolated organisms, aliquots (0.5 g) of coal ash from the coal ash pond was added to six 50 mL conical tubes. 40 mL of filter sterilized (0.22 µm pore) Dan River water was added to three tubes and filter sterilized Dan River water supplemented with 10% nutrient broth to the other three tubes.  Additionally, filter sterilized Dan River water alone was evaluated in triplicate to serve as a sterility control. Tubes were incubated at ambient room temperature for 48 hours without agitation.  100 mL aliquots were removed from each culture; one for spread plate isolation and one aliquot preserved in  cetyltrimethylammonium bromide (CTAB) for DNA sequencing. Morphologically unique colonies identified on spread plates were isolated and pure cultures maintained for heavy metal tolerance experimentation. Sediment samples collected from Peabody Park, UNCG campus, were isolated using the same protocol as described. 
+Samples of coal ash provided by our collaborator, Brian Williams of the Dan River Basin Association was taken directly from a coal ash retention pond at the retired Dan River Steam Station near Eden, NC. To culture isolated organisms, aliquots (0.5 g) of coal ash from the pond was added to six 50 mL conical tubes. 40 mL of filter sterilized (0.22 µm pore) Dan River water was added to three tubes and filter sterilized Dan River water supplemented with 10% nutrient broth to the other three tubes.  Additionally, filter sterilized Dan River water alone was evaluated in triplicate to serve as a sterility control. Tubes were incubated at ambient room temperature for 48 hours without agitation.  1 mL aliquots were removed from each culture; one for spread plate isolation and one aliquot preserved in cetyltrimethylammonium bromide (CTAB) for DNA sequencing. Morphologically unique colonies identified on spread plates were isolated and pure cultures maintained for heavy metal tolerance experimentation. Sediment samples collected from Peabody Park, UNCG campus, were isolated using the same protocol as described. 
 
 ### Heavy metal characterization
-Optical density (OD), of liquid broth culture was employed to ascertain the growth of organisms; where growth is related to the increase in turbidity of a bacterial culture. OD, or absorbance, is a measure of light that is absorbed or scattered by cells within a culture. According to Beer’s law, absorbance is proportional to concentration [@ModelingMicrobialResponses]. Metals tested include, arsenic, cadmium, chromium, mercury, lead, selenium and zinc. Stock concentrations of $\mathrm{Na_2HAsO_4}$, $\mathrm{CdCl_2}$, $\mathrm{CrCl_3}$, $\mathrm{HgCl_2}$, $\mathrm{PbCl_2}$, $\mathrm{Na_2SeO_3}$, and $\mathrm{ZnCl_2}$ were serially diluted to span at least two orders of magnitude greater and less than natural environmental concentrations for each metal, resulting in 5 concentration levels per metal (Table \@ref(tab:metals)). 
+Optical density (OD) at 580 nm, of liquid broth culture was employed to ascertain the growth of organisms; where growth is related to the increase in turbidity of a bacterial culture. OD, or absorbance, is a measure of light that is absorbed or scattered by cells within a culture. According to Beer’s law, absorbance is proportional to concentration of cells in liquid broth culture [@mckellarModelingMicrobialResponses]. Metals tested include, arsenic, cadmium, chromium, mercury, lead, selenium and zinc. Stock concentrations of $\mathrm{Na_2HAsO_4}$, $\mathrm{CdCl_2}$, $\mathrm{CrCl_3}$, $\mathrm{HgCl_2}$, $\mathrm{PbCl_2}$, $\mathrm{Na_2SeO_3}$, and $\mathrm{ZnCl_2}$ were serially diluted to span at least two orders of magnitude greater and less than natural environmental concentrations for each metal, resulting in 5 concentration levels per metal (Table \@ref(tab:metals)). 
 
 ```{r metals, echo=FALSE, fig.cap="caption"}
 library(readxl)
@@ -41,44 +37,107 @@ library(kableExtra)
 library(tidyverse)
 options(scipen=999)
 read_excel("data/pcrdata.xlsx", sheet = "metal_conc") %>% 
-  kable(booktabs=T, caption = "Table of final concentration (µg/L) of metal in fermentation broth.", align = "c" ) 
+  kable(booktabs=T, caption = "Final concentrations (µg/L) of metal in fermentation broth.", align = "c" ) 
 ```
 
-Metal stocks were prepared by dissolving each metal salt in sterile reverse osmosis deionized (RO/DI) water and subsequently diluted. To ensure a viable culture inoculum, sufficient volume of cells, and standardization for experimentation, each unique isolate was incubated in a 50% nutrient broth culture in a shaking water bath at 25C overnight until an optical density of 0.7 at 580 nm was reached. For each metal-isolate experiment, 100 µL of 0.7 OD~580~ nm organism inoculum was added to 2.4 mL of 50% nutrient broth amended with 100 µL each concentration of metal in triplicate. For the control, 100 µL of RO/DI water was substituted for the metal spike in triplicate. Growth patterns were measured by absorbance at 580nm, and recorded at nine time points, approximately 0, 1, 2, 4, 8, 16, 24, 30, 36, and 48 hours post inoculation. 
+Metal stocks were prepared by dissolving each metal salt in sterile reverse osmosis deionized (RO/DI) water and subsequently diluted. To ensure a viable culture inoculum, sufficient volume of cells, and standardization for experimentation, each unique isolate was incubated in a 50% nutrient broth culture in a shaking water bath at 25ºC overnight until an optical density of 0.7 at 580 nm was oberved. For each metal-isolate experiment, 100 µL of 0.7 OD~580~ nm inoculum was added to 2.4 mL of 50% nutrient broth amended with 100 µL each concentration of metal in triplicate. For the control, 100 µL of RO/DI water was substituted for the metal spike in triplicate. Growth patterns were measured by absorbance at 580 nm, and recorded at nine time points, approximately 0, 1, 2, 4, 8, 16, 24, 30, 36, and 48 hours post inoculation. 
 
 ### Isolate identification and phylogenetic analysis 
-For each isolate, DNA was extracted using the CTAB method, amplified with 16S primers and sent to [SENT WHERE?] for sequencing [@stewartRapidCTABDNA1993]. Organism chromatogram data was evaluated and edited manually to optimize the DNA sequence. The FASTA files of sequences were imported into Molecular Evolutionary Genetics Analysis version 7.0 (MEGA7) [@kumarMEGA7MolecularEvolutionary2016]. Sequences were aligned using MUSCLE and manual adjustments [@edgarMUSCLEMultipleSequence2004]. The resulting aligned sequences were then subjected to phylogenetic tree analysis using MEGA7. The maximum likelihood tree was computed using MEGA7 using the Jukes-Cantor model [@jukesEvolutionProteinMolecules1969]. The bootstrap consensus tree was inferred from 1000 replicates. Initial trees with a greater log likelihood value were calculated by applying Neighbor-Join and BioNJ algorithms to a matrix of pairwise distances estimated using the Maximum Composite Likelihood approach.   
+For each isolate, DNA was extracted using the CTAB method, amplified with 16S primers and sequenced [@stewartRapidCTABDNA1993]. Sequence chromatogram data was evaluated and edited manually to optimize the sequence. The FASTA files of sequences were imported into Molecular Evolutionary Genetics Analysis version 7.0 (MEGA7) [@kumarMEGA7MolecularEvolutionary2016]. Sequences were aligned using MUSCLE and manual adjustments [@edgarMUSCLEMultipleSequence2004]. The resulting aligned sequences were then subjected to phylogenetic tree analysis using MEGA7. The maximum likelihood tree was computed using MEGA7 using the Jukes-Cantor model [@jukesEvolutionProteinMolecules1969]. The bootstrap consensus tree was inferred from 1000 replicates. Initial trees with a greater log likelihood value were calculated by applying Neighbor-Join and BioNJ algorithms to a matrix of pairwise distances estimated using the Maximum Composite Likelihood approach. 
+
+To identify the genus of each isolate, the sequences were compared to the NCBI GenBank database with BLASTn (Nucleotide Basic Local Alignment Search Tool) with similarities of more than 97% [@clarkGenBank2016].
 
 ### Statistical analyses
 
-To assess the metal tolerance of each isolate, The approach taken in this study consists of calculating the slopes, or growth rates, and carrying capacity, for each bacterial growth curve using the method of ordinary least squares regression. The measurement in this study consists of OD with respect to time, therefore, growth rate should be understood as OD rate. The aim of this experiment is to compare different isolates’ growth with respect to common factors; concentration and time, and not modelling the empirical growth as such. Each slope was computed by fitting a linear regression over the linear range of growth of each isolate, at time points 4 to 7. To determine metal tolerance, significance of the coefficients by 95% confidence interval based on t-test… was performed to determine significance of each isolate-metal-concentration interaction compared to its control.  Isolates were deemed metal tolerant if the growth rate of one or more concentrations of metal significantly exceeded that of the control. Experiments were excluded from analysis if there was no growth observed in the control where the slope was not significantly different from 0.
-To determine the growth rate a spline regression was performed for each isolate metal and concentration. Each Spline regression to d
-Because the data were not normally distributed (Shapiro-Wilk test for normality Need the p value) even after various transformations were tried, only nonparametric analyses were used throughout this study.
+To characterize the heavy metal tolerance of isolates in liquid broth culture, the carrying capacity and growth rate of each isolate-metal experiment was modeled with a Gompertz sigmoidal function [@zwieteringModelingBacterialGrowth1990]. Significant differences of growth rate and carrying capacity within each experiment were determined using the Kruskall-Wallis one-way analysis of variance test (p.value < 0.05). Experiments were excluded from analysis where no growth was observed in the control. Isolates were deemed metal tolerant at the concentrations tested if no significant difference was observed between concentrations. 
 
 ## Results
-26 total isolates of unknown microorganisms were cultured from the samples; the coal ash without added nutrients and 14 from the coal ash with nutrients sample, and were sequenced. Sequences were aligned and a phylogenetic tree was constructed (Figure 4). Sequences of isolates were compared to the GenBank database. When exposed to heavy metal, isolates generally grew well in all but the highest metal concentrations. There was little difference between coal ash isolates and control isolates. Growth pattern of a few isolates suggested metal dependency (Figure 5). Absorbance results from ________were eliminated for subsequent calculations, since no growth curve was observed along the study period.
+### Phylogenetic analysis
+26 total isolates of unknown microorganisms were isolated from the coal ash sample and sequenced, 5 were isolated from Peabody Park soil. Sequences were aligned and a phylogenetic tree was constructed (Figure \@ref(fig:tree)). Sequences were predominantly identified as Bacillus and Arthrobacter spp. One isolate, DR 76, was not identified in GenBank with the BLASTn search. Of the 5 isolates that were culutred from soil, 3 are identified as Bacillus sp, one Duganella, and one Pseudomonas. Duganella and Pseudomonas are unique to the soil samples. 
 
-Isolates that did not grow and were excluded from further analysis. In some cases, the control did not grow, but other concentrations did. These isolates were excluded from analysis because there was no control in the experiment. 
-SI 2 a soil isolate exhibited slow growth. The protocol of the study did not capture the growth of this isolate. Figure X Growth was not observed until the end of the reading time points therefore data was not obtained.  
-Since only one reading was taken of each tube at each time point, repeatability was not ascertained. While each test tube was inoculated from the same culture, random fluctuations of growth were discovered. Look for others…. Such that one of the three showed faster growth than other ones in the experiment increasing the average and something about points that influence results. Influential points. NO 22 and SI2 slow growing, needed more time. ANOVA tukey? Comparison of growth for each metal? For each isolate? Post hoc analysis 
+### Metal Tolerance assays
+16 isolates were subjected to metal tolerance assays. When exposed to a heavy metal, isolates generally grew well (Figures \@ref(fig:si4) - \@ref(fig:dr52). A total of 94 experiments were evaluated between the isolates and 7 metals. 17 experiments were excluded due to lack of growth. There was little difference between coal ash isolates and a Peabody Park soil isolate, SI 4 (Figure \@ref(fig:si4plot). One of the Peabody Park isolates, SI 2, growth was not observed and was excluded. The soil isolate SI 4, was tolerant to all metals at the concentrations tested except for cadmium and zinc (Tables \@ref(tab:kpvalue) and \@ref(tab:muvalue), Figure \@ref(fig:si4). 
 
-A total of ___ growth curves were produced, __ of these as duplicates. (Materials and methods?) 
-
-
-The Bayesian, maximum likelihood, and neighbor joining phylogenies yielded very similar topologies
-Optimal topology
-taxa
-This phylogeny suggests that? 
-Dominated by … list characteristics of the clade?? Where the organisms are usually found list clades habitat etc. 
-One taxon… not found in the database
-Diversity of organisms culturable from coal ash
-Quickly deployed easily grown and maintained .
-Rooted as outgroup? The novel one? Or something else? Research proper roots for the phylogeny ask parke?
-
-Discussion
-Although there were some significant seasonal differences, the magnitude of these
-differences was small.
-Selective pressure from culturing – only able to grow in lab very small proportion of what is really there. Easily grown in lab
+Of the experiments analyzed, when evaluating carrying capacity, 70 experiments are not different from the control (Kruskall-Wallis test p.value >0.05). (Table \@ref(tab:kpvalue)). Evaluation of maximal growth rate produces 71 isolate-metal experiments that are not significantly different (Table \@ref(tab:muvalue)). 64% of the isolates tested are susceptible to cadmium and 72% are susceptible to selenium. The remaing metals tested resulted in much less susceptibility, ranging from 1-3 significant hits. 
 
 
+\begin{center}
+  \includegraphics[width=400pt]{figure/tree}
+  \captionof{figure}[Phylogentic analysis of coal ash isolates.]{Phylogenic analysis of isolates cultured from coal ash amended media.}\label{fig:tree}
+\end{center}
+
+```{r}
+kp <- read.csv("data/kpvalues.csv",stringsAsFactors=FALSE )  %>%  mutate_if(is.numeric, round, digits=3) #%>% replace(is.na(.), 0) 
+
+mup <- read.csv("data/muvalues.csv",stringsAsFactors=FALSE )  %>%  mutate_if(is.numeric, round, digits=3) #%>% replace(is.na(.), 0) 
+```
+
+
+``` {r kpvalue}
+library(kableExtra)
+library(dplyr)
+
+options(kableExtra.latex.bsTable = T)
+kp %>%
+  mutate_if(is.numeric, function(x) {
+    cell_spec(x, bold = ifelse(x < 0.05, T, F))
+  }) %>%
+  kable(escape = F, align = "l", linesep = "", booktabs = T, caption.short = "P-values of Kruskall-Wallis test of carrying capacity.",
+        caption = "P-values of Kruskall-Wallis test of carrying capacity. Bold typeface signifies p-value <0.05.") %>%
+  row_spec(0, align = "c") %>% 
+  kable_styling(latex_options = "striped",  
+                full_width = F)%>%
+  kable_styling(latex_options = "scale_down")
+
+```
+
+
+``` {r muvalue}
+
+options(kableExtra.latex.bsTable = T)
+mup %>%
+  mutate_if(is.numeric, function(x) {
+    cell_spec(x, bold = ifelse(x < 0.05, T, F))
+  }) %>%
+  kable(escape = F, align = "l", linesep = "", booktabs = T, caption.short = "P-values of Kruskall-Wallis test of maximal growth rate.",
+        caption = "P-values of Kruskall-Wallis test of maximal growth rate. Bold typeface signifies p-value <0.05.") %>%
+  row_spec(0, align = "c") %>% 
+  kable_styling(latex_options = "striped", 
+                full_width = F)%>%
+  kable_styling(latex_options = "scale_down")
+
+```
+
+
+\begin{figure}
+  \caption[Growth of soil isolate SI4.]{Growth of soil isolate SI4. Lines connect means of three replicates. Carrying capacity is not significantly different between metal concentrations. Growth rates are different in Cd and Zn experiments (Kruskall-Wallis test p-value < 0.05)}\label{fig:si4}
+  \centering
+    \includegraphics[width=400pt]{figure/si4plot}
+\end{figure}
+
+\begin{figure}
+  \caption[Growth of isolate DR13.]{Growth of isolate DR13. Lines connect means of three replicates. Carrying capacity is significantly different between metal concentrations of Cd and Zn.  Growth rates are different with As and Zn (Kruskall-Wallis test p-value < 0.05)}\label{fig:dr13}
+  \centering
+    \includegraphics[width=400pt]{figure/dr13plot}
+\end{figure}
+
+\begin{figure}
+  \caption[Growth of isolate DR3.2.]{Growth of isolate DR3.2. Lines connect means of three replicates. Carrying capacity is significantly different between metal concentrations of Cd and Se. No difference is observed when testing maximal growth rates (Kruskall-Wallis test p-value < 0.05)}\label{fig:dr32}
+  \centering
+    \includegraphics[width=400pt]{figure/dr32plot}
+\end{figure}
+
+\begin{figure}
+  \caption[Growth of isolate DR52.]{Growth of isolate DR52. Lines connect means of three replicates. Se was excluded from analysis. Carrying capacity is significantly different between metal concentrations of Cd. Growth rates are different with As, Cd, and Hg. (Kruskall-Wallis test p-value < 0.05) }\label{fig:dr52}
+  \centering
+    \includegraphics[width=400pt]{figure/dr52plot}
+\end{figure}
+
+  
 ## Discussion
+We isolated cultures of aerobic bacteria from samples of coal ash. The coal ash isolates are predominantly identified as Arthrobacter and Bacillus spp. Arthrobacter sp. are ubiquitous and have been found in common soils as well as extreme environments. These strains are one of the most frequently isolated aerobic bacteria genera found in soils. These spore-formers able to survive long periods of time under stressful conditions such as nutrient deficency, temperature shifts, and toxic chemicals. Arthrobacter sp. are metabolically diverse and have been utilized to biodegrade envionmental pollutants and are highly resistant to heavy metals [@mongodinSecretsSoilSurvival2006]. We isolated  Arthrobacter from coal ash samples, but did not isolate from the soil sample. The predominace of Arthrobacter sp. from the coal ash may be due to the selective pressure of the coal ash. High concentraions of Cadmium has an effect on most of the isolates tested. Of the 5 isolates that are tolerant of Cd, one is Arthrobacter, although not all Arthrobacter are tolerant of Cd. Bacillus spp. are genomically diverse, unbiquitous endospore-formers are highly resistant to stressors [@earlEcologyGenomicsBacillus2008]. Three Bacillus spp. were subjected to metal tolerance assays. The soil isolate SI2, a Bacillus was only tested for Se, and was susceptible. The other Bacillus spp. (DR52 and DRp51) and exhibited the same tolerances to the metals; tolerant to all except Cd and Se. 
+
+One isolate could not be identified by a BLASTn search of the GenBank database, and may be an interesting organism to for further testing and characterization. We only studied organisms which were easily grown and maintained within the lab under room temperature conditions. 
+
+These data are suggestive of metal tolerance, this assay is useful as a screen to find interesting isolates for further study, but these data are not wholly conclusive. Due to a small sample size and unbalanced number of coal ash isolates to soil isolates, we are unable to determine if the soil samples are more or less tolerant to heavy metals than the coal ash samples. Although, with these methods, when comparing isolates from soil devoid of coal ash contamination to coal ash isolates, there seem to be no obvious differences. 
+
