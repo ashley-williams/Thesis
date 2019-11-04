@@ -24,26 +24,26 @@ library(kableExtra)
 library(knitr)
 library(ggpubr)
 library(ggplot2)
-knitr::opts_chunk$set(echo=FALSE, warning = FALSE, message = FALSE, cache = FALSE, fig.pos = 'h')
+knitr::opts_chunk$set(echo=FALSE, warning = FALSE, message = FALSE, cache = FALSE)
 ```
 
 # RESPONSE OF MERCURY METHYLATING BACTERIA TO THE COAL ASH SPILL IN THE DAN RIVER {#pcr}
 
 ## Introduction
 
-The February 2014 coal ash spill has mobilized coal ash constiuents into the Dan River. One constituent of particular concern during leaching and/or impoundment failure is mercury.  Mercury, a known neurotoxin and potential endocrine disruptor has a high affinity for sulfhydryl groups in proteins where this destabilization leads to decreased enzymatic activity and reduced overall fitness [@driscollMercuryGlobalPollutant2013; @ehrlichGeomicrobiologyFifthEdition2008]. In submerged anoxic sediments under certain conditions, inorganic mercury ($\mathrm{Hg^{2+}}$) can be converted into MeHg through microbial metabolism [@dashBioremediationPotentialMercury2014; @schaeferActiveTransportSubstrate2011]. Methylmercury (MeHg) bioaccumulates and biomagnifies in the river food webs, posing a health risk to local residents who consume fish. [@dashBioremediationPotentialMercury2014; @otterTrophicStatusMetal2012; @roweBioaccumulationEffectsMetals2014]. The total available amount of MeHg within an ecosystem is controlled by multiple microbial and abiotic processes that reduce availability of $\mathrm{Hg^{2+}}$ or degradation of MeHg. $\mathrm{Hg^{2+}}$ can be volatilized as $\mathrm{Hg^{0}}$ through photoreduction or by bacteria with the *merA* gene [@boydMercuryResistanceOperon2012]. Additionally, MeHg can be demethylated into $\mathrm{Hg^{2+}}$ by sunlight [@tsuiPhotodegradationMethylmercuryStream2013] or microbes with the *merB* gene [@bizilyPhytoremediationMethylmercuryPollution1999]. 
+The February 2014 coal ash spill mobilized coal ash into the Dan River. One constituent of particular concern during leaching and/or impoundment failure is mercury. Inorganic mercury often passes through an organism, but the bioavailable form of mercury, methylmercury (MeHg) is a known neurotoxin and potential endocrine disruptor and has a high affinity for sulfhydryl groups in proteins. This may destabilize proteins and lead to decreased enzymatic activity and reduced overall fitness of organisms[@driscollMercuryGlobalPollutant2013; @ehrlichGeomicrobiologyFifthEdition2008]. In submerged anoxic sediments under certain conditions, inorganic mercury ($\mathrm{Hg^{2+}}$) can be converted into MeHg through microbial metabolism [@dashBioremediationPotentialMercury2014; @schaeferActiveTransportSubstrate2011]. MeHg bioaccumulates and biomagnifies in the river food webs, posing a health risk to local residents who consume fish. [@dashBioremediationPotentialMercury2014; @otterTrophicStatusMetal2012; @roweBioaccumulationEffectsMetals2014]. The total available amount of MeHg within an ecosystem is controlled by multiple microbial and abiotic processes that reduce availability of $\mathrm{Hg^{2+}}$ or degradation of MeHg. $\mathrm{Hg^{2+}}$ can be volatilized as $\mathrm{Hg^{0}}$ through photoreduction or by bacteria with the *merA* gene [@boydMercuryResistanceOperon2012]. Additionally, MeHg can be demethylated into $\mathrm{Hg^{2+}}$ by sunlight [@tsuiPhotodegradationMethylmercuryStream2013] or microbes with the *merB* gene [@bizilyPhytoremediationMethylmercuryPollution1999]. 
 
 Microorganisms have developed various mechanisms to mitigate effects of high concentrations of heavy metal toxins. These include reduction of the metal to a less toxic form, metal complexation, efflux pumps via an energy-dependent membrane transporter, and extracellular sequestration [@binkleyHeavyMetalsWastewater2003; @poulainCrackingMercuryMethylation2013]. MeHg is produced in anaerobic conditions predominately by sulfate reducing bacteria (SRB), iron reducing bacteria (FeRB), and methanogens [@liuAnalysisMicrobialCommunity2014].  Coal ash may provide the necessary substrates to stimulate the microbial methylation of Hg [@deonarineEnvironmentalImpactsTennessee2013]. 
 
-Two genes are required for methylation of Hg, *hgcA* and *hgcB*.  As $\mathrm{Hg^{2+}}$ enters the cell, a methylated-HgcA protein transfers a -CH~3~ group to $\mathrm{Hg^{2+}}$ within the cytosol.  HgcB protein is then required to recycle the methylated-HgcA protein [@poulainCrackingMercuryMethylation2013]. The *hgcAB* sequence is conserved across multiple genera and therefore could be utilized as a molecular biomarker for suspected contaminated sites with real-time quantitative PCR [@christensenDevelopmentValidationBroadRange2016; @dashBioremediationPotentialMercury2014; @limadesilvaHeavyMetalTolerance2012]. Liu et al. (2014) found that the *hgcA* abundance and the concentration of MeHg in rice paddy soil in China near a mercury mining area was positively correlated [@liuAnalysisMicrobialCommunity2014]. This finding suggests that microbes may be contributing to the MeHg in the sampled soils. They also found high genetic diversity within the microbial community and that environmental factors such as total Hg, $\mathrm{SO_4}$, $\mathrm{NH_4}$, and organic matter influenced the community structure.  After phylogenetic analysis, the representative taxa in the community consisted of Deltaproteobacteria, Firmicutes, Chloroflexi, Euryarchaeota, and two novel taxa [@liuAnalysisMicrobialCommunity2014].
+Two genes are required for methylation of Hg, *hgcA* and *hgcB*.  As $\mathrm{Hg^{2+}}$ enters the cell, a methylated-HgcA protein transfers a -CH~3~ group to $\mathrm{Hg^{2+}}$ within the cytosol.  HgcB protein is then required to recycle the methylated-HgcA protein [@poulainCrackingMercuryMethylation2013]. The *hgcAB* sequence is conserved across multiple genera and therefore could be utilized as a molecular biomarker for suspected contaminated sites with real-time quantitative PCR [@christensenDevelopmentValidationBroadRange2016; @dashBioremediationPotentialMercury2014; @limadesilvaHeavyMetalTolerance2012]. Liu et al. (2014) found that the *hgcA* abundance and the concentration of MeHg in rice paddy soil in China near a mercury mining area is positively correlated [@liuAnalysisMicrobialCommunity2014]. This finding suggests that microbes may be contributing to the MeHg in the sampled soils. They also found high genetic diversity within the microbial community and that environmental factors such as total Hg, $\mathrm{SO_4}$, $\mathrm{NH_4}$, and organic matter influenced the community structure.  After phylogenetic analysis, the representative taxa in the community consisted of *Deltaproteobacteria*, *Firmicutes*, *Chloroflexi*, *Euryarchaeota*, and two novel taxa [@liuAnalysisMicrobialCommunity2014].
 
 In 2008, a dike failure at the Tennessee Valley Authority Kingston Fossil Plant coal ash pond in Harriman, Tennessee, released an estimated 5.4 million cubic yards of ash into the surrounding community and rivers [@ruhlEnvironmentalImpactsCoal2010]. The release ruptured a natural gas line, disrupted power and transportation, destroyed three homes, and resulted in the evacuation of nearby neighborhoods. The impoundment pond has since been rebuilt and reinforced to resist natural disasters including earthquakes [@tvaFactSheetKingston2011]. In sediment samples collected downstream following the spill, total mercury concentrations were three to four times greater than sediments upstream of the spill. MeHg was also slightly higher than upstream [@deonarineEnvironmentalImpactsTennessee2013]. 
 
-The coal ash spill into the Dan River has mobilized heavy metals into the environment. The extent of long-term effects of methylated mercury into the food web of the river is unknown. Mercury, along with other coal ash constituents may stimulate mercury-methylating microorganisms in anaerobic sediments.  The goal of this study is to characterize the response of key microbial community constiuents, specifically, *hgcA* abundance as a result of the Dan River coal ash spill. 
+The coal ash spill into the Dan River similarly mobilized heavy metals into the environment. The extent of long-term effects of potential introduction methylated mercury into the food web of the river is unknown. Mercury, along with other coal ash constituents may stimulate mercury-methylating microorganisms in anaerobic sediments.  The goal of this study was to characterize the response of key microbial community constituents, specifically, *hgcA* abundance as a result of the Dan River coal ash spill. 
 
 ### Objective and hypothesis:
 **Determine the spatial distribution of mercury-methylating taxa as a result of the coal ash spill using qPCR.** 
-I hypothesize that there will be increased abundance of the qPCR target SSU rDNA and therefore, mercury methylating taxa, Iron Reducing Bacteria, and Sulate Reducing Bacteria downstream of spill site due to stimulation by coal ash constituents present in the sediment. 
+I hypothesize that there will be increased abundance of the in the SSU rDNA of mercury methylating taxonomic groups and the *hgcA* gene downstream of spill site due to stimulation by coal ash constituents present in the sediment. 
 
 ## Methods
 ### Study Sites and Sediment Collection
@@ -51,24 +51,14 @@ The Dan River is a 344 km river that rises in Patrick Co. Virginia and crosses i
 
 To characterize the extent of the coal ash spill impact on the microbial community, samples were collected at three upstream reference sites, one site parallel to the ash ponds but upstream of the spill (leaching site), and five downstream sites including near two sites that were dredged for remediation, one at Town Creek, near the spill site and one near Abreu-Grogan Park, Danville, Va., and depositional sites that were not dredged near Danville (Figure \@ref(fig:map), Table \@ref(tab:sites)). 
 
-```{r setup, include=FALSE}
-library(pander)
-panderOptions('knitr.auto.asis', FALSE)
-options(knitr.graphics.auto_pdf = TRUE)
-``` 
-
 
 \begin{center}
-  \captionof{figure}[Google Earth image of Dan River and sampling locations.]{Google Earth image of Dan River and sampling sites. Markers indicate samping sites: Blue, upstream of spill site; Green, leaching site; Yellow, downstream dredged locations; Orange, downstream not dredged.}\label{fig:map}
+  \captionof{figure}[Google Earth image of Dan River and sampling locations.]{Google Earth image of Dan River and sampling sites. Markers indicate sampling sites: Blue, upstream of spill site; Green, leaching site; Yellow, downstream dredged locations; Orange, downstream not dredged.}\label{fig:map}
   \centering
     \includegraphics[width=400pt]{figure/map}
 \end{center}
 
-
-
-
 Each site was accessed by boat, where sediment from the riverbank and channel was collected. Riverbank sediment cores were collected in triplicate using a piston-style coring device. Channel samples were collected using a small dredge. Sediment cores were sectioned by depth and individual segments homogenized according to one of three sampling schemes to reduce the total number of samples to be assayed (Table \@ref(tab:scheme)). 0.25 $\mathrm{cm^3}$ samples were preserved in CTAB (cetyltrimethylammonium bromide) for DNA extraction. Channel sediment was homogenized then 0.25 $\mathrm{cm^3}$ was preserved in CTAB. 
-
 
 ```{r sites, echo=FALSE, message=FALSE, warning=FALSE}
 read_csv("data/sites.csv") %>% 
@@ -90,24 +80,24 @@ scheme %>%  kable(booktabs=T, caption = "Sediment sampling schemes.", align = "c
 
 ### DNA extraction and qPCR
 
-A CTAB extraction was performed using standard protocol for each sample [@stewartRapidCTABDNA1993]. The DNA extracted was quantified and subsequently diluted to a standard concentration of 5 ng/L in TE (Tris-EDTA) buffer pH 8.0 and stored at 4C. Extracted DNA quantity and purity were determined from 2 uL subsamples of each extraction using Thermo Scientific Nanodrop Spectrophotometer based on the 260/280 nm wavelength ratio.
+A CTAB extraction of DNA was performed using standard protocol for each sample [@stewartRapidCTABDNA1993]. The DNA extracted was quantified and subsequently diluted to a standard concentration of 5 ng/L in TE (Tris-EDTA) buffer pH 8.0 and stored at 4ºC. Extracted DNA quantity and purity were determined from 2 µL subsamples of each extraction using Thermo Scientific Nanodrop Spectrophotometer based on the 260/280 nm wavelength ratio.
 
-An Applied Biosystems StepOne real-time PCR System was utilized to detect, amplify, and quantify target DNA gene proxies and representative taxa to meet the objective. Primers were chosen from literature targeting a general metabolic category. These include generic primers to the *hgcA* gene, a sulfate reducing gene, *dsr*, and the 16S rDNA of iron reducing bacteria. [@geetsDsrBGenebasedDGGE2006;@schaeferDetectionKeyHg2014;@wagnerPhylogenyDissimilatorySulfite1998;@dalyDevelopmentOligonucleotideProbes2000], Table \@ref(tab:primers). Each reaction contained the following: 10 uL of Power Sybr® Green PCR master mix, 1 uL of forward primer, 1 uL of reverse primer, 8 uL of sterile deionized water, and 1 uL of extracted DNA.  Three negative control reactions, samples repeated in triplicate, and positive standard controls serially diluted in triplicate, were ran in each 48 well plate. Extracted DNA from a pure culture of *Desulfovibrio africanus* (ATCC 19997), an isolate known to contain the *HgcA* gene was used as a standard for the *HgcA* and SRB targets. *Geobacter metallireducens* (ATCC 53774) served as the positive control and standard for FeRB primers. The real-time qPCR run method consisted of a holding stage for 5 minutes at 95ºC, followed by 40 cycles of 15 seconds at 95ºC, 1 minute at 57ºC, one minute at 72ºC, and a 15-second data collection at 80ºC, followed by a melt curve analysis beginning at 95ºC, dropping to 60ºC and increasing at 0.3ºC every second until it reaches 95ºC. 
+An Applied Biosystems StepOne real-time PCR System was utilized to detect, amplify, and quantify target DNA gene proxies and representative taxa to meet the objective. Primers were chosen from literature targeting a general metabolic category. These include generic primers to the *hgcA* gene, a sulfate reducing gene, *dsr*, and the 16S rDNA of iron reducing bacteria. [@geetsDsrBGenebasedDGGE2006;@schaeferDetectionKeyHg2014;@wagnerPhylogenyDissimilatorySulfite1998;@dalyDevelopmentOligonucleotideProbes2000], Table \@ref(tab:primers). Each reaction contained the following: 10 µL of Power Sybr® Green PCR master mix, 1 µL of forward primer, 1 µL of reverse primer, 8 µL of sterile deionized water, and 1 µL of extracted DNA.  Three negative control reactions, samples repeated in triplicate, and positive standard controls serially diluted in triplicate, were ran in each 48 well plate. Extracted DNA from a pure culture of *Desulfovibrio africanus* (ATCC 19997), an isolate known to contain the *hgcA* gene was used as a standard for the *hgcA* and SRB targets. *Geobacter metallireducens* (ATCC 53774) served as the positive control and standard for FeRB primers. The real-time qPCR run method consisted of a holding stage for 5 minutes at 95ºC, followed by 40 cycles of 15 seconds at 95ºC, 1 minute at 57ºC, one minute at 72ºC, and a 15-second data collection at 80ºC, followed by a melt curve analysis beginning at 95ºC, dropping to 60ºC and increasing at 0.3ºC every second until it reaches 95ºC. 
 
 The relative abundance of targets was computed by the StepOne software using the standard curve. The melt curve was examined to ensure amplicon specificity. 
 
-The SSU rDNA abundance was normalized to the volume of extracted sediment as well as to organic matter. Where the amount of organic matter present in each sample was determined by ash free dry mass (AFDM). Each sample was dried at 60C for 48 hours, then combusted in a muffle furnace at 500C for 2 hours. Samples were weighed before and after combustion to calculate the AFDM. 
+The SSU rDNA abundance was normalized to the volume of extracted sediment as well as to organic matter. The amount of organic matter present in each sample was determined by ash free dry mass (AFDM). Each sample was dried at 60ºC for 48 hours, then combusted in a muffle furnace at 500ºC for 2 hours. Samples were weighed before and after combustion to calculate the AFDM. 
 
 ```{r primers, echo=FALSE, message=TRUE, warning=TRUE}
 library(readxl)
 library(kableExtra)
 library(tidyverse)
 read_excel("data/pcrdatasheets.xlsx", sheet = "primers") %>% 
-  kable(booktabs=T, caption = "Primers evaluated.", align = "l",linesep = "" ) #%>% landscape()
+  kable(booktabs=T, caption = "Primers used in this study.", align = "l",linesep = "" ) #%>% landscape()
 ```
 
 ### Statistical Analysis
-Statisical analyses included nonparametric tests for significance to determine the overall effect of sampling location on the abundance of the target SSU rDNA per sample. To determine whether abundance of the targets vary in the shore sediment based on the distance from the spill site, the data was first tested for normality with the Shapiro-Wilk test of normality. The data did not follow a gaussian distribution, therefore, the data were transformed (LN(x +1)), but still failed the test for normailty. Samples were binned according to location irrespective of depth due to limited replication of depths, and evaluated with nonparametric tests.  For each target, a Kruskall-Wallis test was perfomed to assess whether a difference in target SSU rDNA abundance exists between sites. Where a significant difference was observed, a Wilcoxon Rank Sum test was performed post hoc to determine differences between the location directly downstream of the spill site and all other locations independently. Target abundance of the leaching site was also compared to all other sites. These tests were then repeated with the data normalized to the mass of sediment and to the amount of organic matter present in each sample. 
+Statistical analyses included nonparametric tests for significance to determine the overall effect of sampling location on the abundance of the target SSU rDNA per sample. To determine whether abundance of the targets vary in the shore sediment based on the distance from the spill site, the data was first tested for normality with the Shapiro-Wilk test of normality. The data did not follow a Gaussian distribution, therefore, the data were transformed (LN(x +1)), but still failed the test for normality. Samples were binned according to location irrespective of depth due to limited replication of depths, and evaluated with nonparametric tests.  For each target, a Kruskall-Wallis test was performed to assess whether a difference in target SSU rDNA abundance exists between sites. Where a significant difference was observed, a Wilcoxon Rank Sum test was performed post hoc to determine differences between the location directly downstream of the spill site and all other locations independently. Target abundance of the leaching site was also compared to all other sites. These tests were then repeated with the data normalized to the mass of sediment and to the amount of organic matter present in each sample. 
 
 Due to the lack of replication of river channel samples, the samples collected from the river channel bottom were binned into upstream and downstream groups. A Wilcoxon Rank Sum test was used to determine significance. All analyses were conducted using R [@rcoreteamLanguageEnvironmentStatistical2019]. 
 
@@ -115,11 +105,9 @@ Due to the lack of replication of river channel samples, the samples collected f
 
 ### Shore Sediment Samples
 
-The Kuskall-Wallis test indicated a significant difference between the abundance of amplified SSU rDNA and sampling locations for each qPCR target assessed (Kruskall-Wallis p.value <0.05). For each target, sampling site D-01, the first sampling site downstream (0.3 km) from the spill site, indicated an elevated signal compared to some sites downstream and upstream (Figures \@ref(fig:hgcaomp) - \@ref(fig:srbomp), Table \@ref(tab:compare)). However, D-01 was not the location with the highest abundance. The sampling location D-03, the farthest upstream location, 3.6 km upstream of the spill, and 0.5 km downstream from the Smith River confluence, measured the hightest abundance of SSU rDNA of each of the targets tested (Figures \@ref(fig:hgcaomp) - \@ref(fig:srbomp), Table \@ref(tab:compareU)). 
+The Kruskall-Wallis test revealed a significant difference between the abundance of amplified SSU rDNA and sampling locations for each of the three qPCR target assessed (Kruskall-Wallis p.value <0.05). Each of the targets amplified from the D-01 sampling site, the first sampling site downstream (0.3 km) from the spill site, was detected at a higher abundanc compared to at least one of the sites downstream and upstream (Figures \@ref(fig:hgcaomp) - \@ref(fig:srbomp), Table \@ref(tab:compare)). However, D-01 was not the location with the highest overall abundance of these targets. The sampling location U-03, the farthest upstream location, 3.6 km upstream of the spill, and 0.5 km downstream from the Smith River confluence, measured the hightest abundance of SSU rDNA for each of the targets tested (Figures \@ref(fig:hgcaomp) - \@ref(fig:srbomp), Table \@ref(tab:compareU)). 
 
-Additionally, the leaching site, L-01 is not significantly different from the D-01 location. When comparing the leaching site to all others, targets are of a slightly higher abundance than most of the other sampling locations. This pattern is similar to the D-01 comparisons, but overall, less pairs are significantly different (Table \@ref(tab:compareL)). The same pattern was observed between the data normalized to the mass of sediment in each sample as well as the amount of organic matter present.    
-
-
+Additionally, the leaching site, L-01 is not significantly different from the D-01 location. When comparing the leaching site to all others, targets abundance is slightly higher than most of the other sampling locations. This pattern is similar to the D-01 comparisons, but overall, less pairs are significantly different (Table \@ref(tab:compareL)). The same pattern was observed between the data normalized to the mass of sediment in each sample as well as the amount of organic matter present.    
 
 ```{r pcrdata, include=FALSE}
 
@@ -145,7 +133,7 @@ srbcompare <- compare_means(concentration ~ Sample, data = srbom, ref.group = "D
 
 \begin{center}
   \includegraphics[width=400pt]{figure/hgcaomp}
-   \captionof{figure}[HgcA abundance normalized to organic matter at each sampling location.]{HgcA abundance normalized to organic matter at each sampling location. Asterisks signify difference between the reference, D-01 using the Wilcoxon Rank Sum test. * : p <= 0.05, ** : p <= 0.01, *** : p <= 0.001}\label{fig:hgcaomp}
+   \captionof{figure}[*hgcA* abundance normalized to organic matter at each sampling location.]{*hgcA* abundance normalized to organic matter at each sampling location. Asterisks signify difference between the reference, D-01 using the Wilcoxon Rank Sum test. * : p <= 0.05, ** : p <= 0.01, *** : p <= 0.001}\label{fig:hgcaomp}
 \end{center}
 
 \begin{center}
@@ -209,12 +197,9 @@ allcompare %>% kable(booktabs=T, linesep = "",
                      align = "l" )
 ```
 
-
-
 ### River Channel Samples
 
 The samples collected in the river channel were limited by one sample at each site. To assess significance, samples were binned according to upstream and downstream. For each of the SSU rDNA targets tested, there is no significant difference between the groups (Figure \@ref(fig:channel)). 
-
 
 \begin{center}
   \includegraphics[width=400pt]{figure/channel}
@@ -222,10 +207,9 @@ The samples collected in the river channel were limited by one sample at each si
 \end{center}
 
 ## Discussion
+The SSU rDNA abundance detected at the sampling location 0.3 km downstream of the spill site, D-01, is higher than some locations upstream and downstream. However, the highest abundance of these three targets was found at the furthrest upstream site of all locations. Notably, the leaching site, L-01, and D-01 were not significantly different, and also exhibited higher target signal over some locations. This may signify that there is an impact from leaching of coal ash constituents. All primers tested exhibited a similar patterns of significance and abundance per location and may possibly be correlated due to an unknown confounding factor.
 
-The SSU rDNA abundance at the sampling location 0.3 km downstream of the spill site, D-01, has an elevated signal over some locations upstream and downstream. However, the furthest upstream site measured the highest abundance of all locations. Additionally, the leaching site and D-01 were not significantly different, and also exhibited and elevated signal over some locations. This may signify that there is an impact from leaching of coal ash constituents. All primers tested exhibited the similar patterns of significance and abundance per location and may possibly be correlated due to an unknown confounding factor.
-
-This field study was constrained by access with few boat ramps, and two dams. River gauge height also provided a logistical obstacle for repeated field sampling.  The leaching site was accessed after permission from Duke Energy from their onsite boat ramp.  
+This field study was constrained by access with few boat ramps, and two dams. River gauge height also provided a logistical obstacle for repeated field sampling.  Additionally, the leaching site was accessed after permission from Duke Energy using their onsite boat ramp.  
 
 Within this study, replication of core depth was limited, therefore, the interaction between the depth of samples was not evaluated. However, a scatterplot of the data did not show any clear patterns indicating a depth interaction, but the effect is inconclusive. We also experienced technical difficulties when assaying additional primer sets leading to a smaller suite of targets to determine overall microbial community response to the coal ash spill. 
 
