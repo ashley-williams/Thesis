@@ -16,13 +16,13 @@ The objective of this study was to determine if a microbial community is viable 
 
 ### Objectives and hypotheses
 
-**Objective 1: To identify isolated bacteria using qPCR amplification and rDNA sequencing. I seek to identify these taxa using qPCR amplification and rDNA sequencing to compare to the GenBank database.**
-
-*I hypothesize novel organisms may be discovered which may have unique metal tolerance capabilities that may be useful for bioremediation.*
-
-**Objective 2: To determine the metal tolerance of bacteria isolated from coal ash collected from the Dan River impoundment site.**
+**Objective 1: To determine the metal tolerance of bacteria isolated from coal ash collected from the Dan River impoundment site.**
 
 *I hypothesize that microbial growth of bacterial isolates from pure coal ash collected at the Dan River Steam Station impoundment pond will be more tolerant to heavy metals than compared to organisms isolated from a reference site (soil collected from Peabody Park on UNCG campus).*
+
+**Objective 2: To identify isolated bacteria using qPCR amplification and rDNA sequencing. I seek to identify these taxa using qPCR amplification and rDNA sequencing to compare to the GenBank database.**
+
+*I hypothesize novel organisms may be discovered which may have unique metal tolerance capabilities that may be useful for bioremediation.*
 
 ## Methods
 ### Pure culture isolation from coal ash
@@ -55,16 +55,47 @@ To characterize the heavy metal tolerance of isolates in liquid broth culture, t
 ### Phylogenetic analysis
 A total of 31 unknown microorganisms were isolated from the coal ash sample and sequenced, five were isolated from Peabody Park soil for comparison to coal ash samples to "control" samples. The soil samples are assumed to be free of coal ash, but these soils were probably affected by farming practices in the past, which may include introduction of heavy metals to the soil. Sequences were aligned and a phylogenetic tree was constructed (Figure \@ref(fig:tree)). Sequences were predominantly identified as *Bacillus* and *Arthrobacter* spp. One isolate, DR 76, was not identified in GenBank with the BLASTn search. Of the 5 isolates that were cultured from soil, three are identified as *Bacillus* sp., one *Duganella*, and one *Pseudomonas*. *Duganella* and *Pseudomonas* were unique to the soil samples. 
 
+\begin{center}
+  \centering
+  \includegraphics[width=375pt]{figure/tree5}
+  \captionof{figure}[Phylogenetic analysis of coal ash isolates.]{Phylogenetic analysis of isolates cultured from coal ash amended media. Identification of Coal ash-free isolates are prepended with S1-S5, all others are coal ash samples.}\label{fig:tree}
+\end{center}
+
 ### Metal Tolerance assays
 We tested metal tolerance of 16 isolates. When exposed to a heavy metal, isolates generally grew well (Figures \@ref(fig:si4) - \@ref(fig:dr52)). The isolates were challenged against seven metals, resulting in a total of 94 trials. 17 trials were excluded due to lack of growth. There was little difference between coal ash isolates and a "control", SI 4 (Figure \@ref(fig:si4)). In one of the "control" isolates, SI 2, growth was not observed and was excluded. The soil isolate SI 4, was tolerant to all metals at the concentrations tested except for cadmium and zinc (Tables \@ref(tab:kpvalue) and \@ref(tab:muvalue), Figure \@ref(fig:si4). 
 
 Of the growth curves analyzed, when evaluating carrying capacity, 70 trials are not different from the control (Kruskall-Wallis test p-value >0.05). (Table \@ref(tab:kpvalue)). Evaluation of maximal growth rate produces 71 isolate-metal trials that are not significantly different (Table \@ref(tab:muvalue)). 64% of the isolates tested are susceptible to cadmium and 72% are susceptible to selenium. The other metals tested (As, Cr, Hg, Pb, and Zn) resulted in much less susceptibility, ranging from 1-3 significant hits per metal. 
 
-
 \begin{center}
-  \includegraphics[width=400pt]{figure/tree}
-  \captionof{figure}[Phylogenetic analysis of coal ash isolates.]{Phylogenetic analysis of isolates cultured from coal ash amended media. Identification of Coal ash-free isolates are prepended with S1-S5, all others are coal ash samples.}\label{fig:tree}
 \end{center}
+
+\begin{figure}
+   \centering
+   \includegraphics[width=400pt]{figure/si4plot}
+   \caption[Growth of soil isolate SI4.]{Growth of soil isolate SI4. Lines connect means of three replicates, colors represent concentration levels. Carrying capacity is not significantly different between metal concentrations. Growth rates are different in Cd and Zn experiments (Kruskall-Wallis test p-value < 0.05)}\label{fig:si4}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=400pt]{figure/dr13plot}
+    \caption[Growth of isolate DR13.]{Growth of isolate DR13. Lines connect means of three replicates, colors represent concentration levels. Carrying capacity is significantly different between metal concentrations of Cd and Zn.  Growth rates are different with As and Zn (Kruskall-Wallis test p-value < 0.05)}\label{fig:dr13}
+\end{figure}
+
+\begin{figure}
+  
+  \centering
+    \includegraphics[width=400pt]{figure/dr32plot}
+    \caption[Growth of isolate DR3.2.]{Growth of isolate DR3.2. Lines connect means of three replicates, colors represent concentration levels. Carrying capacity is significantly different between metal concentrations of Cd and Se. No difference is observed when testing maximal growth rates (Kruskall-Wallis test p-value < 0.05)}\label{fig:dr32}
+\end{figure}
+
+
+\begin{figure}
+  
+  \centering
+    \includegraphics[width=400pt]{figure/dr52plot}
+    \caption[Growth of isolate DR52.]{Growth of isolate DR52. Lines connect means of three replicates, colors represent concentration levels. Se was excluded from analysis. Carrying capacity is significantly different between metal concentrations of Cd. Growth rates are different with As, Cd, and Hg. (Kruskall-Wallis test p-value < 0.05) }\label{fig:dr52}
+\end{figure}
+
 
 ```{r}
 kp <- read.csv("data/kpvalues.csv",stringsAsFactors=FALSE )  %>%  mutate_if(is.numeric, round, digits=3) #%>% replace(is.na(.), 0) 
@@ -87,7 +118,7 @@ kp %>%
   row_spec(0, align = "c") %>% 
   kable_styling(latex_options = "striped",  
                 full_width = F)%>%
-  kable_styling(latex_options = "scale_down")
+  kable_styling(latex_options = c("scale_down", "hold_position"))
 
 ```
 
@@ -102,32 +133,8 @@ mup %>%
   row_spec(0, align = "c") %>% 
   kable_styling(latex_options = "striped", 
                 full_width = F)%>%
-  kable_styling(latex_options = "scale_down")
-
+  kable_styling(latex_options = c("scale_down", "hold_position"))
 ```
-\begin{figure}
-  \caption[Growth of soil isolate SI4.]{Growth of soil isolate SI4. Lines connect means of three replicates. Carrying capacity is not significantly different between metal concentrations. Growth rates are different in Cd and Zn experiments (Kruskall-Wallis test p-value < 0.05)}\label{fig:si4}
-  \centering
-    \includegraphics[width=400pt]{figure/si4plot}
-\end{figure}
-
-\begin{figure}
-  \caption[Growth of isolate DR13.]{Growth of isolate DR13. Lines connect means of three replicates. Carrying capacity is significantly different between metal concentrations of Cd and Zn.  Growth rates are different with As and Zn (Kruskall-Wallis test p-value < 0.05)}\label{fig:dr13}
-  \centering
-    \includegraphics[width=400pt]{figure/dr13plot}
-\end{figure}
-
-\begin{figure}
-  \caption[Growth of isolate DR3.2.]{Growth of isolate DR3.2. Lines connect means of three replicates. Carrying capacity is significantly different between metal concentrations of Cd and Se. No difference is observed when testing maximal growth rates (Kruskall-Wallis test p-value < 0.05)}\label{fig:dr32}
-  \centering
-    \includegraphics[width=400pt]{figure/dr32plot}
-\end{figure}
-
-\begin{figure}
-  \caption[Growth of isolate DR52.]{Growth of isolate DR52. Lines connect means of three replicates. Se was excluded from analysis. Carrying capacity is significantly different between metal concentrations of Cd. Growth rates are different with As, Cd, and Hg. (Kruskall-Wallis test p-value < 0.05) }\label{fig:dr52}
-  \centering
-    \includegraphics[width=400pt]{figure/dr52plot}
-\end{figure}
   
 ## Discussion
 We isolated cultures of aerobic bacteria from samples of coal ash. The coal ash isolates are predominantly identified as *Arthrobacter* and *Bacillus* spp. *Arthrobacter* spp. are ubiquitous and have been found in common soils as well as extreme environments. These spore-formers are able to survive long periods of time under stressful conditions such as nutrient deficiency, temperature shifts, and toxic chemicals. *Arthrobacter* sp. are metabolically diverse and have been utilized to biodegrade environmental pollutants and are highly resistant to heavy metals [@mongodinSecretsSoilSurvival2006]. We isolated  *Arthrobacter* from coal ash samples, but did not isolate from the soil sample. The predominance of *Arthrobacter* sp. from the coal ash may be due to the selective pressure of the coal ash, although our culturing method could have also selected for these genera. High concentrations of cadmium has an effect on most of the isolates tested. Of the 5 isolates that are tolerant of Cd, one is *Arthrobacter*, although not all *Arthrobacter* are tolerant of Cd. *Bacillus* spp. are genomically diverse, ubiquitous endospore-formers are highly resistant to stressors [@earlEcologyGenomicsBacillus2008]. Three *Bacillus* spp. were subjected to metal tolerance assays. The soil isolate SI2, a *Bacillus* was only tested for Se, and was susceptible. The other *Bacillus* spp. (DR52 and DRp51) exhibited the same tolerances to the metals; tolerant to all except Cd and Se. 

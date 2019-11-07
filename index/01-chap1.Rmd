@@ -50,15 +50,17 @@ I hypothesize that there will be increased abundance of the in the SSU rDNA of m
 The Dan River is a 344 km river that rises in Patrick Co. Virginia and crosses into North Carolina in Stokes County. It flows across the border between NC and VA several times before flowing into the Kerr Reservoir on the Roanoke River which then flows to the Atlantic Ocean at the Albemarle Sound in North Carolina. This study encompasses sites up to 3.6 km upstream of the spill site in Eden, NC and 64.7 km downstream to Milton, NC, sampled in July 2015, about 17 months following the spill. 
 
 To characterize the extent of the coal ash spill impact on the microbial community, samples were collected at three upstream reference sites, one site parallel to the ash ponds but upstream of the spill (leaching site), and five downstream sites including near two sites that were dredged for remediation, one at Town Creek, near the spill site and one near Abreu-Grogan Park, Danville, Va., and depositional sites that were not dredged near Danville (Figure \@ref(fig:map), Table \@ref(tab:sites)). 
-
-
 \begin{center}
-  \captionof{figure}[Google Earth image of Dan River and sampling locations.]{Google Earth image of Dan River and sampling sites. Markers indicate sampling sites: Blue, upstream of spill site; Green, leaching site; Yellow, downstream dredged locations; Orange, downstream not dredged.}\label{fig:map}
-  \centering
-    \includegraphics[width=400pt]{figure/map}
 \end{center}
+\begin{figure}[h]
+\centering
+    \includegraphics[width=400pt]{figure/map}
+  \caption[Google Earth image of Dan River and sampling locations.]{Google Earth image of Dan River and sampling sites. Markers indicate sampling sites: Blue, upstream of spill site; Green, leaching site; Yellow, downstream dredged locations; Orange, downstream not dredged.}\label{fig:map}
+\end{figure}
+
 
 Each site was accessed by boat, where sediment from the riverbank and channel was collected. Riverbank sediment cores were collected in triplicate using a piston-style coring device. Channel samples were collected using a small dredge. Sediment cores were sectioned by depth and individual segments homogenized according to one of three sampling schemes to reduce the total number of samples to be assayed (Table \@ref(tab:scheme)). 0.25 $\mathrm{cm^3}$ samples were preserved in CTAB (cetyltrimethylammonium bromide) for DNA extraction. Channel sediment was homogenized then 0.25 $\mathrm{cm^3}$ was preserved in CTAB. 
+
 
 ```{r sites, echo=FALSE, message=FALSE, warning=FALSE}
 read_csv("data/sites.csv") %>% 
@@ -68,6 +70,8 @@ read_csv("data/sites.csv") %>%
   #landscape()
 ```
 
+\begin{center}
+\end{center}
 
 ```{r scheme, echo=FALSE, message=FALSE, warning=FALSE}
 library(readxl)
@@ -88,12 +92,15 @@ The relative abundance of targets was computed by the StepOne software using the
 
 The SSU rDNA abundance was normalized to the volume of extracted sediment as well as to organic matter. The amount of organic matter present in each sample was determined by ash free dry mass (AFDM). Each sample was dried at 60ºC for 48 hours, then combusted in a muffle furnace at 500ºC for 2 hours. Samples were weighed before and after combustion to calculate the AFDM. 
 
-```{r primers, echo=FALSE, message=TRUE, warning=TRUE}
+```{r primers, echo=FALSE, message=TRUE, warning=TRUE, results='asis'}
 library(readxl)
 library(kableExtra)
 library(tidyverse)
-read_excel("data/pcrdatasheets.xlsx", sheet = "primers") %>% 
-  kable(booktabs=T, caption = "Primers used in this study.", align = "l",linesep = "" ) #%>% landscape()
+df <- read_excel("data/pcrdatasheets.xlsx", sheet = "primers")
+df[is.na(df)] <- " "
+df %>% kable(booktabs=T, caption = "Primers used in this study.", align = "l",linesep = "" )
+  
+
 ```
 
 ### Statistical Analysis
@@ -133,7 +140,7 @@ srbcompare <- compare_means(concentration ~ Sample, data = srbom, ref.group = "D
 
 \begin{center}
   \includegraphics[width=400pt]{figure/hgcaomp}
-   \captionof{figure}[*hgcA* abundance normalized to organic matter at each sampling location.]{*hgcA* abundance normalized to organic matter at each sampling location. Asterisks signify difference between the reference, D-01 using the Wilcoxon Rank Sum test. * : p <= 0.05, ** : p <= 0.01, *** : p <= 0.001}\label{fig:hgcaomp}
+   \captionof{figure}[\textit{hgcA} abundance normalized to organic matter at each sampling location.]{\textit{hgcA} abundance normalized to organic matter at each sampling location. Asterisks signify difference between the reference, D-01 using the Wilcoxon Rank Sum test. * : p <= 0.05, ** : p <= 0.01, *** : p <= 0.001}\label{fig:hgcaomp}
 \end{center}
 
 \begin{center}
@@ -202,9 +209,12 @@ allcompare %>% kable(booktabs=T, linesep = "",
 The samples collected in the river channel were limited by one sample at each site. To assess significance, samples were binned according to upstream and downstream. For each of the SSU rDNA targets tested, there is no significant difference between the groups (Figure \@ref(fig:channel)). 
 
 \begin{center}
+\end{center}
+\begin{figure}
+
   \includegraphics[width=400pt]{figure/channel}
   \captionof{figure}[River channel abundance at sampling sites upstream and downstream.]{River channel abundance at sampling sites upstream and downstream normalized to organic matter.}\label{fig:channel}
-\end{center}
+\end{figure}
 
 ## Discussion
 The SSU rDNA abundance detected at the sampling location 0.3 km downstream of the spill site, D-01, is higher than some locations upstream and downstream. However, the highest abundance of these three targets was found at the furthrest upstream site of all locations. Notably, the leaching site, L-01, and D-01 were not significantly different, and also exhibited higher target signal over some locations. This may signify that there is an impact from leaching of coal ash constituents. All primers tested exhibited a similar patterns of significance and abundance per location and may possibly be correlated due to an unknown confounding factor.
