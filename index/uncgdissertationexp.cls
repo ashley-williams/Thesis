@@ -10,7 +10,7 @@
 \LoadClass[oneside, openany, 12pt, onecolumn, final]{book}
 \RequirePackage{graphicx} % maybe fix?
 \RequirePackage{fancyhdr} %% Don't know what this does.
-\RequirePackage[tableposition=top, labelsep = period]{caption}
+%\RequirePackage[tableposition=top, labelsep = period]{caption} %maybe messing up tables
 \RequirePackage[section, below]{placeins}
 \RequirePackage{etoolbox}
 \RequirePackage{calc}
@@ -130,6 +130,7 @@
   %doublespace
 
   \doublespacing
+  \setlength{\parindent}{0.5in}
   \pagestyle{empty}
 }%
 {\clearpage
@@ -299,9 +300,12 @@ Committee Co-Chair &
 
 %%  Acknowledgments page
 \newenvironment{acknowledgments}
-{\shortchapter*{Acknowledgments}\par
+{\shortchapter*{Acknowledgments}\par 
+\setlength{\parindent}{0.5in}
 \vspace*{0.5\baselineskip}  }
-{ \vfill \par \clearpage}
+{ \vfill \par \clearpage
+
+}
 
 
 %%  Preface page
