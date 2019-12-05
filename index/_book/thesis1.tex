@@ -38,6 +38,8 @@
 \usepackage{pdflscape}
 \usepackage{microtype, amsfonts, amsthm}
 \usepackage[colorlinks=false]{hyperref}
+\usepackage{caption}
+\usepackage{afterpage}
 \pdfstringdefDisableCommands{\let\MakeUppercase\relax}
 %\usepackage{showframe}
 %useful package to ensure margins are correct.
@@ -172,7 +174,7 @@
 %% -------------------------- Abstract -----------------------------%%
 %%------------------------------------------------------------------%%
 \begin{abstract}
-Coal ash is the residual material of coal combustion for electricity generation. It contains heavy metals and other pollutants and is generally deposited into reservoir ponds for storage, although it may spill or leach into nearby water and possibly disrupt aquatic communities. In February of 2014, a coal ash spill occurred in the Dan River in Eden, NC. Coal ash contains constituents that may stimulate the growth of mercury methylating bacteria. This study aimed to determine if a microbial response is detectable 1.5 years following the spill using qPCR. We tested three primers targeting mercury methylation. We detected an elevated signal 0.5 km downstream from the spill site relative to some other upstream and downstream locations. However, the highest abundance of amplified targets was observed in the furthest upstream site. We also undertook a survey of bacteria present in a coal ash sample from the coal ash pond that was the source of the spill, located at the retired Dan River Steam Station in Eden, NC. SSU rDNA extracted from 31 isolated organisms was sequenced and the organisms identified to genus level. The community was predominantly composed of \emph{Bacillus} and \emph{Arthrobacter} spp. 14 Isolates were grown in 50\% nutrient broth amended with heavy metals commonly found in coal ash waste (As, Cd, Cr, Hg, Pb, Se, Zn) at environmentally relevant concentrations to characterize their metal tolerance. Growth of coal ash isolates was compared to two isolates cultured from coal ash-free soil. Overall, coal ash isolates exhibited metal tolerance, but so did the soil isolates.
+Coal ash is the residual material of coal combustion for electricity generation. It contains heavy metals and other pollutants and is generally deposited into reservoir ponds for storage, although it may spill or leach into nearby water and possibly disrupt aquatic communities. In February of 2014, a coal ash spill occurred in the Dan River in Eden, NC. Coal ash contains constituents that may stimulate the growth of mercury methylating bacteria. This study aimed to determine if a microbial response is detectable 1.5 years following the spill using qPCR. We tested three primers targeting mercury methylation. We detected an elevated signal 0.5 km downstream from the spill site relative to some other upstream and downstream locations. However, the highest abundance of amplified targets was observed in the furthest upstream site. We also undertook a survey of bacteria present in a coal ash sample from the coal ash pond that was the source of the spill, located at the retired Dan River Steam Station in Eden, NC. SSU rDNA extracted from 31 isolated organisms was sequenced and the organisms identified to genus level. The community was predominantly composed of \emph{Bacillus} and \emph{Arthrobacter} spp. 14 Isolates were grown in 50\% nutrient broth amended with heavy metals commonly found in coal ash waste (As, Cd, Cr, Hg, Pb, Se, Zn) at environmentally relevant concentrations to characterize their metal tolerance. Overall, coal ash isolates exhibited metal tolerance.
 \end{abstract}
 %%------------------------------------------------------------------%%
 %%---------------------------- Title page --------------------------%%
@@ -370,7 +372,7 @@ SRB & DSV230R & GRGYCYGCGTYYCATTAGC & Daly \emph{et al.,} 2000\\
 \hypertarget{statistical-analysis}{%
 \subsection{Statistical Analysis}\label{statistical-analysis}}
 
-Statistical analyses included nonparametric tests for significance to determine the overall effect of sampling location on the abundance of target per sample. To determine whether abundance of the targets vary in the shore sediment based on the distance from the spill site, the data was first tested for normality with the Shapiro-Wilk test of normality. The data did not follow a Gaussian distribution, therefore, the data were transformed (LN(x +1)), but still failed the test for normality. Samples were binned according to location irrespective of depth due to limited replication of depths, and evaluated with nonparametric tests. For each target, a Kruskall-Wallis test was performed to assess whether a difference in target abundance exists between sites. Where a significant difference was observed, a Wilcoxon Rank Sum test was performed post hoc to determine differences between the location directly downstream of the spill site and all other locations independently. Target abundance of the leaching site was also compared to all other sites. These tests were then repeated with the data normalized to the mass of sediment and to the amount of organic matter present in each sample.
+Statistical analyses included nonparametric tests for significance to determine the overall effect of sampling location on the abundance of target per sample. To determine whether abundance of the targets vary in the shore sediment based on the distance from the spill site, the data was first tested for normality with the Shapiro-Wilk test of normality. The data did not follow a Gaussian distribution, therefore, the data were transformed (LN(x +1)), but still failed the test for normality. Samples were binned according to location irrespective of depth due to limited replication of depths, and evaluated with nonparametric tests. For each target, a Kruskall-Wallis test was performed to assess whether a difference in target abundance exists between sites. Where a significant difference was observed, a Wilcoxon Rank Sum test was performed to determine differences between sampling locations of interest. We hypothesize an increase in DNA abundance with proximity to the spill site, therefore, pairwise comparisons were assesed between Site ID D-01 and all others, as well as L-01 to all others. These tests were then repeated with the data normalized to the mass of sediment and to the amount of organic matter present in each sample.
 
 Due to the lack of replication of river channel samples, the samples collected from the river channel bottom were binned into upstream and downstream groups. A Wilcoxon Rank Sum test was used to determine significance. All analyses were conducted using R (R Core Team, 2019).
 
@@ -381,20 +383,22 @@ Due to the lack of replication of river channel samples, the samples collected f
 \subsection{Shore Sediment Samples}\label{shore-sediment-samples}}
 
 The Kruskall-Wallis test revealed a significant difference between the abundance of amplified DNA and sampling locations for each of the three qPCR targets assessed (Kruskall-Wallis p-value \textless0.05). Each of the targets amplified from the D-01 sampling site, the first sampling site downstream (0.3 km) from the spill site, was detected at a higher abundance compared to at least one of the sites downstream and upstream (Figures \ref{fig:hgcaomp} - \ref{fig:srbomp}, Table \ref{tab:compare}). However, D-01 was not the location with the highest overall abundance of these targets. The sampling location U-03, the farthest upstream location, 3.6 km upstream of the spill, and 0.5 km downstream from the Smith River confluence, showed the highest values for each of the targets tested (Figures \ref{fig:hgcaomp} - \ref{fig:srbomp}, Table \ref{tab:compareU}).
-\begin{figure}[htbp]
+\begin{figure}[h]
   \includegraphics[width=400pt]{figure/hgcaomp}
    \caption[\textit{hgcA} Abundance Normalized to Organic Matter at Each Sampling Location.]{\textit{hgcA} Abundance Normalized to Organic Matter at Each Sampling Location. Asterisks signify difference between the reference, D-01 using the Wilcoxon Rank Sum test. * : p <= 0.05, ** : p <= 0.01}\label{fig:hgcaomp}
 \end{figure}
-\begin{figure}[htbp]
+\clearpage
+\begin{figure}[h]
   \includegraphics[width=400pt]{figure/ferbomp}
    \caption[FeRB Abundance Normalized to Organic Matter at Each Sampling Location.]{FeRB Abundance Normalized to Organic Matter at Each Sampling Location. Asterisks signify difference between the reference, D-01 using the Wilcoxon Rank Sum test. * : p <= 0.05, ** : p <= 0.01}\label{fig:ferbomp}
 \end{figure}
-\begin{figure}[htbp]
+\clearpage
+\begin{figure}[h]
   \includegraphics[width=400pt]{figure/srbomp}
    \caption[SRB Abundance Normalized to Organic Matter at Each Sampling Location.]{SRB Abundance Normalized to Organic Matter at Each Sampling Location. Asterisks signify difference between the reference, D-01 using the Wilcoxon Rank Sum test. * : p <= 0.05, ** : p <= 0.01}\label{fig:srbomp}
 \end{figure}
+\clearpage
 \begin{table}[htbp]
-
 \caption[Comparisons of Each Sampling Location to the Location Directly Downstream of the Spill.]{\label{tab:compare}Comparisons of Each Sampling Location to the Location Directly Downstream of the Spill. Wilcoxon Rank Sum Test, ns: not significant, * : p <= 0.05, ** : p <= 0.01}
 \centering
 \begin{tabular}{llll}
@@ -414,7 +418,6 @@ D-06 & ns & ns & ns\\
 \end{tabular}
 \end{table}
 \begin{table}[htbp]
-
 \caption[Comparisons of Each Sampling Location to the Furthest Upstream Location.]{\label{tab:compareU}Comparisons of Each Sampling Location to the Furthest Upstream Location. Wilcoxon Rank Sum Test, ns: not significant, * : p <= 0.05, ** : p <= 0.01}
 \centering
 \begin{tabular}{llll}
@@ -433,10 +436,10 @@ D-06 & ns & ns & ns\\
 \bottomrule
 \end{tabular}
 \end{table}
+\clearpage
 
 Additionally, the leaching site, L-01 is not significantly different from the D-01 location. When comparing the leaching site to all others, targets abundance is slightly higher than most of the other sampling locations. This pattern is similar to the D-01 comparisons, but overall, less pairs are significantly different (Table \ref{tab:compareL}). The same pattern was observed between the data normalized to the mass of sediment in each sample as well as the amount of organic matter present.
 \begin{table}[htbp]
-
 \caption[Comparisons of Each Sampling Location to the Leaching Site Location.]{Comparisons of Each Sampling Location to the Leaching Site Location. Wilcoxon Rank Sum Test, ns: not significant, * : p <= 0.05, ** : p <= 0.01}{\label{tab:compareL}
 \centering
 \begin{tabular}{llll}
@@ -457,7 +460,6 @@ D-06 & ns & ns & ns\\
 \end{table}
 
 Within this study, replication of core depth was limited, therefore, the interaction between the depth of samples was not evaluated. However, a scatterplot of the data did not show any clear patterns indicating a depth interaction, but the effect is inconclusive (Figure \ref{fig:depth}).
-
 \begin{figure}[htbp]
 \includegraphics[width=400pt]{figure/depth}
    \caption[Target DNA Concentration at Each Depth]{Target DNA Concentration at Each Depth.}
@@ -467,7 +469,6 @@ Within this study, replication of core depth was limited, therefore, the interac
 \subsection{River Channel Samples}\label{river-channel-samples}}
 
 The samples collected in the river channel were limited by one sample at each site. To assess significance, samples were binned according to upstream and downstream. For each of the targets tested, there is no significant difference between the groups (Figure \ref{fig:channel}).
-
 \begin{figure}[htbp]
   \includegraphics[width=400pt]{figure/channel}
   \caption[River Channel Abundance at Sampling Sites Upstream and Downstream Normalized to Organic Matter.]{River Channel Abundance at Sampling Sites Upstream and Downstream Normalized to Organic Matter.}\label{fig:channel}
@@ -508,7 +509,7 @@ The objective of this study was to determine if a microbial community is viable 
 
 \textbf{Objective 2: To determine the metal tolerance of bacteria isolated from coal ash collected from the Dan River impoundment site.}
 
-\emph{I hypothesize that microbial growth of bacterial isolates from pure coal ash collected at the Dan River Steam Station impoundment pond will be more tolerant to heavy metals than organisms isolated from a reference site (soil collected from Peabody Park on UNCG campus).}
+\emph{I hypothesize that microbial growth of bacterial isolates from pure coal ash collected at the Dan River Steam Station impoundment pond will be tolerant to heavy metals.}
 
 \hypertarget{methods-1}{%
 \section{Methods}\label{methods-1}}
@@ -516,24 +517,25 @@ The objective of this study was to determine if a microbial community is viable 
 \hypertarget{pure-culture-isolation-from-coal-ash}{%
 \subsection{Pure Culture Isolation from Coal Ash}\label{pure-culture-isolation-from-coal-ash}}
 
-Samples of coal ash provided by our collaborator, Brian Williams of the Dan River Basin Association, were taken directly from a coal ash retention pond at the retired Dan River Steam Station near Eden, NC. To culture isolated organisms, aliquots (0.5 g) of coal ash from the pond were added to six 50 mL conical tubes. 40 mL of filter sterilized (0.22 µm pore) Dan River water was added to three tubes and filter sterilized Dan River water supplemented with 10\% nutrient broth to the other three tubes. Additionally, filter sterilized Dan River water alone was evaluated in triplicate to serve as a sterility control. Tubes were incubated at ambient room temperature for 48 hours without agitation. 1 mL aliquots were then transferred from each culture and spread on 50\% nutrient agar plates for isolation. Morphologically unique colonies identified on spread plates were isolated and pure cultures maintained on 50\% nutrient agar slants for heavy metal tolerance experimentation. Sediment samples collected from Peabody Park, UNCG campus, used as a comparison, were isolated using the same protocol as described.
+Samples of coal ash provided by our collaborator, Brian Williams of the Dan River Basin Association, were taken directly from a coal ash retention pond at the retired Dan River Steam Station near Eden, NC. To culture organisms, aliquots (0.5 g) of coal ash from the pond were added to six 50 mL conical tubes. 40 mL of filter sterilized (0.22 µm pore) Dan River water was added to three tubes and filter sterilized Dan River water supplemented with 10\% nutrient broth to the other three tubes. Additionally, filter sterilized Dan River water alone was evaluated in triplicate to serve as a sterility control. Tubes were incubated at ambient room temperature for 48 hours without agitation. 1 mL aliquots were then transferred from each culture and spread on 50\% nutrient agar plates for isolation. Morphologically unique colonies identified on spread plates were isolated and pure cultures maintained on 50\% nutrient agar slants for heavy metal tolerance experimentation. 
 
 \hypertarget{heavy-metal-tolerance-characterization}{%
 \subsection{Heavy Metal Tolerance Characterization}\label{heavy-metal-tolerance-characterization}}
 
 Optical density (OD) at 580 nm, of liquid broth culture was assessed as a proxy for growth of organisms, since growth is related to the increase in turbidity of a bacterial culture. Metals tested include, arsenic, cadmium, chromium, mercury, lead, selenium and zinc. Stock concentrations of \(\mathrm{Na_2HAsO_4}\), \(\mathrm{CdCl_2}\), \(\mathrm{CrCl_3}\), \(\mathrm{HgCl_2}\), \(\mathrm{PbCl_2}\), \(\mathrm{Na_2SeO_3}\), and \(\mathrm{ZnCl_2}\) were serially diluted to span several orders of magnitude greater and less than natural environmental concentrations reported in the literature for each metal, resulting in five concentration levels per metal (Table \ref{tab:metals}).
 \begin{table}[htbp]
-\caption[Final Concentrations of Metal in Fermentation Broth.]{Final Concentrations of Metal in Fermentation Broth (µg/L).}\label{tab:metals}
+\caption[Final Concentrations of Metal in Fermentation Broth.]{Final Concentrations of Metal in Fermentation Broth (nM).}\label{tab:metals}
 \centering
 \begin{tabular}{cccccccc}
 \toprule
 Factor & As & Cd & Cr & Hg & Pb & Se & Zn\\
 \midrule
-1 & 0.001 & 0.001 & 0.01 & 0.001 & 0.01 & 1 & 0.1\\
-2 & 0.010 & 0.010 & 0.10 & 0.010 & 0.10 & 10 & 1.0\\
-3 & 0.100 & 0.100 & 1.00 & 0.100 & 1.00 & 100 & 10.0\\
-4 & 1.000 & 1.000 & 10.00 & 1.000 & 10.00 & 1000 & 100.0\\
-5 & 10.000 & 10.000 & 100.00 & 10.000 & 100.00 & 10000 & 1000.0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0
+1 & 0.000135 & 0.008896 & 0.001923 & 0.004985 & 0.04826 & 0.1266 & 0.0153\\
+2 & 0.00135 & 0.08896 & 0.01923 & 0.04985 & 0.4826 & 1.266 & 0.153\\
+3 & 0.0135 & 0.8896 & 0.1923 & 0.4985 & 4.826 & 12.66 & 1.53\\
+4 & 0.135 & 8.896 & 1.923 & 4.985 & 48.26 & 126.6 & 15.3\\
+5 & 1.35 & 88.96 & 19.23 & 49.85 & 482.6 & 1266 & 153\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -556,32 +558,26 @@ To characterize the heavy metal tolerance of isolates in liquid broth culture, t
 \hypertarget{phylogenetic-analysis}{%
 \subsection{Phylogenetic Analysis}\label{phylogenetic-analysis}}
 
-A total of 31 microorganisms were isolated from the coal ash sample and sequenced, five were isolated from Peabody Park soil for comparison to coal ash samples as ``control'' samples. The soil samples are assumed to be free of coal ash, but these soils were probably affected by farming practices in the past, which may have included introduction of heavy metals to the soil. Sequences were aligned and a phylogenetic tree was constructed (Figure \ref{fig:tree}). Sequences were predominantly identified as \emph{Bacillus} or \emph{Arthrobacter} spp. One isolate, DR 76, was not identified in GenBank with the BLASTn search. Of the 5 isolates that were cultured from soil, three are identified as \emph{Bacillus} sp., one \emph{Duganella}, and one \emph{Pseudomonas}. \emph{Duganella} and \emph{Pseudomonas} were unique to the soil samples.
+A total of 31 microorganisms were isolated from the coal ash sample and sequenced. Sequences were aligned and a phylogenetic tree was constructed (Figure \ref{fig:tree}). Sequences were predominantly identified as \emph{Bacillus} or \emph{Arthrobacter} spp. One isolate, DR 76, was not identified in GenBank with the BLASTn search. 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=375pt]{figure/tree6}
-  \caption[Phylogenetic Analysis of Isolates Cultured from Coal Ash Amended Media.]{Phylogenetic Analysis of Isolates Cultured from Coal Ash Amended Media. Identification of Coal ash-free isolates are prepended with S1-S5, all others are coal ash samples.}\label{fig:tree}
+  \includegraphics{figure/tree7}
+  \caption[Phylogenetic Analysis of Isolates Cultured from Coal Ash Amended Media.]{Phylogenetic Analysis of Isolates Cultured from Coal Ash Amended Media.}\label{fig:tree}
 \end{figure}
 
 \hypertarget{metal-tolerance-assays}{%
 \subsection{Metal Tolerance Assays}\label{metal-tolerance-assays}}
 
-We tested metal tolerance of 16 isolates. When exposed to a heavy metal, isolates generally grew well (Figures \ref{fig:si4} - \ref{fig:dr52}). The isolates were challenged against seven metals, resulting in a total of 94 trials. 17 trials were excluded due to lack of growth e.g.~Figure \ref{fig:dr52} Se. There was little difference between coal ash isolates and a ``control'', SI 4 (Figure \ref{fig:si4}). In one of the ``control'' isolates, SI 2, growth was not observed and was excluded. The soil isolate SI 4, was tolerant to all metals at the concentrations tested except for cadmium and zinc (Tables \ref{tab:kpvalue} and \ref{tab:muvalue}, Figure \ref{fig:si4}).
+We tested metal tolerance of 14 isolates. The isolates were challenged against seven metals, resulting in a total of 94 trials. Isolates generally grew well. Figures \ref{fig:dr13} - \ref{fig:dr52} are exemplary of typical growth responses. Figure \ref{fig:dr13} is representative of similar growth response among differing metal concentrations. Carrying capacity is significantly different between metal concentrations of Cd and Zn, and growth rates are different with As and Zn. Figure \ref{fig:dr32} showed a varied response where carrying capacity is significantly different between metal concentrations of Cd and Se, but no difference is observed when testing maximal growth rates. Figure \ref{fig:dr52}, Se is an example of no growth. When evaluating the growth of DR 52 challenged by the other metals, the carrying capacity is significantly different between metal concentrations of Cd, and growth rates are different with As, Cd, and Hg (Kruskall-Wallis test p-value < 0.05). 
 
 When evaluating carrying capacity, 70 trials were not different from the control, Kruskall-Wallis test p-value \textgreater0.05 (Table \ref{tab:kpvalue}). Evaluation of maximal growth rate produced 71 isolate-metal trials that were not significantly different (Table \ref{tab:muvalue}). 64\% of the isolates tested were susceptible to Cd and 72\% are susceptible to Se. The other metals tested (As, Cr, Hg, Pb, and Zn) resulted in much less susceptibility, ranging from 1-3 susceptible isolates.
-\begin{figure}
-   \centering
-   \includegraphics[width=400pt]{figure/si4plot}
-   \caption[Growth of Soil Isolate SI4.]{Growth of Soil Isolate SI4. Lines connect means of three replicates, colors represent concentration levels (Table 3.1). Carrying capacity is not significantly different between metal concentrations. Growth rates are different in Cd and Zn experiments (Kruskall-Wallis test p-value < 0.05)}\label{fig:si4}
-\end{figure}
 \begin{figure}
     \centering
     \includegraphics[width=400pt]{figure/dr13plot}
     \caption[Growth of Isolate DR13.]{Growth of Isolate DR13. Lines connect means of three replicates, colors represent concentration levels (Table 3.1). Carrying capacity is significantly different between metal concentrations of Cd and Zn.  Growth rates are different with As and Zn (Kruskall-Wallis test p-value < 0.05)}\label{fig:dr13}
 \end{figure}
 \begin{figure}
-  
-  \centering
+    \centering
     \includegraphics[width=400pt]{figure/dr32plot}
     \caption[Growth of Isolate DR3.2.]{Growth of Isolate DR3.2. Lines connect means of three replicates, colors represent concentration levels (Table 3.1). Carrying capacity is significantly different between metal concentrations of Cd and Se. No difference is observed when testing maximal growth rates (Kruskall-Wallis test p-value < 0.05)}\label{fig:dr32}
 \end{figure}
@@ -614,8 +610,6 @@ Unknown Genus & DR76 & 0.125 & 0.336 & 0.517 & NA & 0.18 & \textbf{0.014} & \tex
 Not Sequenced & NO14 & 0.243 & \textbf{0.031} & 0.297 & 0.97 & 0.822 & \textbf{0.03} & 0.741\\
 \rowcolor{gray!6}  Not Sequenced & NO17 & 0.051 & 0.067 & 0.22 & 0.329 & \textbf{0.035} & 0.054 & 0.063\\
 Not Sequenced & NO22 & NA & NA & NA & NA & NA & \textbf{0.014} & NA\\
-\rowcolor{gray!6}  \em{Bacillus} & SI2 & NA & NA & NA & NA & NA & \textbf{0.01} & NA\\
-\em{Dunganella} & SI4 & 0.361 & 0.076 & 0.255 & 0.09 & 0.983 & NA & 0.051\\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -642,36 +636,26 @@ Unknown Genus & DR76 & 0.218 & 0.451 & 0.534 & NA & 0.399 & \textbf{0.039} & \te
 Not Sequenced & NO14 & 0.324 & 0.086 & 0.713 & 0.9 & 0.801 & \textbf{0.014} & 0.648\\
 \rowcolor{gray!6}  Not Sequenced & NO17 & 0.174 & 0.107 & 0.68 & 0.825 & 0.112 & \textbf{0.013} & 0.286\\
 Not Sequenced & NO22 & NA & NA & NA & NA & NA & 0.05 & NA\\
-\rowcolor{gray!6}  \em{Bacillus} & SI2 & NA & NA & NA & NA & NA & 0.377 & NA\\
-\em{Dunganella} & SI4 & 0.117 & \textbf{0.026} & 0.388 & 0.108 & 0.982 & NA & \textbf{0.036}\\
 \bottomrule
 \end{tabular}}
 \end{table}
 \hypertarget{discussion-1}{%
 \section{Discussion}\label{discussion-1}}
 \addtocontents{toc}{\vspace{\normalbaselineskip}}
-We isolated cultures of aerobic bacteria from samples of coal ash. The coal ash isolates are predominantly identified as \emph{Arthrobacter} and \emph{Bacillus} spp. \emph{Arthrobacter} spp. are ubiquitous and have been found in common soils as well as extreme environments. These spore-formers are able to survive long periods of time under stressful conditions such as nutrient deficiency, temperature shifts, and toxic chemicals. \emph{Arthrobacter} sp. are metabolically diverse, have been utilized to biodegrade environmental pollutants, and are highly resistant to heavy metals (Mongodin \emph{et al.}, 2006). We isolated \emph{Arthrobacter} from coal ash samples, but did not isolate them from the soil sample. The predominance of \emph{Arthrobacter} sp. from the coal ash may be due to the selective pressure of the coal ash. High concentrations of Cd had an effect on most of the isolates tested. Of the five isolates that were tolerant of Cd, one is \emph{Arthrobacter}, although not all \emph{Arthrobacter} were tolerant of Cd. \emph{Bacillus} spp. are genomically diverse, ubiquitous endospore-formers are highly resistant to stressors (Earl \emph{et al.}, 2008). Three \emph{Bacillus} spp. were subjected to metal tolerance assays. The soil isolate SI2, a \emph{Bacillus} was only tested for Se, and was susceptible. The other \emph{Bacillus} spp. (DR52 and DRp51) exhibited the same metal tolerance characterization; tolerant to all except Cd and Se.
+We isolated cultures of aerobic bacteria from samples of coal ash. The observed tolerance among isolates is consistent with previous studies (Klubek \emph{et al.}, 1992; Raja and Omine, 2012). The coal ash isolates are predominantly identified as \emph{Arthrobacter} and \emph{Bacillus} spp. \emph{Arthrobacter} spp. are ubiquitous and have been found in common soils as well as extreme environments. These spore-formers are able to survive long periods of time under stressful conditions such as nutrient deficiency, temperature shifts, and toxic chemicals. \emph{Arthrobacter} sp. are metabolically diverse, have been utilized to biodegrade environmental pollutants, and are highly resistant to heavy metals (Mongodin \emph{et al.}, 2006). The predominance of \emph{Arthrobacter} sp. from the coal ash may be due to the selective pressure of the coal ash. High concentrations of Cd had an effect on most of the isolates tested. Of the five isolates that were tolerant of Cd, one is \emph{Arthrobacter}, although not all \emph{Arthrobacter} were tolerant of Cd. \emph{Bacillus} spp. are genomically diverse, ubiquitous endospore-formers are highly resistant to stressors (Earl \emph{et al.}, 2008). Two \emph{Bacillus} spp. were subjected to metal tolerance assays. The \emph{Bacillus} spp. DR52 and DRp51 exhibited the same metal tolerance characterization; tolerant to all except Cd and Se.
 
-One isolate could not be identified by a BLASTn search of the GenBank database, and may be an interesting organism to for further testing and characterization. Since we only studied organisms which were easily grown and maintained within the lab under room temperature conditions, likely only a small portion of the organisms present were cultivated. More novel organisms may be discoverable using less selective methods.
+One isolate could not be identified by a BLASTn search of the GenBank database, and may be an interesting organism to for further testing and characterization. Since we only studied organisms which were easily grown and maintained within the lab under room temperature conditions, likely only a very small portion of the organisms present were cultivated. More novel organisms may be discoverable using less selective methods.
 
-These data are suggestive of metal tolerance, and this assay was useful as a screen to find interesting isolates for further study, but these data are not conclusive. Due to a small sample size and unbalanced number of coal ash isolates compared to soil isolates, we are unable to determine if the coal ash samples are more or less tolerant to heavy metals than the soil samples.
+These data are suggestive of metal tolerance, and this assay was useful as a screen to find interesting isolates for further study.
 
 \hypertarget{conclusions}{%
 \chapter{CONCLUSIONS}\label{conclusions}}
 
-The coal ash spill into the Dan River is the third worst spill in United States history. It released thousands of tons of ash and millions of gallons of untreated coal ash slurry into the Dan River. Approximately 1.5 years after the spill, the microbial response to the influx of coal ash into the sediment of the river was assessed using qPCR to probe samples targeting a mercury-methyating gene, and SSU rDNA from SRB and FeRB. Using these methods, relative to other locations, we found elevated abundance of of the three targets assessed, adjacent to the ponds (leaching site) and the location directly downstream of the spill site. These results may indicate the taxa are responding to the coal ash, but we are unable to provide strong evidence using these methods.
+We found no significant evidence of increased mercury methylation potential from the coal ash spill into the Dan River. We observed similar patterns of abundance of each qPCR target among the sample locations, indicating a similar response is by multiple taxonomic groups. Unexpectedly, the highest abundance among all targets was observed at a site that seems unlikely to have been contaminated with coal ash due to its distance upstream from the spill site.
 
-In this study we observed similar patterns of abundance of each target along the distance gradient. This indicates a similar response is detected between multiple taxonomic groups. Unexpectedly, the highest abundance among all targets was observed at a site that seems unlikely to have been contaminated with coal ash due to it's distance upstream from the spill site, where the coal ash was carried away downstream. We were unable to test if the target abundance is impacted by the depth of the sample due to inadequate replication, but we suspect any pattern within depth of sample may relate to the amount organic matter present in the sample, which could be highly variable.
+The coal ash isolates were generally tolerant to the concentrations of heavy metals tested, except for cadmium and selenium. However, we did not measure the ion concentrations directly to determine if the metal was unbound and available for uptake. Alternate isolation protocols to capture a more diverse group of isolates may better improve our understanding of coal ash bacteria. 
 
-Our sampling effort was constrained by multiple circumstances. The field sampling was limited by access to locations, weather, and river gauge height. We were also limited by the number of samples we were able to process. Additionally, the locations along the river available and selected for study may have been inadequate due to the unpredictability and variability of coal ash depositional sites, or ``hotspots''. These ``hotspots'' with a higher concentration of coal ash may stimulate more bacterial growth than other locations and thus provide a more definitive signal. Potentially, new technologies such as utilizing unmanned aerial vehicles to determine the size and scope of coal ash spills and other environmental pollution events, may aid in identifying hotspots and therefore, improve sampling strategies(Messinger and Silman, 2016).
-
-Our results may also have been improved by assaying additional primers including primers designed to capture a broader suite of \emph{hgcA} containing bacteria. Additionally, testing general bacterial primers to serve as a microbial abundance background to better characterize a possible correlation between the targets.
-
-We also characterized the metal tolerance of bacteria cultivated from coal ash. The observed tolerance among isolates is consistent with previous studies (Klubek \emph{et al.}, 1992; Raja and Omine, 2012). We only tested the growth of the isolates, and did not measure the ion concentrations directly to determine the if the metal was unbound and available for uptake. It is possible, the exposure level was lower than nominal concentrations (Hughes and Poole, 1991; Ramamoorthy and Kushner, 1975).
-
-The coal ash isolates and the soil isolates exhibited similar tolerances. This may indicate the bacteria isolated in the lab may be adapted to high levels of these metals where the soil isolates may be adapted to soil subjected to farming activities in the past. The isolates were identified by SSU rDNA sequencing and all were identified by genus, except one. The BLASTn search returned a sequence that has not been fully characterized for identification. Unsurprisingly, the population of culturable bacteria is represented by genera that are usually found in harsh environments.
-
-The results of this study provide some insights to the response of bacteria to coal ash. If another natural disaster or pollution event were to occur, a similar study with improved sampling methods may help characterize the risk of mercury-methylating stimulation and mobilization into the food webs.
+Due to the dynamic nature of river systems, assaying for polluting spills or other perturbations is difficult. A study with  improved sampling methods may better elucidate risk of mercury-methylation and mobilization into the food webs.
 
 \backmatter
 
@@ -781,9 +765,6 @@ Lima de Silva, A.A., de Carvalho, M.A.R., de Souza, S.A.L., Dias, P.M.T., da Sil
 \leavevmode\hypertarget{ref-liuAnalysisMicrobialCommunity2014}{}%
 Liu, Y.-R., Yu, R.-Q., Zheng, Y.-M., and He, J.-Z. (2014). Analysis of the Microbial Community Structure by Monitoring an Hg Methylation Gene (hgcA) in Paddy Soils along an Hg Gradient. Applied and Environmental Microbiology \emph{80}, 2874--2879.
 
-\leavevmode\hypertarget{ref-messingerUnmannedAerialVehicles2016}{}%
-Messinger, M., and Silman, M. (2016). Unmanned aerial vehicles for the assessment and monitoring of environmental contamination: An example from coal ash spills. Environmental Pollution \emph{218}, 889--894.
-
 \leavevmode\hypertarget{ref-mongodinSecretsSoilSurvival2006}{}%
 Mongodin, E.F., Shapir, N., Daugherty, S.C., DeBoy, R.T., Emerson, J.B., Shvartzbeyn, A., Radune, D., Vamathevan, J., Riggs, F., Grinberg, V., Khouri, H., Wackett, L.P., Nelson, K.E., and Sadowsky, M.J. (2006). Secrets of Soil Survival Revealed by the Genome Sequence of Arthrobacter aurescens TC1. PLOS Genetics \emph{2}, e214.
 
@@ -865,10 +846,1992 @@ Zwietering, M.H., Jongenburger, I., Rombouts, F.M., and van 't Riet, K. (1990). 
 %% line and the chapters below.
 %%------------------------------------------------------------------%%
 \appendix
-\chapter{APPENDIX}\label{app:appendix}
-
-
-
+\chapter{APPENDIX}\label{app:A}
+\renewcommand{\thetable}{A.\arabic{table}}
+\setcounter{table}{0}
+\begin{longtable}{ccccccc}
+\caption[DR 13 Gompertz Model Parameters.]{\label{tab:dr13}DR 13 Gompertz model parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:dr13}DR 13 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity \textit{(continued)}}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+\rowcolor{gray!6}  As & 0 & 1 & 0.031 & 0.064 & 0.431 & 0.997\\
+As & 0 & 2 & 0.032 & 0.065 & 0.427 & 0.994\\
+\rowcolor{gray!6}  As & 0 & 3 & 0.030 & 0.064 & 0.428 & 0.996\\
+As & 1 & 1 & 0.034 & 0.060 & 0.460 & 0.996\\
+\rowcolor{gray!6}  As & 1 & 2 & 0.034 & 0.055 & 0.477 & 0.993\\
+As & 1 & 3 & 0.032 & 0.061 & 0.459 & 0.996\\
+\rowcolor{gray!6}  As & 2 & 1 & 0.035 & 0.059 & 0.471 & 0.994\\
+As & 2 & 2 & 0.034 & 0.055 & 0.483 & 0.994\\
+\rowcolor{gray!6}  As & 2 & 3 & 0.034 & 0.061 & 0.457 & 0.995\\
+As & 3 & 1 & 0.034 & 0.062 & 0.453 & 0.994\\
+\rowcolor{gray!6}  As & 3 & 2 & 0.034 & 0.059 & 0.473 & 0.995\\
+As & 3 & 3 & 0.034 & 0.060 & 0.458 & 0.994\\
+\rowcolor{gray!6}  As & 4 & 1 & 0.036 & 0.062 & 0.482 & 0.995\\
+As & 4 & 2 & 0.035 & 0.060 & 0.449 & 0.994\\
+\rowcolor{gray!6}  As & 4 & 3 & 0.030 & 0.069 & 0.439 & 0.995\\
+As & 5 & 1 & 0.035 & 0.063 & 0.471 & 0.994\\
+\rowcolor{gray!6}  As & 5 & 2 & 0.035 & 0.063 & 0.459 & 0.994\\
+As & 5 & 3 & 0.034 & 0.066 & 0.434 & 0.994\\
+\rowcolor{gray!6}  Cd & 0 & 1 & 0.027 & 0.072 & 0.406 & 0.995\\
+Cd & 0 & 2 & 0.029 & 0.066 & 0.447 & 0.993\\
+\rowcolor{gray!6}  Cd & 0 & 3 & 0.030 & 0.060 & 0.496 & 0.993\\
+Cd & 1 & 1 & 0.028 & 0.069 & 0.431 & 0.997\\
+\rowcolor{gray!6}  Cd & 1 & 2 & 0.029 & 0.064 & 0.478 & 0.996\\
+Cd & 1 & 3 & 0.031 & 0.061 & 0.481 & 0.994\\
+\rowcolor{gray!6}  Cd & 2 & 1 & 0.031 & 0.065 & 0.450 & 0.993\\
+Cd & 2 & 2 & 0.030 & 0.065 & 0.450 & 0.995\\
+\rowcolor{gray!6}  Cd & 2 & 3 & 0.030 & 0.066 & 0.452 & 0.994\\
+Cd & 3 & 1 & 0.031 & 0.066 & 0.442 & 0.991\\
+\rowcolor{gray!6}  Cd & 3 & 2 & 0.030 & 0.067 & 0.435 & 0.994\\
+Cd & 3 & 3 & 0.033 & 0.062 & 0.453 & 0.992\\
+\rowcolor{gray!6}  Cd & 4 & 1 & 0.027 & 0.063 & 0.395 & 0.994\\
+Cd & 4 & 2 & 0.028 & 0.061 & 0.421 & 0.994\\
+\rowcolor{gray!6}  Cd & 4 & 3 & 0.030 & 0.060 & 0.422 & 0.993\\
+Cd & 5 & 1 & 0.017 & 0.062 & 0.385 & 0.905\\
+\rowcolor{gray!6}  Cd & 5 & 2 & 0.023 & 0.050 & 0.364 & 0.997\\
+Cd & 5 & 3 & 0.024 & 0.053 & 0.343 & 0.997\\
+\rowcolor{gray!6}  Cr & 0 & 1 & 0.028 & 0.063 & 0.445 & 0.995\\
+Cr & 0 & 2 & 0.033 & 0.063 & 0.439 & 0.994\\
+\rowcolor{gray!6}  Cr & 0 & 3 & 0.034 & 0.070 & 0.440 & 0.995\\
+Cr & 1 & 1 & 0.035 & 0.060 & 0.471 & 0.997\\
+\rowcolor{gray!6}  Cr & 1 & 2 & 0.033 & 0.064 & 0.434 & 0.996\\
+Cr & 1 & 3 & 0.033 & 0.063 & 0.439 & 0.996\\
+\rowcolor{gray!6}  Cr & 2 & 1 & 0.032 & 0.062 & 0.438 & 0.997\\
+Cr & 2 & 2 & 0.044 & 0.059 & 0.443 & 0.998\\
+\rowcolor{gray!6}  Cr & 2 & 3 & 0.033 & 0.065 & 0.411 & 0.994\\
+Cr & 3 & 1 & 0.033 & 0.062 & 0.433 & 0.995\\
+\rowcolor{gray!6}  Cr & 3 & 2 & 0.035 & 0.061 & 0.446 & 0.994\\
+Cr & 3 & 3 & 0.029 & 0.085 & 0.337 & 0.993\\
+\rowcolor{gray!6}  Cr & 4 & 1 & 0.032 & 0.059 & 0.461 & 0.993\\
+Cr & 4 & 2 & 0.034 & 0.062 & 0.452 & 0.994\\
+\rowcolor{gray!6}  Cr & 4 & 3 & 0.032 & 0.062 & 0.452 & 0.996\\
+Cr & 5 & 1 & 0.033 & 0.060 & 0.444 & 0.994\\
+\rowcolor{gray!6}  Cr & 5 & 2 & 0.034 & 0.061 & 0.454 & 0.995\\
+Cr & 5 & 3 & 0.034 & 0.062 & 0.446 & 0.996\\
+\rowcolor{gray!6}  Hg & 0 & 1 & 0.030 & 0.066 & 0.430 & 0.994\\
+Hg & 0 & 2 & 0.033 & 0.066 & 0.407 & 0.993\\
+\rowcolor{gray!6}  Hg & 0 & 3 & 0.030 & 0.063 & 0.429 & 0.994\\
+Hg & 1 & 1 & 0.032 & 0.068 & 0.423 & 0.995\\
+\rowcolor{gray!6}  Hg & 1 & 2 & 0.034 & 0.062 & 0.430 & 0.993\\
+Hg & 1 & 3 & 0.032 & 0.066 & 0.465 & 0.996\\
+\rowcolor{gray!6}  Hg & 2 & 1 & 0.034 & 0.064 & 0.438 & 0.995\\
+Hg & 2 & 2 & 0.033 & 0.064 & 0.438 & 0.994\\
+\rowcolor{gray!6}  Hg & 2 & 3 & 0.035 & 0.061 & 0.451 & 0.993\\
+Hg & 3 & 1 & 0.033 & 0.065 & 0.467 & 0.995\\
+\rowcolor{gray!6}  Hg & 3 & 2 & 0.035 & 0.063 & 0.458 & 0.993\\
+Hg & 3 & 3 & 0.033 & 0.064 & 0.459 & 0.994\\
+\rowcolor{gray!6}  Hg & 4 & 1 & 0.034 & 0.067 & 0.455 & 0.994\\
+Hg & 4 & 2 & 0.036 & 0.060 & 0.465 & 0.992\\
+\rowcolor{gray!6}  Hg & 4 & 3 & 0.034 & 0.064 & 0.432 & 0.993\\
+Hg & 5 & 1 & 0.032 & 0.072 & 0.434 & 0.994\\
+\rowcolor{gray!6}  Hg & 5 & 2 & 0.034 & 0.064 & 0.448 & 0.993\\
+Hg & 5 & 3 & 0.034 & 0.064 & 0.447 & 0.993\\
+\rowcolor{gray!6}  Pb & 0 & 1 & 0.030 & 0.067 & 0.435 & 0.995\\
+Pb & 0 & 2 & 0.030 & 0.064 & 0.463 & 0.995\\
+\rowcolor{gray!6}  Pb & 0 & 3 & 0.029 & 0.067 & 0.443 & 0.995\\
+Pb & 1 & 1 & 0.029 & 0.071 & 0.423 & 0.996\\
+\rowcolor{gray!6}  Pb & 1 & 2 & 0.030 & 0.069 & 0.430 & 0.995\\
+Pb & 1 & 3 & 0.032 & 0.063 & 0.474 & 0.995\\
+\rowcolor{gray!6}  Pb & 2 & 1 & 0.030 & 0.067 & 0.466 & 0.995\\
+Pb & 2 & 2 & 0.030 & 0.068 & 0.445 & 0.996\\
+\rowcolor{gray!6}  Pb & 2 & 3 & 0.024 & 0.072 & 0.500 & 0.980\\
+Pb & 3 & 1 & 0.030 & 0.067 & 0.424 & 0.995\\
+\rowcolor{gray!6}  Pb & 3 & 2 & 0.032 & 0.060 & 0.463 & 0.994\\
+Pb & 3 & 3 & 0.030 & 0.069 & 0.411 & 0.994\\
+\rowcolor{gray!6}  Pb & 4 & 1 & 0.032 & 0.063 & 0.448 & 0.993\\
+Pb & 4 & 2 & 0.031 & 0.064 & 0.425 & 0.993\\
+\rowcolor{gray!6}  Pb & 4 & 3 & 0.032 & 0.063 & 0.449 & 0.994\\
+Pb & 5 & 1 & 0.030 & 0.068 & 0.407 & 0.994\\
+\rowcolor{gray!6}  Pb & 5 & 2 & 0.031 & 0.065 & 0.428 & 0.993\\
+Pb & 5 & 3 & 0.032 & 0.066 & 0.432 & 0.994\\
+\rowcolor{gray!6}  Se & 0 & 1 & 0.007 & 0.070 & 0.360 & 0.995\\
+Se & 0 & 2 & 0.008 & 0.072 & 0.351 & 0.989\\
+\rowcolor{gray!6}  Se & 0 & 3 & 0.006 & 0.069 & 0.372 & 0.995\\
+Se & 1 & 1 & 0.008 & 0.062 & 0.391 & 0.993\\
+\rowcolor{gray!6}  Se & 1 & 2 & 0.007 & 0.067 & 0.341 & 0.992\\
+Se & 1 & 3 & 0.008 & 0.064 & 0.377 & 0.989\\
+\rowcolor{gray!6}  Se & 2 & 1 & 0.006 & 0.076 & 0.328 & 0.996\\
+Se & 2 & 2 & 0.008 & 0.055 & 0.424 & 0.995\\
+\rowcolor{gray!6}  Se & 2 & 3 & 0.008 & 0.055 & 0.476 & 0.995\\
+Se & 3 & 1 & 0.006 & 0.066 & 0.411 & 0.998\\
+\rowcolor{gray!6}  Se & 3 & 2 & 0.008 & 0.060 & 0.383 & 0.995\\
+Se & 3 & 3 & 0.009 & 0.056 & 0.421 & 0.994\\
+\rowcolor{gray!6}  Se & 4 & 1 & 0.007 & 0.062 & 0.413 & 0.995\\
+Se & 4 & 2 & 0.009 & 0.055 & 0.440 & 0.991\\
+\rowcolor{gray!6}  Se & 4 & 3 & 0.009 & 0.059 & 0.407 & 0.991\\
+Se & 5 & 1 & 0.007 & 0.049 & 0.497 & 0.991\\
+\rowcolor{gray!6}  Se & 5 & 2 & 0.005 & 0.055 & 0.433 & 0.996\\
+Se & 5 & 3 & 0.004 & 0.056 & 0.438 & 0.996\\
+\rowcolor{gray!6}  Zn & 0 & 1 & 0.032 & 0.071 & 0.416 & 0.993\\
+Zn & 0 & 2 & 0.033 & 0.066 & 0.427 & 0.992\\
+\rowcolor{gray!6}  Zn & 0 & 3 & 0.034 & 0.066 & 0.420 & 0.992\\
+Zn & 1 & 1 & 0.032 & 0.066 & 0.421 & 0.993\\
+\rowcolor{gray!6}  Zn & 1 & 2 & 0.034 & 0.063 & 0.461 & 0.992\\
+Zn & 1 & 3 & 0.034 & 0.064 & 0.429 & 0.990\\
+\rowcolor{gray!6}  Zn & 2 & 1 & 0.032 & 0.064 & 0.435 & 0.994\\
+Zn & 2 & 2 & 0.032 & 0.066 & 0.447 & 0.994\\
+\rowcolor{gray!6}  Zn & 2 & 3 & 0.032 & 0.068 & 0.432 & 0.994\\
+Zn & 3 & 1 & 0.031 & 0.067 & 0.430 & 0.994\\
+\rowcolor{gray!6}  Zn & 3 & 2 & 0.032 & 0.068 & 0.431 & 0.993\\
+Zn & 3 & 3 & 0.031 & 0.069 & 0.419 & 0.994\\
+\rowcolor{gray!6}  Zn & 4 & 1 & 0.029 & 0.071 & 0.426 & 0.995\\
+Zn & 4 & 2 & 0.031 & 0.071 & 0.412 & 0.993\\
+\rowcolor{gray!6}  Zn & 4 & 3 & 0.031 & 0.071 & 0.419 & 0.993\\
+Zn & 5 & 1 & 0.030 & 0.059 & 0.410 & 0.993\\
+\rowcolor{gray!6}  Zn & 5 & 2 & 0.028 & 0.060 & 0.389 & 0.993\\
+Zn & 5 & 3 & 0.025 & 0.064 & 0.377 & 0.994\\*
+\end{longtable}
+\clearpage
+\begin{longtable}{ccccccc}
+\caption[DR 24 Gompertz Model Parameters.]{\label{tab:dr24}DR 24 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:dr24}DR 24 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity \textit{(continued)}}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+\rowcolor{gray!6}  As & 0 & 1 & 0.032 & 0.103 & 0.312 & 0.985\\
+As & 0 & 2 & 0.030 & 0.092 & 0.269 & 0.989\\
+\rowcolor{gray!6}  As & 0 & 3 & 0.030 & 0.098 & 0.334 & 0.988\\
+As & 1 & 1 & 0.028 & 0.101 & 0.272 & 0.984\\
+\rowcolor{gray!6}  As & 1 & 2 & 0.032 & 0.087 & 0.286 & 0.989\\
+As & 1 & 3 & 0.032 & 0.087 & 0.283 & 0.990\\
+\rowcolor{gray!6}  As & 2 & 1 & 0.033 & 0.087 & 0.263 & 0.944\\
+As & 2 & 2 & 0.030 & 0.090 & 0.276 & 0.990\\
+\rowcolor{gray!6}  As & 2 & 3 & 0.031 & 0.091 & 0.280 & 0.989\\
+As & 3 & 1 & 0.028 & 0.100 & 0.268 & 0.989\\
+\rowcolor{gray!6}  As & 3 & 2 & 0.031 & 0.091 & 0.259 & 0.952\\
+As & 3 & 3 & 0.030 & 0.090 & 0.284 & 0.989\\
+\rowcolor{gray!6}  As & 4 & 1 & 0.030 & 0.097 & 0.281 & 0.992\\
+As & 4 & 2 & 0.034 & 0.084 & 0.311 & 0.986\\
+\rowcolor{gray!6}  As & 4 & 3 & 0.031 & 0.092 & 0.288 & 0.989\\
+As & 5 & 1 & 0.028 & 0.102 & 0.288 & 0.989\\
+\rowcolor{gray!6}  As & 5 & 2 & 0.029 & 0.092 & 0.286 & 0.985\\
+As & 5 & 3 & 0.030 & 0.097 & 0.287 & 0.988\\
+\rowcolor{gray!6}  Cd & 0 & 1 & 0.032 & 0.096 & 0.277 & 0.995\\
+Cd & 0 & 2 & 0.030 & 0.093 & 0.282 & 0.990\\
+\rowcolor{gray!6}  Cd & 0 & 3 & 0.030 & 0.094 & 0.269 & 0.983\\
+Cd & 1 & 1 & 0.031 & 0.089 & 0.286 & 0.988\\
+\rowcolor{gray!6}  Cd & 1 & 2 & 0.030 & 0.088 & 0.286 & 0.987\\
+Cd & 1 & 3 & 0.029 & 0.093 & 0.274 & 0.989\\
+\rowcolor{gray!6}  Cd & 2 & 1 & 0.031 & 0.092 & 0.286 & 0.988\\
+Cd & 2 & 2 & 0.030 & 0.091 & 0.279 & 0.988\\
+\rowcolor{gray!6}  Cd & 2 & 3 & 0.029 & 0.092 & 0.284 & 0.990\\
+Cd & 3 & 1 & 0.029 & 0.094 & 0.288 & 0.990\\
+\rowcolor{gray!6}  Cd & 3 & 2 & 0.030 & 0.096 & 0.271 & 0.990\\
+Cd & 3 & 3 & 0.030 & 0.088 & 0.266 & 0.987\\
+\rowcolor{gray!6}  Cd & 4 & 1 & 0.030 & 0.096 & 0.255 & 0.985\\
+Cd & 4 & 2 & 0.028 & 0.104 & 0.217 & 0.984\\
+\rowcolor{gray!6}  Cd & 4 & 3 & 0.028 & 0.100 & 0.222 & 0.990\\
+Cd & 5 & 1 & 0.016 & 0.175 & 0.151 & 0.991\\
+\rowcolor{gray!6}  Cd & 5 & 2 & 0.018 & 0.152 & 0.163 & 0.997\\
+Cd & 5 & 3 & 0.018 & 0.160 & 0.159 & 0.999\\
+\rowcolor{gray!6}  Cr & 0 & 1 & 0.029 & 0.095 & 0.275 & 0.989\\
+Cr & 0 & 2 & 0.030 & 0.092 & 0.278 & 0.987\\
+\rowcolor{gray!6}  Cr & 0 & 3 & 0.032 & 0.097 & 0.288 & 0.988\\
+Cr & 1 & 1 & 0.030 & 0.096 & 0.271 & 0.989\\
+\rowcolor{gray!6}  Cr & 1 & 2 & 0.033 & 0.086 & 0.305 & 0.989\\
+Cr & 1 & 3 & 0.032 & 0.095 & 0.256 & 0.948\\
+\rowcolor{gray!6}  Cr & 2 & 1 & 0.031 & 0.091 & 0.281 & 0.989\\
+Cr & 2 & 2 & 0.030 & 0.095 & 0.276 & 0.989\\
+\rowcolor{gray!6}  Cr & 2 & 3 & 0.032 & 0.094 & 0.292 & 0.987\\
+Cr & 3 & 1 & 0.030 & 0.096 & 0.274 & 0.989\\
+\rowcolor{gray!6}  Cr & 3 & 2 & 0.034 & 0.080 & 0.325 & 0.981\\
+Cr & 3 & 3 & 0.035 & 0.083 & 0.306 & 0.986\\
+\rowcolor{gray!6}  Cr & 4 & 1 & 0.031 & 0.100 & 0.251 & 0.946\\
+Cr & 4 & 2 & 0.031 & 0.094 & 0.281 & 0.989\\
+\rowcolor{gray!6}  Cr & 4 & 3 & 0.030 & 0.096 & 0.276 & 0.989\\
+Cr & 5 & 1 & 0.029 & 0.101 & 0.277 & 0.987\\
+\rowcolor{gray!6}  Cr & 5 & 2 & 0.031 & 0.105 & 0.273 & 0.984\\
+Cr & 5 & 3 & 0.028 & 0.105 & 0.278 & 0.989\\
+\rowcolor{gray!6}  Hg & 0 & 1 & 0.027 & 0.093 & 0.263 & 0.991\\
+Hg & 0 & 2 & 0.031 & 0.088 & 0.283 & 0.990\\
+\rowcolor{gray!6}  Hg & 0 & 3 & 0.032 & 0.087 & 0.293 & 0.987\\
+Hg & 1 & 1 & 0.030 & 0.097 & 0.271 & 0.992\\
+\rowcolor{gray!6}  Hg & 1 & 2 & 0.030 & 0.090 & 0.282 & 0.989\\
+Hg & 1 & 3 & 0.031 & 0.087 & 0.291 & 0.987\\
+\rowcolor{gray!6}  Hg & 2 & 1 & 0.028 & 0.100 & 0.274 & 0.990\\
+Hg & 2 & 2 & 0.029 & 0.099 & 0.276 & 0.988\\
+\rowcolor{gray!6}  Hg & 2 & 3 & 0.030 & 0.094 & 0.281 & 0.988\\
+Hg & 3 & 1 & 0.029 & 0.096 & 0.286 & 0.989\\
+\rowcolor{gray!6}  Hg & 3 & 2 & 0.029 & 0.093 & 0.277 & 0.991\\
+Hg & 3 & 3 & 0.031 & 0.094 & 0.287 & 0.990\\
+\rowcolor{gray!6}  Hg & 4 & 1 & 0.030 & 0.095 & 0.280 & 0.990\\
+Hg & 4 & 2 & 0.030 & 0.095 & 0.275 & 0.988\\
+\rowcolor{gray!6}  Hg & 4 & 3 & 0.030 & 0.090 & 0.279 & 0.986\\
+Hg & 5 & 1 & 0.030 & 0.095 & 0.279 & 0.987\\
+\rowcolor{gray!6}  Hg & 5 & 2 & 0.033 & 0.084 & 0.303 & 0.983\\
+Hg & 5 & 3 & 0.033 & 0.078 & 0.330 & 0.987\\
+\rowcolor{gray!6}  Pb & 0 & 1 & 0.032 & 0.088 & 0.281 & 0.985\\
+Pb & 0 & 2 & 0.031 & 0.096 & 0.330 & 0.989\\
+\rowcolor{gray!6}  Pb & 0 & 3 & 0.031 & 0.082 & 0.344 & 0.991\\
+Pb & 1 & 1 & 0.031 & 0.083 & 0.281 & 0.990\\
+\rowcolor{gray!6}  Pb & 1 & 2 & 0.032 & 0.082 & 0.310 & 0.989\\
+Pb & 1 & 3 & 0.031 & 0.084 & 0.297 & 0.990\\
+\rowcolor{gray!6}  Pb & 2 & 1 & 0.036 & 0.078 & 0.388 & 0.988\\
+Pb & 2 & 2 & 0.034 & 0.090 & 0.343 & 0.991\\
+\rowcolor{gray!6}  Pb & 2 & 3 & 0.032 & 0.082 & 0.307 & 0.991\\
+Pb & 3 & 1 & 0.029 & 0.087 & 0.305 & 0.991\\
+\rowcolor{gray!6}  Pb & 3 & 2 & 0.032 & 0.082 & 0.312 & 0.990\\
+Pb & 3 & 3 & 0.031 & 0.089 & 0.283 & 0.991\\
+\rowcolor{gray!6}  Pb & 4 & 1 & 0.031 & 0.087 & 0.292 & 0.985\\
+Pb & 4 & 2 & 0.030 & 0.090 & 0.284 & 0.988\\
+\rowcolor{gray!6}  Pb & 4 & 3 & 0.031 & 0.091 & 0.287 & 0.984\\
+Pb & 5 & 1 & 0.032 & 0.080 & 0.302 & 0.983\\
+\rowcolor{gray!6}  Pb & 5 & 2 & 0.031 & 0.087 & 0.277 & 0.986\\
+Pb & 5 & 3 & 0.029 & 0.092 & 0.266 & 0.987\\
+\rowcolor{gray!6}  Zn & 0 & 1 & 0.029 & 0.089 & 0.276 & 0.985\\
+Zn & 0 & 2 & 0.029 & 0.097 & 0.273 & 0.989\\
+\rowcolor{gray!6}  Zn & 0 & 3 & 0.029 & 0.090 & 0.264 & 0.984\\
+Zn & 1 & 1 & 0.033 & 0.084 & 0.306 & 0.986\\
+\rowcolor{gray!6}  Zn & 1 & 2 & 0.031 & 0.085 & 0.276 & 0.985\\
+Zn & 1 & 3 & 0.031 & 0.093 & 0.287 & 0.986\\
+\rowcolor{gray!6}  Zn & 2 & 1 & 0.031 & 0.082 & 0.322 & 0.985\\
+Zn & 2 & 2 & 0.034 & 0.075 & 0.332 & 0.983\\
+\rowcolor{gray!6}  Zn & 2 & 3 & 0.034 & 0.080 & 0.315 & 0.985\\
+Zn & 3 & 1 & 0.032 & 0.083 & 0.293 & 0.986\\
+\rowcolor{gray!6}  Zn & 3 & 2 & 0.036 & 0.075 & 0.340 & 0.986\\
+Zn & 3 & 3 & 0.032 & 0.082 & 0.308 & 0.989\\
+\rowcolor{gray!6}  Zn & 4 & 1 & 0.028 & 0.098 & 0.275 & 0.988\\
+Zn & 4 & 2 & 0.030 & 0.089 & 0.324 & 0.990\\
+\rowcolor{gray!6}  Zn & 4 & 3 & 0.031 & 0.085 & 0.319 & 0.988\\
+Zn & 5 & 1 & 0.026 & 0.095 & 0.212 & 0.990\\
+\rowcolor{gray!6}  Zn & 5 & 2 & 0.026 & 0.100 & 0.208 & 0.991\\
+Zn & 5 & 3 & 0.025 & 0.096 & 0.215 & 0.993\\*
+\end{longtable}
+\clearpage
+\begin{longtable}{ccccccc}
+\caption[DR 26 Gompertz Model Parameters.]{\label{tab:dr26}DR 26 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:dr26}DR 26 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity \textit{(continued)}}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+\rowcolor{gray!6}  As & 0 & 1 & 0.013 & 0.037 & 0.011 & 0.047\\
+As & 0 & 2 & 0.016 & 0.056 & 0.357 & 0.999\\
+\rowcolor{gray!6}  As & 0 & 3 & 0.013 & 0.059 & 0.334 & 1.000\\
+As & 1 & 1 & 0.016 & 0.073 & 0.279 & 0.992\\
+\rowcolor{gray!6}  As & 1 & 2 & 0.017 & 0.061 & 0.330 & 0.998\\
+As & 1 & 3 & 0.017 & 0.064 & 0.333 & 0.996\\
+\rowcolor{gray!6}  As & 2 & 1 & 0.016 & 0.008 & 0.500 & 0.721\\
+As & 2 & 2 & 0.014 & 0.063 & 0.334 & 0.997\\
+\rowcolor{gray!6}  As & 2 & 3 & 0.014 & 0.060 & 0.353 & 0.996\\
+As & 3 & 1 & 0.018 & 0.063 & 0.332 & 0.996\\
+\rowcolor{gray!6}  As & 3 & 2 & 0.010 & 0.000 & 0.500 & 0.024\\
+As & 3 & 3 & 0.017 & 0.070 & 0.293 & 0.995\\
+\rowcolor{gray!6}  As & 4 & 1 & 0.016 & 0.014 & 0.500 & 0.871\\
+As & 4 & 2 & 0.016 & 0.064 & 0.313 & 0.999\\
+\rowcolor{gray!6}  As & 4 & 3 & 0.016 & 0.064 & 0.344 & 0.998\\
+As & 5 & 1 & 0.016 & 0.243 & 0.023 & 0.580\\
+\rowcolor{gray!6}  As & 5 & 2 & 0.016 & 0.061 & 0.350 & 0.998\\
+As & 5 & 3 & 0.017 & 0.064 & 0.334 & 0.998\\
+\rowcolor{gray!6}  Cd & 0 & 1 & 0.018 & 0.057 & 0.271 & 0.990\\
+Cd & 0 & 2 & 0.018 & 0.067 & 0.243 & 0.992\\
+\rowcolor{gray!6}  Cd & 0 & 3 & 0.018 & 0.071 & 0.234 & 0.993\\
+Cd & 1 & 1 & 0.018 & 0.066 & 0.255 & 0.991\\
+\rowcolor{gray!6}  Cd & 1 & 2 & 0.019 & 0.064 & 0.252 & 0.992\\
+Cd & 1 & 3 & 0.022 & 0.051 & 0.368 & 0.989\\
+\rowcolor{gray!6}  Cd & 2 & 1 & 0.018 & 0.068 & 0.244 & 0.991\\
+Cd & 2 & 2 & 0.019 & 0.069 & 0.244 & 0.991\\
+\rowcolor{gray!6}  Cd & 2 & 3 & 0.021 & 0.064 & 0.246 & 0.988\\
+Cd & 3 & 1 & 0.020 & 0.056 & 0.295 & 0.984\\
+\rowcolor{gray!6}  Cd & 3 & 2 & 0.018 & 0.063 & 0.244 & 0.989\\
+Cd & 3 & 3 & 0.019 & 0.062 & 0.264 & 0.987\\
+\rowcolor{gray!6}  Cd & 4 & 1 & 0.018 & 0.080 & 0.161 & 0.986\\
+Cd & 4 & 2 & 0.021 & 0.059 & 0.215 & 0.963\\
+\rowcolor{gray!6}  Cd & 4 & 3 & 0.017 & 0.085 & 0.157 & 0.980\\
+Cd & 5 & 1 & 0.014 & 0.077 & 0.076 & 0.976\\
+\rowcolor{gray!6}  Cd & 5 & 2 & 0.016 & 0.071 & 0.086 & 0.980\\
+Cd & 5 & 3 & 0.015 & 0.069 & 0.077 & 0.988\\
+\rowcolor{gray!6}  Cr & 0 & 1 & 0.014 & 0.086 & 0.011 & 0.100\\
+Cr & 0 & 2 & 0.017 & 0.039 & 0.500 & 0.995\\
+\rowcolor{gray!6}  Cr & 0 & 3 & 0.017 & 0.066 & 0.299 & 0.997\\
+Cr & 1 & 1 & 0.033 & 0.038 & 0.454 & 0.908\\
+\rowcolor{gray!6}  Cr & 1 & 2 & 0.014 & 0.011 & 0.500 & 0.763\\
+Cr & 1 & 3 & 0.012 & 0.542 & 0.012 & 0.010\\
+\rowcolor{gray!6}  Cr & 2 & 1 & 0.015 & 0.000 & 0.000 & 0.025\\
+Cr & 2 & 2 & 0.015 & 0.001 & 0.000 & 0.157\\
+\rowcolor{gray!6}  Cr & 2 & 3 & 0.010 & 0.001 & 0.500 & 0.085\\
+Cr & 3 & 1 & 0.011 & 0.001 & 0.500 & 0.079\\
+\rowcolor{gray!6}  Cr & 3 & 2 & 0.012 & -0.001 & 0.500 & 0.178\\
+Cr & 3 & 3 & 0.011 & 0.001 & 0.500 & 0.096\\
+\rowcolor{gray!6}  Cr & 4 & 1 & 0.014 & 0.600 & 0.011 & 0.346\\
+Cr & 4 & 2 & 0.013 & -0.003 & 0.500 & 0.290\\
+\rowcolor{gray!6}  Cr & 4 & 3 & 0.012 & 0.000 & 0.482 & 0.001\\
+Cr & 5 & 1 & 0.011 & 0.002 & 0.500 & 0.134\\
+\rowcolor{gray!6}  Cr & 5 & 2 & 0.011 & 0.000 & 0.499 & 0.003\\
+Cr & 5 & 3 & 0.013 & 0.000 & 0.500 & 0.016\\
+\rowcolor{gray!6}  Hg & 0 & 1 & 0.009 & 0.003 & 0.500 & 0.305\\
+Hg & 0 & 2 & 0.016 & 0.075 & 0.331 & 0.993\\
+\rowcolor{gray!6}  Hg & 0 & 3 & 0.018 & 0.051 & 0.460 & 0.994\\
+Hg & 1 & 1 & 0.004 & 0.116 & 0.188 & 0.894\\
+\rowcolor{gray!6}  Hg & 1 & 2 & 0.017 & 0.067 & 0.346 & 0.999\\
+Hg & 1 & 3 & 0.017 & 0.061 & 0.361 & 0.998\\
+\rowcolor{gray!6}  Hg & 2 & 1 & 0.013 & 0.030 & 0.500 & 0.985\\
+Hg & 2 & 2 & 0.014 & 0.501 & 0.017 & 0.495\\
+\rowcolor{gray!6}  Hg & 2 & 3 & 0.016 & 0.011 & 0.500 & 0.797\\
+Hg & 3 & 1 & 0.018 & 0.055 & 0.407 & 0.992\\
+\rowcolor{gray!6}  Hg & 3 & 2 & 0.017 & 0.061 & 0.357 & 0.998\\
+Hg & 3 & 3 & 0.016 & 0.055 & 0.371 & 0.999\\
+\rowcolor{gray!6}  Hg & 4 & 1 & 0.017 & 0.068 & 0.319 & 0.996\\
+Hg & 4 & 2 & 0.015 & 0.069 & 0.316 & 0.994\\
+\rowcolor{gray!6}  Hg & 4 & 3 & 0.016 & 0.061 & 0.343 & 0.998\\
+Hg & 5 & 1 & 0.013 & 0.004 & 0.500 & 0.771\\
+\rowcolor{gray!6}  Hg & 5 & 2 & 0.010 & 0.067 & 0.288 & 0.999\\
+Hg & 5 & 3 & 0.011 & 0.010 & 0.500 & 0.895\\
+\rowcolor{gray!6}  Pb & 0 & 1 & 0.018 & 0.073 & 0.244 & 0.989\\
+Pb & 0 & 2 & 0.019 & 0.071 & 0.235 & 0.989\\
+\rowcolor{gray!6}  Pb & 0 & 3 & 0.019 & 0.068 & 0.239 & 0.992\\
+Pb & 1 & 1 & 0.019 & 0.066 & 0.266 & 0.991\\
+\rowcolor{gray!6}  Pb & 1 & 2 & 0.020 & 0.054 & 0.316 & 0.987\\
+Pb & 1 & 3 & 0.018 & 0.075 & 0.240 & 0.991\\
+\rowcolor{gray!6}  Pb & 2 & 1 & 0.020 & 0.054 & 0.312 & 0.987\\
+Pb & 2 & 2 & 0.021 & 0.049 & 0.369 & 0.986\\
+\rowcolor{gray!6}  Pb & 2 & 3 & 0.018 & 0.077 & 0.221 & 0.989\\
+Pb & 3 & 1 & 0.021 & 0.049 & 0.352 & 0.987\\
+\rowcolor{gray!6}  Pb & 3 & 2 & 0.020 & 0.058 & 0.285 & 0.986\\
+Pb & 3 & 3 & 0.023 & 0.046 & 0.384 & 0.981\\
+\rowcolor{gray!6}  Pb & 4 & 1 & 0.018 & 0.071 & 0.234 & 0.989\\
+Pb & 4 & 2 & 0.019 & 0.071 & 0.239 & 0.991\\
+\rowcolor{gray!6}  Pb & 4 & 3 & 0.020 & 0.067 & 0.253 & 0.988\\
+Pb & 5 & 1 & 0.018 & 0.076 & 0.238 & 0.991\\
+\rowcolor{gray!6}  Pb & 5 & 2 & 0.018 & 0.074 & 0.235 & 0.990\\
+Pb & 5 & 3 & 0.018 & 0.076 & 0.238 & 0.973\\
+\rowcolor{gray!6}  Se & 0 & 1 & 0.000 & 0.086 & 0.304 & 0.998\\
+Se & 0 & 2 & 0.000 & 0.073 & 0.316 & 0.998\\
+\rowcolor{gray!6}  Se & 0 & 3 & 0.000 & 0.081 & 0.318 & 0.998\\
+Se & 1 & 1 & 0.000 & 0.076 & 0.327 & 0.997\\
+\rowcolor{gray!6}  Se & 1 & 2 & 0.000 & 0.080 & 0.297 & 0.998\\
+Se & 1 & 3 & 0.000 & 0.073 & 0.313 & 0.997\\
+\rowcolor{gray!6}  Se & 2 & 1 & 0.000 & 0.071 & 0.283 & 0.998\\
+Se & 2 & 2 & 0.000 & 0.080 & 0.296 & 0.998\\
+\rowcolor{gray!6}  Se & 2 & 3 & 0.000 & 0.066 & 0.338 & 0.996\\
+Se & 3 & 1 & 0.000 & 0.122 & 0.119 & 0.963\\
+\rowcolor{gray!6}  Se & 3 & 2 & 0.000 & 0.118 & 0.140 & 0.974\\
+Se & 3 & 3 & 0.000 & 0.123 & 0.118 & 0.969\\
+\rowcolor{gray!6}  Se & 4 & 1 & 0.000 & 0.132 & 0.036 & 0.959\\
+Se & 4 & 2 & 0.000 & 0.128 & 0.038 & 0.969\\
+\rowcolor{gray!6}  Se & 4 & 3 & 0.000 & 0.126 & 0.039 & 0.965\\
+Se & 5 & 1 & 0.000 & 0.041 & 0.500 & 0.973\\
+\rowcolor{gray!6}  Se & 5 & 2 & 0.000 & 0.019 & 0.500 & 0.983\\
+Se & 5 & 3 & 0.000 & 0.042 & 0.500 & 0.961\\
+\rowcolor{gray!6}  Zn & 0 & 1 & 0.014 & -0.001 & 0.500 & 0.009\\
+Zn & 0 & 2 & 0.019 & 0.068 & 0.240 & 0.991\\
+\rowcolor{gray!6}  Zn & 0 & 3 & 0.019 & 0.069 & 0.238 & 0.991\\
+Zn & 1 & 1 & 0.019 & 0.070 & 0.241 & 0.991\\
+\rowcolor{gray!6}  Zn & 1 & 2 & 0.019 & 0.076 & 0.221 & 0.994\\
+Zn & 1 & 3 & 0.019 & 0.075 & 0.234 & 0.989\\
+\rowcolor{gray!6}  Zn & 2 & 1 & 0.020 & 0.068 & 0.248 & 0.988\\
+Zn & 2 & 2 & 0.018 & 0.076 & 0.230 & 0.985\\
+\rowcolor{gray!6}  Zn & 2 & 3 & 0.020 & 0.071 & 0.241 & 0.992\\
+Zn & 3 & 1 & 0.019 & 0.072 & 0.264 & 0.993\\
+\rowcolor{gray!6}  Zn & 3 & 2 & 0.020 & 0.069 & 0.241 & 0.989\\
+Zn & 3 & 3 & 0.022 & 0.069 & 0.285 & 0.990\\
+\rowcolor{gray!6}  Zn & 4 & 1 & 0.021 & 0.071 & 0.273 & 0.990\\
+Zn & 4 & 2 & 0.019 & 0.078 & 0.222 & 0.989\\
+\rowcolor{gray!6}  Zn & 4 & 3 & 0.019 & 0.072 & 0.240 & 0.992\\
+Zn & 5 & 1 & 0.019 & 0.065 & 0.158 & 0.985\\
+\rowcolor{gray!6}  Zn & 5 & 2 & 0.016 & 0.079 & 0.141 & 0.988\\
+Zn & 5 & 3 & 0.018 & 0.061 & 0.179 & 0.985\\*
+\end{longtable}
+\clearpage
+\begin{longtable}{ccccccc}
+\caption[DR 3.2 Gompertz Model Parameters.]{\label{tab:dr32}DR 3.2 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:dr32}DR 3.2 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity \textit{(continued)}}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+\rowcolor{gray!6}  As & 0 & 1 & 0.028 & 0.065 & 0.457 & 0.995\\
+As & 0 & 2 & 0.036 & 0.053 & 0.500 & 0.986\\
+\rowcolor{gray!6}  As & 0 & 3 & 0.032 & 0.061 & 0.443 & 0.985\\
+As & 1 & 1 & 0.030 & 0.066 & 0.422 & 0.995\\
+\rowcolor{gray!6}  As & 1 & 2 & 0.033 & 0.052 & 0.500 & 0.990\\
+As & 1 & 3 & 0.033 & 0.052 & 0.500 & 0.987\\
+\rowcolor{gray!6}  As & 2 & 1 & 0.030 & 0.060 & 0.457 & 0.996\\
+As & 2 & 2 & 0.035 & 0.052 & 0.500 & 0.991\\
+\rowcolor{gray!6}  As & 2 & 3 & 0.032 & 0.057 & 0.462 & 0.988\\
+As & 3 & 1 & 0.033 & 0.053 & 0.485 & 0.992\\
+\rowcolor{gray!6}  As & 3 & 2 & 0.032 & 0.053 & 0.487 & 0.992\\
+As & 3 & 3 & 0.032 & 0.057 & 0.466 & 0.994\\
+\rowcolor{gray!6}  As & 4 & 1 & 0.033 & 0.055 & 0.488 & 0.991\\
+As & 4 & 2 & 0.034 & 0.056 & 0.471 & 0.992\\
+\rowcolor{gray!6}  As & 4 & 3 & 0.029 & 0.068 & 0.441 & 0.996\\
+As & 5 & 1 & 0.034 & 0.065 & 0.443 & 0.981\\
+\rowcolor{gray!6}  As & 5 & 2 & 0.030 & 0.080 & 0.403 & 0.992\\
+As & 5 & 3 & 0.034 & 0.069 & 0.428 & 0.991\\
+\rowcolor{gray!6}  Cd & 0 & 1 & 0.024 & 0.089 & 0.352 & 0.994\\
+Cd & 0 & 2 & 0.020 & 0.106 & 0.352 & 0.997\\
+\rowcolor{gray!6}  Cd & 0 & 3 & 0.022 & 0.096 & 0.342 & 0.995\\
+Cd & 1 & 1 & 0.024 & 0.077 & 0.363 & 0.990\\
+\rowcolor{gray!6}  Cd & 1 & 2 & 0.024 & 0.075 & 0.384 & 0.980\\
+Cd & 1 & 3 & 0.028 & 0.066 & 0.432 & 0.995\\
+\rowcolor{gray!6}  Cd & 2 & 1 & 0.025 & 0.074 & 0.376 & 0.993\\
+Cd & 2 & 2 & 0.027 & 0.078 & 0.361 & 0.986\\
+\rowcolor{gray!6}  Cd & 2 & 3 & 0.027 & 0.071 & 0.408 & 0.993\\
+Cd & 3 & 1 & 0.025 & 0.076 & 0.351 & 0.997\\
+\rowcolor{gray!6}  Cd & 3 & 2 & 0.029 & 0.074 & 0.347 & 0.993\\
+Cd & 3 & 3 & 0.027 & 0.078 & 0.344 & 0.993\\
+\rowcolor{gray!6}  Cd & 4 & 1 & 0.030 & 0.067 & 0.346 & 0.990\\
+Cd & 4 & 2 & 0.037 & 0.045 & 0.449 & 0.982\\
+\rowcolor{gray!6}  Cd & 4 & 3 & 0.032 & 0.063 & 0.370 & 0.989\\
+Cd & 5 & 1 & 0.030 & 0.062 & 0.176 & 0.949\\
+\rowcolor{gray!6}  Cd & 5 & 2 & 0.027 & 0.095 & 0.141 & 0.969\\
+Cd & 5 & 3 & 0.026 & 0.080 & 0.162 & 0.958\\
+\rowcolor{gray!6}  Cr & 0 & 1 & 0.031 & 0.058 & 0.472 & 0.996\\
+Cr & 0 & 2 & 0.029 & 0.064 & 0.438 & 0.996\\
+\rowcolor{gray!6}  Cr & 0 & 3 & 0.033 & 0.064 & 0.414 & 0.982\\
+Cr & 1 & 1 & 0.034 & 0.052 & 0.481 & 0.988\\
+\rowcolor{gray!6}  Cr & 1 & 2 & 0.032 & 0.059 & 0.440 & 0.989\\
+Cr & 1 & 3 & 0.034 & 0.064 & 0.419 & 0.985\\
+\rowcolor{gray!6}  Cr & 2 & 1 & 0.033 & 0.054 & 0.466 & 0.990\\
+Cr & 2 & 2 & 0.034 & 0.059 & 0.461 & 0.993\\
+\rowcolor{gray!6}  Cr & 2 & 3 & 0.034 & 0.058 & 0.441 & 0.986\\
+Cr & 3 & 1 & 0.032 & 0.053 & 0.469 & 0.991\\
+\rowcolor{gray!6}  Cr & 3 & 2 & 0.032 & 0.061 & 0.426 & 0.991\\
+Cr & 3 & 3 & 0.032 & 0.073 & 0.427 & 0.993\\
+\rowcolor{gray!6}  Cr & 4 & 1 & 0.034 & 0.061 & 0.441 & 0.986\\
+Cr & 4 & 2 & 0.033 & 0.065 & 0.427 & 0.987\\
+\rowcolor{gray!6}  Cr & 4 & 3 & 0.033 & 0.059 & 0.454 & 0.989\\
+Cr & 5 & 1 & 0.035 & 0.067 & 0.438 & 0.987\\
+\rowcolor{gray!6}  Cr & 5 & 2 & 0.033 & 0.068 & 0.433 & 0.990\\
+Cr & 5 & 3 & 0.034 & 0.074 & 0.416 & 0.991\\
+\rowcolor{gray!6}  Hg & 0 & 1 & 0.029 & 0.071 & 0.459 & 0.995\\
+Hg & 0 & 2 & 0.032 & 0.066 & 0.465 & 0.992\\
+\rowcolor{gray!6}  Hg & 0 & 3 & 0.031 & 0.059 & 0.471 & 0.992\\
+Hg & 1 & 1 & 0.029 & 0.060 & 0.489 & 0.997\\
+\rowcolor{gray!6}  Hg & 1 & 2 & 0.030 & 0.058 & 0.492 & 0.997\\
+Hg & 1 & 3 & 0.032 & 0.057 & 0.479 & 0.993\\
+\rowcolor{gray!6}  Hg & 2 & 1 & 0.032 & 0.058 & 0.485 & 0.995\\
+Hg & 2 & 2 & 0.031 & 0.053 & 0.500 & 0.995\\
+\rowcolor{gray!6}  Hg & 2 & 3 & 0.031 & 0.052 & 0.500 & 0.990\\
+Hg & 3 & 1 & 0.032 & 0.055 & 0.476 & 0.990\\
+\rowcolor{gray!6}  Hg & 3 & 2 & 0.032 & 0.052 & 0.500 & 0.988\\
+Hg & 3 & 3 & 0.029 & 0.056 & 0.482 & 0.995\\
+\rowcolor{gray!6}  Hg & 4 & 1 & 0.032 & 0.066 & 0.422 & 0.986\\
+Hg & 4 & 2 & 0.034 & 0.051 & 0.497 & 0.986\\
+\rowcolor{gray!6}  Hg & 4 & 3 & 0.028 & 0.063 & 0.490 & 0.995\\
+Hg & 5 & 1 & 0.032 & 0.068 & 0.448 & 0.987\\
+\rowcolor{gray!6}  Hg & 5 & 2 & 0.033 & 0.067 & 0.440 & 0.987\\
+Hg & 5 & 3 & 0.031 & 0.061 & 0.474 & 0.995\\
+\rowcolor{gray!6}  Pb & 0 & 1 & 0.026 & 0.084 & 0.360 & 0.984\\
+Pb & 0 & 2 & 0.022 & 0.086 & 0.366 & 0.981\\
+\rowcolor{gray!6}  Pb & 0 & 3 & 0.023 & 0.092 & 0.357 & 0.994\\
+Pb & 1 & 1 & 0.026 & 0.083 & 0.345 & 0.998\\
+\rowcolor{gray!6}  Pb & 1 & 2 & 0.025 & 0.080 & 0.375 & 0.997\\
+Pb & 1 & 3 & 0.028 & 0.077 & 0.355 & 0.992\\
+\rowcolor{gray!6}  Pb & 2 & 1 & 0.026 & 0.072 & 0.393 & 0.996\\
+Pb & 2 & 2 & 0.028 & 0.070 & 0.380 & 0.993\\
+\rowcolor{gray!6}  Pb & 2 & 3 & 0.026 & 0.079 & 0.356 & 0.998\\
+Pb & 3 & 1 & 0.023 & 0.080 & 0.361 & 0.995\\
+\rowcolor{gray!6}  Pb & 3 & 2 & 0.024 & 0.086 & 0.351 & 0.998\\
+Pb & 3 & 3 & 0.026 & 0.085 & 0.354 & 0.978\\
+\rowcolor{gray!6}  Pb & 4 & 1 & 0.028 & 0.067 & 0.386 & 0.997\\
+Pb & 4 & 2 & 0.022 & 0.092 & 0.336 & 0.997\\
+\rowcolor{gray!6}  Pb & 4 & 3 & 0.030 & 0.079 & 0.358 & 0.996\\
+Pb & 5 & 1 & 0.029 & 0.079 & 0.360 & 0.991\\
+\rowcolor{gray!6}  Pb & 5 & 2 & 0.028 & 0.077 & 0.365 & 0.989\\
+Pb & 5 & 3 & 0.025 & 0.094 & 0.354 & 0.997\\
+\rowcolor{gray!6}  Se & 0 & 1 & 0.012 & 0.070 & 0.500 & 0.998\\
+Se & 0 & 2 & 0.018 & 0.069 & 0.460 & 0.999\\
+\rowcolor{gray!6}  Se & 0 & 3 & 0.015 & 0.073 & 0.500 & 0.993\\
+Se & 1 & 1 & 0.017 & 0.067 & 0.493 & 0.997\\
+\rowcolor{gray!6}  Se & 1 & 2 & 0.008 & 0.077 & 0.500 & 0.988\\
+Se & 1 & 3 & 0.019 & 0.063 & 0.500 & 0.998\\
+\rowcolor{gray!6}  Se & 2 & 1 & 0.020 & 0.079 & 0.428 & 0.997\\
+Se & 2 & 2 & 0.016 & 0.068 & 0.500 & 0.993\\
+\rowcolor{gray!6}  Se & 2 & 3 & 0.018 & 0.064 & 0.500 & 0.994\\
+Se & 3 & 1 & 0.019 & 0.072 & 0.320 & 1.000\\
+\rowcolor{gray!6}  Se & 3 & 2 & 0.022 & 0.068 & 0.335 & 0.989\\
+Se & 3 & 3 & 0.017 & 0.074 & 0.345 & 0.990\\
+\rowcolor{gray!6}  Se & 4 & 1 & 0.021 & 0.074 & 0.234 & 0.997\\
+Se & 4 & 2 & 0.015 & 0.103 & 0.236 & 0.983\\
+\rowcolor{gray!6}  Se & 4 & 3 & 0.019 & 0.091 & 0.235 & 0.994\\
+Se & 5 & 1 & 0.013 & 0.126 & 0.133 & 0.944\\
+\rowcolor{gray!6}  Se & 5 & 2 & 0.015 & 0.121 & 0.128 & 0.971\\
+Se & 5 & 3 & 0.017 & 0.113 & 0.137 & 0.970\\
+\rowcolor{gray!6}  Zn & 0 & 1 & 0.028 & 0.071 & 0.389 & 0.985\\
+Zn & 0 & 2 & 0.028 & 0.081 & 0.366 & 0.992\\
+\rowcolor{gray!6}  Zn & 0 & 3 & 0.027 & 0.083 & 0.384 & 0.992\\
+Zn & 1 & 1 & 0.025 & 0.087 & 0.312 & 0.995\\
+\rowcolor{gray!6}  Zn & 1 & 2 & 0.024 & 0.101 & 0.301 & 0.996\\
+Zn & 1 & 3 & 0.034 & 0.061 & 0.430 & 0.972\\
+\rowcolor{gray!6}  Zn & 2 & 1 & 0.031 & 0.064 & 0.382 & 0.992\\
+Zn & 2 & 2 & 0.031 & 0.058 & 0.436 & 0.987\\
+\rowcolor{gray!6}  Zn & 2 & 3 & 0.029 & 0.078 & 0.389 & 0.998\\
+Zn & 3 & 1 & 0.023 & 0.097 & 0.313 & 0.997\\
+\rowcolor{gray!6}  Zn & 3 & 2 & 0.024 & 0.093 & 0.328 & 0.996\\
+Zn & 3 & 3 & 0.028 & 0.087 & 0.341 & 0.998\\
+\rowcolor{gray!6}  Zn & 4 & 1 & 0.028 & 0.072 & 0.367 & 0.994\\
+Zn & 4 & 2 & 0.025 & 0.077 & 0.385 & 0.991\\
+\rowcolor{gray!6}  Zn & 4 & 3 & 0.029 & 0.086 & 0.345 & 0.992\\
+Zn & 5 & 1 & 0.031 & 0.066 & 0.308 & 0.992\\
+\rowcolor{gray!6}  Zn & 5 & 2 & 0.033 & 0.046 & 0.434 & 0.986\\
+Zn & 5 & 3 & 0.031 & 0.071 & 0.291 & 0.990\\*
+\end{longtable}
+\clearpage
+\begin{longtable}{ccccccc}
+\caption[DR 5 Gompertz Model Parameters.]{\label{tab:dr5}DR 5 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:dr5}DR 5 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity \textit{(continued)}}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+\rowcolor{gray!6}  As & 0 & 1 & 0.016 & 0.071 & 0.416 & 0.993\\
+As & 0 & 2 & 0.016 & 0.078 & 0.368 & 0.996\\
+\rowcolor{gray!6}  As & 0 & 3 & 0.020 & 0.072 & 0.415 & 0.992\\
+As & 1 & 1 & 0.018 & 0.069 & 0.379 & 0.990\\
+\rowcolor{gray!6}  As & 1 & 2 & 0.017 & 0.073 & 0.355 & 0.993\\
+As & 1 & 3 & 0.020 & 0.056 & 0.456 & 0.992\\
+\rowcolor{gray!6}  As & 2 & 1 & 0.016 & 0.082 & 0.358 & 0.989\\
+As & 2 & 2 & 0.018 & 0.068 & 0.379 & 0.992\\
+\rowcolor{gray!6}  As & 2 & 3 & 0.017 & 0.074 & 0.353 & 0.992\\
+As & 3 & 1 & 0.016 & 0.071 & 0.370 & 0.994\\
+\rowcolor{gray!6}  As & 3 & 2 & 0.018 & 0.065 & 0.380 & 0.991\\
+As & 3 & 3 & 0.018 & 0.068 & 0.377 & 0.993\\
+\rowcolor{gray!6}  As & 4 & 1 & 0.018 & 0.069 & 0.411 & 0.992\\
+As & 4 & 2 & 0.017 & 0.068 & 0.375 & 0.992\\
+\rowcolor{gray!6}  As & 4 & 3 & 0.019 & 0.068 & 0.373 & 0.992\\
+As & 5 & 1 & 0.020 & 0.079 & 0.421 & 0.989\\
+\rowcolor{gray!6}  As & 5 & 2 & 0.022 & 0.065 & 0.419 & 0.990\\
+As & 5 & 3 & 0.020 & 0.069 & 0.456 & 0.992\\
+\rowcolor{gray!6}  Cd & 0 & 1 & 0.019 & 0.069 & 0.448 & 0.991\\
+Cd & 0 & 2 & 0.012 & 0.092 & 0.341 & 0.978\\
+\rowcolor{gray!6}  Cd & 0 & 3 & 0.016 & 0.079 & 0.360 & 0.994\\
+Cd & 1 & 1 & 0.018 & 0.069 & 0.472 & 0.992\\
+\rowcolor{gray!6}  Cd & 1 & 2 & 0.017 & 0.070 & 0.366 & 0.994\\
+Cd & 1 & 3 & 0.014 & 0.090 & 0.309 & 0.991\\
+\rowcolor{gray!6}  Cd & 2 & 1 & 0.016 & 0.074 & 0.402 & 0.994\\
+Cd & 2 & 2 & 0.016 & 0.075 & 0.354 & 0.993\\
+\rowcolor{gray!6}  Cd & 2 & 3 & 0.016 & 0.077 & 0.340 & 0.992\\
+Cd & 3 & 1 & 0.020 & 0.060 & 0.464 & 0.990\\
+\rowcolor{gray!6}  Cd & 3 & 2 & 0.016 & 0.068 & 0.366 & 0.993\\
+Cd & 3 & 3 & 0.016 & 0.077 & 0.333 & 0.992\\
+\rowcolor{gray!6}  Cd & 4 & 1 & 0.018 & 0.045 & 0.395 & 0.990\\
+Cd & 4 & 2 & 0.016 & 0.051 & 0.373 & 0.990\\
+\rowcolor{gray!6}  Cd & 4 & 3 & 0.016 & 0.064 & 0.340 & 0.990\\
+Cd & 5 & 1 & 0.014 & 0.060 & 0.256 & 0.990\\
+\rowcolor{gray!6}  Cd & 5 & 2 & 0.013 & 0.055 & 0.254 & 0.991\\
+Cd & 5 & 3 & 0.013 & 0.054 & 0.252 & 0.993\\
+\rowcolor{gray!6}  Cr & 0 & 1 & 0.018 & 0.070 & 0.412 & 0.994\\
+Cr & 0 & 2 & 0.024 & 0.062 & 0.473 & 0.989\\
+\rowcolor{gray!6}  Cr & 0 & 3 & 0.022 & 0.068 & 0.464 & 0.990\\
+Cr & 1 & 1 & 0.019 & 0.074 & 0.365 & 0.992\\
+\rowcolor{gray!6}  Cr & 1 & 2 & 0.023 & 0.057 & 0.500 & 0.988\\
+Cr & 1 & 3 & 0.024 & 0.066 & 0.476 & 0.989\\
+\rowcolor{gray!6}  Cr & 2 & 1 & 0.019 & 0.073 & 0.397 & 0.993\\
+Cr & 2 & 2 & 0.021 & 0.065 & 0.406 & 0.991\\
+\rowcolor{gray!6}  Cr & 2 & 3 & 0.021 & 0.067 & 0.491 & 0.996\\
+Cr & 3 & 1 & 0.021 & 0.080 & 0.364 & 0.987\\
+\rowcolor{gray!6}  Cr & 3 & 2 & 0.021 & 0.067 & 0.454 & 0.991\\
+Cr & 3 & 3 & 0.024 & 0.065 & 0.491 & 0.990\\
+\rowcolor{gray!6}  Cr & 4 & 1 & 0.020 & 0.074 & 0.401 & 0.992\\
+Cr & 4 & 2 & 0.025 & 0.056 & 0.464 & 0.988\\
+\rowcolor{gray!6}  Cr & 4 & 3 & 0.022 & 0.077 & 0.447 & 0.990\\
+Cr & 5 & 1 & 0.019 & 0.085 & 0.414 & 0.995\\
+\rowcolor{gray!6}  Cr & 5 & 2 & 0.019 & 0.082 & 0.479 & 0.995\\
+Cr & 5 & 3 & 0.018 & 0.090 & 0.454 & 0.997\\
+\rowcolor{gray!6}  Hg & 0 & 1 & 0.013 & 0.085 & 0.424 & 0.997\\
+Hg & 0 & 2 & 0.011 & 0.085 & 0.416 & 0.997\\
+\rowcolor{gray!6}  Hg & 0 & 3 & 0.016 & 0.070 & 0.408 & 0.994\\
+Hg & 1 & 1 & 0.017 & 0.075 & 0.417 & 0.994\\
+\rowcolor{gray!6}  Hg & 1 & 2 & 0.016 & 0.069 & 0.409 & 0.992\\
+Hg & 1 & 3 & 0.017 & 0.068 & 0.359 & 0.992\\
+\rowcolor{gray!6}  Hg & 2 & 1 & 0.014 & 0.089 & 0.427 & 0.997\\
+Hg & 2 & 2 & 0.018 & 0.064 & 0.422 & 0.991\\
+\rowcolor{gray!6}  Hg & 2 & 3 & 0.017 & 0.063 & 0.434 & 0.991\\
+Hg & 3 & 1 & 0.015 & 0.090 & 0.434 & 0.997\\
+\rowcolor{gray!6}  Hg & 3 & 2 & 0.018 & 0.064 & 0.429 & 0.993\\
+Hg & 3 & 3 & 0.019 & 0.061 & 0.405 & 0.989\\
+\rowcolor{gray!6}  Hg & 4 & 1 & 0.014 & 0.093 & 0.437 & 0.997\\
+Hg & 4 & 2 & 0.014 & 0.089 & 0.383 & 0.990\\
+\rowcolor{gray!6}  Hg & 4 & 3 & 0.018 & 0.066 & 0.381 & 0.993\\
+Hg & 5 & 1 & 0.013 & 0.096 & 0.429 & 0.997\\
+\rowcolor{gray!6}  Hg & 5 & 2 & 0.018 & 0.073 & 0.411 & 0.992\\
+Hg & 5 & 3 & 0.018 & 0.065 & 0.416 & 0.994\\
+\rowcolor{gray!6}  Pb & 0 & 1 & 0.018 & 0.068 & 0.408 & 0.993\\
+Pb & 0 & 2 & 0.019 & 0.063 & 0.434 & 0.992\\
+\rowcolor{gray!6}  Pb & 0 & 3 & 0.018 & 0.077 & 0.438 & 0.992\\
+Pb & 1 & 1 & 0.014 & 0.079 & 0.345 & 0.993\\
+\rowcolor{gray!6}  Pb & 1 & 2 & 0.016 & 0.072 & 0.359 & 0.992\\
+Pb & 1 & 3 & 0.018 & 0.071 & 0.388 & 0.994\\
+\rowcolor{gray!6}  Pb & 2 & 1 & 0.015 & 0.081 & 0.341 & 0.993\\
+Pb & 2 & 2 & 0.015 & 0.074 & 0.349 & 0.994\\
+\rowcolor{gray!6}  Pb & 2 & 3 & 0.018 & 0.070 & 0.384 & 0.992\\
+Pb & 3 & 1 & 0.016 & 0.077 & 0.364 & 0.993\\
+\rowcolor{gray!6}  Pb & 3 & 2 & 0.017 & 0.074 & 0.379 & 0.992\\
+Pb & 3 & 3 & 0.017 & 0.076 & 0.358 & 0.991\\
+\rowcolor{gray!6}  Pb & 4 & 1 & 0.015 & 0.078 & 0.347 & 0.994\\
+Pb & 4 & 2 & 0.017 & 0.074 & 0.363 & 0.993\\
+\rowcolor{gray!6}  Pb & 4 & 3 & 0.017 & 0.074 & 0.359 & 0.994\\
+Pb & 5 & 1 & 0.021 & 0.062 & 0.447 & 0.989\\
+\rowcolor{gray!6}  Pb & 5 & 2 & 0.017 & 0.074 & 0.377 & 0.993\\
+Pb & 5 & 3 & 0.018 & 0.073 & 0.458 & 0.995\\
+\rowcolor{gray!6}  Se & 0 & 1 & 0.017 & 0.070 & 0.500 & 0.994\\
+Se & 0 & 2 & 0.017 & 0.071 & 0.494 & 0.998\\
+\rowcolor{gray!6}  Se & 0 & 3 & 0.014 & 0.075 & 0.467 & 0.987\\
+Se & 1 & 1 & 0.015 & 0.074 & 0.456 & 0.992\\
+\rowcolor{gray!6}  Se & 1 & 2 & 0.019 & 0.067 & 0.469 & 0.998\\
+Se & 1 & 3 & 0.015 & 0.070 & 0.500 & 0.997\\
+\rowcolor{gray!6}  Se & 2 & 1 & 0.016 & 0.069 & 0.500 & 0.998\\
+Se & 2 & 2 & 0.018 & 0.064 & 0.500 & 0.998\\
+\rowcolor{gray!6}  Se & 2 & 3 & 0.017 & 0.068 & 0.499 & 0.996\\
+Se & 3 & 1 & 0.015 & 0.076 & 0.450 & 0.995\\
+\rowcolor{gray!6}  Se & 3 & 2 & 0.018 & 0.071 & 0.447 & 0.996\\
+Se & 3 & 3 & 0.015 & 0.075 & 0.442 & 0.997\\
+\rowcolor{gray!6}  Se & 4 & 1 & 0.018 & 0.066 & 0.433 & 0.998\\
+Se & 4 & 2 & 0.022 & 0.057 & 0.467 & 0.994\\
+\rowcolor{gray!6}  Se & 4 & 3 & 0.022 & 0.056 & 0.469 & 0.997\\
+Se & 5 & 1 & 0.020 & 0.037 & 0.489 & 0.998\\
+\rowcolor{gray!6}  Se & 5 & 2 & 0.021 & 0.045 & 0.371 & 0.982\\
+Se & 5 & 3 & 0.021 & 0.038 & 0.475 & 0.993\\
+\rowcolor{gray!6}  Zn & 0 & 1 & 0.020 & 0.055 & 0.500 & 0.989\\
+Zn & 0 & 2 & 0.021 & 0.067 & 0.467 & 0.986\\
+\rowcolor{gray!6}  Zn & 0 & 3 & 0.012 & 0.112 & 0.376 & 0.981\\
+Zn & 1 & 1 & 0.010 & 0.079 & 0.459 & 0.978\\
+\rowcolor{gray!6}  Zn & 1 & 2 & 0.016 & 0.082 & 0.366 & 0.996\\
+Zn & 1 & 3 & 0.013 & 0.097 & 0.425 & 0.998\\
+\rowcolor{gray!6}  Zn & 2 & 1 & 0.018 & 0.069 & 0.395 & 0.994\\
+Zn & 2 & 2 & 0.018 & 0.067 & 0.391 & 0.994\\
+\rowcolor{gray!6}  Zn & 2 & 3 & 0.015 & 0.091 & 0.425 & 0.997\\
+Zn & 3 & 1 & 0.018 & 0.074 & 0.395 & 0.994\\
+\rowcolor{gray!6}  Zn & 3 & 2 & 0.018 & 0.066 & 0.392 & 0.993\\
+Zn & 3 & 3 & 0.017 & 0.084 & 0.458 & 0.996\\
+\rowcolor{gray!6}  Zn & 4 & 1 & 0.020 & 0.073 & 0.385 & 0.991\\
+Zn & 4 & 2 & 0.021 & 0.056 & 0.464 & 0.992\\
+\rowcolor{gray!6}  Zn & 4 & 3 & 0.019 & 0.078 & 0.390 & 0.991\\
+Zn & 5 & 1 & 0.012 & 0.084 & 0.275 & 0.995\\
+\rowcolor{gray!6}  Zn & 5 & 2 & 0.014 & 0.077 & 0.261 & 0.994\\
+Zn & 5 & 3 & 0.015 & 0.087 & 0.261 & 0.993\\*
+\end{longtable}
+\clearpage
+\begin{longtable}{ccccccc}
+\caption[DR 52 Gompertz Model Parameters.]{\label{tab:dr52}DR 52 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:dr52}DR 52 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity \textit{(continued)}}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+\rowcolor{gray!6}  As & 0 & 1 & 0.050 & 0.063 & 0.384 & 0.993\\
+As & 0 & 2 & 0.050 & 0.055 & 0.393 & 0.997\\
+\rowcolor{gray!6}  As & 0 & 3 & 0.050 & 0.058 & 0.387 & 0.998\\
+As & 1 & 1 & 0.050 & 0.049 & 0.340 & 0.996\\
+\rowcolor{gray!6}  As & 1 & 2 & 0.048 & 0.050 & 0.364 & 0.993\\
+As & 1 & 3 & 0.050 & 0.043 & 0.410 & 0.994\\
+\rowcolor{gray!6}  As & 2 & 1 & 0.050 & 0.045 & 0.407 & 0.994\\
+As & 2 & 2 & 0.046 & 0.045 & 0.408 & 0.994\\
+\rowcolor{gray!6}  As & 2 & 3 & 0.046 & 0.050 & 0.344 & 0.990\\
+As & 3 & 1 & 0.050 & 0.048 & 0.360 & 0.995\\
+\rowcolor{gray!6}  As & 3 & 2 & 0.050 & 0.046 & 0.400 & 0.996\\
+As & 3 & 3 & 0.050 & 0.045 & 0.408 & 0.993\\
+\rowcolor{gray!6}  As & 4 & 1 & 0.050 & 0.047 & 0.396 & 0.995\\
+As & 4 & 2 & 0.050 & 0.051 & 0.362 & 0.996\\
+\rowcolor{gray!6}  As & 4 & 3 & 0.050 & 0.051 & 0.363 & 0.993\\
+As & 5 & 1 & 0.050 & 0.051 & 0.362 & 0.995\\
+\rowcolor{gray!6}  As & 5 & 2 & 0.046 & 0.054 & 0.329 & 0.992\\
+As & 5 & 3 & 0.050 & 0.068 & 0.292 & 0.996\\
+\rowcolor{gray!6}  Cd & 0 & 1 & 0.050 & 0.049 & 0.391 & 0.993\\
+Cd & 0 & 2 & 0.050 & 0.052 & 0.379 & 0.992\\
+\rowcolor{gray!6}  Cd & 0 & 3 & 0.050 & 0.052 & 0.397 & 0.995\\
+Cd & 1 & 1 & 0.050 & 0.047 & 0.401 & 0.989\\
+\rowcolor{gray!6}  Cd & 1 & 2 & 0.050 & 0.051 & 0.412 & 0.992\\
+Cd & 1 & 3 & 0.050 & 0.049 & 0.396 & 0.993\\
+\rowcolor{gray!6}  Cd & 2 & 1 & 0.050 & 0.056 & 0.359 & 0.994\\
+Cd & 2 & 2 & 0.050 & 0.052 & 0.378 & 0.994\\
+\rowcolor{gray!6}  Cd & 2 & 3 & 0.050 & 0.053 & 0.390 & 0.993\\
+Cd & 3 & 1 & 0.050 & 0.065 & 0.349 & 0.988\\
+\rowcolor{gray!6}  Cd & 3 & 2 & 0.050 & 0.060 & 0.348 & 0.991\\
+Cd & 3 & 3 & 0.050 & 0.056 & 0.380 & 0.988\\
+\rowcolor{gray!6}  Cd & 4 & 1 & 0.050 & 0.045 & 0.466 & 0.997\\
+Cd & 4 & 2 & 0.050 & 0.043 & 0.497 & 0.998\\
+\rowcolor{gray!6}  Cd & 4 & 3 & 0.050 & 0.042 & 0.496 & 0.996\\
+Cd & 5 & 1 & 0.042 & 0.097 & 0.237 & 0.983\\
+\rowcolor{gray!6}  Cd & 5 & 2 & 0.042 & 0.090 & 0.237 & 0.986\\
+Cd & 5 & 3 & 0.043 & 0.096 & 0.223 & 0.989\\
+\rowcolor{gray!6}  Cr & 0 & 1 & 0.050 & 0.051 & 0.346 & 0.997\\
+Cr & 0 & 2 & 0.050 & 0.069 & 0.331 & 0.960\\
+\rowcolor{gray!6}  Cr & 0 & 3 & 0.049 & 0.056 & 0.341 & 0.996\\
+Cr & 1 & 1 & 0.050 & 0.073 & 0.299 & 0.938\\
+\rowcolor{gray!6}  Cr & 1 & 2 & 0.050 & 0.053 & 0.363 & 0.997\\
+Cr & 1 & 3 & 0.050 & 0.054 & 0.369 & 0.995\\
+\rowcolor{gray!6}  Cr & 2 & 1 & 0.050 & 0.071 & 0.337 & 0.952\\
+Cr & 2 & 2 & 0.050 & 0.053 & 0.368 & 0.994\\
+\rowcolor{gray!6}  Cr & 2 & 3 & 0.050 & 0.049 & 0.379 & 0.995\\
+Cr & 3 & 1 & 0.050 & 0.069 & 0.335 & 0.962\\
+\rowcolor{gray!6}  Cr & 3 & 2 & 0.050 & 0.049 & 0.367 & 0.994\\
+Cr & 3 & 3 & 0.050 & 0.054 & 0.351 & 0.994\\
+\rowcolor{gray!6}  Cr & 4 & 1 & 0.050 & 0.071 & 0.311 & 0.947\\
+Cr & 4 & 2 & 0.050 & 0.051 & 0.362 & 0.995\\
+\rowcolor{gray!6}  Cr & 4 & 3 & 0.050 & 0.063 & 0.345 & 0.998\\
+Cr & 5 & 1 & 0.050 & 0.080 & 0.311 & 0.929\\
+\rowcolor{gray!6}  Cr & 5 & 2 & 0.050 & 0.054 & 0.358 & 0.996\\
+Cr & 5 & 3 & 0.050 & 0.057 & 0.337 & 0.996\\
+\rowcolor{gray!6}  Hg & 0 & 1 & 0.050 & 0.057 & 0.372 & 0.997\\
+Hg & 0 & 2 & 0.050 & 0.056 & 0.390 & 0.997\\
+\rowcolor{gray!6}  Hg & 0 & 3 & 0.050 & 0.057 & 0.371 & 0.997\\
+Hg & 1 & 1 & 0.050 & 0.056 & 0.372 & 0.996\\
+\rowcolor{gray!6}  Hg & 1 & 2 & 0.050 & 0.054 & 0.384 & 0.996\\
+Hg & 1 & 3 & 0.050 & 0.056 & 0.382 & 0.996\\
+\rowcolor{gray!6}  Hg & 2 & 1 & 0.050 & 0.056 & 0.384 & 0.995\\
+Hg & 2 & 2 & 0.050 & 0.056 & 0.386 & 0.996\\
+\rowcolor{gray!6}  Hg & 2 & 3 & 0.050 & 0.054 & 0.377 & 0.996\\
+Hg & 3 & 1 & 0.050 & 0.056 & 0.367 & 0.996\\
+\rowcolor{gray!6}  Hg & 3 & 2 & 0.050 & 0.051 & 0.432 & 0.996\\
+Hg & 3 & 3 & 0.050 & 0.054 & 0.401 & 0.996\\
+\rowcolor{gray!6}  Hg & 4 & 1 & 0.050 & 0.059 & 0.353 & 0.994\\
+Hg & 4 & 2 & 0.050 & 0.057 & 0.368 & 0.995\\
+\rowcolor{gray!6}  Hg & 4 & 3 & 0.050 & 0.056 & 0.386 & 0.996\\
+Hg & 5 & 1 & 0.050 & 0.063 & 0.354 & 0.992\\
+\rowcolor{gray!6}  Hg & 5 & 2 & 0.050 & 0.062 & 0.369 & 0.992\\
+Hg & 5 & 3 & 0.050 & 0.058 & 0.375 & 0.996\\
+\rowcolor{gray!6}  Pb & 0 & 1 & 0.050 & 0.050 & 0.396 & 0.994\\
+Pb & 0 & 2 & 0.050 & 0.054 & 0.372 & 0.992\\
+\rowcolor{gray!6}  Pb & 0 & 3 & 0.050 & 0.055 & 0.378 & 0.995\\
+Pb & 1 & 1 & 0.050 & 0.051 & 0.410 & 0.992\\
+\rowcolor{gray!6}  Pb & 1 & 2 & 0.050 & 0.046 & 0.443 & 0.993\\
+Pb & 1 & 3 & 0.050 & 0.050 & 0.405 & 0.992\\
+\rowcolor{gray!6}  Pb & 2 & 1 & 0.050 & 0.047 & 0.445 & 0.996\\
+Pb & 2 & 2 & 0.050 & 0.050 & 0.414 & 0.993\\
+\rowcolor{gray!6}  Pb & 2 & 3 & 0.050 & 0.052 & 0.394 & 0.994\\
+Pb & 3 & 1 & 0.050 & 0.045 & 0.451 & 0.990\\
+\rowcolor{gray!6}  Pb & 3 & 2 & 0.050 & 0.050 & 0.380 & 0.995\\
+Pb & 3 & 3 & 0.050 & 0.053 & 0.385 & 0.997\\
+\rowcolor{gray!6}  Pb & 4 & 1 & 0.050 & 0.057 & 0.372 & 0.995\\
+Pb & 4 & 2 & 0.050 & 0.051 & 0.398 & 0.995\\
+\rowcolor{gray!6}  Pb & 4 & 3 & 0.050 & 0.052 & 0.395 & 0.994\\
+Pb & 5 & 1 & 0.050 & 0.057 & 0.366 & 0.993\\
+\rowcolor{gray!6}  Pb & 5 & 2 & 0.050 & 0.054 & 0.374 & 0.988\\
+Pb & 5 & 3 & 0.050 & 0.058 & 0.367 & 0.995\\
+\rowcolor{gray!6}  Se & 0 & 1 & 0.001 & 0.425 & 0.002 & 0.295\\
+Se & 0 & 2 & 0.000 & 0.531 & 0.002 & 0.403\\
+\rowcolor{gray!6}  Se & 0 & 3 & 0.002 & 0.177 & 0.002 & 0.019\\
+Se & 1 & 1 & 0.000 & 0.600 & 0.002 & 0.363\\
+\rowcolor{gray!6}  Se & 1 & 2 & 0.000 & 0.600 & 0.003 & 0.704\\
+Se & 1 & 3 & 0.000 & 0.047 & 0.500 & 0.922\\
+\rowcolor{gray!6}  Se & 2 & 1 & 0.000 & 0.600 & 0.003 & 0.796\\
+Se & 2 & 2 & 0.001 & 0.600 & 0.002 & 0.379\\
+\rowcolor{gray!6}  Se & 2 & 3 & 0.000 & 0.600 & 0.002 & 0.742\\
+Se & 3 & 1 & 0.000 & 0.600 & 0.002 & 0.417\\
+\rowcolor{gray!6}  Se & 3 & 2 & 0.000 & 0.049 & 0.500 & 0.962\\
+Se & 3 & 3 & 0.000 & 0.043 & 0.500 & 0.899\\
+\rowcolor{gray!6}  Se & 4 & 1 & 0.001 & 0.600 & 0.003 & 0.575\\
+Se & 4 & 2 & 0.000 & 0.595 & 0.002 & 0.801\\
+\rowcolor{gray!6}  Se & 4 & 3 & 0.000 & 0.600 & 0.002 & 0.493\\
+Se & 5 & 1 & 0.000 & 0.600 & 0.002 & 0.503\\
+\rowcolor{gray!6}  Se & 5 & 2 & 0.001 & 0.117 & 0.002 & 0.261\\
+Se & 5 & 3 & 0.000 & 0.030 & 0.500 & 0.902\\
+\rowcolor{gray!6}  Zn & 0 & 1 & 0.050 & 0.052 & 0.392 & 0.992\\
+Zn & 0 & 2 & 0.050 & 0.054 & 0.365 & 0.990\\
+\rowcolor{gray!6}  Zn & 0 & 3 & 0.050 & 0.057 & 0.371 & 0.996\\
+Zn & 1 & 1 & 0.050 & 0.052 & 0.389 & 0.993\\
+\rowcolor{gray!6}  Zn & 1 & 2 & 0.050 & 0.053 & 0.390 & 0.992\\
+Zn & 1 & 3 & 0.050 & 0.055 & 0.384 & 0.994\\
+\rowcolor{gray!6}  Zn & 2 & 1 & 0.050 & 0.050 & 0.417 & 0.989\\
+Zn & 2 & 2 & 0.050 & 0.050 & 0.396 & 0.994\\
+\rowcolor{gray!6}  Zn & 2 & 3 & 0.050 & 0.053 & 0.388 & 0.993\\
+Zn & 3 & 1 & 0.050 & 0.052 & 0.373 & 0.994\\
+\rowcolor{gray!6}  Zn & 3 & 2 & 0.050 & 0.052 & 0.396 & 0.995\\
+Zn & 3 & 3 & 0.050 & 0.054 & 0.392 & 0.993\\
+\rowcolor{gray!6}  Zn & 4 & 1 & 0.050 & 0.055 & 0.372 & 0.994\\
+Zn & 4 & 2 & 0.050 & 0.050 & 0.401 & 0.994\\
+\rowcolor{gray!6}  Zn & 4 & 3 & 0.050 & 0.055 & 0.376 & 0.994\\
+Zn & 5 & 1 & 0.050 & 0.049 & 0.312 & 0.990\\
+\rowcolor{gray!6}  Zn & 5 & 2 & 0.050 & 0.050 & 0.307 & 0.984\\
+Zn & 5 & 3 & 0.050 & 0.048 & 0.326 & 0.988\\*
+\end{longtable}
+\clearpage
+\begin{longtable}{ccccccc}
+\caption[DR 60 Gompertz Model Parameters.]{\label{tab:dr60}DR 60 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:dr60}DR 60 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity \textit{(continued)}}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+\rowcolor{gray!6}  As & 0 & 1 & 0.036 & 0.049 & 0.558 & 0.999\\
+As & 0 & 2 & 0.037 & 0.047 & 0.565 & 0.999\\
+\rowcolor{gray!6}  As & 0 & 3 & 0.037 & 0.048 & 0.557 & 0.999\\
+As & 1 & 1 & 0.036 & 0.049 & 0.558 & 0.999\\
+\rowcolor{gray!6}  As & 1 & 2 & 0.037 & 0.049 & 0.543 & 1.000\\
+As & 1 & 3 & 0.033 & 0.050 & 0.557 & 0.999\\
+\rowcolor{gray!6}  As & 2 & 1 & 0.036 & 0.044 & 0.600 & 0.998\\
+As & 2 & 2 & 0.036 & 0.048 & 0.567 & 0.998\\
+\rowcolor{gray!6}  As & 2 & 3 & 0.036 & 0.048 & 0.548 & 0.999\\
+As & 3 & 1 & 0.036 & 0.044 & 0.586 & 0.999\\
+\rowcolor{gray!6}  As & 3 & 2 & 0.037 & 0.042 & 0.595 & 0.999\\
+As & 3 & 3 & 0.035 & 0.042 & 0.621 & 0.999\\
+\rowcolor{gray!6}  As & 4 & 1 & 0.036 & 0.046 & 0.579 & 0.999\\
+As & 4 & 2 & 0.035 & 0.046 & 0.573 & 0.999\\
+\rowcolor{gray!6}  As & 4 & 3 & 0.037 & 0.039 & 0.673 & 0.998\\
+As & 5 & 1 & 0.037 & 0.044 & 0.608 & 0.999\\
+\rowcolor{gray!6}  As & 5 & 2 & 0.038 & 0.043 & 0.602 & 0.999\\
+As & 5 & 3 & 0.039 & 0.043 & 0.620 & 0.999\\
+\rowcolor{gray!6}  Cd & 0 & 1 & 0.033 & 0.057 & 0.536 & 1.000\\
+Cd & 0 & 2 & 0.033 & 0.062 & 0.493 & 0.999\\
+\rowcolor{gray!6}  Cd & 0 & 3 & 0.033 & 0.059 & 0.501 & 0.999\\
+Cd & 1 & 1 & 0.035 & 0.057 & 0.511 & 1.000\\
+\rowcolor{gray!6}  Cd & 1 & 2 & 0.036 & 0.055 & 0.507 & 0.999\\
+Cd & 1 & 3 & 0.036 & 0.057 & 0.506 & 0.999\\
+\rowcolor{gray!6}  Cd & 2 & 1 & 0.035 & 0.059 & 0.498 & 0.999\\
+Cd & 2 & 2 & 0.035 & 0.058 & 0.498 & 1.000\\
+\rowcolor{gray!6}  Cd & 2 & 3 & 0.035 & 0.057 & 0.518 & 0.999\\
+Cd & 3 & 1 & 0.036 & 0.059 & 0.502 & 0.999\\
+\rowcolor{gray!6}  Cd & 3 & 2 & 0.036 & 0.056 & 0.502 & 0.999\\
+Cd & 3 & 3 & 0.034 & 0.060 & 0.484 & 1.000\\
+\rowcolor{gray!6}  Cd & 4 & 1 & 0.035 & 0.053 & 0.539 & 0.999\\
+Cd & 4 & 2 & 0.043 & 0.043 & 0.568 & 0.941\\
+\rowcolor{gray!6}  Cd & 4 & 3 & 0.036 & 0.057 & 0.513 & 0.999\\
+Cd & 5 & 1 & 0.032 & 0.046 & 0.576 & 0.999\\
+\rowcolor{gray!6}  Cd & 5 & 2 & 0.037 & 0.044 & 0.591 & 0.999\\
+Cd & 5 & 3 & 0.036 & 0.047 & 0.561 & 1.000\\
+\rowcolor{gray!6}  Cr & 0 & 1 & 0.037 & 0.046 & 0.573 & 0.999\\
+Cr & 0 & 2 & 0.035 & 0.049 & 0.556 & 0.999\\
+\rowcolor{gray!6}  Cr & 0 & 3 & 0.036 & 0.048 & 0.555 & 0.999\\
+Cr & 1 & 1 & 0.035 & 0.049 & 0.541 & 0.999\\
+\rowcolor{gray!6}  Cr & 1 & 2 & 0.038 & 0.046 & 0.584 & 0.998\\
+Cr & 1 & 3 & 0.038 & 0.046 & 0.584 & 0.999\\
+\rowcolor{gray!6}  Cr & 2 & 1 & 0.033 & 0.048 & 0.554 & 0.999\\
+Cr & 2 & 2 & 0.036 & 0.047 & 0.567 & 0.999\\
+\rowcolor{gray!6}  Cr & 2 & 3 & 0.038 & 0.045 & 0.576 & 0.999\\
+Cr & 3 & 1 & 0.037 & 0.044 & 0.574 & 0.999\\
+\rowcolor{gray!6}  Cr & 3 & 2 & 0.036 & 0.044 & 0.580 & 0.999\\
+Cr & 3 & 3 & 0.035 & 0.043 & 0.611 & 0.999\\
+\rowcolor{gray!6}  Cr & 4 & 1 & 0.035 & 0.042 & 0.589 & 0.999\\
+Cr & 4 & 2 & 0.035 & 0.044 & 0.581 & 0.998\\
+\rowcolor{gray!6}  Cr & 4 & 3 & 0.036 & 0.043 & 0.600 & 0.999\\
+Cr & 5 & 1 & 0.031 & 0.047 & 0.576 & 0.996\\
+\rowcolor{gray!6}  Cr & 5 & 2 & 0.038 & 0.042 & 0.631 & 0.999\\
+Cr & 5 & 3 & 0.037 & 0.045 & 0.594 & 0.998\\
+\rowcolor{gray!6}  Hg & 0 & 1 & 0.040 & 0.040 & 0.649 & 0.994\\
+Hg & 0 & 2 & 0.040 & 0.045 & 0.601 & 0.999\\
+\rowcolor{gray!6}  Hg & 0 & 3 & 0.037 & 0.044 & 0.610 & 0.997\\
+Hg & 1 & 1 & 0.037 & 0.046 & 0.598 & 0.999\\
+\rowcolor{gray!6}  Hg & 1 & 2 & 0.037 & 0.046 & 0.587 & 0.999\\
+Hg & 1 & 3 & 0.035 & 0.048 & 0.558 & 0.999\\
+\rowcolor{gray!6}  Hg & 2 & 1 & 0.038 & 0.045 & 0.605 & 0.999\\
+Hg & 2 & 2 & 0.034 & 0.049 & 0.557 & 0.999\\
+\rowcolor{gray!6}  Hg & 2 & 3 & 0.034 & 0.050 & 0.546 & 0.999\\
+Hg & 3 & 1 & 0.035 & 0.049 & 0.566 & 0.999\\
+\rowcolor{gray!6}  Hg & 3 & 2 & 0.036 & 0.049 & 0.554 & 0.999\\
+Hg & 3 & 3 & 0.036 & 0.050 & 0.554 & 1.000\\
+\rowcolor{gray!6}  Hg & 4 & 1 & 0.036 & 0.047 & 0.592 & 0.999\\
+Hg & 4 & 2 & 0.035 & 0.051 & 0.553 & 0.999\\
+\rowcolor{gray!6}  Hg & 4 & 3 & 0.034 & 0.049 & 0.550 & 1.000\\
+Hg & 5 & 1 & 0.030 & 0.050 & 0.570 & 0.999\\
+\rowcolor{gray!6}  Hg & 5 & 2 & 0.032 & 0.049 & 0.561 & 0.999\\
+Hg & 5 & 3 & 0.035 & 0.048 & 0.556 & 0.999\\
+\rowcolor{gray!6}  Pb & 0 & 1 & 0.034 & 0.053 & 0.532 & 0.999\\
+Pb & 0 & 2 & 0.033 & 0.055 & 0.515 & 1.000\\
+\rowcolor{gray!6}  Pb & 0 & 3 & 0.036 & 0.052 & 0.546 & 0.999\\
+Pb & 1 & 1 & 0.034 & 0.052 & 0.540 & 0.999\\
+\rowcolor{gray!6}  Pb & 1 & 2 & 0.035 & 0.053 & 0.533 & 1.000\\
+Pb & 1 & 3 & 0.034 & 0.056 & 0.515 & 1.000\\
+\rowcolor{gray!6}  Pb & 2 & 1 & 0.035 & 0.055 & 0.540 & 0.999\\
+Pb & 2 & 2 & 0.036 & 0.056 & 0.519 & 0.999\\
+\rowcolor{gray!6}  Pb & 2 & 3 & 0.034 & 0.056 & 0.519 & 0.999\\
+Pb & 3 & 1 & 0.036 & 0.055 & 0.523 & 0.999\\
+\rowcolor{gray!6}  Pb & 3 & 2 & 0.034 & 0.058 & 0.511 & 0.999\\
+Pb & 3 & 3 & 0.035 & 0.056 & 0.514 & 1.000\\
+\rowcolor{gray!6}  Pb & 4 & 1 & 0.034 & 0.055 & 0.515 & 1.000\\
+Pb & 4 & 2 & 0.033 & 0.064 & 0.440 & 0.999\\
+\rowcolor{gray!6}  Pb & 4 & 3 & 0.035 & 0.053 & 0.529 & 0.999\\
+Pb & 5 & 1 & 0.037 & 0.051 & 0.569 & 0.999\\
+\rowcolor{gray!6}  Pb & 5 & 2 & 0.035 & 0.055 & 0.547 & 0.999\\
+Pb & 5 & 3 & 0.037 & 0.050 & 0.574 & 0.999\\
+\rowcolor{gray!6}  Se & 0 & 1 & 0.001 & 0.008 & 1.000 & 0.525\\
+Se & 0 & 2 & 0.000 & 0.300 & 0.003 & 0.651\\
+\rowcolor{gray!6}  Se & 0 & 3 & 0.002 & 0.300 & 0.002 & 0.003\\
+Se & 1 & 1 & 0.001 & 0.002 & 1.000 & 0.106\\
+\rowcolor{gray!6}  Se & 1 & 2 & 0.000 & 0.300 & 0.002 & 0.558\\
+Se & 1 & 3 & 0.000 & 0.300 & 0.002 & 0.436\\
+\rowcolor{gray!6}  Se & 2 & 1 & 0.001 & 0.010 & 0.037 & 0.577\\
+Se & 2 & 2 & 0.001 & 0.300 & 0.002 & 0.177\\
+\rowcolor{gray!6}  Se & 2 & 3 & 0.002 & 0.300 & 0.003 & 0.043\\
+Se & 3 & 1 & 0.001 & 0.300 & 0.003 & 0.726\\
+\rowcolor{gray!6}  Se & 3 & 2 & 0.000 & 0.300 & 0.002 & 0.490\\
+Se & 3 & 3 & 0.000 & 0.041 & 1.000 & 0.977\\
+\rowcolor{gray!6}  Se & 4 & 1 & 0.001 & 0.300 & 0.003 & 0.558\\
+Se & 4 & 2 & 0.001 & 0.300 & 0.003 & 0.514\\
+\rowcolor{gray!6}  Se & 4 & 3 & 0.001 & 0.300 & 0.003 & 0.532\\
+Se & 5 & 1 & 0.001 & 0.300 & 0.003 & 0.452\\
+\rowcolor{gray!6}  Se & 5 & 2 & 0.001 & 0.300 & 0.003 & 0.306\\
+Se & 5 & 3 & 0.001 & 0.300 & 0.003 & 0.421\\
+\rowcolor{gray!6}  Zn & 0 & 1 & 0.036 & 0.048 & 0.558 & 1.000\\
+Zn & 0 & 2 & 0.035 & 0.048 & 0.572 & 0.994\\
+\rowcolor{gray!6}  Zn & 0 & 3 & 0.036 & 0.052 & 0.525 & 1.000\\
+Zn & 1 & 1 & 0.035 & 0.053 & 0.514 & 0.999\\
+\rowcolor{gray!6}  Zn & 1 & 2 & 0.036 & 0.051 & 0.552 & 1.000\\
+Zn & 1 & 3 & 0.036 & 0.050 & 0.552 & 0.999\\
+\rowcolor{gray!6}  Zn & 2 & 1 & 0.036 & 0.050 & 0.541 & 1.000\\
+Zn & 2 & 2 & 0.036 & 0.048 & 0.579 & 0.999\\
+\rowcolor{gray!6}  Zn & 2 & 3 & 0.036 & 0.049 & 0.555 & 1.000\\
+Zn & 3 & 1 & 0.037 & 0.051 & 0.537 & 0.999\\
+\rowcolor{gray!6}  Zn & 3 & 2 & 0.035 & 0.052 & 0.521 & 1.000\\
+Zn & 3 & 3 & 0.035 & 0.053 & 0.528 & 0.999\\
+\rowcolor{gray!6}  Zn & 4 & 1 & 0.037 & 0.049 & 0.556 & 0.999\\
+Zn & 4 & 2 & 0.035 & 0.050 & 0.556 & 0.998\\
+\rowcolor{gray!6}  Zn & 4 & 3 & 0.038 & 0.049 & 0.567 & 1.000\\
+Zn & 5 & 1 & 0.033 & 0.040 & 0.574 & 0.999\\
+\rowcolor{gray!6}  Zn & 5 & 2 & 0.033 & 0.042 & 0.550 & 0.998\\
+Zn & 5 & 3 & 0.036 & 0.033 & 0.744 & 0.998\\*
+\end{longtable}
+\clearpage
+\begin{longtable}{ccccccc}
+\caption[DR 76 Gompertz Model Parameters.]{\label{tab:dr76}DR 76 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:dr76}DR 76 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity \textit{(continued)}}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+\rowcolor{gray!6}  As & 0 & 1 & 0.002 & 0.060 & 0.059 & 0.963\\
+As & 0 & 2 & 0.003 & 0.059 & 0.059 & 0.996\\
+\rowcolor{gray!6}  As & 0 & 3 & 0.004 & 0.025 & 0.356 & 0.961\\
+As & 1 & 1 & 0.007 & 0.034 & 1.000 & 0.984\\
+\rowcolor{gray!6}  As & 1 & 2 & 0.006 & 0.043 & 0.699 & 0.990\\
+As & 1 & 3 & 0.001 & 0.081 & 0.354 & 0.997\\
+\rowcolor{gray!6}  As & 2 & 1 & 0.000 & 0.046 & 0.683 & 0.999\\
+As & 2 & 2 & 0.000 & 0.086 & 0.282 & 0.998\\
+\rowcolor{gray!6}  As & 2 & 3 & 0.000 & 0.052 & 0.374 & 0.996\\
+As & 3 & 1 & 0.001 & 0.080 & 0.333 & 0.997\\
+\rowcolor{gray!6}  As & 3 & 2 & 0.001 & 0.073 & 0.415 & 0.996\\
+As & 3 & 3 & 0.002 & 0.088 & 0.259 & 0.997\\
+\rowcolor{gray!6}  As & 4 & 1 & 0.001 & 0.037 & 1.000 & 0.999\\
+As & 4 & 2 & 0.002 & 0.029 & 0.827 & 0.997\\
+\rowcolor{gray!6}  As & 4 & 3 & 0.001 & 0.031 & 1.000 & 0.995\\
+As & 5 & 1 & 0.000 & 0.101 & 0.217 & 0.992\\
+\rowcolor{gray!6}  As & 5 & 2 & 0.002 & 0.057 & 0.235 & 0.997\\
+As & 5 & 3 & 0.002 & 0.032 & 1.000 & 0.997\\
+\rowcolor{gray!6}  Cd & 0 & 1 & 0.002 & 0.021 & 1.000 & 0.958\\
+Cd & 0 & 2 & 0.000 & 0.082 & 0.280 & 0.997\\
+\rowcolor{gray!6}  Cd & 0 & 3 & 0.000 & 0.038 & 1.000 & 0.836\\
+Cd & 1 & 1 & 0.003 & 0.044 & 0.157 & 0.997\\
+\rowcolor{gray!6}  Cd & 1 & 2 & 0.003 & 0.029 & 0.248 & 0.968\\
+Cd & 1 & 3 & 0.003 & 0.044 & 0.532 & 0.997\\
+\rowcolor{gray!6}  Cd & 2 & 1 & 0.003 & 0.028 & 0.364 & 0.982\\
+Cd & 2 & 2 & 0.002 & 0.060 & 0.365 & 1.000\\
+\rowcolor{gray!6}  Cd & 2 & 3 & 0.000 & 0.133 & 0.064 & 0.923\\
+Cd & 3 & 1 & 0.002 & 0.038 & 0.698 & 0.996\\
+\rowcolor{gray!6}  Cd & 3 & 2 & 0.000 & 0.094 & 0.368 & 0.994\\
+Cd & 3 & 3 & 0.006 & 0.045 & 0.361 & 0.955\\
+\rowcolor{gray!6}  Cd & 4 & 1 & 0.000 & 0.090 & 0.256 & 0.986\\
+Cd & 4 & 2 & 0.000 & 0.136 & 0.063 & 0.924\\
+\rowcolor{gray!6}  Cd & 4 & 3 & 0.003 & 0.028 & 0.476 & 0.994\\
+Cd & 5 & 1 & 0.000 & 0.086 & 0.283 & 0.995\\
+\rowcolor{gray!6}  Cd & 5 & 2 & 0.000 & 0.090 & 0.255 & 0.988\\
+Cd & 5 & 3 & 0.000 & 0.086 & 0.270 & 0.995\\
+\rowcolor{gray!6}  Cr & 0 & 1 & 0.000 & 0.046 & 1.000 & 0.999\\
+Cr & 0 & 2 & 0.004 & 0.019 & 0.580 & 0.970\\
+\rowcolor{gray!6}  Cr & 0 & 3 & 0.002 & 0.039 & 0.286 & 0.997\\
+Cr & 1 & 1 & 0.004 & 0.033 & 0.167 & 0.990\\
+\rowcolor{gray!6}  Cr & 1 & 2 & 0.001 & 0.081 & 0.053 & 0.961\\
+Cr & 1 & 3 & 0.004 & 0.022 & 0.444 & 0.985\\
+\rowcolor{gray!6}  Cr & 2 & 1 & 0.007 & 0.043 & 0.801 & 0.992\\
+Cr & 2 & 2 & 0.001 & 0.086 & 0.345 & 0.997\\
+\rowcolor{gray!6}  Cr & 2 & 3 & 0.001 & 0.080 & 0.405 & 0.995\\
+Cr & 3 & 1 & 0.000 & 0.094 & 0.254 & 0.995\\
+\rowcolor{gray!6}  Cr & 3 & 2 & 0.000 & 0.084 & 0.291 & 0.986\\
+Cr & 3 & 3 & 0.002 & 0.033 & 1.000 & 1.000\\
+\rowcolor{gray!6}  Cr & 4 & 1 & 0.004 & 0.052 & 0.072 & 0.936\\
+Cr & 4 & 2 & 0.002 & 0.056 & 0.064 & 0.981\\
+\rowcolor{gray!6}  Cr & 4 & 3 & 0.005 & 0.031 & 1.000 & 0.990\\
+Cr & 5 & 1 & 0.000 & 0.090 & 0.234 & 0.993\\
+\rowcolor{gray!6}  Cr & 5 & 2 & 0.003 & 0.038 & 0.111 & 0.977\\
+Cr & 5 & 3 & 0.000 & 0.029 & 1.000 & 0.922\\
+\rowcolor{gray!6}  Hg & 0 & 1 & 0.004 & 0.035 & 0.123 & 0.973\\
+Hg & 0 & 2 & 0.003 & 0.021 & 1.000 & 0.961\\
+\rowcolor{gray!6}  Hg & 0 & 3 & 0.003 & 0.027 & 0.709 & 0.999\\
+Hg & 1 & 1 & 0.000 & 0.083 & 0.285 & 0.998\\
+\rowcolor{gray!6}  Hg & 1 & 2 & 0.002 & 0.072 & 0.082 & 0.990\\
+Hg & 1 & 3 & 0.004 & 0.031 & 0.178 & 0.957\\
+\rowcolor{gray!6}  Hg & 2 & 1 & 0.004 & 0.035 & 0.146 & 0.973\\
+Hg & 2 & 2 & 0.003 & 0.027 & 0.307 & 0.990\\
+\rowcolor{gray!6}  Hg & 2 & 3 & 0.002 & 0.075 & 0.062 & 0.959\\
+Hg & 3 & 1 & 0.002 & 0.077 & 0.053 & 0.985\\
+\rowcolor{gray!6}  Hg & 3 & 2 & 0.001 & 0.112 & 0.052 & 0.988\\
+Hg & 3 & 3 & 0.001 & 0.098 & 0.059 & 0.907\\
+\rowcolor{gray!6}  Hg & 4 & 1 & 0.001 & 0.092 & 0.050 & 0.991\\
+Hg & 4 & 2 & 0.003 & 0.074 & 0.055 & 0.991\\
+\rowcolor{gray!6}  Hg & 4 & 3 & 0.002 & 0.076 & 0.053 & 0.975\\
+Hg & 5 & 1 & 0.001 & 0.024 & 1.000 & 0.986\\
+\rowcolor{gray!6}  Hg & 5 & 2 & 0.002 & 0.061 & 0.045 & 0.958\\
+Hg & 5 & 3 & 0.004 & 0.023 & 0.266 & 0.988\\
+\rowcolor{gray!6}  Pb & 0 & 1 & 0.000 & 0.079 & 0.311 & 0.986\\
+Pb & 0 & 2 & 0.000 & 0.053 & 0.625 & 0.999\\
+\rowcolor{gray!6}  Pb & 0 & 3 & 0.004 & 0.018 & 1.000 & 0.957\\
+Pb & 1 & 1 & 0.000 & 0.090 & 0.260 & 0.991\\
+\rowcolor{gray!6}  Pb & 1 & 2 & 0.000 & 0.058 & 0.493 & 0.999\\
+Pb & 1 & 3 & 0.000 & 0.075 & 0.379 & 0.999\\
+\rowcolor{gray!6}  Pb & 2 & 1 & 0.000 & 0.070 & 0.411 & 0.999\\
+Pb & 2 & 2 & 0.003 & 0.072 & 0.245 & 0.984\\
+\rowcolor{gray!6}  Pb & 2 & 3 & 0.003 & 0.075 & 0.321 & 0.995\\
+Pb & 3 & 1 & 0.000 & 0.057 & 0.407 & 0.995\\
+\rowcolor{gray!6}  Pb & 3 & 2 & 0.000 & 0.091 & 0.246 & 0.985\\
+Pb & 3 & 3 & 0.000 & 0.087 & 0.223 & 0.981\\
+\rowcolor{gray!6}  Pb & 4 & 1 & 0.000 & 0.095 & 0.251 & 0.985\\
+Pb & 4 & 2 & 0.000 & 0.094 & 0.216 & 0.988\\
+\rowcolor{gray!6}  Pb & 4 & 3 & 0.000 & 0.077 & 0.214 & 0.987\\
+Pb & 5 & 1 & 0.000 & 0.047 & 0.702 & 0.998\\
+\rowcolor{gray!6}  Pb & 5 & 2 & 0.000 & 0.073 & 0.378 & 0.999\\
+Pb & 5 & 3 & 0.000 & 0.097 & 0.240 & 0.990\\
+\rowcolor{gray!6}  Se & 0 & 1 & 0.009 & 0.105 & 0.107 & 0.943\\
+Se & 0 & 2 & 0.016 & 0.055 & 0.122 & 0.973\\
+\rowcolor{gray!6}  Se & 0 & 3 & 0.010 & 0.062 & 0.118 & 0.965\\
+Se & 1 & 1 & 0.011 & 0.087 & 0.107 & 0.993\\
+\rowcolor{gray!6}  Se & 1 & 2 & 0.012 & 0.088 & 0.114 & 0.978\\
+Se & 1 & 3 & 0.013 & 0.079 & 0.112 & 0.985\\
+\rowcolor{gray!6}  Se & 2 & 1 & 0.012 & 0.067 & 0.148 & 0.985\\
+Se & 2 & 2 & 0.012 & 0.067 & 0.122 & 0.992\\
+\rowcolor{gray!6}  Se & 2 & 3 & 0.013 & 0.060 & 0.134 & 0.983\\
+Se & 3 & 1 & 0.014 & 0.062 & 0.123 & 0.986\\
+\rowcolor{gray!6}  Se & 3 & 2 & 0.012 & 0.072 & 0.107 & 0.990\\
+Se & 3 & 3 & 0.014 & 0.070 & 0.107 & 0.985\\
+\rowcolor{gray!6}  Se & 4 & 1 & 0.013 & 0.070 & 0.090 & 0.973\\
+Se & 4 & 2 & 0.013 & 0.073 & 0.085 & 0.975\\
+\rowcolor{gray!6}  Se & 4 & 3 & 0.012 & 0.081 & 0.076 & 0.979\\
+Se & 5 & 1 & 0.010 & 0.196 & 0.042 & 0.973\\
+\rowcolor{gray!6}  Se & 5 & 2 & 0.009 & 0.201 & 0.039 & 0.970\\
+Se & 5 & 3 & 0.011 & 0.161 & 0.047 & 0.983\\
+\rowcolor{gray!6}  Zn & 0 & 1 & 0.000 & 0.094 & 0.303 & 0.994\\
+Zn & 0 & 2 & 0.000 & 0.065 & 0.409 & 0.998\\
+\rowcolor{gray!6}  Zn & 0 & 3 & 0.000 & 0.063 & 0.429 & 0.999\\
+Zn & 1 & 1 & 0.000 & 0.092 & 0.262 & 0.985\\
+\rowcolor{gray!6}  Zn & 1 & 2 & 0.000 & 0.100 & 0.234 & 0.984\\
+Zn & 1 & 3 & 0.000 & 0.103 & 0.270 & 0.992\\
+\rowcolor{gray!6}  Zn & 2 & 1 & 0.000 & 0.096 & 0.247 & 0.990\\
+Zn & 2 & 2 & 0.001 & 0.077 & 0.280 & 0.988\\
+\rowcolor{gray!6}  Zn & 2 & 3 & 0.000 & 0.090 & 0.331 & 0.995\\
+Zn & 3 & 1 & 0.000 & 0.059 & 0.573 & 0.999\\
+\rowcolor{gray!6}  Zn & 3 & 2 & 0.000 & 0.085 & 0.332 & 0.999\\
+Zn & 3 & 3 & 0.001 & 0.056 & 0.438 & 0.999\\
+\rowcolor{gray!6}  Zn & 4 & 1 & 0.003 & 0.036 & 1.000 & 1.000\\
+Zn & 4 & 2 & 0.002 & 0.038 & 1.000 & 0.998\\
+\rowcolor{gray!6}  Zn & 4 & 3 & 0.000 & 0.061 & 0.483 & 1.000\\
+Zn & 5 & 1 & 0.000 & 0.071 & 0.399 & 0.997\\
+\rowcolor{gray!6}  Zn & 5 & 2 & 0.000 & 0.062 & 0.486 & 0.998\\
+Zn & 5 & 3 & 0.001 & 0.042 & 1.000 & 0.998\\*
+\end{longtable}
+\clearpage
+\begin{longtable}{ccccccc}
+\caption[DR p51 Gompertz Model Parameters.]{\label{tab:drp51}DR p51 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:drp51}DR p51 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity \textit{(continued)}}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+\rowcolor{gray!6}  As & 0 & 1 & 0.049 & 0.033 & 0.479 & 0.993\\
+As & 0 & 2 & 0.041 & 0.045 & 0.396 & 0.996\\
+\rowcolor{gray!6}  As & 0 & 3 & 0.040 & 0.051 & 0.370 & 0.997\\
+As & 1 & 1 & 0.039 & 0.056 & 0.329 & 0.998\\
+\rowcolor{gray!6}  As & 1 & 2 & 0.042 & 0.042 & 0.403 & 0.993\\
+As & 1 & 3 & 0.050 & 0.020 & 1.000 & 0.959\\
+\rowcolor{gray!6}  As & 2 & 1 & 0.038 & 0.061 & 0.316 & 0.995\\
+As & 2 & 2 & 0.040 & 0.054 & 0.335 & 0.994\\
+\rowcolor{gray!6}  As & 2 & 3 & 0.043 & 0.050 & 0.358 & 0.994\\
+As & 3 & 1 & 0.042 & 0.060 & 0.331 & 0.989\\
+\rowcolor{gray!6}  As & 3 & 2 & 0.041 & 0.061 & 0.309 & 0.992\\
+As & 3 & 3 & 0.040 & 0.055 & 0.344 & 0.995\\
+\rowcolor{gray!6}  As & 4 & 1 & 0.048 & 0.055 & 0.351 & 0.982\\
+As & 4 & 2 & 0.045 & 0.055 & 0.351 & 0.986\\
+\rowcolor{gray!6}  As & 4 & 3 & 0.045 & 0.053 & 0.367 & 0.990\\
+As & 5 & 1 & 0.044 & 0.065 & 0.342 & 0.993\\
+\rowcolor{gray!6}  As & 5 & 2 & 0.045 & 0.055 & 0.362 & 0.987\\
+As & 5 & 3 & 0.046 & 0.052 & 0.382 & 0.987\\
+\rowcolor{gray!6}  Cd & 0 & 1 & 0.042 & 0.066 & 0.355 & 0.988\\
+Cd & 0 & 2 & 0.039 & 0.072 & 0.325 & 0.987\\
+\rowcolor{gray!6}  Cd & 0 & 3 & 0.035 & 0.072 & 0.319 & 0.991\\
+Cd & 1 & 1 & 0.040 & 0.065 & 0.356 & 0.992\\
+\rowcolor{gray!6}  Cd & 1 & 2 & 0.040 & 0.058 & 0.345 & 0.972\\
+Cd & 1 & 3 & 0.044 & 0.065 & 0.313 & 0.986\\
+\rowcolor{gray!6}  Cd & 2 & 1 & 0.031 & 0.077 & 0.321 & 0.989\\
+Cd & 2 & 2 & 0.044 & 0.061 & 0.328 & 0.990\\
+\rowcolor{gray!6}  Cd & 2 & 3 & 0.042 & 0.064 & 0.330 & 0.989\\
+Cd & 3 & 1 & 0.035 & 0.071 & 0.318 & 0.990\\
+\rowcolor{gray!6}  Cd & 3 & 2 & 0.029 & 0.079 & 0.294 & 0.987\\
+Cd & 3 & 3 & 0.037 & 0.063 & 0.310 & 0.995\\
+\rowcolor{gray!6}  Cd & 4 & 1 & 0.032 & 0.076 & 0.288 & 0.993\\
+Cd & 4 & 2 & 0.038 & 0.071 & 0.291 & 0.995\\
+\rowcolor{gray!6}  Cd & 4 & 3 & 0.035 & 0.076 & 0.282 & 0.992\\
+Cd & 5 & 1 & 0.028 & 0.099 & 0.191 & 0.997\\
+\rowcolor{gray!6}  Cd & 5 & 2 & 0.032 & 0.074 & 0.180 & 0.990\\
+Cd & 5 & 3 & 0.024 & 0.081 & 0.179 & 0.994\\
+\rowcolor{gray!6}  Cr & 0 & 1 & 0.040 & 0.052 & 0.361 & 0.994\\
+Cr & 0 & 2 & 0.041 & 0.050 & 0.362 & 0.993\\
+\rowcolor{gray!6}  Cr & 0 & 3 & 0.043 & 0.050 & 0.416 & 0.995\\
+Cr & 1 & 1 & 0.039 & 0.055 & 0.349 & 0.996\\
+\rowcolor{gray!6}  Cr & 1 & 2 & 0.040 & 0.051 & 0.332 & 0.989\\
+Cr & 1 & 3 & 0.039 & 0.053 & 0.386 & 0.987\\
+\rowcolor{gray!6}  Cr & 2 & 1 & 0.038 & 0.053 & 0.358 & 0.991\\
+Cr & 2 & 2 & 0.042 & 0.055 & 0.363 & 0.994\\
+\rowcolor{gray!6}  Cr & 2 & 3 & 0.041 & 0.057 & 0.382 & 0.995\\
+Cr & 3 & 1 & 0.038 & 0.066 & 0.292 & 0.997\\
+\rowcolor{gray!6}  Cr & 3 & 2 & 0.040 & 0.058 & 0.365 & 0.993\\
+Cr & 3 & 3 & 0.039 & 0.063 & 0.356 & 0.992\\
+\rowcolor{gray!6}  Cr & 4 & 1 & 0.039 & 0.059 & 0.361 & 0.983\\
+Cr & 4 & 2 & 0.043 & 0.057 & 0.368 & 0.990\\
+\rowcolor{gray!6}  Cr & 4 & 3 & 0.047 & 0.055 & 0.382 & 0.986\\
+Cr & 5 & 1 & 0.040 & 0.060 & 0.363 & 0.984\\
+\rowcolor{gray!6}  Cr & 5 & 2 & 0.042 & 0.054 & 0.405 & 0.988\\
+Cr & 5 & 3 & 0.042 & 0.065 & 0.366 & 0.986\\
+\rowcolor{gray!6}  Hg & 0 & 1 & 0.043 & 0.052 & 0.350 & 0.992\\
+Hg & 0 & 2 & 0.044 & 0.040 & 0.422 & 0.993\\
+\rowcolor{gray!6}  Hg & 0 & 3 & 0.040 & 0.056 & 0.336 & 0.990\\
+Hg & 1 & 1 & 0.041 & 0.055 & 0.376 & 0.993\\
+\rowcolor{gray!6}  Hg & 1 & 2 & 0.041 & 0.050 & 0.392 & 0.996\\
+Hg & 1 & 3 & 0.039 & 0.053 & 0.358 & 0.996\\
+\rowcolor{gray!6}  Hg & 2 & 1 & 0.043 & 0.059 & 0.364 & 0.992\\
+Hg & 2 & 2 & 0.041 & 0.058 & 0.347 & 0.994\\
+\rowcolor{gray!6}  Hg & 2 & 3 & 0.040 & 0.051 & 0.361 & 0.996\\
+Hg & 3 & 1 & 0.043 & 0.064 & 0.344 & 0.991\\
+\rowcolor{gray!6}  Hg & 3 & 2 & 0.039 & 0.068 & 0.327 & 0.993\\
+Hg & 3 & 3 & 0.044 & 0.049 & 0.383 & 0.994\\
+\rowcolor{gray!6}  Hg & 4 & 1 & 0.044 & 0.066 & 0.358 & 0.991\\
+Hg & 4 & 2 & 0.040 & 0.063 & 0.348 & 0.995\\
+\rowcolor{gray!6}  Hg & 4 & 3 & 0.042 & 0.050 & 0.362 & 0.993\\
+Hg & 5 & 1 & 0.044 & 0.056 & 0.378 & 0.988\\
+\rowcolor{gray!6}  Hg & 5 & 2 & 0.042 & 0.057 & 0.364 & 0.993\\
+Hg & 5 & 3 & 0.042 & 0.056 & 0.349 & 0.995\\
+\rowcolor{gray!6}  Pb & 0 & 1 & 0.038 & 0.059 & 0.333 & 0.984\\
+Pb & 0 & 2 & 0.035 & 0.068 & 0.302 & 0.985\\
+\rowcolor{gray!6}  Pb & 0 & 3 & 0.032 & 0.076 & 0.310 & 0.987\\
+Pb & 1 & 1 & 0.028 & 0.068 & 0.311 & 0.988\\
+\rowcolor{gray!6}  Pb & 1 & 2 & 0.046 & 0.061 & 0.326 & 0.994\\
+Pb & 1 & 3 & 0.042 & 0.082 & 0.276 & 0.996\\
+\rowcolor{gray!6}  Pb & 2 & 1 & 0.040 & 0.053 & 0.331 & 0.984\\
+Pb & 2 & 2 & 0.030 & 0.071 & 0.292 & 0.988\\
+\rowcolor{gray!6}  Pb & 2 & 3 & 0.039 & 0.076 & 0.285 & 0.995\\
+Pb & 3 & 1 & 0.028 & 0.058 & 0.311 & 0.980\\
+\rowcolor{gray!6}  Pb & 3 & 2 & 0.027 & 0.070 & 0.297 & 0.983\\
+Pb & 3 & 3 & 0.029 & 0.092 & 0.273 & 0.993\\
+\rowcolor{gray!6}  Pb & 4 & 1 & 0.035 & 0.064 & 0.303 & 0.982\\
+Pb & 4 & 2 & 0.020 & 0.081 & 0.245 & 0.989\\
+\rowcolor{gray!6}  Pb & 4 & 3 & 0.034 & 0.071 & 0.302 & 0.985\\
+Pb & 5 & 1 & 0.040 & 0.060 & 0.327 & 0.982\\
+\rowcolor{gray!6}  Pb & 5 & 2 & 0.029 & 0.066 & 0.308 & 0.980\\
+Pb & 5 & 3 & 0.025 & 0.078 & 0.276 & 0.976\\
+\rowcolor{gray!6}  Se & 0 & 1 & 0.020 & 0.058 & 0.446 & 0.998\\
+Se & 0 & 2 & 0.020 & 0.066 & 0.430 & 0.997\\
+\rowcolor{gray!6}  Se & 0 & 3 & 0.021 & 0.064 & 0.465 & 0.997\\
+Se & 1 & 1 & 0.022 & 0.058 & 0.429 & 0.997\\
+\rowcolor{gray!6}  Se & 1 & 2 & 0.021 & 0.065 & 0.406 & 0.998\\
+Se & 1 & 3 & 0.023 & 0.068 & 0.425 & 0.995\\
+\rowcolor{gray!6}  Se & 2 & 1 & 0.023 & 0.059 & 0.406 & 0.997\\
+Se & 2 & 2 & 0.017 & 0.076 & 0.384 & 0.997\\
+\rowcolor{gray!6}  Se & 2 & 3 & 0.019 & 0.071 & 0.421 & 0.997\\
+Se & 3 & 1 & 0.024 & 0.052 & 0.403 & 0.996\\
+\rowcolor{gray!6}  Se & 3 & 2 & 0.021 & 0.067 & 0.383 & 0.996\\
+Se & 3 & 3 & 0.023 & 0.071 & 0.408 & 0.998\\
+\rowcolor{gray!6}  Se & 4 & 1 & 0.022 & 0.059 & 0.341 & 0.997\\
+Se & 4 & 2 & 0.023 & 0.060 & 0.348 & 0.998\\
+\rowcolor{gray!6}  Se & 4 & 3 & 0.027 & 0.059 & 0.356 & 0.998\\
+Se & 5 & 1 & 0.021 & 0.078 & 0.215 & 0.996\\
+\rowcolor{gray!6}  Se & 5 & 2 & 0.022 & 0.073 & 0.226 & 0.996\\
+Se & 5 & 3 & 0.023 & 0.078 & 0.254 & 0.995\\
+\rowcolor{gray!6}  Zn & 0 & 1 & 0.034 & 0.067 & 0.318 & 0.986\\
+Zn & 0 & 2 & 0.050 & 0.066 & 0.348 & 0.982\\
+\rowcolor{gray!6}  Zn & 0 & 3 & 0.038 & 0.072 & 0.325 & 0.988\\
+Zn & 1 & 1 & 0.042 & 0.061 & 0.301 & 0.985\\
+\rowcolor{gray!6}  Zn & 1 & 2 & 0.050 & 0.048 & 0.324 & 0.978\\
+Zn & 1 & 3 & 0.039 & 0.072 & 0.331 & 0.987\\
+\rowcolor{gray!6}  Zn & 2 & 1 & 0.045 & 0.049 & 0.331 & 0.986\\
+Zn & 2 & 2 & 0.042 & 0.052 & 0.354 & 0.985\\
+\rowcolor{gray!6}  Zn & 2 & 3 & 0.042 & 0.069 & 0.334 & 0.993\\
+Zn & 3 & 1 & 0.048 & 0.047 & 0.351 & 0.981\\
+\rowcolor{gray!6}  Zn & 3 & 2 & 0.040 & 0.053 & 0.351 & 0.986\\
+Zn & 3 & 3 & 0.043 & 0.064 & 0.345 & 0.988\\
+\rowcolor{gray!6}  Zn & 4 & 1 & 0.043 & 0.055 & 0.340 & 0.989\\
+Zn & 4 & 2 & 0.045 & 0.045 & 0.398 & 0.992\\
+\rowcolor{gray!6}  Zn & 4 & 3 & 0.043 & 0.061 & 0.345 & 0.990\\
+Zn & 5 & 1 & 0.046 & 0.053 & 0.325 & 0.974\\
+\rowcolor{gray!6}  Zn & 5 & 2 & 0.048 & 0.044 & 0.381 & 0.984\\
+Zn & 5 & 3 & 0.048 & 0.059 & 0.356 & 0.985\\*
+\end{longtable}
+\clearpage
+\begin{longtable}{ccccccc}
+\caption[DR p72 Gompertz Model Parameters.]{\label{tab:drp72}DR p72 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:drp72}DR p72 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity \textit{(continued)}}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+\rowcolor{gray!6}  As & 0 & 1 & 0.033 & 0.057 & 0.395 & 0.989\\
+As & 0 & 2 & 0.038 & 0.057 & 0.382 & 0.987\\
+\rowcolor{gray!6}  As & 0 & 3 & 0.032 & 0.057 & 0.375 & 0.985\\
+As & 1 & 1 & 0.034 & 0.061 & 0.376 & 0.987\\
+\rowcolor{gray!6}  As & 1 & 2 & 0.034 & 0.059 & 0.364 & 0.987\\
+As & 1 & 3 & 0.040 & 0.046 & 0.416 & 0.976\\
+\rowcolor{gray!6}  As & 2 & 1 & 0.037 & 0.051 & 0.403 & 0.962\\
+As & 2 & 2 & 0.032 & 0.062 & 0.357 & 0.986\\
+\rowcolor{gray!6}  As & 2 & 3 & 0.031 & 0.064 & 0.359 & 0.984\\
+As & 3 & 1 & 0.029 & 0.066 & 0.369 & 0.993\\
+\rowcolor{gray!6}  As & 3 & 2 & 0.032 & 0.061 & 0.370 & 0.986\\
+As & 3 & 3 & 0.029 & 0.069 & 0.355 & 0.991\\
+\rowcolor{gray!6}  As & 4 & 1 & 0.034 & 0.058 & 0.391 & 0.983\\
+As & 4 & 2 & 0.037 & 0.042 & 0.478 & 0.983\\
+\rowcolor{gray!6}  As & 4 & 3 & 0.034 & 0.060 & 0.385 & 0.991\\
+As & 5 & 1 & 0.035 & 0.056 & 0.402 & 0.984\\
+\rowcolor{gray!6}  As & 5 & 2 & 0.036 & 0.054 & 0.422 & 0.989\\
+As & 5 & 3 & 0.035 & 0.064 & 0.391 & 0.985\\
+\rowcolor{gray!6}  Cd & 0 & 1 & 0.031 & 0.069 & 0.354 & 0.987\\
+Cd & 0 & 2 & 0.035 & 0.069 & 0.349 & 0.981\\
+\rowcolor{gray!6}  Cd & 0 & 3 & 0.031 & 0.064 & 0.361 & 0.989\\
+Cd & 1 & 1 & 0.031 & 0.065 & 0.396 & 0.992\\
+\rowcolor{gray!6}  Cd & 1 & 2 & 0.037 & 0.046 & 0.445 & 0.978\\
+Cd & 1 & 3 & 0.025 & 0.086 & 0.309 & 0.995\\
+\rowcolor{gray!6}  Cd & 2 & 1 & 0.030 & 0.064 & 0.371 & 0.989\\
+Cd & 2 & 2 & 0.030 & 0.065 & 0.359 & 0.990\\
+\rowcolor{gray!6}  Cd & 2 & 3 & 0.030 & 0.068 & 0.350 & 0.987\\
+Cd & 3 & 1 & 0.031 & 0.070 & 0.340 & 0.990\\
+\rowcolor{gray!6}  Cd & 3 & 2 & 0.032 & 0.068 & 0.333 & 0.990\\
+Cd & 3 & 3 & 0.034 & 0.064 & 0.347 & 0.986\\
+\rowcolor{gray!6}  Cd & 4 & 1 & 0.024 & 0.096 & 0.253 & 0.990\\
+Cd & 4 & 2 & 0.028 & 0.087 & 0.253 & 0.984\\
+\rowcolor{gray!6}  Cd & 4 & 3 & 0.026 & 0.092 & 0.248 & 0.988\\
+Cd & 5 & 1 & 0.017 & 0.146 & 0.173 & 0.980\\
+\rowcolor{gray!6}  Cd & 5 & 2 & 0.019 & 0.147 & 0.173 & 0.980\\
+Cd & 5 & 3 & 0.025 & 0.139 & 0.187 & 0.979\\
+\rowcolor{gray!6}  Cr & 0 & 1 & 0.028 & 0.071 & 0.352 & 0.991\\
+Cr & 0 & 2 & 0.029 & 0.067 & 0.365 & 0.989\\
+\rowcolor{gray!6}  Cr & 0 & 3 & 0.029 & 0.067 & 0.371 & 0.989\\
+Cr & 1 & 1 & 0.033 & 0.057 & 0.360 & 0.968\\
+\rowcolor{gray!6}  Cr & 1 & 2 & 0.029 & 0.070 & 0.340 & 0.989\\
+Cr & 1 & 3 & 0.034 & 0.063 & 0.386 & 0.989\\
+\rowcolor{gray!6}  Cr & 2 & 1 & 0.030 & 0.073 & 0.343 & 0.987\\
+Cr & 2 & 2 & 0.032 & 0.060 & 0.398 & 0.986\\
+\rowcolor{gray!6}  Cr & 2 & 3 & 0.033 & 0.059 & 0.394 & 0.988\\
+Cr & 3 & 1 & 0.030 & 0.070 & 0.358 & 0.990\\
+\rowcolor{gray!6}  Cr & 3 & 2 & 0.031 & 0.064 & 0.364 & 0.992\\
+Cr & 3 & 3 & 0.033 & 0.059 & 0.397 & 0.987\\
+\rowcolor{gray!6}  Cr & 4 & 1 & 0.031 & 0.064 & 0.377 & 0.988\\
+Cr & 4 & 2 & 0.036 & 0.056 & 0.406 & 0.989\\
+\rowcolor{gray!6}  Cr & 4 & 3 & 0.033 & 0.060 & 0.400 & 0.982\\
+Cr & 5 & 1 & 0.037 & 0.057 & 0.398 & 0.982\\
+\rowcolor{gray!6}  Cr & 5 & 2 & 0.034 & 0.055 & 0.400 & 0.986\\
+Cr & 5 & 3 & 0.034 & 0.061 & 0.406 & 0.986\\
+\rowcolor{gray!6}  Hg & 0 & 1 & 0.034 & 0.061 & 0.368 & 0.975\\
+Hg & 0 & 2 & 0.035 & 0.051 & 0.424 & 0.985\\
+\rowcolor{gray!6}  Hg & 0 & 3 & 0.032 & 0.063 & 0.348 & 0.984\\
+Hg & 1 & 1 & 0.035 & 0.055 & 0.416 & 0.985\\
+\rowcolor{gray!6}  Hg & 1 & 2 & 0.036 & 0.059 & 0.384 & 0.991\\
+Hg & 1 & 3 & 0.036 & 0.052 & 0.405 & 0.985\\
+\rowcolor{gray!6}  Hg & 2 & 1 & 0.034 & 0.061 & 0.402 & 0.988\\
+Hg & 2 & 2 & 0.031 & 0.066 & 0.348 & 0.988\\
+\rowcolor{gray!6}  Hg & 2 & 3 & 0.033 & 0.053 & 0.405 & 0.980\\
+Hg & 3 & 1 & 0.032 & 0.059 & 0.397 & 0.990\\
+\rowcolor{gray!6}  Hg & 3 & 2 & 0.033 & 0.055 & 0.409 & 0.990\\
+Hg & 3 & 3 & 0.033 & 0.056 & 0.409 & 0.990\\
+\rowcolor{gray!6}  Hg & 4 & 1 & 0.050 & 0.043 & 0.456 & 0.984\\
+Hg & 4 & 2 & 0.037 & 0.051 & 0.417 & 0.985\\
+\rowcolor{gray!6}  Hg & 4 & 3 & 0.036 & 0.048 & 0.462 & 0.986\\
+Hg & 5 & 1 & 0.033 & 0.058 & 0.418 & 0.988\\
+\rowcolor{gray!6}  Hg & 5 & 2 & 0.034 & 0.055 & 0.427 & 0.985\\
+Hg & 5 & 3 & 0.036 & 0.051 & 0.426 & 0.986\\
+\rowcolor{gray!6}  Pb & 0 & 1 & 0.031 & 0.067 & 0.368 & 0.990\\
+Pb & 0 & 2 & 0.034 & 0.048 & 0.431 & 0.982\\
+\rowcolor{gray!6}  Pb & 0 & 3 & 0.033 & 0.059 & 0.365 & 0.984\\
+Pb & 1 & 1 & 0.032 & 0.061 & 0.377 & 0.989\\
+\rowcolor{gray!6}  Pb & 1 & 2 & 0.031 & 0.060 & 0.367 & 0.987\\
+Pb & 1 & 3 & 0.026 & 0.081 & 0.315 & 0.993\\
+\rowcolor{gray!6}  Pb & 2 & 1 & 0.033 & 0.056 & 0.383 & 0.983\\
+Pb & 2 & 2 & 0.029 & 0.063 & 0.368 & 0.988\\
+\rowcolor{gray!6}  Pb & 2 & 3 & 0.032 & 0.061 & 0.368 & 0.991\\
+Pb & 3 & 1 & 0.038 & 0.054 & 0.396 & 0.981\\
+\rowcolor{gray!6}  Pb & 3 & 2 & 0.030 & 0.067 & 0.359 & 0.989\\
+Pb & 3 & 3 & 0.033 & 0.058 & 0.346 & 0.983\\
+\rowcolor{gray!6}  Pb & 4 & 1 & 0.030 & 0.068 & 0.372 & 0.988\\
+Pb & 4 & 2 & 0.030 & 0.067 & 0.368 & 0.991\\
+\rowcolor{gray!6}  Pb & 4 & 3 & 0.033 & 0.059 & 0.371 & 0.984\\
+Pb & 5 & 1 & 0.032 & 0.065 & 0.367 & 0.989\\
+\rowcolor{gray!6}  Pb & 5 & 2 & 0.033 & 0.067 & 0.350 & 0.988\\
+Pb & 5 & 3 & 0.031 & 0.065 & 0.362 & 0.986\\
+\rowcolor{gray!6}  Se & 0 & 1 & 0.015 & 0.051 & 0.139 & 0.969\\
+Se & 0 & 2 & 0.016 & 0.047 & 0.140 & 0.980\\
+\rowcolor{gray!6}  Se & 0 & 3 & 0.015 & 0.063 & 0.107 & 0.989\\
+Se & 1 & 1 & 0.018 & 0.025 & 0.246 & 0.969\\
+\rowcolor{gray!6}  Se & 1 & 2 & 0.017 & 0.052 & 0.109 & 0.978\\
+Se & 1 & 3 & 0.014 & 0.063 & 0.098 & 0.990\\
+\rowcolor{gray!6}  Se & 2 & 1 & 0.014 & 0.061 & 0.105 & 0.989\\
+Se & 2 & 2 & 0.014 & 0.058 & 0.113 & 0.994\\
+\rowcolor{gray!6}  Se & 2 & 3 & 0.011 & 0.068 & 0.128 & 0.988\\
+Se & 3 & 1 & 0.016 & 0.061 & 0.089 & 0.980\\
+\rowcolor{gray!6}  Se & 3 & 2 & 0.013 & 0.065 & 0.085 & 0.963\\
+Se & 3 & 3 & 0.013 & 0.067 & 0.086 & 0.995\\
+\rowcolor{gray!6}  Se & 4 & 1 & 0.014 & 0.075 & 0.064 & 0.975\\
+Se & 4 & 2 & 0.015 & 0.049 & 0.073 & 0.977\\
+\rowcolor{gray!6}  Se & 4 & 3 & 0.013 & 0.101 & 0.058 & 0.982\\
+Se & 5 & 1 & 0.012 & 0.222 & 0.040 & 0.939\\
+\rowcolor{gray!6}  Se & 5 & 2 & 0.014 & 0.106 & 0.043 & 0.920\\
+Se & 5 & 3 & 0.015 & 0.139 & 0.040 & 0.923\\
+\rowcolor{gray!6}  Zn & 0 & 1 & 0.033 & 0.055 & 0.399 & 0.986\\
+Zn & 0 & 2 & 0.026 & 0.078 & 0.350 & 0.992\\
+\rowcolor{gray!6}  Zn & 0 & 3 & 0.033 & 0.060 & 0.377 & 0.985\\
+Zn & 1 & 1 & 0.034 & 0.061 & 0.351 & 0.987\\
+\rowcolor{gray!6}  Zn & 1 & 2 & 0.033 & 0.057 & 0.379 & 0.984\\
+Zn & 1 & 3 & 0.033 & 0.064 & 0.353 & 0.984\\
+\rowcolor{gray!6}  Zn & 2 & 1 & 0.031 & 0.069 & 0.360 & 0.988\\
+Zn & 2 & 2 & 0.031 & 0.067 & 0.359 & 0.990\\
+\rowcolor{gray!6}  Zn & 2 & 3 & 0.032 & 0.060 & 0.399 & 0.990\\
+Zn & 3 & 1 & 0.034 & 0.057 & 0.376 & 0.989\\
+\rowcolor{gray!6}  Zn & 3 & 2 & 0.034 & 0.057 & 0.392 & 0.988\\
+Zn & 3 & 3 & 0.033 & 0.059 & 0.391 & 0.990\\
+\rowcolor{gray!6}  Zn & 4 & 1 & 0.033 & 0.061 & 0.372 & 0.988\\
+Zn & 4 & 2 & 0.035 & 0.058 & 0.386 & 0.985\\
+\rowcolor{gray!6}  Zn & 4 & 3 & 0.033 & 0.063 & 0.389 & 0.991\\
+Zn & 5 & 1 & 0.030 & 0.075 & 0.306 & 0.989\\
+\rowcolor{gray!6}  Zn & 5 & 2 & 0.031 & 0.070 & 0.316 & 0.987\\
+Zn & 5 & 3 & 0.034 & 0.068 & 0.330 & 0.985\\*
+\end{longtable}
+\clearpage
+\begin{longtable}{ccccccc}
+\caption[DR p74 Gompertz Model Parameters.]{\label{tab:drp74}DR p74 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:drp74}DR p74 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity \textit{(continued)}}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+\rowcolor{gray!6}  As & 0 & 1 & 0.015 & 0.133 & 0.086 & 0.988\\
+As & 0 & 2 & 0.018 & 0.072 & 0.116 & 0.969\\
+\rowcolor{gray!6}  As & 0 & 3 & 0.019 & 0.148 & 0.117 & 0.953\\
+As & 1 & 1 & 0.019 & 0.156 & 0.082 & 0.980\\
+\rowcolor{gray!6}  As & 1 & 2 & 0.017 & 0.123 & 0.085 & 0.978\\
+As & 1 & 3 & 0.018 & 0.058 & 0.140 & 0.979\\
+\rowcolor{gray!6}  As & 2 & 1 & 0.018 & 0.117 & 0.097 & 0.966\\
+As & 2 & 2 & 0.017 & 0.124 & 0.086 & 0.972\\
+\rowcolor{gray!6}  As & 2 & 3 & 0.022 & 0.101 & 0.132 & 0.982\\
+As & 3 & 1 & 0.016 & 0.112 & 0.088 & 0.969\\
+\rowcolor{gray!6}  As & 3 & 2 & 0.020 & 0.124 & 0.089 & 0.973\\
+As & 3 & 3 & 0.020 & 0.062 & 0.167 & 0.985\\
+\rowcolor{gray!6}  As & 4 & 1 & 0.018 & 0.083 & 0.126 & 0.981\\
+As & 4 & 2 & 0.018 & 0.089 & 0.124 & 0.986\\
+\rowcolor{gray!6}  As & 4 & 3 & 0.022 & 0.081 & 0.138 & 0.986\\
+As & 5 & 1 & 0.024 & 0.082 & 0.146 & 0.976\\
+\rowcolor{gray!6}  As & 5 & 2 & 0.020 & 0.111 & 0.126 & 0.991\\
+As & 5 & 3 & 0.024 & 0.100 & 0.135 & 0.970\\
+\rowcolor{gray!6}  Cd & 0 & 1 & 0.017 & 0.176 & 0.084 & 0.958\\
+Cd & 0 & 2 & 0.017 & 0.160 & 0.075 & 0.983\\
+\rowcolor{gray!6}  Cd & 0 & 3 & 0.019 & 0.164 & 0.076 & 0.971\\
+Cd & 1 & 1 & 0.016 & 0.167 & 0.074 & 0.975\\
+\rowcolor{gray!6}  Cd & 1 & 2 & 0.015 & 0.196 & 0.080 & 0.912\\
+Cd & 1 & 3 & 0.018 & 0.081 & 0.091 & 0.966\\
+\rowcolor{gray!6}  Cd & 2 & 1 & 0.013 & 0.230 & 0.078 & 0.979\\
+Cd & 2 & 2 & 0.014 & 0.179 & 0.082 & 0.970\\
+\rowcolor{gray!6}  Cd & 2 & 3 & 0.020 & 0.068 & 0.128 & 0.961\\
+Cd & 3 & 1 & 0.015 & 0.146 & 0.081 & 0.977\\
+\rowcolor{gray!6}  Cd & 3 & 2 & 0.015 & 0.143 & 0.082 & 0.986\\
+Cd & 3 & 3 & 0.021 & 0.055 & 0.173 & 0.991\\
+\rowcolor{gray!6}  Cd & 4 & 1 & 0.016 & 0.099 & 0.107 & 0.971\\
+Cd & 4 & 2 & 0.021 & 0.059 & 0.132 & 0.965\\
+\rowcolor{gray!6}  Cd & 4 & 3 & 0.018 & 0.068 & 0.165 & 0.995\\
+Cd & 5 & 1 & 0.019 & 0.114 & 0.121 & 0.992\\
+\rowcolor{gray!6}  Cd & 5 & 2 & 0.020 & 0.096 & 0.134 & 0.981\\
+Cd & 5 & 3 & 0.021 & 0.086 & 0.138 & 0.990\\
+\rowcolor{gray!6}  Cr & 0 & 1 & 0.016 & 0.118 & 0.133 & 0.989\\
+Cr & 0 & 2 & 0.020 & 0.081 & 0.149 & 0.985\\
+\rowcolor{gray!6}  Cr & 0 & 3 & 0.022 & 0.086 & 0.146 & 0.989\\
+Cr & 1 & 1 & 0.021 & 0.107 & 0.140 & 0.988\\
+\rowcolor{gray!6}  Cr & 1 & 2 & 0.018 & 0.142 & 0.102 & 0.950\\
+Cr & 1 & 3 & 0.020 & 0.095 & 0.122 & 0.980\\
+\rowcolor{gray!6}  Cr & 2 & 1 & 0.016 & 0.108 & 0.131 & 0.990\\
+Cr & 2 & 2 & 0.013 & 0.102 & 0.119 & 0.993\\
+\rowcolor{gray!6}  Cr & 2 & 3 & 0.025 & 0.077 & 0.147 & 0.984\\
+Cr & 3 & 1 & 0.021 & 0.115 & 0.110 & 0.979\\
+\rowcolor{gray!6}  Cr & 3 & 2 & 0.022 & 0.090 & 0.120 & 0.969\\
+Cr & 3 & 3 & 0.020 & 0.100 & 0.120 & 0.980\\
+\rowcolor{gray!6}  Cr & 4 & 1 & 0.024 & 0.078 & 0.157 & 0.978\\
+Cr & 4 & 2 & 0.021 & 0.082 & 0.159 & 0.989\\
+\rowcolor{gray!6}  Cr & 4 & 3 & 0.019 & 0.074 & 0.166 & 0.990\\
+Cr & 5 & 1 & 0.030 & 0.061 & 0.224 & 0.987\\
+\rowcolor{gray!6}  Cr & 5 & 2 & 0.028 & 0.064 & 0.214 & 0.988\\
+Cr & 5 & 3 & 0.030 & 0.067 & 0.198 & 0.992\\
+\rowcolor{gray!6}  Hg & 0 & 1 & 0.019 & 0.115 & 0.137 & 0.984\\
+Hg & 0 & 2 & 0.018 & 0.132 & 0.131 & 0.976\\
+\rowcolor{gray!6}  Hg & 0 & 3 & 0.020 & 0.107 & 0.144 & 0.979\\
+Hg & 1 & 1 & 0.015 & 0.098 & 0.143 & 0.991\\
+\rowcolor{gray!6}  Hg & 1 & 2 & 0.017 & 0.090 & 0.139 & 0.986\\
+Hg & 1 & 3 & 0.024 & 0.058 & 0.182 & 0.977\\
+\rowcolor{gray!6}  Hg & 2 & 1 & 0.023 & 0.092 & 0.147 & 0.980\\
+Hg & 2 & 2 & 0.023 & 0.074 & 0.161 & 0.992\\
+\rowcolor{gray!6}  Hg & 2 & 3 & 0.024 & 0.080 & 0.154 & 0.973\\
+Hg & 3 & 1 & 0.022 & 0.097 & 0.143 & 0.984\\
+\rowcolor{gray!6}  Hg & 3 & 2 & 0.021 & 0.074 & 0.156 & 0.986\\
+Hg & 3 & 3 & 0.021 & 0.073 & 0.159 & 0.979\\
+\rowcolor{gray!6}  Hg & 4 & 1 & 0.011 & 0.445 & 0.028 & 0.768\\
+Hg & 4 & 2 & 0.014 & 0.435 & 0.039 & 0.758\\
+\rowcolor{gray!6}  Hg & 4 & 3 & 0.019 & 0.315 & 0.034 & 0.830\\
+Hg & 5 & 1 & 0.016 & 0.000 & 0.000 & 0.183\\
+\rowcolor{gray!6}  Hg & 5 & 2 & 0.017 & 0.078 & 0.014 & 0.157\\
+Hg & 5 & 3 & 0.018 & 0.001 & 0.000 & 0.234\\
+\rowcolor{gray!6}  Pb & 0 & 1 & 0.021 & 0.115 & 0.139 & 0.991\\
+Pb & 0 & 2 & 0.025 & 0.083 & 0.147 & 0.984\\
+\rowcolor{gray!6}  Pb & 0 & 3 & 0.021 & 0.115 & 0.130 & 0.974\\
+Pb & 1 & 1 & 0.027 & 0.069 & 0.161 & 0.965\\
+\rowcolor{gray!6}  Pb & 1 & 2 & 0.026 & 0.080 & 0.142 & 0.985\\
+Pb & 1 & 3 & 0.023 & 0.096 & 0.148 & 0.986\\
+\rowcolor{gray!6}  Pb & 2 & 1 & 0.022 & 0.081 & 0.141 & 0.977\\
+Pb & 2 & 2 & 0.025 & 0.068 & 0.169 & 0.990\\
+\rowcolor{gray!6}  Pb & 2 & 3 & 0.024 & 0.085 & 0.156 & 0.981\\
+Pb & 3 & 1 & 0.020 & 0.079 & 0.142 & 0.983\\
+\rowcolor{gray!6}  Pb & 3 & 2 & 0.021 & 0.068 & 0.153 & 0.986\\
+Pb & 3 & 3 & 0.024 & 0.078 & 0.158 & 0.982\\
+\rowcolor{gray!6}  Pb & 4 & 1 & 0.018 & 0.091 & 0.140 & 0.991\\
+Pb & 4 & 2 & 0.017 & 0.096 & 0.135 & 0.977\\
+\rowcolor{gray!6}  Pb & 4 & 3 & 0.019 & 0.062 & 0.194 & 0.987\\
+Pb & 5 & 1 & 0.018 & 0.141 & 0.138 & 0.981\\
+\rowcolor{gray!6}  Pb & 5 & 2 & 0.009 & 0.151 & 0.130 & 0.988\\
+Pb & 5 & 3 & 0.016 & 0.124 & 0.135 & 0.984\\
+\rowcolor{gray!6}  Se & 0 & 1 & 0.018 & 0.114 & 0.142 & 0.980\\
+Se & 0 & 2 & 0.017 & 0.119 & 0.134 & 0.974\\
+\rowcolor{gray!6}  Se & 0 & 3 & 0.026 & 0.097 & 0.150 & 0.959\\
+Se & 1 & 1 & 0.023 & 0.109 & 0.135 & 0.986\\
+\rowcolor{gray!6}  Se & 1 & 2 & 0.024 & 0.090 & 0.146 & 0.968\\
+Se & 1 & 3 & 0.021 & 0.096 & 0.146 & 0.971\\
+\rowcolor{gray!6}  Se & 2 & 1 & 0.023 & 0.069 & 0.180 & 0.986\\
+Se & 2 & 2 & 0.023 & 0.072 & 0.168 & 0.988\\
+\rowcolor{gray!6}  Se & 2 & 3 & 0.021 & 0.063 & 0.192 & 0.986\\
+Se & 3 & 1 & 0.014 & 0.114 & 0.136 & 0.986\\
+\rowcolor{gray!6}  Se & 3 & 2 & 0.022 & 0.064 & 0.204 & 0.993\\
+Se & 3 & 3 & 0.022 & 0.064 & 0.181 & 0.985\\
+\rowcolor{gray!6}  Se & 4 & 1 & 0.017 & 0.133 & 0.112 & 0.992\\
+Se & 4 & 2 & 0.018 & 0.115 & 0.116 & 0.995\\
+\rowcolor{gray!6}  Se & 4 & 3 & 0.023 & 0.087 & 0.141 & 0.984\\
+Se & 5 & 1 & 0.025 & 0.100 & 0.128 & 0.992\\
+\rowcolor{gray!6}  Se & 5 & 2 & 0.025 & 0.100 & 0.123 & 0.995\\
+Se & 5 & 3 & 0.027 & 0.092 & 0.112 & 0.990\\
+\rowcolor{gray!6}  Zn & 0 & 1 & 0.017 & 0.137 & 0.109 & 0.965\\
+Zn & 0 & 2 & 0.013 & 0.141 & 0.111 & 0.897\\
+\rowcolor{gray!6}  Zn & 0 & 3 & 0.018 & 0.087 & 0.141 & 0.973\\
+Zn & 1 & 1 & 0.018 & 0.141 & 0.097 & 0.989\\
+\rowcolor{gray!6}  Zn & 1 & 2 & 0.022 & 0.094 & 0.103 & 0.953\\
+Zn & 1 & 3 & 0.019 & 0.064 & 0.169 & 0.994\\
+\rowcolor{gray!6}  Zn & 2 & 1 & 0.016 & 0.147 & 0.088 & 0.966\\
+Zn & 2 & 2 & 0.022 & 0.088 & 0.105 & 0.948\\
+\rowcolor{gray!6}  Zn & 2 & 3 & 0.024 & 0.066 & 0.141 & 0.958\\
+Zn & 3 & 1 & 0.021 & 0.092 & 0.126 & 0.971\\
+\rowcolor{gray!6}  Zn & 3 & 2 & 0.024 & 0.059 & 0.156 & 0.984\\
+Zn & 3 & 3 & 0.021 & 0.083 & 0.131 & 0.983\\
+\rowcolor{gray!6}  Zn & 4 & 1 & 0.023 & 0.078 & 0.128 & 0.975\\
+Zn & 4 & 2 & 0.019 & 0.109 & 0.121 & 0.988\\
+\rowcolor{gray!6}  Zn & 4 & 3 & 0.023 & 0.095 & 0.131 & 0.983\\
+Zn & 5 & 1 & 0.020 & 0.118 & 0.112 & 0.968\\
+\rowcolor{gray!6}  Zn & 5 & 2 & 0.023 & 0.112 & 0.121 & 0.975\\
+Zn & 5 & 3 & 0.025 & 0.101 & 0.130 & 0.975\\*
+\end{longtable}
+\clearpage
+\begin{longtable}{ccccccc}
+\caption[NO 14 Gompertz Model Parameters.]{\label{tab:NO14}NO 14 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:NO14}NO 14 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity \textit{(continued)}}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+\rowcolor{gray!6}  As & 0 & 1 & 0.007 & 0.063 & 0.308 & 0.994\\
+As & 0 & 2 & 0.006 & 0.069 & 0.369 & 0.998\\
+\rowcolor{gray!6}  As & 0 & 3 & 0.006 & 0.067 & 0.335 & 0.996\\
+As & 1 & 1 & 0.010 & 0.034 & 0.950 & 0.985\\
+\rowcolor{gray!6}  As & 1 & 2 & 0.009 & 0.035 & 1.000 & 0.990\\
+As & 1 & 3 & 0.011 & 0.034 & 1.000 & 0.968\\
+\rowcolor{gray!6}  As & 2 & 1 & 0.008 & 0.050 & 0.524 & 0.996\\
+As & 2 & 2 & 0.006 & 0.070 & 0.301 & 0.995\\
+\rowcolor{gray!6}  As & 2 & 3 & 0.007 & 0.061 & 0.358 & 0.992\\
+As & 3 & 1 & 0.004 & 0.082 & 0.270 & 0.999\\
+\rowcolor{gray!6}  As & 3 & 2 & 0.010 & 0.030 & 1.000 & 0.977\\
+As & 3 & 3 & 0.006 & 0.049 & 0.496 & 0.998\\
+\rowcolor{gray!6}  As & 4 & 1 & 0.010 & 0.033 & 1.000 & 0.958\\
+As & 4 & 2 & 0.006 & 0.066 & 0.347 & 0.998\\
+\rowcolor{gray!6}  As & 4 & 3 & 0.006 & 0.071 & 0.283 & 0.995\\
+As & 5 & 1 & 0.010 & 0.039 & 0.885 & 0.985\\
+\rowcolor{gray!6}  As & 5 & 2 & 0.003 & 0.093 & 0.261 & 0.994\\
+As & 5 & 3 & 0.001 & 0.136 & 0.205 & 0.995\\
+\rowcolor{gray!6}  Cd & 0 & 1 & 0.007 & 0.054 & 0.308 & 0.982\\
+Cd & 0 & 2 & 0.000 & 0.264 & 0.082 & 0.941\\
+\rowcolor{gray!6}  Cd & 0 & 3 & 0.008 & 0.058 & 0.288 & 0.984\\
+Cd & 1 & 1 & 0.011 & 0.086 & 0.191 & 0.998\\
+\rowcolor{gray!6}  Cd & 1 & 2 & 0.006 & 0.096 & 0.162 & 0.986\\
+Cd & 1 & 3 & 0.011 & 0.046 & 0.333 & 0.986\\
+\rowcolor{gray!6}  Cd & 2 & 1 & 0.007 & 0.066 & 0.271 & 0.990\\
+Cd & 2 & 2 & 0.003 & 0.095 & 0.216 & 0.909\\
+\rowcolor{gray!6}  Cd & 2 & 3 & 0.007 & 0.060 & 0.304 & 0.990\\
+Cd & 3 & 1 & 0.009 & 0.046 & 0.418 & 0.984\\
+\rowcolor{gray!6}  Cd & 3 & 2 & 0.007 & 0.048 & 0.477 & 0.981\\
+Cd & 3 & 3 & 0.005 & 0.045 & 0.484 & 0.992\\
+\rowcolor{gray!6}  Cd & 4 & 1 & 0.009 & 0.054 & 0.401 & 0.983\\
+Cd & 4 & 2 & 0.010 & 0.047 & 0.423 & 0.982\\
+\rowcolor{gray!6}  Cd & 4 & 3 & 0.009 & 0.038 & 0.513 & 0.985\\
+Cd & 5 & 1 & 0.006 & 0.071 & 0.173 & 0.979\\
+\rowcolor{gray!6}  Cd & 5 & 2 & 0.006 & 0.056 & 0.206 & 0.954\\
+Cd & 5 & 3 & 0.007 & 0.053 & 0.187 & 0.974\\
+\rowcolor{gray!6}  Cr & 0 & 1 & 0.004 & 0.085 & 0.248 & 0.966\\
+Cr & 0 & 2 & 0.010 & 0.041 & 0.575 & 0.985\\
+\rowcolor{gray!6}  Cr & 0 & 3 & 0.006 & 0.078 & 0.293 & 0.991\\
+Cr & 1 & 1 & 0.012 & 0.048 & 0.439 & 0.996\\
+\rowcolor{gray!6}  Cr & 1 & 2 & 0.004 & 0.086 & 0.275 & 0.994\\
+Cr & 1 & 3 & 0.005 & 0.091 & 0.283 & 0.998\\
+\rowcolor{gray!6}  Cr & 2 & 1 & 0.007 & 0.079 & 0.266 & 0.994\\
+Cr & 2 & 2 & 0.004 & 0.087 & 0.238 & 0.999\\
+\rowcolor{gray!6}  Cr & 2 & 3 & 0.004 & 0.081 & 0.291 & 1.000\\
+Cr & 3 & 1 & 0.007 & 0.072 & 0.300 & 0.993\\
+\rowcolor{gray!6}  Cr & 3 & 2 & 0.006 & 0.070 & 0.317 & 0.999\\
+Cr & 3 & 3 & 0.003 & 0.090 & 0.270 & 0.997\\
+\rowcolor{gray!6}  Cr & 4 & 1 & 0.004 & 0.080 & 0.311 & 0.999\\
+Cr & 4 & 2 & 0.005 & 0.087 & 0.290 & 0.990\\
+\rowcolor{gray!6}  Cr & 4 & 3 & 0.005 & 0.080 & 0.277 & 0.996\\
+Cr & 5 & 1 & 0.007 & 0.060 & 0.409 & 0.996\\
+\rowcolor{gray!6}  Cr & 5 & 2 & 0.007 & 0.064 & 0.342 & 0.988\\
+Cr & 5 & 3 & 0.004 & 0.084 & 0.324 & 0.995\\
+\rowcolor{gray!6}  Hg & 0 & 1 & 0.008 & 0.053 & 0.510 & 0.996\\
+Hg & 0 & 2 & 0.010 & 0.036 & 1.000 & 0.997\\
+\rowcolor{gray!6}  Hg & 0 & 3 & 0.008 & 0.070 & 0.327 & 0.989\\
+Hg & 1 & 1 & 0.009 & 0.048 & 0.502 & 0.990\\
+\rowcolor{gray!6}  Hg & 1 & 2 & 0.007 & 0.053 & 0.478 & 0.994\\
+Hg & 1 & 3 & 0.005 & 0.066 & 0.354 & 0.998\\
+\rowcolor{gray!6}  Hg & 2 & 1 & 0.009 & 0.038 & 0.790 & 0.991\\
+Hg & 2 & 2 & 0.008 & 0.051 & 0.472 & 0.999\\
+\rowcolor{gray!6}  Hg & 2 & 3 & 0.003 & 0.081 & 0.285 & 0.989\\
+Hg & 3 & 1 & 0.005 & 0.063 & 0.397 & 0.993\\
+\rowcolor{gray!6}  Hg & 3 & 2 & 0.004 & 0.065 & 0.425 & 0.996\\
+Hg & 3 & 3 & 0.006 & 0.067 & 0.360 & 0.996\\
+\rowcolor{gray!6}  Hg & 4 & 1 & 0.005 & 0.082 & 0.278 & 0.990\\
+Hg & 4 & 2 & 0.007 & 0.036 & 1.000 & 0.978\\
+\rowcolor{gray!6}  Hg & 4 & 3 & 0.004 & 0.073 & 0.344 & 1.000\\
+Hg & 5 & 1 & 0.006 & 0.064 & 0.367 & 0.995\\
+\rowcolor{gray!6}  Hg & 5 & 2 & 0.007 & 0.038 & 0.897 & 0.996\\
+Hg & 5 & 3 & 0.004 & 0.072 & 0.326 & 0.999\\
+\rowcolor{gray!6}  Pb & 0 & 1 & 0.003 & 0.124 & 0.145 & 0.993\\
+Pb & 0 & 2 & 0.007 & 0.057 & 0.341 & 0.992\\
+\rowcolor{gray!6}  Pb & 0 & 3 & 0.007 & 0.027 & 1.000 & 0.950\\
+Pb & 1 & 1 & 0.009 & 0.039 & 0.521 & 0.985\\
+\rowcolor{gray!6}  Pb & 1 & 2 & 0.007 & 0.027 & 1.000 & 0.967\\
+Pb & 1 & 3 & 0.005 & 0.095 & 0.171 & 0.981\\
+\rowcolor{gray!6}  Pb & 2 & 1 & 0.009 & 0.058 & 0.399 & 0.985\\
+Pb & 2 & 2 & 0.011 & 0.038 & 0.558 & 0.983\\
+\rowcolor{gray!6}  Pb & 2 & 3 & 0.007 & 0.068 & 0.257 & 0.992\\
+Pb & 3 & 1 & 0.009 & 0.032 & 1.000 & 0.980\\
+\rowcolor{gray!6}  Pb & 3 & 2 & 0.009 & 0.040 & 0.481 & 0.966\\
+Pb & 3 & 3 & 0.009 & 0.033 & 1.000 & 0.988\\
+\rowcolor{gray!6}  Pb & 4 & 1 & 0.011 & 0.029 & 1.000 & 0.977\\
+Pb & 4 & 2 & 0.007 & 0.065 & 0.263 & 0.990\\
+\rowcolor{gray!6}  Pb & 4 & 3 & 0.011 & 0.029 & 0.999 & 0.963\\
+Pb & 5 & 1 & 0.005 & 0.062 & 0.465 & 0.965\\
+\rowcolor{gray!6}  Pb & 5 & 2 & 0.009 & 0.034 & 1.000 & 0.965\\
+Pb & 5 & 3 & 0.008 & 0.058 & 0.373 & 0.990\\
+\rowcolor{gray!6}  Se & 0 & 1 & 0.001 & 0.074 & 0.114 & 0.986\\
+Se & 0 & 2 & 0.001 & 0.067 & 0.148 & 0.993\\
+\rowcolor{gray!6}  Se & 0 & 3 & 0.006 & 0.068 & 0.347 & 0.995\\
+Se & 1 & 1 & 0.001 & 0.065 & 0.146 & 0.988\\
+\rowcolor{gray!6}  Se & 1 & 2 & 0.001 & 0.054 & 0.183 & 0.991\\
+Se & 1 & 3 & 0.000 & 0.085 & 0.200 & 0.998\\
+\rowcolor{gray!6}  Se & 2 & 1 & 0.000 & 0.078 & 0.146 & 0.989\\
+Se & 2 & 2 & 0.000 & 0.086 & 0.141 & 0.992\\
+\rowcolor{gray!6}  Se & 2 & 3 & 0.000 & 0.096 & 0.186 & 0.998\\
+Se & 3 & 1 & 0.000 & 0.112 & 0.124 & 0.990\\
+\rowcolor{gray!6}  Se & 3 & 2 & 0.001 & 0.085 & 0.145 & 0.994\\
+Se & 3 & 3 & 0.001 & 0.076 & 0.191 & 0.994\\
+\rowcolor{gray!6}  Se & 4 & 1 & 0.000 & 0.165 & 0.079 & 0.981\\
+Se & 4 & 2 & 0.000 & 0.180 & 0.079 & 0.989\\
+\rowcolor{gray!6}  Se & 4 & 3 & 0.000 & 0.173 & 0.090 & 0.989\\
+Se & 5 & 1 & 0.000 & 0.158 & 0.047 & 0.996\\
+\rowcolor{gray!6}  Se & 5 & 2 & 0.000 & 0.158 & 0.052 & 0.995\\
+Se & 5 & 3 & 0.000 & 0.170 & 0.053 & 0.994\\
+\rowcolor{gray!6}  Zn & 0 & 1 & 0.010 & 0.031 & 1.000 & 0.966\\
+Zn & 0 & 2 & 0.010 & 0.053 & 0.358 & 0.983\\
+\rowcolor{gray!6}  Zn & 0 & 3 & 0.010 & 0.033 & 1.000 & 0.977\\
+Zn & 1 & 1 & 0.009 & 0.035 & 1.000 & 0.971\\
+\rowcolor{gray!6}  Zn & 1 & 2 & 0.009 & 0.049 & 0.440 & 0.977\\
+Zn & 1 & 3 & 0.010 & 0.034 & 1.000 & 0.972\\
+\rowcolor{gray!6}  Zn & 2 & 1 & 0.009 & 0.048 & 0.540 & 0.983\\
+Zn & 2 & 2 & 0.011 & 0.038 & 0.829 & 0.984\\
+\rowcolor{gray!6}  Zn & 2 & 3 & 0.010 & 0.034 & 1.000 & 0.975\\
+Zn & 3 & 1 & 0.009 & 0.051 & 0.480 & 0.989\\
+\rowcolor{gray!6}  Zn & 3 & 2 & 0.009 & 0.044 & 0.680 & 0.992\\
+Zn & 3 & 3 & 0.010 & 0.047 & 0.556 & 0.986\\
+\rowcolor{gray!6}  Zn & 4 & 1 & 0.010 & 0.043 & 0.604 & 0.983\\
+Zn & 4 & 2 & 0.011 & 0.031 & 1.000 & 0.974\\
+\rowcolor{gray!6}  Zn & 4 & 3 & 0.010 & 0.036 & 1.000 & 0.980\\
+Zn & 5 & 1 & 0.009 & 0.032 & 1.000 & 0.966\\
+\rowcolor{gray!6}  Zn & 5 & 2 & 0.006 & 0.045 & 0.685 & 0.997\\
+Zn & 5 & 3 & 0.007 & 0.046 & 0.592 & 0.995\\*
+\end{longtable}
+\clearpage
+\begin{longtable}{ccccccc}
+\caption[NO 17 Gompertz Model Parameters.]{\label{tab:NO17}NO 17 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:NO17}NO 17 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity \textit{(continued)}}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+\rowcolor{gray!6}  As & 0 & 1 & 0.017 & 0.078 & 0.389 & 0.999\\
+As & 0 & 2 & 0.017 & 0.078 & 0.379 & 0.998\\
+\rowcolor{gray!6}  As & 0 & 3 & 0.015 & 0.085 & 0.353 & 0.999\\
+As & 1 & 1 & 0.019 & 0.068 & 0.423 & 0.996\\
+\rowcolor{gray!6}  As & 1 & 2 & 0.022 & 0.054 & 0.548 & 0.992\\
+As & 1 & 3 & 0.016 & 0.077 & 0.393 & 0.998\\
+\rowcolor{gray!6}  As & 2 & 1 & 0.015 & 0.078 & 0.387 & 0.998\\
+As & 2 & 2 & 0.016 & 0.080 & 0.381 & 0.998\\
+\rowcolor{gray!6}  As & 2 & 3 & 0.015 & 0.081 & 0.393 & 0.998\\
+As & 3 & 1 & 0.016 & 0.077 & 0.395 & 0.998\\
+\rowcolor{gray!6}  As & 3 & 2 & 0.016 & 0.077 & 0.398 & 0.998\\
+As & 3 & 3 & 0.015 & 0.082 & 0.388 & 0.998\\
+\rowcolor{gray!6}  As & 4 & 1 & 0.016 & 0.077 & 0.415 & 0.997\\
+As & 4 & 2 & 0.015 & 0.081 & 0.384 & 0.998\\
+\rowcolor{gray!6}  As & 4 & 3 & 0.016 & 0.075 & 0.424 & 0.996\\
+As & 5 & 1 & 0.014 & 0.080 & 0.399 & 0.996\\
+\rowcolor{gray!6}  As & 5 & 2 & 0.016 & 0.068 & 0.446 & 0.996\\
+As & 5 & 3 & 0.015 & 0.073 & 0.434 & 0.998\\
+\rowcolor{gray!6}  Cd & 0 & 1 & 0.017 & 0.058 & 0.482 & 0.999\\
+Cd & 0 & 2 & 0.016 & 0.069 & 0.421 & 0.997\\
+\rowcolor{gray!6}  Cd & 0 & 3 & 0.019 & 0.060 & 0.468 & 0.999\\
+Cd & 1 & 1 & 0.023 & 0.044 & 0.677 & 0.994\\
+\rowcolor{gray!6}  Cd & 1 & 2 & 0.033 & 0.056 & 0.473 & 0.996\\
+Cd & 1 & 3 & 0.019 & 0.063 & 0.443 & 0.999\\
+\rowcolor{gray!6}  Cd & 2 & 1 & 0.020 & 0.058 & 0.449 & 0.994\\
+Cd & 2 & 2 & 0.018 & 0.068 & 0.418 & 0.999\\
+\rowcolor{gray!6}  Cd & 2 & 3 & 0.017 & 0.070 & 0.411 & 0.999\\
+Cd & 3 & 1 & 0.019 & 0.062 & 0.450 & 0.994\\
+\rowcolor{gray!6}  Cd & 3 & 2 & 0.020 & 0.068 & 0.410 & 0.999\\
+Cd & 3 & 3 & 0.019 & 0.068 & 0.415 & 0.999\\
+\rowcolor{gray!6}  Cd & 4 & 1 & 0.020 & 0.066 & 0.425 & 0.999\\
+Cd & 4 & 2 & 0.018 & 0.068 & 0.409 & 0.999\\
+\rowcolor{gray!6}  Cd & 4 & 3 & 0.019 & 0.053 & 0.492 & 0.998\\
+Cd & 5 & 1 & 0.020 & 0.049 & 0.383 & 0.998\\
+\rowcolor{gray!6}  Cd & 5 & 2 & 0.019 & 0.052 & 0.345 & 0.999\\
+Cd & 5 & 3 & 0.021 & 0.045 & 0.379 & 0.997\\
+\rowcolor{gray!6}  Cr & 0 & 1 & 0.019 & 0.058 & 0.492 & 0.996\\
+Cr & 0 & 2 & 0.017 & 0.079 & 0.405 & 0.998\\
+\rowcolor{gray!6}  Cr & 0 & 3 & 0.016 & 0.081 & 0.418 & 0.998\\
+Cr & 1 & 1 & 0.012 & 0.099 & 0.336 & 0.997\\
+\rowcolor{gray!6}  Cr & 1 & 2 & 0.016 & 0.080 & 0.402 & 0.998\\
+Cr & 1 & 3 & 0.015 & 0.084 & 0.398 & 0.999\\
+\rowcolor{gray!6}  Cr & 2 & 1 & 0.012 & 0.075 & 0.407 & 0.997\\
+Cr & 2 & 2 & 0.013 & 0.083 & 0.389 & 0.996\\
+\rowcolor{gray!6}  Cr & 2 & 3 & 0.015 & 0.087 & 0.391 & 0.999\\
+Cr & 3 & 1 & 0.015 & 0.082 & 0.409 & 0.998\\
+\rowcolor{gray!6}  Cr & 3 & 2 & 0.013 & 0.087 & 0.387 & 0.998\\
+Cr & 3 & 3 & 0.016 & 0.078 & 0.447 & NA\\
+\rowcolor{gray!6}  Cr & 4 & 1 & 0.016 & 0.077 & 0.402 & 0.997\\
+Cr & 4 & 2 & 0.014 & 0.085 & 0.394 & 0.998\\
+\rowcolor{gray!6}  Cr & 4 & 3 & 0.013 & 0.087 & 0.431 & 0.998\\
+Cr & 5 & 1 & 0.015 & 0.084 & 0.411 & 0.997\\
+\rowcolor{gray!6}  Cr & 5 & 2 & 0.016 & 0.075 & 0.440 & 0.995\\
+Cr & 5 & 3 & 0.013 & 0.089 & 0.404 & 0.997\\
+\rowcolor{gray!6}  Hg & 0 & 1 & 0.017 & 0.075 & 0.404 & 0.998\\
+Hg & 0 & 2 & 0.019 & 0.073 & 0.406 & 0.998\\
+\rowcolor{gray!6}  Hg & 0 & 3 & 0.017 & 0.075 & 0.386 & 0.999\\
+Hg & 1 & 1 & 0.018 & 0.075 & 0.405 & 0.999\\
+\rowcolor{gray!6}  Hg & 1 & 2 & 0.018 & 0.069 & 0.431 & 0.997\\
+Hg & 1 & 3 & 0.018 & 0.075 & 0.396 & 0.996\\
+\rowcolor{gray!6}  Hg & 2 & 1 & 0.021 & 0.065 & 0.399 & 0.946\\
+Hg & 2 & 2 & 0.018 & 0.075 & 0.367 & 0.974\\
+\rowcolor{gray!6}  Hg & 2 & 3 & 0.016 & 0.077 & 0.390 & 0.999\\
+Hg & 3 & 1 & 0.019 & 0.060 & 0.464 & 0.994\\
+\rowcolor{gray!6}  Hg & 3 & 2 & 0.017 & 0.073 & 0.404 & 0.998\\
+Hg & 3 & 3 & 0.015 & 0.076 & 0.392 & 0.998\\
+\rowcolor{gray!6}  Hg & 4 & 1 & 0.013 & 0.088 & 0.389 & 0.998\\
+Hg & 4 & 2 & 0.017 & 0.070 & 0.462 & 0.998\\
+\rowcolor{gray!6}  Hg & 4 & 3 & 0.016 & 0.073 & 0.442 & 0.998\\
+Hg & 5 & 1 & 0.016 & 0.078 & 0.415 & 0.998\\
+\rowcolor{gray!6}  Hg & 5 & 2 & 0.017 & 0.072 & 0.417 & 0.998\\
+Hg & 5 & 3 & 0.014 & 0.080 & 0.410 & 0.999\\
+\rowcolor{gray!6}  Pb & 0 & 1 & 0.020 & 0.054 & 0.467 & 0.999\\
+Pb & 0 & 2 & 0.020 & 0.056 & 0.471 & 0.998\\
+\rowcolor{gray!6}  Pb & 0 & 3 & 0.019 & 0.060 & 0.462 & 0.998\\
+Pb & 1 & 1 & 0.019 & 0.055 & 0.475 & 0.996\\
+\rowcolor{gray!6}  Pb & 1 & 2 & 0.020 & 0.058 & 0.466 & 0.998\\
+Pb & 1 & 3 & 0.018 & 0.059 & 0.463 & 0.999\\
+\rowcolor{gray!6}  Pb & 2 & 1 & 0.019 & 0.064 & 0.436 & 0.999\\
+Pb & 2 & 2 & 0.019 & 0.063 & 0.439 & 0.998\\
+\rowcolor{gray!6}  Pb & 2 & 3 & 0.018 & 0.064 & 0.446 & 0.999\\
+Pb & 3 & 1 & 0.022 & 0.062 & 0.401 & 0.973\\
+\rowcolor{gray!6}  Pb & 3 & 2 & 0.021 & 0.058 & 0.438 & 0.996\\
+Pb & 3 & 3 & 0.020 & 0.064 & 0.425 & 0.999\\
+\rowcolor{gray!6}  Pb & 4 & 1 & 0.022 & 0.054 & 0.463 & 0.993\\
+Pb & 4 & 2 & 0.019 & 0.069 & 0.395 & 0.999\\
+\rowcolor{gray!6}  Pb & 4 & 3 & 0.014 & 0.078 & 0.435 & 0.995\\
+Pb & 5 & 1 & 0.016 & 0.068 & 0.414 & 0.999\\
+\rowcolor{gray!6}  Pb & 5 & 2 & 0.018 & 0.065 & 0.406 & 0.999\\
+Pb & 5 & 3 & 0.017 & 0.067 & 0.416 & 0.998\\
+\rowcolor{gray!6}  Se & 0 & 1 & 0.006 & 0.110 & 0.231 & 0.993\\
+Se & 0 & 2 & 0.008 & 0.082 & 0.286 & 0.991\\
+\rowcolor{gray!6}  Se & 0 & 3 & 0.006 & 0.077 & 0.285 & 0.994\\
+Se & 1 & 1 & 0.007 & 0.059 & 0.137 & 0.961\\
+\rowcolor{gray!6}  Se & 1 & 2 & 0.008 & 0.034 & 0.212 & 0.943\\
+Se & 1 & 3 & 0.009 & 0.042 & 0.142 & 0.902\\
+\rowcolor{gray!6}  Se & 2 & 1 & 0.009 & 0.038 & 0.184 & 0.938\\
+Se & 2 & 2 & 0.009 & 0.031 & 0.251 & 0.936\\
+\rowcolor{gray!6}  Se & 2 & 3 & 0.006 & 0.063 & 0.102 & 0.943\\
+Se & 3 & 1 & 0.006 & 0.068 & 0.102 & 0.947\\
+\rowcolor{gray!6}  Se & 3 & 2 & 0.006 & 0.070 & 0.103 & 0.955\\
+Se & 3 & 3 & 0.007 & 0.064 & 0.111 & 0.937\\
+\rowcolor{gray!6}  Se & 4 & 1 & 0.002 & 0.172 & 0.067 & 0.940\\
+Se & 4 & 2 & 0.001 & 0.205 & 0.063 & 0.974\\
+\rowcolor{gray!6}  Se & 4 & 3 & 0.004 & 0.107 & 0.070 & 0.942\\
+Se & 5 & 1 & 0.003 & 0.034 & 0.112 & 0.965\\
+\rowcolor{gray!6}  Se & 5 & 2 & 0.003 & 0.059 & 0.050 & 0.936\\
+Se & 5 & 3 & 0.007 & 0.059 & 0.258 & 0.988\\
+\rowcolor{gray!6}  Zn & 0 & 1 & 0.018 & 0.065 & 0.422 & 0.999\\
+Zn & 0 & 2 & 0.017 & 0.065 & 0.435 & 0.997\\
+\rowcolor{gray!6}  Zn & 0 & 3 & 0.021 & 0.050 & 0.565 & 0.994\\
+Zn & 1 & 1 & 0.017 & 0.066 & 0.408 & 0.999\\
+\rowcolor{gray!6}  Zn & 1 & 2 & 0.021 & 0.057 & 0.451 & 0.988\\
+Zn & 1 & 3 & 0.019 & 0.071 & 0.413 & 0.999\\
+\rowcolor{gray!6}  Zn & 2 & 1 & 0.021 & 0.056 & 0.547 & 0.998\\
+Zn & 2 & 2 & 0.019 & 0.061 & 0.504 & 0.998\\
+\rowcolor{gray!6}  Zn & 2 & 3 & 0.019 & 0.066 & 0.485 & 0.999\\
+Zn & 3 & 1 & 0.020 & 0.059 & 0.456 & 0.998\\
+\rowcolor{gray!6}  Zn & 3 & 2 & 0.018 & 0.077 & 0.382 & 0.999\\
+Zn & 3 & 3 & 0.018 & 0.074 & 0.404 & 0.998\\
+\rowcolor{gray!6}  Zn & 4 & 1 & 0.018 & 0.067 & 0.411 & 0.997\\
+Zn & 4 & 2 & 0.017 & 0.070 & 0.414 & 0.998\\
+\rowcolor{gray!6}  Zn & 4 & 3 & 0.015 & 0.076 & 0.392 & 0.997\\
+Zn & 5 & 1 & 0.020 & 0.057 & 0.415 & 0.990\\
+\rowcolor{gray!6}  Zn & 5 & 2 & 0.016 & 0.068 & 0.379 & 0.999\\
+Zn & 5 & 3 & 0.016 & 0.076 & 0.376 & 0.998\\*
+\end{longtable}
+\clearpage
+\begin{longtable}{ccccccc}
+\caption[NO 22 Gompertz Model Parameters.]{\label{tab:NO22}NO 22 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:NO22}NO 22 Gompertz Model Parameters. Estimations of maximal growth rates and carrying capacities. factor = Metal Concentration Factor (Table 3.1), mumax = Maximal Growth Rate, K = Carrying Capacity \textit{(continued)}}\\
+\toprule
+\multicolumn{1}{c}{Metal} & \multicolumn{1}{c}{factor} & \multicolumn{1}{c}{Replicate} & \multicolumn{1}{c}{y0} & \multicolumn{1}{c}{mumax} & \multicolumn{1}{c}{K} & \multicolumn{1}{c}{r2}\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+\rowcolor{gray!6}  As & 0 & 1 & 0.000 & 0.063 & 0.026 & 0.983\\
+As & 0 & 2 & 0.001 & 0.028 & 0.142 & 0.994\\
+\rowcolor{gray!6}  As & 0 & 3 & 0.000 & 0.066 & 0.043 & 0.992\\
+As & 1 & 1 & 0.001 & 0.016 & 1.000 & 0.994\\
+\rowcolor{gray!6}  As & 1 & 2 & 0.001 & 0.026 & 0.137 & 0.988\\
+As & 1 & 3 & 0.000 & 0.039 & 0.141 & 0.999\\
+\rowcolor{gray!6}  As & 2 & 1 & 0.001 & 0.015 & 1.000 & 0.987\\
+As & 2 & 2 & 0.000 & 0.105 & 0.028 & 0.974\\
+\rowcolor{gray!6}  As & 2 & 3 & 0.000 & 0.118 & 0.027 & 0.999\\
+As & 3 & 1 & 0.001 & 0.018 & 0.820 & 0.975\\
+\rowcolor{gray!6}  As & 3 & 2 & 0.001 & 0.017 & 1.000 & 0.980\\
+As & 3 & 3 & 0.000 & 0.088 & 0.037 & 0.983\\
+\rowcolor{gray!6}  As & 4 & 1 & 0.001 & 0.018 & 1.000 & 0.974\\
+As & 4 & 2 & 0.001 & 0.018 & 1.000 & 0.988\\
+\rowcolor{gray!6}  As & 4 & 3 & 0.001 & 0.016 & 1.000 & 0.977\\
+As & 5 & 1 & 0.000 & 0.082 & 0.051 & 0.999\\
+\rowcolor{gray!6}  As & 5 & 2 & 0.001 & 0.019 & 1.000 & 0.998\\
+As & 5 & 3 & 0.000 & 0.038 & 1.000 & 0.998\\
+\rowcolor{gray!6}  Cd & 0 & 1 & 0.000 & 0.044 & 0.215 & 0.991\\
+Cd & 0 & 2 & 0.000 & 0.023 & 1.000 & 0.995\\
+\rowcolor{gray!6}  Cd & 0 & 3 & 0.000 & 0.025 & 1.000 & 0.996\\
+Cd & 1 & 1 & 0.001 & 0.022 & 0.743 & 0.998\\
+\rowcolor{gray!6}  Cd & 1 & 2 & 0.000 & 0.086 & 0.081 & 0.990\\
+Cd & 1 & 3 & 0.001 & 0.020 & 1.000 & 0.992\\
+\rowcolor{gray!6}  Cd & 2 & 1 & 0.001 & 0.020 & 1.000 & 0.996\\
+Cd & 2 & 2 & 0.000 & 0.076 & 0.041 & 0.998\\
+\rowcolor{gray!6}  Cd & 2 & 3 & 0.000 & 0.080 & 0.052 & 0.998\\
+Cd & 3 & 1 & 0.002 & 0.053 & 0.005 & 0.513\\
+\rowcolor{gray!6}  Cd & 3 & 2 & 0.000 & 0.083 & 0.086 & 0.986\\
+Cd & 3 & 3 & 0.002 & 0.009 & 0.556 & 0.694\\
+\rowcolor{gray!6}  Cd & 4 & 1 & 0.001 & 0.252 & 0.001 & 0.037\\
+Cd & 4 & 2 & 0.002 & 0.300 & 0.001 & 0.010\\
+\rowcolor{gray!6}  Cd & 4 & 3 & 0.001 & 0.029 & 0.114 & 0.968\\
+Cd & 5 & 1 & 0.002 & 0.300 & 0.001 & 0.266\\
+\rowcolor{gray!6}  Cd & 5 & 2 & 0.002 & 0.300 & 0.001 & 0.125\\
+Cd & 5 & 3 & 0.002 & 0.002 & 0.000 & 0.253\\
+\rowcolor{gray!6}  Cr & 0 & 1 & 0.000 & 0.089 & 0.051 & 0.965\\
+Cr & 0 & 2 & 0.001 & 0.021 & 1.000 & 0.997\\
+\rowcolor{gray!6}  Cr & 0 & 3 & 0.000 & 0.084 & 0.084 & 0.979\\
+Cr & 1 & 1 & 0.000 & 0.059 & 0.081 & 0.986\\
+\rowcolor{gray!6}  Cr & 1 & 2 & 0.000 & 0.020 & 1.000 & 0.994\\
+Cr & 1 & 3 & 0.000 & 0.023 & 1.000 & 0.994\\
+\rowcolor{gray!6}  Cr & 2 & 1 & 0.002 & 0.014 & 1.000 & 0.954\\
+Cr & 2 & 2 & 0.000 & 0.033 & 0.142 & 0.988\\
+\rowcolor{gray!6}  Cr & 2 & 3 & 0.000 & 0.062 & 0.106 & 0.993\\
+Cr & 3 & 1 & 0.000 & 0.059 & 0.063 & 0.999\\
+\rowcolor{gray!6}  Cr & 3 & 2 & 0.000 & 0.026 & 1.000 & 0.995\\
+Cr & 3 & 3 & 0.000 & 0.021 & 1.000 & 0.992\\
+\rowcolor{gray!6}  Cr & 4 & 1 & 0.000 & 0.070 & 0.052 & 0.996\\
+Cr & 4 & 2 & 0.002 & 0.015 & 1.000 & 0.566\\
+\rowcolor{gray!6}  Cr & 4 & 3 & 0.000 & 0.148 & 0.052 & 0.854\\
+Cr & 5 & 1 & 0.001 & 0.018 & 1.000 & 0.997\\
+\rowcolor{gray!6}  Cr & 5 & 2 & 0.000 & 0.078 & 0.097 & 0.991\\
+Cr & 5 & 3 & 0.000 & 0.088 & 0.076 & 0.987\\
+\rowcolor{gray!6}  Hg & 0 & 1 & 0.000 & 0.144 & 0.018 & 0.816\\
+Hg & 0 & 2 & 0.000 & 0.138 & 0.026 & 0.963\\
+\rowcolor{gray!6}  Hg & 0 & 3 & 0.000 & 0.189 & 0.021 & 0.991\\
+Hg & 1 & 1 & 0.001 & 0.037 & 0.111 & 0.992\\
+\rowcolor{gray!6}  Hg & 1 & 2 & 0.001 & 0.014 & 1.000 & 0.976\\
+Hg & 1 & 3 & 0.000 & 0.028 & 1.000 & 0.992\\
+\rowcolor{gray!6}  Hg & 2 & 1 & 0.000 & 0.020 & 1.000 & 0.984\\
+Hg & 2 & 2 & 0.001 & 0.017 & 1.000 & 0.984\\
+\rowcolor{gray!6}  Hg & 2 & 3 & 0.000 & 0.043 & 0.110 & 0.989\\
+Hg & 3 & 1 & 0.000 & 0.117 & 0.042 & 0.926\\
+\rowcolor{gray!6}  Hg & 3 & 2 & 0.000 & 0.058 & 0.071 & 0.988\\
+Hg & 3 & 3 & 0.000 & 0.115 & 0.044 & 0.969\\
+\rowcolor{gray!6}  Hg & 4 & 1 & 0.000 & 0.037 & 0.121 & 0.993\\
+Hg & 4 & 2 & 0.000 & 0.040 & 1.000 & 0.998\\
+\rowcolor{gray!6}  Hg & 4 & 3 & 0.000 & 0.020 & 1.000 & 0.994\\
+Hg & 5 & 1 & 0.000 & 0.070 & 0.058 & 0.991\\
+\rowcolor{gray!6}  Hg & 5 & 2 & 0.001 & 0.015 & 1.000 & 0.940\\
+Hg & 5 & 3 & 0.000 & 0.104 & 0.032 & 0.987\\
+\rowcolor{gray!6}  Pb & 0 & 1 & 0.001 & 0.018 & 1.000 & 0.995\\
+Pb & 0 & 2 & 0.000 & 0.020 & 1.000 & 0.995\\
+\rowcolor{gray!6}  Pb & 0 & 3 & 0.000 & 0.048 & 0.111 & 0.993\\
+Pb & 1 & 1 & 0.000 & 0.032 & 1.000 & 0.997\\
+\rowcolor{gray!6}  Pb & 1 & 2 & 0.000 & 0.036 & 1.000 & 0.997\\
+Pb & 1 & 3 & 0.000 & 0.037 & 1.000 & 0.997\\
+\rowcolor{gray!6}  Pb & 2 & 1 & 0.000 & 0.061 & 0.068 & 0.998\\
+Pb & 2 & 2 & 0.000 & 0.022 & 1.000 & 0.996\\
+\rowcolor{gray!6}  Pb & 2 & 3 & 0.000 & 0.089 & 0.193 & 0.999\\
+Pb & 3 & 1 & 0.000 & 0.021 & 1.000 & 0.996\\
+\rowcolor{gray!6}  Pb & 3 & 2 & 0.001 & 0.019 & 1.000 & 0.983\\
+Pb & 3 & 3 & 0.000 & 0.058 & 0.520 & 0.999\\
+\rowcolor{gray!6}  Pb & 4 & 1 & 0.000 & 0.060 & 0.069 & 0.959\\
+Pb & 4 & 2 & 0.000 & 0.146 & 0.051 & 0.939\\
+\rowcolor{gray!6}  Pb & 4 & 3 & 0.000 & 0.044 & 1.000 & 0.999\\
+Pb & 5 & 1 & 0.000 & 0.019 & 1.000 & 0.991\\
+\rowcolor{gray!6}  Pb & 5 & 2 & 0.000 & 0.029 & 1.000 & 0.998\\
+Pb & 5 & 3 & 0.001 & 0.038 & 0.115 & 0.991\\
+\rowcolor{gray!6}  Se & 0 & 1 & 0.003 & 0.087 & 0.306 & 0.998\\
+Se & 0 & 2 & 0.005 & 0.068 & 0.368 & 0.992\\
+\rowcolor{gray!6}  Se & 0 & 3 & 0.011 & 0.077 & 0.355 & 0.993\\
+Se & 1 & 1 & 0.000 & 0.018 & 1.000 & 0.990\\
+\rowcolor{gray!6}  Se & 1 & 2 & 0.001 & 0.030 & 0.219 & 0.995\\
+Se & 1 & 3 & 0.000 & 0.080 & 0.148 & 0.997\\
+\rowcolor{gray!6}  Se & 2 & 1 & 0.001 & 0.067 & 0.160 & 0.990\\
+Se & 2 & 2 & 0.000 & 0.097 & 0.158 & 0.956\\
+\rowcolor{gray!6}  Se & 2 & 3 & 0.001 & 0.060 & 0.196 & 0.991\\
+Se & 3 & 1 & 0.000 & 0.097 & 0.147 & 0.991\\
+\rowcolor{gray!6}  Se & 3 & 2 & 0.001 & 0.081 & 0.161 & 0.994\\
+Se & 3 & 3 & 0.001 & 0.053 & 0.207 & 0.990\\
+\rowcolor{gray!6}  Se & 4 & 1 & 0.000 & 0.091 & 0.096 & 0.993\\
+Se & 4 & 2 & 0.001 & 0.085 & 0.094 & 0.988\\
+\rowcolor{gray!6}  Se & 4 & 3 & 0.000 & 0.099 & 0.099 & 0.989\\
+Se & 5 & 1 & 0.000 & 0.105 & 0.037 & 0.978\\
+\rowcolor{gray!6}  Se & 5 & 2 & 0.000 & 0.102 & 0.043 & 0.996\\
+Se & 5 & 3 & 0.000 & 0.103 & 0.050 & 0.997\\
+\rowcolor{gray!6}  Zn & 0 & 1 & 0.001 & 0.025 & 0.438 & 0.988\\
+Zn & 0 & 2 & 0.000 & 0.020 & 1.000 & 0.981\\
+\rowcolor{gray!6}  Zn & 0 & 3 & 0.001 & 0.018 & 1.000 & 0.994\\
+Zn & 1 & 1 & 0.000 & 0.061 & 0.077 & 0.990\\
+\rowcolor{gray!6}  Zn & 1 & 2 & 0.001 & 0.019 & 1.000 & 0.987\\
+Zn & 1 & 3 & 0.000 & 0.022 & 1.000 & 0.995\\
+\rowcolor{gray!6}  Zn & 2 & 1 & 0.001 & 0.067 & 0.264 & 0.992\\
+Zn & 2 & 2 & 0.002 & 0.062 & 0.295 & 0.994\\
+\rowcolor{gray!6}  Zn & 2 & 3 & 0.002 & 0.054 & 0.462 & 0.996\\
+Zn & 3 & 1 & 0.001 & 0.018 & 1.000 & 0.991\\
+\rowcolor{gray!6}  Zn & 3 & 2 & 0.000 & 0.036 & 1.000 & 0.997\\
+Zn & 3 & 3 & 0.000 & 0.069 & 0.057 & 0.997\\
+\rowcolor{gray!6}  Zn & 4 & 1 & 0.000 & 0.080 & 0.082 & 0.985\\
+Zn & 4 & 2 & 0.001 & 0.015 & 1.000 & 0.986\\
+\rowcolor{gray!6}  Zn & 4 & 3 & 0.001 & 0.025 & 0.208 & 0.989\\
+Zn & 5 & 1 & 0.001 & 0.033 & 0.050 & 0.953\\
+\rowcolor{gray!6}  Zn & 5 & 2 & 0.001 & 0.048 & 0.029 & 0.694\\
+Zn & 5 & 3 & 0.000 & 0.016 & 1.000 & 0.966\\*
+\end{longtable}
 %%------------------------------------------------------------------%%
 
 %%------------------------------------------------------------------%%
